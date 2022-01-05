@@ -275,7 +275,7 @@
   
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
-        Quick start tutorial for pynapple
+        Quick start
       </a>
     </li>
   
@@ -289,7 +289,7 @@
   
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-core-notebook/" class="md-nav__link">
-        Pynapple Core Tutorial
+        Core Tutorial
       </a>
     </li>
   
@@ -796,15 +796,15 @@
 
 
 <h2 id="pynapple.process.decoding.decode_1d" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">decode_1d</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">decode_1d</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">)</span></code>
 
 
 </h2>
 
     <div class="doc doc-contents ">
 
-      <p>Perform bayesian decoding over one dimension.</p>
-<p>See : 
+      <p>Performs Bayesian decoding over a one dimensional feature.</p>
+<p>See: 
 Zhang, K., Ginzburg, I., McNaughton, B. L., &amp; Sejnowski, T. J. 
 (1998). Interpreting neuronal population activity by 
 reconstruction: unified framework with application to 
@@ -825,7 +825,7 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
       <tr>
         <td><code>tuning_curves</code></td>
         <td><code>pandas.DataFrame</code></td>
-        <td><p>Each column is the tuning curve of one neuron. Index should be the center of the bin.</p></td>
+        <td><p>Each column is the tuning curve of one neuron relative to the feature. Index should be the center of the bin.</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
@@ -835,15 +835,15 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
         <td><em>required</em></td>
       </tr>
       <tr>
-        <td><code>variable</code></td>
+        <td><code>feature</code></td>
         <td><code>Tsd</code></td>
-        <td><p>The 1d variable used to compute the tuning curves. Used to correct for occupancy.</p></td>
+        <td><p>The 1d feature used to compute the tuning curves. Used to correct for occupancy.</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet</code></td>
-        <td><p>The epoch to compute the decoding</p></td>
+        <td><p>The epoch on which decoding is computed</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
@@ -880,16 +880,16 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
   <tbody>
     <tr>
       <td><code>Tsd</code></td>
-      <td><p>The decoded trajectory</p></td>
+      <td><p>The decoded feature</p></td>
     </tr>
   </tbody>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/decoding.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">decode_1d</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">decode_1d</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Perform bayesian decoding over one dimension.</span>
-<span class="sd">	See : </span>
+<span class="sd">	Performs Bayesian decoding over a one dimensional feature.</span>
+<span class="sd">	See: </span>
 <span class="sd">	Zhang, K., Ginzburg, I., McNaughton, B. L., &amp; Sejnowski, T. J. </span>
 <span class="sd">	(1998). Interpreting neuronal population activity by </span>
 <span class="sd">	reconstruction: unified framework with application to </span>
@@ -898,23 +898,23 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
 
 <span class="sd">	Parameters</span>
 <span class="sd">	----------</span>
-<span class="sd">	tuning_curves : pandas.DataFrame</span>
-<span class="sd">	    Each column is the tuning curve of one neuron. Index should be the center of the bin.</span>
-<span class="sd">	group : TsGroup or dict of Ts/Tsd object.</span>
+<span class="sd">	tuning_curves: pandas.DataFrame</span>
+<span class="sd">	    Each column is the tuning curve of one neuron relative to the feature. Index should be the center of the bin.</span>
+<span class="sd">	group: TsGroup or dict of Ts/Tsd object.</span>
 <span class="sd">	    A group of neurons with the same index as tuning curves column names.</span>
-<span class="sd">	variable : Tsd</span>
-<span class="sd">	    The 1d variable used to compute the tuning curves. Used to correct for occupancy.</span>
-<span class="sd">	ep : IntervalSet</span>
-<span class="sd">	    The epoch to compute the decoding</span>
-<span class="sd">	bin_size : float</span>
+<span class="sd">	feature: Tsd</span>
+<span class="sd">	    The 1d feature used to compute the tuning curves. Used to correct for occupancy.</span>
+<span class="sd">	ep: IntervalSet</span>
+<span class="sd">	    The epoch on which decoding is computed</span>
+<span class="sd">	bin_size: float</span>
 <span class="sd">	    Bin size in seconds</span>
 
 <span class="sd">	Returns</span>
 <span class="sd">	-------</span>
 <span class="sd">	Tsd</span>
-<span class="sd">	    The decoded trajectory</span>
+<span class="sd">	    The decoded feature</span>
 <span class="sd">	TsdFrame</span>
-<span class="sd">		The probabilities of the decoded trajectory</span>
+<span class="sd">		The probability distribution of the decoded feature for each time bin</span>
 
 <span class="sd">	Raises</span>
 <span class="sd">	------</span>
@@ -942,18 +942,18 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
 	<span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tuning_curves</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 	<span class="n">bins</span> <span class="o">=</span> <span class="n">tuning_curves</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">diff</span><span class="o">/</span><span class="mi">2</span>
 	<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">bins</span><span class="p">,</span> <span class="p">[</span><span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">diff</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">diff</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]))</span> <span class="c1"># assuming the size of the last 2 bins is equal</span>
-	<span class="n">occupancy</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+	<span class="n">occupancy</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
 
 	<span class="c1"># Transforming to pure numpy array</span>
 	<span class="n">tc</span> <span class="o">=</span> <span class="n">tuning_curves</span><span class="o">.</span><span class="n">values</span>
 	<span class="n">ct</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">values</span>
 
-	<span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">bin_size</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>	
+	<span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">bin_size</span><span class="o">*</span><span class="n">tc</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>	
 	<span class="n">p2</span> <span class="o">=</span> <span class="n">occupancy</span><span class="o">/</span><span class="n">occupancy</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 	<span class="n">ct2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">ct</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">tc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span>
 
-	<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanprod</span><span class="p">(</span><span class="n">tc</span><span class="o">**</span><span class="n">ct2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+	<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">tc</span><span class="o">**</span><span class="n">ct2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 	<span class="n">p</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">*</span> <span class="n">p2</span> <span class="o">*</span> <span class="n">p3</span>
 	<span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
@@ -985,15 +985,15 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
 
 
 <h2 id="pynapple.process.decoding.decode_2d" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">decode_2d</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">xy</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">decode_2d</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">xy</span><span class="p">)</span></code>
 
 
 </h2>
 
     <div class="doc doc-contents ">
 
-      <p>Perform bayesian decoding over two dimension.</p>
-<p>See : 
+      <p>Performs Bayesian decoding over a two dimensional feature.</p>
+<p>See: 
 Zhang, K., Ginzburg, I., McNaughton, B. L., &amp; Sejnowski, T. J. 
 (1998). Interpreting neuronal population activity by 
 reconstruction: unified framework with application to 
@@ -1014,25 +1014,25 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
       <tr>
         <td><code>tuning_curves</code></td>
         <td><code>dict</code></td>
-        <td><p>Dictionnay of 2d tuning curves for each neuron.</p></td>
+        <td><p>Dictionnay of 2d tuning curves (one for each neuron).</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>group</code></td>
         <td><code>TsGroup or dict of Ts/Tsd object.</code></td>
-        <td><p>A group of neurons with the same index as tuning curves column names.</p></td>
+        <td><p>A group of neurons with the same index as tuning curve column names.</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
-        <td><code>variable</code></td>
+        <td><code>feature</code></td>
         <td><code>Tsd</code></td>
-        <td><p>The 1d variable used to compute the tuning curves. Used to correct for occupancy.</p></td>
+        <td><p>The 2d feature used to compute the tuning curves. Used to correct for occupancy.</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet</code></td>
-        <td><p>The epoch to compute the decoding</p></td>
+        <td><p>The epoch on which decoding is computed</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
@@ -1044,7 +1044,7 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
       <tr>
         <td><code>xy</code></td>
         <td><code>tuple</code></td>
-        <td><p>A tuple of bins position for the tuning curves i.e. xy=(x,y)</p></td>
+        <td><p>A tuple of bin positions for the tuning curves i.e. xy=(x,y)</p></td>
         <td><em>required</em></td>
       </tr>
   </tbody>
@@ -1075,16 +1075,16 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
   <tbody>
     <tr>
       <td><code>Tsd</code></td>
-      <td><p>The decoded trajectory in 2d</p></td>
+      <td><p>The decoded feature in 2d</p></td>
     </tr>
   </tbody>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/decoding.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">decode_2d</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">xy</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">decode_2d</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">xy</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Perform bayesian decoding over two dimension.</span>
-<span class="sd">	See : </span>
+<span class="sd">	Performs Bayesian decoding over a two dimensional feature.</span>
+<span class="sd">	See: </span>
 <span class="sd">	Zhang, K., Ginzburg, I., McNaughton, B. L., &amp; Sejnowski, T. J. </span>
 <span class="sd">	(1998). Interpreting neuronal population activity by </span>
 <span class="sd">	reconstruction: unified framework with application to </span>
@@ -1093,25 +1093,25 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
 
 <span class="sd">	Parameters</span>
 <span class="sd">	----------</span>
-<span class="sd">	tuning_curves : dict</span>
-<span class="sd">	    Dictionnay of 2d tuning curves for each neuron.</span>
-<span class="sd">	group : TsGroup or dict of Ts/Tsd object.</span>
-<span class="sd">	    A group of neurons with the same index as tuning curves column names.</span>
-<span class="sd">	variable : Tsd</span>
-<span class="sd">	    The 1d variable used to compute the tuning curves. Used to correct for occupancy.</span>
-<span class="sd">	ep : IntervalSet</span>
-<span class="sd">	    The epoch to compute the decoding</span>
-<span class="sd">	bin_size : float</span>
+<span class="sd">	tuning_curves: dict</span>
+<span class="sd">	    Dictionnay of 2d tuning curves (one for each neuron).</span>
+<span class="sd">	group: TsGroup or dict of Ts/Tsd object.</span>
+<span class="sd">	    A group of neurons with the same index as tuning curve column names.</span>
+<span class="sd">	feature: Tsd</span>
+<span class="sd">	    The 2d feature used to compute the tuning curves. Used to correct for occupancy.</span>
+<span class="sd">	ep: IntervalSet</span>
+<span class="sd">	    The epoch on which decoding is computed</span>
+<span class="sd">	bin_size: float</span>
 <span class="sd">	    Bin size in seconds</span>
-<span class="sd">	xy : tuple</span>
-<span class="sd">	    A tuple of bins position for the tuning curves i.e. xy=(x,y)</span>
+<span class="sd">	xy: tuple</span>
+<span class="sd">	    A tuple of bin positions for the tuning curves i.e. xy=(x,y)</span>
 
 <span class="sd">	Returns</span>
 <span class="sd">	-------</span>
 <span class="sd">	Tsd</span>
-<span class="sd">	    The decoded trajectory in 2d</span>
+<span class="sd">	    The decoded feature in 2d</span>
 <span class="sd">	numpy.ndarray</span>
-<span class="sd">		The probabilities of the decoded trajectory</span>
+<span class="sd">		The probability distribution of the decoded trajectory for each time bin</span>
 
 <span class="sd">	Raises</span>
 <span class="sd">	------</span>
@@ -1144,8 +1144,8 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
 		<span class="n">binsxy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
 
 	<span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span>
-		<span class="n">variable</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>
-		<span class="n">variable</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
+		<span class="n">feature</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>
+		<span class="n">feature</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
 		<span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">binsxy</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
 	<span class="n">occupancy</span> <span class="o">=</span> <span class="n">occupancy</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
@@ -1176,7 +1176,7 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
 		<span class="n">t</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
 		<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">idxmax2d</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">idxmax2d</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
 		<span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span>
-		<span class="n">columns</span><span class="o">=</span><span class="n">variable</span><span class="o">.</span><span class="n">columns</span>
+		<span class="n">columns</span><span class="o">=</span><span class="n">feature</span><span class="o">.</span><span class="n">columns</span>
 		<span class="p">)</span>
 
 	<span class="k">return</span> <span class="n">decoded</span><span class="p">,</span> <span class="n">p</span>
