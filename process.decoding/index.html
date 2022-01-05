@@ -275,7 +275,7 @@
   
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
-        Quick start
+        Quick start tutorial for pynapple
       </a>
     </li>
   
@@ -948,12 +948,12 @@ hippocampal place cells. Journal of neurophysiology, 79(2),
 	<span class="n">tc</span> <span class="o">=</span> <span class="n">tuning_curves</span><span class="o">.</span><span class="n">values</span>
 	<span class="n">ct</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">values</span>
 
-	<span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">bin_size</span><span class="o">*</span><span class="n">tc</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>	
+	<span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">bin_size</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>	
 	<span class="n">p2</span> <span class="o">=</span> <span class="n">occupancy</span><span class="o">/</span><span class="n">occupancy</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 	<span class="n">ct2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">ct</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">tc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span>
 
-	<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">tc</span><span class="o">**</span><span class="n">ct2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+	<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanprod</span><span class="p">(</span><span class="n">tc</span><span class="o">**</span><span class="n">ct2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 	<span class="n">p</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">*</span> <span class="n">p2</span> <span class="o">*</span> <span class="n">p3</span>
 	<span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
