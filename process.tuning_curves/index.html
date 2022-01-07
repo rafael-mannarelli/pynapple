@@ -289,7 +289,7 @@
   
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-core-notebook/" class="md-nav__link">
-        Core Tutorial
+        Core
       </a>
     </li>
   
@@ -905,9 +905,10 @@ If None, the boundaries are inferred from the target feature</p></td>
     <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">group_value</span><span class="p">:</span>
-        <span class="n">count</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">group_value</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
-        <span class="n">tuning_curves</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+        <span class="n">count</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">group_value</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span> 
         <span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">/</span><span class="n">occupancy</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">tuning_curves</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
         <span class="n">tuning_curves</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="o">*</span><span class="n">feature</span><span class="o">.</span><span class="n">rate</span>
 
     <span class="k">return</span> <span class="n">tuning_curves</span>
@@ -1055,6 +1056,7 @@ n is the number of object in the input group.</p></td>
             <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]]</span>
             <span class="p">)</span>
         <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">/</span> <span class="n">occupancy</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">tc</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span> <span class="o">*</span> <span class="n">feature</span><span class="o">.</span><span class="n">rate</span>
 
     <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">binsxy</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>

@@ -13,7 +13,7 @@
     
     
       
-        <title>Core Tutorial - pynapple</title>
+        <title>Core - pynapple</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Core Tutorial
+              Core
             
           </span>
         </div>
@@ -302,12 +302,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Core Tutorial
+          Core
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Core Tutorial
+        Core
       </a>
       
         
@@ -335,6 +335,20 @@
         <li class="md-nav__item">
   <a href="#interval-sets-object" class="md-nav__link">
     Interval Sets object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tsgroup" class="md-nav__link">
+    TsGroup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-support" class="md-nav__link">
+    Time support
   </a>
   
 </li>
@@ -743,6 +757,20 @@
         <li class="md-nav__item">
   <a href="#interval-sets-object" class="md-nav__link">
     Interval Sets object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tsgroup" class="md-nav__link">
+    TsGroup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-support" class="md-nav__link">
+    Time support
   </a>
   
 </li>
@@ -1437,7 +1465,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
@@ -1476,7 +1504,7 @@ import pynapple as nap</div>
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
@@ -1517,17 +1545,17 @@ print(tsd)</div>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Time (s)
-0.0     0.589780
-1.0     0.326939
-2.0     0.102468
-3.0     0.421600
-4.0     0.531665
+0.0     0.671375
+1.0     0.184115
+2.0     0.745202
+3.0     0.041667
+4.0     0.844270
           ...   
-95.0    0.660078
-96.0    0.965494
-97.0    0.122592
-98.0    0.631948
-99.0    0.419832
+95.0    0.224841
+96.0    0.011205
+97.0    0.904223
+98.0    0.330948
+99.0    0.288449
 Length: 100, dtype: float64
 </pre>
 </div>
@@ -1548,7 +1576,7 @@ Length: 100, dtype: float64
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
@@ -1587,30 +1615,30 @@ print(tsd.as_units('us'))</div>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Time (ms)
-0.0        0.589780
-1000.0     0.326939
-2000.0     0.102468
-3000.0     0.421600
-4000.0     0.531665
+0.0        0.671375
+1000.0     0.184115
+2000.0     0.745202
+3000.0     0.041667
+4000.0     0.844270
              ...   
-95000.0    0.660078
-96000.0    0.965494
-97000.0    0.122592
-98000.0    0.631948
-99000.0    0.419832
+95000.0    0.224841
+96000.0    0.011205
+97000.0    0.904223
+98000.0    0.330948
+99000.0    0.288449
 Length: 100, dtype: float64
 Time (us)
-0           0.589780
-1000000     0.326939
-2000000     0.102468
-3000000     0.421600
-4000000     0.531665
+0           0.671375
+1000000     0.184115
+2000000     0.745202
+3000000     0.041667
+4000000     0.844270
               ...   
-95000000    0.660078
-96000000    0.965494
-97000000    0.122592
-98000000    0.631948
-99000000    0.419832
+95000000    0.224841
+96000000    0.011205
+97000000    0.904223
+98000000    0.330948
+99000000    0.288449
 Length: 100, dtype: float64
 </pre>
 </div>
@@ -1631,7 +1659,7 @@ Length: 100, dtype: float64
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
@@ -1672,16 +1700,16 @@ print(ts)</div>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Time (s)
-0.000053   NaN
-0.018750   NaN
-0.022492   NaN
-0.031866   NaN
-0.037524   NaN
-0.043755   NaN
-0.045585   NaN
-0.069245   NaN
-0.077722   NaN
-0.088523   NaN
+0.011981   NaN
+0.018039   NaN
+0.021218   NaN
+0.042355   NaN
+0.059233   NaN
+0.062366   NaN
+0.069332   NaN
+0.073728   NaN
+0.091412   NaN
+0.093179   NaN
 dtype: float64
 </pre>
 </div>
@@ -1702,7 +1730,7 @@ dtype: float64
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
@@ -1744,17 +1772,17 @@ print(tsdframe)</div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>                 a         b         c
 Time (s)                              
-0.0       0.248641  0.792004  0.089255
-1.0       0.502755  0.807717  0.912538
-2.0       0.761824  0.022373  0.210368
-3.0       0.881189  0.666426  0.316277
-4.0       0.633466  0.178083  0.965424
+0.0       0.070958  0.248339  0.678089
+1.0       0.807558  0.782743  0.895054
+2.0       0.659416  0.937503  0.516411
+3.0       0.852223  0.219005  0.194536
+4.0       0.170820  0.639453  0.818144
 ...            ...       ...       ...
-95.0      0.102830  0.614337  0.158703
-96.0      0.356926  0.798900  0.405869
-97.0      0.084771  0.058427  0.087754
-98.0      0.269665  0.411934  0.944591
-99.0      0.358653  0.409465  0.112126
+95.0      0.565494  0.437288  0.370130
+96.0      0.904865  0.298250  0.590778
+97.0      0.697050  0.150686  0.462217
+98.0      0.040829  0.311084  0.668681
+99.0      0.150205  0.279965  0.883045
 
 [100 rows x 3 columns]
 </pre>
@@ -1776,7 +1804,7 @@ Time (s)
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
@@ -1830,16 +1858,16 @@ print(new_tsd)</div>
 
 
 Time (s)
-1.0     0.326939
-2.0     0.102468
-3.0     0.421600
-4.0     0.531665
-5.0     0.069164
-11.0    0.559547
-12.0    0.439060
-13.0    0.252566
-14.0    0.934285
-15.0    0.415332
+1.0     0.184115
+2.0     0.745202
+3.0     0.041667
+4.0     0.844270
+5.0     0.670595
+11.0    0.844376
+12.0    0.920450
+13.0    0.042605
+14.0    0.662674
+15.0    0.001379
 dtype: float64
 </pre>
 </div>
@@ -1853,7 +1881,430 @@ dtype: float64
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Multiple operations are available for IntervalSet</p>
+<p>Multiple operations are available for IntervalSet. For example, IntervalSet can be merged. See the full documentation of the class <a href="https://peyrachelab.github.io/pynapple/core.interval_set/#pynapple.core.interval_set.IntervalSet.intersect">here</a> for a list of all the functions that can be used to manipulate IntervalSets.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-7">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">epoch1</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span> <span class="c1"># no time units passed. Default is us.</span>
+<span class="n">epoch2</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span><span class="n">end</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">45</span><span class="p">])</span>
+
+<span class="n">epoch</span> <span class="o">=</span> <span class="n">epoch1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">epoch2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">epoch1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">epoch2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
+</pre></div>
+<div id="cell-7" class="clipboard-copy-txt">epoch1 = nap.IntervalSet(start=[0], end=[10]) # no time units passed. Default is us.
+epoch2 = nap.IntervalSet(start=[5,30],end=[20,45])
+
+epoch = epoch1.union(epoch2)
+print(epoch1, '\n')
+print(epoch2, '\n')
+print(epoch)</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>   start      end
+0    0.0  0.00001 
+
+      start       end
+0  0.000005  0.000020
+1  0.000030  0.000045 
+
+     start       end
+0  0.00000  0.000020
+1  0.00003  0.000045
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="tsgroup">TsGroup<a class="anchor-link" href="#tsgroup">&#182;</a></h2><p>Multiple time series with different time stamps (.i.e. a group of neurons with different spike times from one session) can be grouped with the TsGroup object. The TsGroup behaves like a dictionnary but it is also possible to slice with a list of indexes</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-8">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">my_ts</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)),</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">),</span> <span class="c1"># here a simple dictionnary</span>
+         <span class="mi">1</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)),</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">),</span>
+         <span class="mi">2</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)),</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)}</span>
+
+<span class="n">tsgroup</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">my_ts</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tsgroup</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tsgroup</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># dictionnary like indexing returns directly the Ts object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tsgroup</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span> <span class="c1"># list like indexing</span>
+</pre></div>
+<div id="cell-8" class="clipboard-copy-txt">my_ts = {0:nap.Ts(t = np.sort(np.random.uniform(0, 100, 1000)), time_units = 's'), # here a simple dictionnary
+         1:nap.Ts(t = np.sort(np.random.uniform(0, 100, 2000)), time_units = 's'),
+         2:nap.Ts(t = np.sort(np.random.uniform(0, 100, 3000)), time_units = 's')}
+
+tsgroup = nap.TsGroup(my_ts)
+
+print(tsgroup, '\n')
+print(tsgroup[0], '\n') # dictionnary like indexing returns directly the Ts object
+print(tsgroup[[0,2]]) # list like indexing</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>  Index    Freq. (Hz)
+-------  ------------
+      0         10.02
+      1         19.98
+      2         29.98 
+
+Time (s)
+0.432052    NaN
+0.529947    NaN
+0.601565    NaN
+0.774862    NaN
+0.799916    NaN
+             ..
+99.579318   NaN
+99.647440   NaN
+99.680493   NaN
+99.836327   NaN
+99.848397   NaN
+Length: 999, dtype: float64 
+
+  Index    Freq. (Hz)
+-------  ------------
+      0         10.02
+      2         29.98
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Operations such as restrict can thus be directly applied to the TsGroup as well as other operations.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-9">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">newtsgroup</span> <span class="o">=</span> <span class="n">tsgroup</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="n">tsgroup</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span> <span class="c1"># Here counting the elements within bins of 1 seconds</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+<div id="cell-9" class="clipboard-copy-txt">newtsgroup = tsgroup.restrict(epochs)
+
+count = tsgroup.count(1, epochs, time_units='s') # Here counting the elements within bins of 1 seconds
+
+print(count)</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>           0   1   2
+Time (s)            
+0.5        6  13  31
+1.5        8  25  29
+2.5        7  26  22
+3.5       13  16  32
+4.5       14  20  32
+10.5       8  22  29
+11.5      10  21  27
+12.5       6  26  29
+13.5       9  18  45
+14.5      13  19  26
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>One advantage of grouping time series is that metainformation can be added about each elements. In this case, we add labels to each Ts object when instantiating the group and after. We can then use this label to split the group. See the documentation about <a href="https://peyrachelab.github.io/pynapple/core.ts_group/">TsGroup</a> for all the ways to split TsGroup.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-10">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tsgroup</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">my_ts</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label1</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">tsgroup</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">label2</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tsgroup</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">newtsgroup</span><span class="o">=</span> <span class="n">tsgroup</span><span class="o">.</span><span class="n">getby_category</span><span class="p">(</span><span class="s1">&#39;label1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">newtsgroup</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">newtsgroup</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+<div id="cell-10" class="clipboard-copy-txt">tsgroup = nap.TsGroup(my_ts, time_units = 's', label1=[0,1,0])
+tsgroup.set_info(label2=['a', 'a', 'b'])
+
+print(tsgroup, '\n')
+
+newtsgroup= tsgroup.getby_category('label1')
+print(newtsgroup[0], '\n')
+print(newtsgroup[1])
+</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>  Index    Freq. (Hz)    label1  label2
+-------  ------------  --------  --------
+      0         10.02         0  a
+      1         19.98         1  a
+      2         29.98         0  b 
+
+  Index    Freq. (Hz)    label1  label2
+-------  ------------  --------  --------
+      0         10.02         0  a
+      2         29.98         0  b 
+
+  Index    Freq. (Hz)    label1  label2
+-------  ------------  --------  --------
+      1         19.98         1  a
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="time-support">Time support<a class="anchor-link" href="#time-support">&#182;</a></h2><p>A key element of the manipulation of time series by pynapple is the inherent time support defined for Ts, Tsd, TsdFrame and TsGroup objects. The time support is defined as an IntervalSet that provides the time serie with a context. For example,, the restrict operation will update automatically the time support to the new time series. Ideally the time support should be defined for all time series when instantiating them. If no time series is given, the time support is inferred from the start and end of the time series.</p>
+<p>In this example, a TsGroup is instantiated with and without a time support. Notice how the frequency of each Ts element is changed when the time support is defined explicitely.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-11">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+<span class="n">my_ts</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">),</span> <span class="c1"># here a simple dictionnary</span>
+         <span class="mi">1</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">)),</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">),</span>
+         <span class="mi">2</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">)),</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)}</span>
+
+<span class="n">tsgroup</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">my_ts</span><span class="p">)</span>
+
+<span class="n">tsgroup_with_time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">my_ts</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tsgroup</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tsgroup_with_time_support</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tsgroup_with_time_support</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="c1"># acceding the time support</span>
+</pre></div>
+<div id="cell-11" class="clipboard-copy-txt">time_support = nap.IntervalSet(start = 0, end = 100, time_units = 's')
+
+my_ts = {0:nap.Ts(t = np.sort(np.random.uniform(0, 100, 10)), time_units = 's'), # here a simple dictionnary
+         1:nap.Ts(t = np.sort(np.random.uniform(0, 100, 20)), time_units = 's'),
+         2:nap.Ts(t = np.sort(np.random.uniform(0, 100, 30)), time_units = 's')}
+
+tsgroup = nap.TsGroup(my_ts)
+
+tsgroup_with_time_support = nap.TsGroup(my_ts, time_support = time_support)
+
+print(tsgroup, '\n')
+
+print(tsgroup_with_time_support, '\n')
+
+print(tsgroup_with_time_support.time_support) # acceding the time support</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>  Index    Freq. (Hz)
+-------  ------------
+      0          0.14
+      1          0.16
+      2          0.36 
+
+  Index    Freq. (Hz)
+-------  ------------
+      0           0.1
+      1           0.2
+      2           0.3 
+
+   start    end
+0    0.0  100.0
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
 
 </div>
 </div>

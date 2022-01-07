@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#io-tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -288,7 +293,7 @@
   
     <li class="md-nav__item">
       <a href="../pynapple-core-notebook/" class="md-nav__link">
-        Core Tutorial
+        Core
       </a>
     </li>
   
@@ -307,10 +312,43 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IO
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         IO
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#custom-loading-io" class="md-nav__link">
+    Custom Loading IO
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -669,6 +707,39 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#custom-loading-io" class="md-nav__link">
+    Custom Loading IO
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -678,8 +749,6 @@
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
-
-  <h1>IO</h1>
 
 <script>
 (function (global, factory) {
@@ -1344,11 +1413,21 @@ all of MD as it is not optimized for dense, information rich UIs.
     }
     init_mathjax();
     </script>
-    <!-- End of mathjax configuration --><div class="jupyter-wrapper"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+    <!-- End of mathjax configuration --><div class="jupyter-wrapper">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="io-tutorial">IO Tutorial<a class="anchor-link" href="#io-tutorial">&#182;</a></h1><p>This script demonstrate how to load data with pynapple.</p>
+<p>The general workflow of loading a session is described in the small graph below. Since it is always challenging to accomodate all possible types of format, the idea was to keep the IO of pynapple the bare minium but make it easy for the user to inherit the base loader to add its own custom io functions. The base loader is thus responsible to initialized the NWB file containing the tracking data, the epochs and the session informations. An example of custom IO class is shown at the end of this tutorial.</p>
+<!-- <img src="images/base_loader_pynapple.png" width=700 height=700 /> -->
+
+<p><img src="base_loader_pynapple.png" alt="title"></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
@@ -1362,14 +1441,510 @@ all of MD as it is not optimized for dense, information rich UIs.
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
-<div id="cell-1" class="clipboard-copy-txt"></div>
+<div id="cell-1" class="clipboard-copy-txt">import numpy as np
+import pandas as pd
+import pynapple as nap
+import matplotlib.pyplot as plt</div>
     
         </div>
     </div>
 
 </div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In this example, The data contain a short sample of a simultaneous recording during sleep and wake from the anterodorsal nucleus of the thalamus and the hippocampus. It contains both head-direction cells (i.e. cells that fire for a particular direction in the horizontal plane) and place cells (i.e. cells that fire for a particular position in the environment).</p>
+<p>Preprocessing of the data was made with <a href="https://github.com/MouseLand/Kilosort">Kilosort 2.0</a> and spike sorting was made with <a href="http://neurosuite.sourceforge.net/">Klusters</a>.</p>
+<p>A typical directory containing data processed with neurosuite is similar to this:</p>
+<p><img src="files_neurosuite.png" width=700 height=700 /></p>
+<p>The first step is to call the function <a href="https://peyrachelab.github.io/pynapple/io/"><em>load_session</em></a>. It will then open a GUI for filling manually the information. The following screenshots show what parameters to use.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-2">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">data_directory</span> <span class="o">=</span> <span class="s1">&#39;../../your/path/to/A2929-200711&#39;</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">load_session</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="s1">&#39;neurosuite&#39;</span><span class="p">)</span>
+</pre></div>
+<div id="cell-2" class="clipboard-copy-txt">data_directory = '../../your/path/to/A2929-200711'
+
+data = nap.load_session(data_directory, 'neurosuite')</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="Screenshot1_baseloader.png" width=700 height=700 /></p>
+<p>The first step is to provides information about the session and the subject. All the fields shown are suggested by the NWB format (see <a href="https://pynwb.readthedocs.io/en/stable/pynwb.file.html#pynwb.file.Subject">here</a> and <a href="https://pynwb.readthedocs.io/en/stable/pynwb.file.html#pynwb.file.NWBFile">here</a>).</p>
+<hr>
+<p>The epochs tab loads the epochs within the session (typically wake and sleep). In this case, I load the file Epoch_Ts.csv in the data folder. The first column contains the start of the epoch and the second column contains the end of the epoch.</p>
+<p>If the CSV file contains a third column with an epoch label, the loader will automatically write it in the label column. Otherwise, it is necessary to manually write the epoch labels.</p>
+<p><img src="Screenshot4_baseloader.png" width=700 height=700 /></p>
+<hr>
+<p>The tracking tab allows to load tracking data saved with a CSV file. Reading a CSV file is always a challenge when the header is unknown. The default csv file should contains only one row for the header with the column names. The first column should be the time index in seconds. Other formats are DeepLabCut and Optitrack.</p>
+<p>The frame alignement can vary as well. Pynapple offers three ways to align the tracking frames :</p>
+<ul>
+<li>Global timestamps: the time column of the CSV file contains the timestamps aligned already to the global timeframe of the session.</li>
+<li>Local timestamps: the time column of the CSV file contains the timestamps aligned to one epoch. In this case, the user should select which epoch.</li>
+<li>TTL detection: a binary file containing TTL pulses for each tracking frame is located within the folder and can be loaded. Alignement is made with TTL detection.</li>
+</ul>
+<p>In this example session, Tracking was made with Optitrack and TTL pulses were written in an analogin file recorded by an Intan RHD2000 recording system. The parameters for the tracking tab are shown below.</p>
+<p><img src="Screenshot5_baseloader.png" width=700 height=700 /></p>
+<hr>
+<p>The next step is specific to NeuroSuite. In this case, 2 electrophysiological probes were implanted in ADN and CA1. This step allows to label groups of electrodes as shown below.</p>
+<p><img src="Screenshot7_baseloader.png" width=700 height=700 /></p>
+<p>If everything works, a NWB file should be created in session_folder/pynapplenwb/session_name.nwb</p>
+<p><img src="Screenshot8_finale.png" width=700 height=700 /></p>
+<p>Calling the function <em>load_session</em> should directly read the NWB file and bypass the GUI loader.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-3">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">load_session</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="s1">&#39;neurosuite&#39;</span><span class="p">)</span>
+</pre></div>
+<div id="cell-3" class="clipboard-copy-txt">data = nap.load_session(data_directory, 'neurosuite')</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In this case, the data that can be used for analysis are <em>spikes</em>, <em>position</em> and <em>epochs</em>.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-4">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">spikes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">spikes</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">position</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">epochs</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+<div id="cell-4" class="clipboard-copy-txt">spikes = data.spikes
+position = data.position
+epochs = data.epochs
+
+print(spikes, '\n')
+print(position, '\n')
+print(epochs, '\n')</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>  Index    Freq. (Hz)    group  location
+-------  ------------  -------  ----------
+      0          7.3         0  adn
+      1          5.73        0  adn
+      2          8.12        0  adn
+      3          6.68        0  adn
+      4         10.77        0  adn
+      5         11           0  adn
+      6         16.52        0  adn
+      7          2.2         1  ca1
+      8          2.02        1  ca1
+      9          1.07        1  ca1
+     10          3.92        1  ca1
+     11          3.31        1  ca1
+     12          1.09        1  ca1
+     13          1.28        1  ca1
+     14          1.32        1  ca1 
+
+                  rx        ry        rz         x         y         z
+Time (s)                                                              
+670.64070   0.343163  5.207148  5.933598 -0.042857  0.425023 -0.195725
+670.64900   0.346745  5.181029  5.917368 -0.043863  0.424850 -0.195110
+670.65735   0.344035  5.155508  5.905679 -0.044853  0.424697 -0.194674
+670.66565   0.322240  5.136537  5.892457 -0.045787  0.424574 -0.194342
+670.67400   0.315836  5.120850  5.891577 -0.046756  0.424563 -0.194059
+...              ...       ...       ...       ...       ...       ...
+1199.96160  6.009812  3.665954  0.230562  0.011241  0.037891 -0.001479
+1199.96995  6.014660  3.634619  0.260742  0.010974  0.038677 -0.002370
+1199.97825  6.031694  3.617849  0.276835  0.010786  0.039410 -0.003156
+1199.98660  6.040435  3.609446  0.287006  0.010661  0.040064 -0.003821
+1199.99495  6.050059  3.609375  0.293275  0.010624  0.040568 -0.004435
+
+[63527 rows x 6 columns] 
+
+{&#39;sleep&#39;:    start    end
+0    0.0  600.0, &#39;wake&#39;:    start     end
+0  600.0  1200.0} 
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="custom-loading-io">Custom Loading IO<a class="anchor-link" href="#custom-loading-io">&#182;</a></h2><p>This example shows how to construct a custom IO loader.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-5">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># @Author: gviejo</span>
+<span class="c1"># @Date:   2022-01-06 20:01:32</span>
+<span class="c1"># @Last Modified by:   gviejo</span>
+<span class="c1"># @Last Modified time: 2022-01-06 20:01:57</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pynapple.io.loader</span> <span class="kn">import</span> <span class="n">BaseLoader</span>
+<span class="kn">from</span> <span class="nn">pynwb</span> <span class="kn">import</span> <span class="n">NWBFile</span><span class="p">,</span> <span class="n">NWBHDF5IO</span>
+
+<span class="k">class</span> <span class="nc">MyCustomIO</span><span class="p">(</span><span class="n">BaseLoader</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;        </span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path : str</span>
+<span class="sd">            The path to the data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>     
+        <span class="bp">self</span><span class="o">.</span><span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="c1"># Need to check if nwb file exists and if data are there</span>
+        <span class="n">loading_my_data</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">):</span>
+                <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.nwb&#39;</span><span class="p">)]):</span>                    
+                    <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_my_nwb</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">success</span><span class="p">:</span> <span class="n">loading_my_data</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Bypass if data have already been transfered to nwb</span>
+        <span class="k">if</span> <span class="n">loading_my_data</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_my_data</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">save_my_data_in_nwb</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_my_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This load the raw data</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path : str</span>
+<span class="sd">            Path to the session</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Load Raw data here</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">save_my_data_in_nwb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save the raw data to NWB</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path : TYPE</span>
+<span class="sd">            Description</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
+            <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> does not exist.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;nwb&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span><span class="p">)</span>
+
+
+        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+        
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Save data in NWB here</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">return</span>
+        
+
+
+    <span class="k">def</span> <span class="nf">load_my_nwb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This load the nwb that is already create by the base loader</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path : str</span>
+<span class="sd">            Path to the session</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
+            <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> does not exist.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;nwb&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span><span class="p">)</span>
+
+        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Add code to write to nwb file here</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+            
+<span class="n">mydata</span> <span class="o">=</span> <span class="n">MyCustomIO</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">mydata</span><span class="p">))</span>
+</pre></div>
+<div id="cell-5" class="clipboard-copy-txt"># -*- coding: utf-8 -*-
+# @Author: gviejo
+# @Date:   2022-01-06 20:01:32
+# @Last Modified by:   gviejo
+# @Last Modified time: 2022-01-06 20:01:57
+
+import os
+from pynapple.io.loader import BaseLoader
+from pynwb import NWBFile, NWBHDF5IO
+
+class MyCustomIO(BaseLoader):
+
+    def __init__(self, path):
+        """        
+        
+        Parameters
+        ----------
+        path : str
+            The path to the data.
+        """     
+        self.basename = os.path.basename(path)
+        
+        super().__init__(path)
+
+        # Need to check if nwb file exists and if data are there
+        loading_my_data = True
+        if self.path is not None:
+            nwb_path = os.path.join(self.path, 'pynapplenwb')
+            if os.path.exists(nwb_path):
+                files = os.listdir(nwb_path)
+                if len([f for f in files if f.endswith('.nwb')]):                    
+                    success = self.load_my_nwb(path)
+                    if success: loading_my_data = False
+
+        # Bypass if data have already been transfered to nwb
+        if loading_my_data:
+            self.load_my_data(path)
+
+            self.save_my_data_in_nwb(path)
+
+    def load_my_data(self, path):
+        """
+        This load the raw data
+        
+        Parameters
+        ----------
+        path : str
+            Path to the session
+        """
+        '''
+        Load Raw data here
+        '''
+        print(path)
+        return None
+
+    def save_my_data_in_nwb(self, path):
+        """
+        Save the raw data to NWB
+        
+        Parameters
+        ----------
+        path : TYPE
+            Description
+        """
+        self.nwb_path = os.path.join(path, 'pynapplenwb')
+        if os.path.exists(self.nwb_path):
+            files = os.listdir(self.nwb_path)
+        else:
+            raise RuntimeError("Path {} does not exist.".format(self.nwb_path))
+        self.nwbfilename = [f for f in os.listdir(self.nwb_path) if 'nwb' in f][0]
+        self.nwbfilepath = os.path.join(self.nwb_path, self.nwbfilename)
+
+
+        io = NWBHDF5IO(self.nwbfilepath, 'r+')
+        
+        '''
+        Save data in NWB here
+        '''
+
+        io.close()
+
+        return
+        
+
+
+    def load_my_nwb(self, path):
+        """
+        This load the nwb that is already create by the base loader
+        
+        Parameters
+        ----------
+        path : str
+            Path to the session
+        """
+        self.nwb_path = os.path.join(path, 'pynapplenwb')
+        if os.path.exists(self.nwb_path):
+            files = os.listdir(self.nwb_path)
+        else:
+            raise RuntimeError("Path {} does not exist.".format(self.nwb_path))
+        self.nwbfilename = [f for f in os.listdir(self.nwb_path) if 'nwb' in f][0]
+        self.nwbfilepath = os.path.join(self.nwb_path, self.nwbfilename)
+
+        io = NWBHDF5IO(self.nwbfilepath, 'r')
+        nwbfile = io.read()
+
+        '''
+        Add code to write to nwb file here
+        '''
+
+        io.close()
+
+            
+mydata = MyCustomIO('.')
+
+print(type(mydata))</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>.
+&lt;class &#39;__main__.MyCustomIO&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -1390,7 +1965,7 @@ all of MD as it is not optimized for dense, information rich UIs.
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../pynapple-core-notebook/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Core Tutorial" rel="prev">
+        <a href="../pynapple-core-notebook/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Core" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1399,7 +1974,7 @@ all of MD as it is not optimized for dense, information rich UIs.
               <span class="md-footer__direction">
                 Previous
               </span>
-              Core Tutorial
+              Core
             </div>
           </div>
         </a>
