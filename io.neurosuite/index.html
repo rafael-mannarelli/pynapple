@@ -581,19 +581,6 @@
     load_neurosuite_xml()
   </a>
   
-    <nav class="md-nav" aria-label="load_neurosuite_xml()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pynapple.io.neurosuite.NeuroSuite.load_neurosuite_xml--function-reads" class="md-nav__link">
-    Function reads
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -606,6 +593,20 @@
           <li class="md-nav__item">
   <a href="#pynapple.io.neurosuite.NeuroSuite.load_nwb_spikes" class="md-nav__link">
     load_nwb_spikes()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.neurosuite.NeuroSuite.load_lfp" class="md-nav__link">
+    load_lfp()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.neurosuite.NeuroSuite.write_neuroscope_intervals" class="md-nav__link">
+    write_neuroscope_intervals()
   </a>
   
 </li>
@@ -815,19 +816,6 @@
     load_neurosuite_xml()
   </a>
   
-    <nav class="md-nav" aria-label="load_neurosuite_xml()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pynapple.io.neurosuite.NeuroSuite.load_neurosuite_xml--function-reads" class="md-nav__link">
-    Function reads
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -840,6 +828,20 @@
           <li class="md-nav__item">
   <a href="#pynapple.io.neurosuite.NeuroSuite.load_nwb_spikes" class="md-nav__link">
     load_nwb_spikes()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.neurosuite.NeuroSuite.load_lfp" class="md-nav__link">
+    load_lfp()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.neurosuite.NeuroSuite.write_neuroscope_intervals" class="md-nav__link">
+    write_neuroscope_intervals()
   </a>
   
 </li>
@@ -935,12 +937,12 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
         <span class="c1"># Bypass if data have already been transfered to nwb</span>
         <span class="k">if</span> <span class="n">loading_neurosuite</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_xml</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XML loaded&quot;</span><span class="p">)</span>
+            <span class="c1"># print(&quot;XML loaded&quot;)</span>
             <span class="c1"># To label the electrodes groups</span>
             <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">EphysGUI</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span><span class="p">)</span>
             <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GUI DONE&quot;</span><span class="p">)</span>     
+            <span class="c1"># print(&quot;GUI DONE&quot;)     </span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">ephys_information</span>
 
@@ -1025,8 +1027,7 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        path should be the folder session containing the XML file</span>
 
-<span class="sd">        Function reads</span>
-<span class="sd">        --------------</span>
+<span class="sd">        Function reads :        </span>
 <span class="sd">        1. the number of channels</span>
 <span class="sd">        2. the sampling frequency of the dat file or the eeg file depending of what is present in the folder</span>
 <span class="sd">            eeg file first if both are present or both are absent</span>
@@ -1051,9 +1052,9 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
 
 
         <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span>      <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;nChannels&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fs_dat</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;samplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fs_eeg</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;fieldPotentials&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;lfpSamplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span>   <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;nChannels&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fs_dat</span>      <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;samplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fs_eeg</span>      <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;fieldPotentials&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;lfpSamplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">groups</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;anatomicalDescription&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;channelGroups&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span>
@@ -1061,7 +1062,6 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
             <span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;channel&#39;</span><span class="p">)])</span>
 
         <span class="k">return</span>
-
 
     <span class="k">def</span> <span class="nf">save_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1177,6 +1177,115 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
 
             <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">load_lfp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;.eeg&#39;</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mf">1250.0</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the LFP.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str, optional</span>
+<span class="sd">            The filename of the lfp file.</span>
+<span class="sd">            It can be useful it multiple dat files are present in the data directory</span>
+<span class="sd">        channel : int or list of int, optional</span>
+<span class="sd">            The channel(s) to load. If None return a memory map of the dat file to avoid memory error</span>
+<span class="sd">        extension : str, optional</span>
+<span class="sd">            The file extenstion (.eeg, .dat, .lfp). Make sure the frequency match</span>
+<span class="sd">        frequency : float, optional</span>
+<span class="sd">            Default 1250 Hz for the eeg file</span>
+<span class="sd">        precision : str, optional</span>
+<span class="sd">            The precision of the binary file</span>
+<span class="sd">        bytes_size : int, optional</span>
+<span class="sd">            Bytes size of the lfp file</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If can&#39;t find the lfp/eeg/dat file</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tsd or TsdFrame</span>
+<span class="sd">            The lfp in a time series format</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">listdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">eegfile</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">extension</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">eegfile</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> contains no </span><span class="si">{}</span><span class="s2"> files;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">extension</span><span class="p">))</span>
+
+            <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">eegfile</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_xml</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="n">n_channels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span><span class="p">)</span>
+
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+        <span class="n">startoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">endoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>      
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span><span class="o">-</span><span class="n">startoffile</span><span class="p">)</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">)</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">n_samples</span><span class="o">/</span><span class="n">frequency</span>
+        <span class="n">interval</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">frequency</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>        
+        <span class="n">timestep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">/</span><span class="n">frequency</span>
+
+        <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">duration</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">channel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
+                <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">,</span> 
+                <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> 
+                <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
+                <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
+                <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+                <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>            
+            <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span>
+                <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
+                <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+                <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span>
+                <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">write_neuroscope_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span> <span class="n">isets</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Write events to load with neuroscope (e.g. ripples start and ends)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        extension : str</span>
+<span class="sd">            The extension of the file (e.g. basename.evt.py.rip)</span>
+<span class="sd">        isets : IntervalSet</span>
+<span class="sd">            The IntervalSet to write</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the events (e.g. Ripples)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">isets</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>        
+        <span class="n">ends</span> <span class="o">=</span> <span class="n">isets</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+        <span class="n">datatowrite</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span><span class="n">ends</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">isets</span><span class="p">)</span>
+
+        <span class="n">texttowrite</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(((</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; start&#39;</span><span class="p">]),</span> <span class="n">n</span><span class="p">)),</span>                         
+                                <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; end&#39;</span><span class="p">]),</span> <span class="n">n</span><span class="p">))</span>
+                                    <span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+        <span class="n">evt_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basename</span> <span class="o">+</span> <span class="n">extension</span><span class="p">)</span>
+
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">evt_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">datatowrite</span><span class="p">,</span> <span class="n">texttowrite</span><span class="p">):</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:1.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>        
+
+        <span class="k">return</span>
 </code></pre></div>
         </details>
 
@@ -1257,12 +1366,12 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
     <span class="c1"># Bypass if data have already been transfered to nwb</span>
     <span class="k">if</span> <span class="n">loading_neurosuite</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_xml</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XML loaded&quot;</span><span class="p">)</span>
+        <span class="c1"># print(&quot;XML loaded&quot;)</span>
         <span class="c1"># To label the electrodes groups</span>
         <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">EphysGUI</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span><span class="p">)</span>
         <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GUI DONE&quot;</span><span class="p">)</span>     
+        <span class="c1"># print(&quot;GUI DONE&quot;)     </span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">ephys_information</span>
 
@@ -1439,13 +1548,11 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
     <div class="doc doc-contents ">
 
       <p>path should be the folder session containing the XML file</p>
-<h5 id="pynapple.io.neurosuite.NeuroSuite.load_neurosuite_xml--function-reads">Function reads</h5>
-<ol>
-<li>the number of channels</li>
-<li>the sampling frequency of the dat file or the eeg file depending of what is present in the folder
-    eeg file first if both are present or both are absent</li>
-<li>the mappings shanks to channels as a dict</li>
-</ol>
+<p>Function reads :      <br />
+1. the number of channels
+2. the sampling frequency of the dat file or the eeg file depending of what is present in the folder
+    eeg file first if both are present or both are absent
+3. the mappings shanks to channels as a dict</p>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -1487,8 +1594,7 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    path should be the folder session containing the XML file</span>
 
-<span class="sd">    Function reads</span>
-<span class="sd">    --------------</span>
+<span class="sd">    Function reads :        </span>
 <span class="sd">    1. the number of channels</span>
 <span class="sd">    2. the sampling frequency of the dat file or the eeg file depending of what is present in the folder</span>
 <span class="sd">        eeg file first if both are present or both are absent</span>
@@ -1513,9 +1619,9 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
 
 
     <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span>      <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;nChannels&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">fs_dat</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;samplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">fs_eeg</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;fieldPotentials&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;lfpSamplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span>   <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;nChannels&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fs_dat</span>      <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;samplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fs_eeg</span>      <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;fieldPotentials&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;lfpSamplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">groups</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;anatomicalDescription&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;channelGroups&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span>
@@ -1737,6 +1843,272 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
 
         <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="pynapple.io.neurosuite.NeuroSuite.load_lfp" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load_lfp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;.eeg&#39;</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mf">1250.0</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Load the LFP.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>filename</code></td>
+        <td><code>str</code></td>
+        <td><p>The filename of the lfp file.
+It can be useful it multiple dat files are present in the data directory</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>channel</code></td>
+        <td><code>int or list of int</code></td>
+        <td><p>The channel(s) to load. If None return a memory map of the dat file to avoid memory error</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>extension</code></td>
+        <td><code>str</code></td>
+        <td><p>The file extenstion (.eeg, .dat, .lfp). Make sure the frequency match</p></td>
+        <td><code>&#39;.eeg&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>frequency</code></td>
+        <td><code>float</code></td>
+        <td><p>Default 1250 Hz for the eeg file</p></td>
+        <td><code>1250.0</code></td>
+      </tr>
+      <tr>
+        <td><code>precision</code></td>
+        <td><code>str</code></td>
+        <td><p>The precision of the binary file</p></td>
+        <td><code>&#39;int16&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>bytes_size</code></td>
+        <td><code>int</code></td>
+        <td><p>Bytes size of the lfp file</p></td>
+        <td><code>2</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>RuntimeError</code></td>
+        <td><p>If can't find the lfp/eeg/dat file</p></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Tsd or TsdFrame</code></td>
+      <td><p>The lfp in a time series format</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_lfp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;.eeg&#39;</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mf">1250.0</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load the LFP.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str, optional</span>
+<span class="sd">        The filename of the lfp file.</span>
+<span class="sd">        It can be useful it multiple dat files are present in the data directory</span>
+<span class="sd">    channel : int or list of int, optional</span>
+<span class="sd">        The channel(s) to load. If None return a memory map of the dat file to avoid memory error</span>
+<span class="sd">    extension : str, optional</span>
+<span class="sd">        The file extenstion (.eeg, .dat, .lfp). Make sure the frequency match</span>
+<span class="sd">    frequency : float, optional</span>
+<span class="sd">        Default 1250 Hz for the eeg file</span>
+<span class="sd">    precision : str, optional</span>
+<span class="sd">        The precision of the binary file</span>
+<span class="sd">    bytes_size : int, optional</span>
+<span class="sd">        Bytes size of the lfp file</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        If can&#39;t find the lfp/eeg/dat file</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tsd or TsdFrame</span>
+<span class="sd">        The lfp in a time series format</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">listdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">eegfile</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">extension</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">eegfile</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> contains no </span><span class="si">{}</span><span class="s2"> files;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">extension</span><span class="p">))</span>
+
+        <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">eegfile</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_xml</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="n">n_channels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span><span class="p">)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">startoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">endoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>      
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span><span class="o">-</span><span class="n">startoffile</span><span class="p">)</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">)</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">n_samples</span><span class="o">/</span><span class="n">frequency</span>
+    <span class="n">interval</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">frequency</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>        
+    <span class="n">timestep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">/</span><span class="n">frequency</span>
+
+    <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">duration</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">channel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
+            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">,</span> 
+            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> 
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
+            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
+            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>            
+        <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span>
+            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
+            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="pynapple.io.neurosuite.NeuroSuite.write_neuroscope_intervals" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">write_neuroscope_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span> <span class="n">isets</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Write events to load with neuroscope (e.g. ripples start and ends)</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>extension</code></td>
+        <td><code>str</code></td>
+        <td><p>The extension of the file (e.g. basename.evt.py.rip)</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>isets</code></td>
+        <td><code>IntervalSet</code></td>
+        <td><p>The IntervalSet to write</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the events (e.g. Ripples)</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">write_neuroscope_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span> <span class="n">isets</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Write events to load with neuroscope (e.g. ripples start and ends)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    extension : str</span>
+<span class="sd">        The extension of the file (e.g. basename.evt.py.rip)</span>
+<span class="sd">    isets : IntervalSet</span>
+<span class="sd">        The IntervalSet to write</span>
+<span class="sd">    name : str</span>
+<span class="sd">        The name of the events (e.g. Ripples)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">isets</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>        
+    <span class="n">ends</span> <span class="o">=</span> <span class="n">isets</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">datatowrite</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span><span class="n">ends</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">isets</span><span class="p">)</span>
+
+    <span class="n">texttowrite</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(((</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; start&#39;</span><span class="p">]),</span> <span class="n">n</span><span class="p">)),</span>                         
+                            <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; end&#39;</span><span class="p">]),</span> <span class="n">n</span><span class="p">))</span>
+                                <span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="n">evt_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basename</span> <span class="o">+</span> <span class="n">extension</span><span class="p">)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">evt_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">datatowrite</span><span class="p">,</span> <span class="n">texttowrite</span><span class="p">):</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:1.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>        
+
+    <span class="k">return</span>
 </code></pre></div>
         </details>
     </div>

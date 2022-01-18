@@ -590,6 +590,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pynapple.io.loader.BaseLoader.save_nwb_intervals" class="md-nav__link">
+    save_nwb_intervals()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.loader.BaseLoader.save_nwb_timeseries" class="md-nav__link">
+    save_nwb_timeseries()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.loader.BaseLoader.load_nwb_intervals" class="md-nav__link">
+    load_nwb_intervals()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.loader.BaseLoader.load_nwb_timeseries" class="md-nav__link">
+    load_nwb_timeseries()
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -832,6 +860,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pynapple.io.loader.BaseLoader.save_nwb_intervals" class="md-nav__link">
+    save_nwb_intervals()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.loader.BaseLoader.save_nwb_timeseries" class="md-nav__link">
+    save_nwb_timeseries()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.loader.BaseLoader.load_nwb_intervals" class="md-nav__link">
+    load_nwb_intervals()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.loader.BaseLoader.load_nwb_timeseries" class="md-nav__link">
+    load_nwb_timeseries()
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -962,7 +1018,6 @@ BaseLoader        </code>
         <span class="n">position</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="o">~</span><span class="n">position</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)]</span>        
         <span class="k">return</span> <span class="n">position</span>
 
-
     <span class="k">def</span> <span class="nf">load_optitrack_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">csv_file</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load tracking data exported with Optitrack.</span>
@@ -1067,6 +1122,8 @@ BaseLoader        </code>
         <span class="k">else</span><span class="p">:</span>
 
             <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">time_supports_starts</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">time_support_ends</span> <span class="o">=</span> <span class="p">[]</span>
 
             <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
 
@@ -1100,13 +1157,20 @@ BaseLoader        </code>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No ttl detected for </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
 
-                    <span class="n">start_epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">parameters</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">f</span><span class="p">,</span><span class="s1">&#39;epoch&#39;</span><span class="p">],</span><span class="s1">&#39;start&#39;</span><span class="p">],</span> <span class="n">time_units</span><span class="p">)</span>
-                    <span class="n">timestamps</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">start_epoch</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ttl</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+                    <span class="c1"># Make sure start epochis in seconds</span>
+                    <span class="n">start_epoch</span> <span class="o">=</span> <span class="n">format_timestamp</span><span class="p">(</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">parameters</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">f</span><span class="p">,</span><span class="s1">&#39;epoch&#39;</span><span class="p">],</span><span class="s1">&#39;start&#39;</span><span class="p">],</span> <span class="n">time_units</span><span class="p">)</span>
+                    <span class="n">timestamps</span> <span class="o">=</span> <span class="n">start_epoch</span> <span class="o">+</span> <span class="n">ttl</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
                     <span class="n">position</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">timestamps</span><span class="p">)</span>
 
                 <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+                <span class="n">time_supports_starts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">time_support_ends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
             <span class="n">position</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+
+            <span class="n">time_supports</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">time_supports_starts</span><span class="p">,</span>
+                                            <span class="n">end</span> <span class="o">=</span> <span class="n">time_support_ends</span><span class="p">,</span>
+                                            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
 
             <span class="c1"># Specific to optitrACK</span>
             <span class="k">if</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;rx&#39;</span><span class="p">,</span> <span class="s1">&#39;ry&#39;</span><span class="p">,</span> <span class="s1">&#39;rz&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">position</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
@@ -1118,6 +1182,7 @@ BaseLoader        </code>
                 <span class="n">t</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
                 <span class="n">d</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
                 <span class="n">columns</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_supports</span><span class="p">,</span>
                 <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="n">position</span>
@@ -1137,7 +1202,7 @@ BaseLoader        </code>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        To create the global time support of the data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">],</span><span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">)</span>
+        <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(),</span><span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">)</span>
         <span class="n">iset</span> <span class="o">=</span> <span class="n">isets</span><span class="o">.</span><span class="n">merge_close_intervals</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span> 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">iset</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">iset</span>
@@ -1206,6 +1271,21 @@ BaseLoader        </code>
                     <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">ep</span><span class="p">]</span> <span class="c1"># This is stupid nwb who tries to parse the string</span>
                     <span class="p">)</span>
 
+        <span class="c1"># Adding time support of position as TimeIntervals</span>
+        <span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="n">position_time_support</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;position_time_support&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The time support of the position i.e the real start and end of the tracking&quot;</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">position_time_support</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
+                <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
+                <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
+                <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="p">)</span>
+
+        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">position_time_support</span><span class="p">)</span>
+
         <span class="k">with</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">io</span><span class="p">:</span>
             <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
 
@@ -1249,7 +1329,16 @@ BaseLoader        </code>
                     <span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">position</span><span class="p">):</span>
             <span class="n">position</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+            <span class="c1"># retrieveing time support position if in epochs</span>
+            <span class="k">if</span> <span class="s1">&#39;position_time_support&#39;</span> <span class="ow">in</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s1">&#39;position_time_support&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+                <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;stop_time&#39;</span><span class="p">],</span>
+                    <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">epochs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
@@ -1265,6 +1354,136 @@ BaseLoader        </code>
         <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
         <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">save_nwb_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iset</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add epochs to the NWB file (e.g. ripples epochs)</span>
+<span class="sd">        See pynwb.epoch.TimeIntervals</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        iset : IntervalSet</span>
+<span class="sd">            The intervalSet to save</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name in the nwb file</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+        <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="n">epochs</span> <span class="o">=</span> <span class="n">iset</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="n">time_intervals</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">description</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">epochs</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">time_intervals</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
+                <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
+                <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
+                <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="p">)</span>
+
+        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">time_intervals</span><span class="p">)</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">save_nwb_timeseries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save timestamps in the NWB file (e.g. ripples time) with the time support.        </span>
+<span class="sd">        See pynwb.base.TimeSeries</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tsd : TsdFrame</span>
+<span class="sd">            _</span>
+<span class="sd">        name : str</span>
+<span class="sd">            _</span>
+<span class="sd">        description : str, optional</span>
+<span class="sd">            _</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+        <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> 
+            <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="n">timestamps</span><span class="o">=</span><span class="n">tsd</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="n">time_support</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;_timesupport&#39;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The time support of the object&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">epochs</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">epochs</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">time_support</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
+                <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
+                <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
+                <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="p">)</span>
+        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">time_support</span><span class="p">)</span>
+        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_acquisition</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">load_nwb_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load epochs from the NWB file (e.g. &#39;ripples&#39;)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name in the nwb file</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+
+        <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;stop_time&#39;</span><span class="p">],</span>
+            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">isets</span>
+
+    <span class="k">def</span> <span class="nf">load_nwb_timeseries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load timestamps in the NWB file (e.g. ripples time)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tsd : TsdFrame</span>
+<span class="sd">            _</span>
+<span class="sd">        name : str</span>
+<span class="sd">            _</span>
+<span class="sd">        description : str, optional</span>
+<span class="sd">            _</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">acquisition</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+        <span class="n">time_support</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_nwb_intervals</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;_timesupport&#39;</span><span class="p">)</span>
+
+        <span class="n">tsd</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[:],</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[:],</span>
+            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
+            <span class="p">)</span>
+
+        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">tsd</span>
 </code></pre></div>
         </details>
 
@@ -1761,6 +1980,21 @@ BaseLoader        </code>
                 <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">ep</span><span class="p">]</span> <span class="c1"># This is stupid nwb who tries to parse the string</span>
                 <span class="p">)</span>
 
+    <span class="c1"># Adding time support of position as TimeIntervals</span>
+    <span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="n">position_time_support</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;position_time_support&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The time support of the position i.e the real start and end of the tracking&quot;</span>
+        <span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">position_time_support</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
+            <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
+            <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
+            <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">position_time_support</span><span class="p">)</span>
+
     <span class="k">with</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">io</span><span class="p">:</span>
         <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
 
@@ -1846,7 +2080,16 @@ BaseLoader        </code>
                 <span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">position</span><span class="p">):</span>
         <span class="n">position</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+        <span class="c1"># retrieveing time support position if in epochs</span>
+        <span class="k">if</span> <span class="s1">&#39;position_time_support&#39;</span> <span class="ow">in</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s1">&#39;position_time_support&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;stop_time&#39;</span><span class="p">],</span>
+                <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">epochs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
@@ -1862,6 +2105,336 @@ BaseLoader        </code>
     <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
     <span class="k">return</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="pynapple.io.loader.BaseLoader.save_nwb_intervals" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">save_nwb_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iset</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Add epochs to the NWB file (e.g. ripples epochs)</p>
+<p>See pynwb.epoch.TimeIntervals</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>iset</code></td>
+        <td><code>IntervalSet</code></td>
+        <td><p>The intervalSet to save</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name in the nwb file</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/loader.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">save_nwb_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iset</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add epochs to the NWB file (e.g. ripples epochs)</span>
+<span class="sd">    See pynwb.epoch.TimeIntervals</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    iset : IntervalSet</span>
+<span class="sd">        The intervalSet to save</span>
+<span class="sd">    name : str</span>
+<span class="sd">        The name in the nwb file</span>
+<span class="sd">    &quot;&quot;&quot;</span>        
+    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+    <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="n">epochs</span> <span class="o">=</span> <span class="n">iset</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="n">time_intervals</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="n">description</span>
+        <span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">epochs</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">time_intervals</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
+            <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
+            <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
+            <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">time_intervals</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="pynapple.io.loader.BaseLoader.save_nwb_timeseries" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">save_nwb_timeseries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Save timestamps in the NWB file (e.g. ripples time) with the time support.        </p>
+<p>See pynwb.base.TimeSeries</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>tsd</code></td>
+        <td><code>TsdFrame</code></td>
+        <td><p>_</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>_</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>description</code></td>
+        <td><code>str</code></td>
+        <td><p>_</p></td>
+        <td><code>&#39;&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/loader.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">save_nwb_timeseries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save timestamps in the NWB file (e.g. ripples time) with the time support.        </span>
+<span class="sd">    See pynwb.base.TimeSeries</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tsd : TsdFrame</span>
+<span class="sd">        _</span>
+<span class="sd">    name : str</span>
+<span class="sd">        _</span>
+<span class="sd">    description : str, optional</span>
+<span class="sd">        _</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+    <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> 
+        <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">timestamps</span><span class="o">=</span><span class="n">tsd</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="n">time_support</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;_timesupport&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The time support of the object&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">epochs</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">epochs</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">time_support</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
+            <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
+            <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
+            <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="p">)</span>
+    <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">time_support</span><span class="p">)</span>
+    <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_acquisition</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="pynapple.io.loader.BaseLoader.load_nwb_intervals" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load_nwb_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Load epochs from the NWB file (e.g. 'ripples')</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name in the nwb file</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/loader.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_nwb_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load epochs from the NWB file (e.g. &#39;ripples&#39;)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        The name in the nwb file</span>
+<span class="sd">    &quot;&quot;&quot;</span>        
+    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+
+    <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;stop_time&#39;</span><span class="p">],</span>
+        <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+    <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">isets</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="pynapple.io.loader.BaseLoader.load_nwb_timeseries" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load_nwb_timeseries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Load timestamps in the NWB file (e.g. ripples time)</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>tsd</code></td>
+        <td><code>TsdFrame</code></td>
+        <td><p>_</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>_</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>description</code></td>
+        <td><code>str</code></td>
+        <td><p>_</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/loader.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_nwb_timeseries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load timestamps in the NWB file (e.g. ripples time)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tsd : TsdFrame</span>
+<span class="sd">        _</span>
+<span class="sd">    name : str</span>
+<span class="sd">        _</span>
+<span class="sd">    description : str, optional</span>
+<span class="sd">        _</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">acquisition</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="n">time_support</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_nwb_intervals</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;_timesupport&#39;</span><span class="p">)</span>
+
+    <span class="n">tsd</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[:],</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[:],</span>
+        <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+        <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
+        <span class="p">)</span>
+
+    <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">tsd</span>
 </code></pre></div>
         </details>
     </div>
