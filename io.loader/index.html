@@ -721,6 +721,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process.peristimulus/" class="md-nav__link">
+        Peri-Stimulus
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -968,6 +982,7 @@ BaseLoader        </code>
         <span class="c1"># Starting the GUI</span>
         <span class="k">if</span> <span class="n">start_gui</span><span class="p">:</span>
             <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">setQuitOnLastWindowClosed</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>    
             <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">BaseLoaderGUI</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
             <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 
@@ -984,17 +999,15 @@ BaseLoader        </code>
                     <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">time_units_epochs</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">tracking_alignement</span>
-                    <span class="p">)</span>                
+                    <span class="p">)</span> 
                 <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_epochs</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> 
                     <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">time_units_epochs</span>
                     <span class="p">)</span>
-
                 <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_join_epochs</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">time_units_epochs</span>
                     <span class="p">)</span>
-
                 <span class="c1"># Save the data</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">create_nwb_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
             <span class="n">app</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
@@ -1202,8 +1215,10 @@ BaseLoader        </code>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        To create the global time support of the data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(),</span><span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">)</span>
-        <span class="n">iset</span> <span class="o">=</span> <span class="n">isets</span><span class="o">.</span><span class="n">merge_close_intervals</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span> 
+        <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+            <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(),</span><span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">)</span>
+            <span class="n">iset</span> <span class="o">=</span> <span class="n">isets</span><span class="o">.</span><span class="n">merge_close_intervals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">iset</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">iset</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1261,6 +1276,23 @@ BaseLoader        </code>
             <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_acquisition</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
             <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_acquisition</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
 
+            <span class="c1"># Adding time support of position as TimeIntervals</span>
+            <span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+            <span class="n">position_time_support</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;position_time_support&quot;</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The time support of the position i.e the real start and end of the tracking&quot;</span>
+                <span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+                <span class="n">position_time_support</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
+                    <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
+                    <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
+                    <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                    <span class="p">)</span>
+
+            <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">position_time_support</span><span class="p">)</span>
+
+
+
         <span class="c1"># Epochs</span>
         <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="n">ep</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
@@ -1271,20 +1303,6 @@ BaseLoader        </code>
                     <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">ep</span><span class="p">]</span> <span class="c1"># This is stupid nwb who tries to parse the string</span>
                     <span class="p">)</span>
 
-        <span class="c1"># Adding time support of position as TimeIntervals</span>
-        <span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
-        <span class="n">position_time_support</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;position_time_support&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The time support of the position i.e the real start and end of the tracking&quot;</span>
-            <span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-            <span class="n">position_time_support</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
-                <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
-                <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
-                <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                <span class="p">)</span>
-
-        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">position_time_support</span><span class="p">)</span>
 
         <span class="k">with</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">io</span><span class="p">:</span>
             <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
@@ -1460,11 +1478,7 @@ BaseLoader        </code>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        tsd : TsdFrame</span>
-<span class="sd">            _</span>
 <span class="sd">        name : str</span>
-<span class="sd">            _</span>
-<span class="sd">        description : str, optional</span>
 <span class="sd">            _</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -1970,6 +1984,23 @@ BaseLoader        </code>
         <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_acquisition</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
         <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_acquisition</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
 
+        <span class="c1"># Adding time support of position as TimeIntervals</span>
+        <span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="n">position_time_support</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;position_time_support&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The time support of the position i.e the real start and end of the tracking&quot;</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">position_time_support</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
+                <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
+                <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
+                <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="p">)</span>
+
+        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">position_time_support</span><span class="p">)</span>
+
+
+
     <span class="c1"># Epochs</span>
     <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="n">ep</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
@@ -1980,20 +2011,6 @@ BaseLoader        </code>
                 <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">ep</span><span class="p">]</span> <span class="c1"># This is stupid nwb who tries to parse the string</span>
                 <span class="p">)</span>
 
-    <span class="c1"># Adding time support of position as TimeIntervals</span>
-    <span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
-    <span class="n">position_time_support</span> <span class="o">=</span> <span class="n">TimeIntervals</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;position_time_support&quot;</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The time support of the position i.e the real start and end of the tracking&quot;</span>
-        <span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-        <span class="n">position_time_support</span><span class="o">.</span><span class="n">add_interval</span><span class="p">(</span>
-            <span class="n">start_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
-            <span class="n">stop_time</span><span class="o">=</span><span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">],</span>
-            <span class="n">tags</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-            <span class="p">)</span>
-
-    <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_time_intervals</span><span class="p">(</span><span class="n">position_time_support</span><span class="p">)</span>
 
     <span class="k">with</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">io</span><span class="p">:</span>
         <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
@@ -2384,19 +2401,7 @@ BaseLoader        </code>
   </thead>
   <tbody>
       <tr>
-        <td><code>tsd</code></td>
-        <td><code>TsdFrame</code></td>
-        <td><p>_</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
         <td><code>name</code></td>
-        <td><code>str</code></td>
-        <td><p>_</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>description</code></td>
         <td><code>str</code></td>
         <td><p>_</p></td>
         <td><em>required</em></td>
@@ -2411,11 +2416,7 @@ BaseLoader        </code>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    tsd : TsdFrame</span>
-<span class="sd">        _</span>
 <span class="sd">    name : str</span>
-<span class="sd">        _</span>
-<span class="sd">    description : str, optional</span>
 <span class="sd">        _</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>

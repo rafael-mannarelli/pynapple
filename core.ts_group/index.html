@@ -735,6 +735,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process.peristimulus/" class="md-nav__link">
+        Peri-Stimulus
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1082,7 +1096,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find key </span><span class="si">{}</span><span class="s2"> in group index.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>           
             <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">key</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)]</span>
-            <span class="k">return</span> <span class="n">TsGroup</span><span class="p">({</span><span class="n">k</span><span class="p">:</span><span class="bp">self</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key</span><span class="p">},</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">TsGroup</span><span class="p">({</span><span class="n">k</span><span class="p">:</span><span class="bp">self</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key</span><span class="p">},</span> <span class="n">time_support</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>

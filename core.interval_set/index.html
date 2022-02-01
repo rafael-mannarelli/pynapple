@@ -728,6 +728,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process.peristimulus/" class="md-nav__link">
+        Peri-Stimulus
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -966,7 +980,7 @@ IntervalSet        </code>
 <span class="sd">    A subclass of pandas.DataFrame representing a (irregular) set of time intervals in elapsed time,</span>
 <span class="sd">    with relative operations</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        IntervalSet initializer</span>
 
@@ -999,52 +1013,60 @@ IntervalSet        </code>
             <span class="bp">self</span><span class="o">.</span><span class="n">nts_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
             <span class="k">return</span>
 
-        <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">end</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Starts end ends are not of the same length&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;start is not sorted.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;end is not sorted.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
+
         <span class="n">start</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">start</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">,</span>
-                                            <span class="n">give_warning</span><span class="o">=</span><span class="ow">not</span> <span class="n">expect_fix</span><span class="p">)</span>
+                                            <span class="n">give_warning</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">end</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">,</span>
-                                          <span class="n">give_warning</span><span class="o">=</span><span class="ow">not</span> <span class="n">expect_fix</span><span class="p">)</span>
+                                          <span class="n">give_warning</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
         <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;start is not sorted&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some ends precede the relative start.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
             <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;end is not sorted&quot;</span>
-            <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">end</span><span class="p">):</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;start and end not of the same length&quot;</span>
-            <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># noinspection PyUnresolvedReferences</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;some ends precede the relative start&quot;</span>
-                <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="c1"># noinspection PyUnresolvedReferences</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">end</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;some start precede the previous end&quot;</span>
-                <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
 
-        <span class="k">if</span> <span class="n">to_fix</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">expect_fix</span><span class="p">:</span>
-            <span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts precede the previous end.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>            
+            <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
 
         <span class="k">if</span> <span class="n">to_fix</span><span class="p">:</span>
-            <span class="n">start</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-            <span class="n">end</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
             <span class="n">mm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
             <span class="n">mz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">start</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">end</span><span class="p">)))</span>
-            <span class="n">mx</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
+            <span class="n">mx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span>
             <span class="n">mm</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">mx</span><span class="p">]</span>
             <span class="n">mz</span> <span class="o">=</span> <span class="n">mz</span><span class="p">[</span><span class="n">mx</span><span class="p">]</span>
             <span class="n">good_ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">mz</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">good_ix</span><span class="p">]</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">good_ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
 
-        <span class="c1"># super().__init__({&#39;start&#39;: start, &#39;end&#39;: end}, **kwargs)</span>
-        <span class="c1"># self = self[[&#39;start&#39;, &#39;end&#39;]]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some epochs have no duration&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts and ends are equal.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1"># removing 1 microseconds because bounds are both closed</span>
+            <span class="n">idx2</span> <span class="o">=</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
+
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r_cache</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nts_class&#39;</span><span class="p">]</span>
@@ -1219,11 +1241,16 @@ IntervalSet        </code>
 <span class="sd">            an array with the interval index labels for each time stamp (NaN) for timestamps not in IntervalSet</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-        <span class="c1"># ix = np.array(pd.cut(tsd.index, bins, labels=np.arange(len(bins) - 1, dtype=np.int64)))</span>
+        <span class="c1"># Because yes there is no funtion with both bounds closed as an option</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">tsd</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)))</span>
-        <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">!=</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
-        <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ix</span>
+        <span class="n">ix2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">tsd</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="n">ix3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">ix</span><span class="p">,</span> <span class="n">ix2</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+        <span class="c1"># ix[np.floor(ix / 2) * 2 != ix] = np.NaN</span>
+        <span class="c1"># ix = np.floor(ix/2)</span>
+        <span class="n">ix3</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">!=</span> <span class="n">ix3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+        <span class="n">ix3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">ix3</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix3</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">ix3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">drop_short_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1304,10 +1331,15 @@ IntervalSet        </code>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="p">[],</span> <span class="n">end</span><span class="o">=</span><span class="p">[])</span>
-        <span class="n">tsp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_span</span><span class="p">()</span>
-        <span class="n">i1</span> <span class="o">=</span> <span class="n">tsp</span><span class="o">.</span><span class="n">set_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">i1</span> <span class="o">=</span> <span class="n">i1</span><span class="o">.</span><span class="n">drop_short_intervals</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">tsp</span><span class="o">.</span><span class="n">set_diff</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span>
+
+        <span class="n">threshold</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">threshold</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">tojoin</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="n">tojoin</span><span class="p">]))</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">tojoin</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">the_store</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">data_to_store</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -1399,7 +1431,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    IntervalSet initializer</span>
 
@@ -1432,52 +1464,60 @@ will try to "fix" the data by eliminating some of the start and end data point</
         <span class="bp">self</span><span class="o">.</span><span class="n">nts_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
         <span class="k">return</span>
 
-    <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
-    <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">end</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Starts end ends are not of the same length&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;start is not sorted.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;end is not sorted.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
+
     <span class="n">start</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">start</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">,</span>
-                                        <span class="n">give_warning</span><span class="o">=</span><span class="ow">not</span> <span class="n">expect_fix</span><span class="p">)</span>
+                                        <span class="n">give_warning</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">end</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">,</span>
-                                      <span class="n">give_warning</span><span class="o">=</span><span class="ow">not</span> <span class="n">expect_fix</span><span class="p">)</span>
+                                      <span class="n">give_warning</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;start is not sorted&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some ends precede the relative start.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;end is not sorted&quot;</span>
-        <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">end</span><span class="p">):</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;start and end not of the same length&quot;</span>
-        <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># noinspection PyUnresolvedReferences</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;some ends precede the relative start&quot;</span>
-            <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="c1"># noinspection PyUnresolvedReferences</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">end</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;some start precede the previous end&quot;</span>
-            <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">if</span> <span class="n">to_fix</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">expect_fix</span><span class="p">:</span>
-        <span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts precede the previous end.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>            
+        <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="k">if</span> <span class="n">to_fix</span><span class="p">:</span>
-        <span class="n">start</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-        <span class="n">end</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
         <span class="n">mm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
         <span class="n">mz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">start</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">end</span><span class="p">)))</span>
-        <span class="n">mx</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
+        <span class="n">mx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span>
         <span class="n">mm</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">mx</span><span class="p">]</span>
         <span class="n">mz</span> <span class="o">=</span> <span class="n">mz</span><span class="p">[</span><span class="n">mx</span><span class="p">]</span>
         <span class="n">good_ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">mz</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">good_ix</span><span class="p">]</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">good_ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="c1"># super().__init__({&#39;start&#39;: start, &#39;end&#39;: end}, **kwargs)</span>
-    <span class="c1"># self = self[[&#39;start&#39;, &#39;end&#39;]]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some epochs have no duration&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts and ends are equal.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1"># removing 1 microseconds because bounds are both closed</span>
+        <span class="n">idx2</span> <span class="o">=</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
+
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">r_cache</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nts_class&#39;</span><span class="p">]</span>
@@ -1973,11 +2013,16 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">        an array with the interval index labels for each time stamp (NaN) for timestamps not in IntervalSet</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">bins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-    <span class="c1"># ix = np.array(pd.cut(tsd.index, bins, labels=np.arange(len(bins) - 1, dtype=np.int64)))</span>
+    <span class="c1"># Because yes there is no funtion with both bounds closed as an option</span>
     <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">tsd</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)))</span>
-    <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">!=</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
-    <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ix</span>
+    <span class="n">ix2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">tsd</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="n">ix3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">ix</span><span class="p">,</span> <span class="n">ix2</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+    <span class="c1"># ix[np.floor(ix / 2) * 2 != ix] = np.NaN</span>
+    <span class="c1"># ix = np.floor(ix/2)</span>
+    <span class="n">ix3</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">!=</span> <span class="n">ix3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+    <span class="n">ix3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ix3</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix3</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ix3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
         </details>
     </div>
@@ -2303,10 +2348,15 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="p">[],</span> <span class="n">end</span><span class="o">=</span><span class="p">[])</span>
-    <span class="n">tsp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_span</span><span class="p">()</span>
-    <span class="n">i1</span> <span class="o">=</span> <span class="n">tsp</span><span class="o">.</span><span class="n">set_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-    <span class="n">i1</span> <span class="o">=</span> <span class="n">i1</span><span class="o">.</span><span class="n">drop_short_intervals</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">tsp</span><span class="o">.</span><span class="n">set_diff</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span>
+
+    <span class="n">threshold</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">threshold</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">tojoin</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="n">tojoin</span><span class="p">]))</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">tojoin</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>

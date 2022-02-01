@@ -645,6 +645,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process.peristimulus/" class="md-nav__link">
+        Peri-Stimulus
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -835,32 +849,32 @@
         <details class="quote">
           <summary>Source code in <code>pynapple/io/misc.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_session</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">session_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	General Loader for Neurosuite, Phy or default session.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    General Loader for Neurosuite, Phy or default session.</span>
 
-<span class="sd">	Parameters</span>
-<span class="sd">	----------</span>
-<span class="sd">	path : str, optional</span>
-<span class="sd">	    The path to load the data</span>
-<span class="sd">	session_type : str, optional</span>
-<span class="sd">	    For the moment, pynapple support only &#39;neurosuite&#39;.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : str, optional</span>
+<span class="sd">        The path to load the data</span>
+<span class="sd">    session_type : str, optional</span>
+<span class="sd">        For the moment, pynapple support only &#39;neurosuite&#39;.</span>
 
-<span class="sd">	Returns</span>
-<span class="sd">	-------</span>
-<span class="sd">	Session</span>
-<span class="sd">	    A class holding all the data from the session.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Session</span>
+<span class="sd">        A class holding all the data from the session.</span>
 
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="k">if</span> <span class="n">path</span><span class="p">:</span>
-		<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-			<span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> is not found.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>	
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> is not found.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
-	<span class="k">if</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;neurosuite&#39;</span><span class="p">:</span>
-		<span class="k">return</span> <span class="n">NeuroSuite</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-	<span class="c1"># elif session_type == &#39;phy&#39;:</span>
-	<span class="c1"># 	return NeuroSuite(path)</span>
-	<span class="k">else</span><span class="p">:</span>
-		<span class="k">return</span> <span class="n">BaseLoader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;neurosuite&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">NeuroSuite</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="c1"># elif session_type == &#39;phy&#39;:</span>
+    <span class="c1">#   return NeuroSuite(path)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">BaseLoader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
