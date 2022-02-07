@@ -741,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../process.peristimulus/" class="md-nav__link">
+      <a href="../process.perievent/" class="md-nav__link">
         Peri-Stimulus
       </a>
     </li>
@@ -1027,7 +1027,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">        time_support : IntervalSet, optional</span>
 <span class="sd">            The time support of the TsGroup. Ts/Tsd objects will be restricted to the time support if passed.</span>
 <span class="sd">        time_units : str, optional</span>
-<span class="sd">            Time units if data does not contain Ts/Tsd objects (us, ms, s)</span>
+<span class="sd">            Time units if data does not contain Ts/Tsd objects (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default]).</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Meta-info about the Ts/Tsd objects.</span>
 
@@ -1285,7 +1285,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 
         <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Replace the value of each Ts/Tsd object within the Ts group with the closest value from tsd argument</span>
 
@@ -1294,7 +1294,8 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">        tsd : Tsd</span>
 <span class="sd">            The Tsd object holding the values to replace</span>
 <span class="sd">        ep : IntervalSet</span>
-<span class="sd">            The IntervalSet object to restrict the operation</span>
+<span class="sd">            The IntervalSet object to restrict the operation.</span>
+<span class="sd">            If None, the time support of the tsd input object is used.</span>
 <span class="sd">        align : str, optional</span>
 <span class="sd">            The method to align (closest/prev/next)</span>
 
@@ -1321,6 +1322,8 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">        &gt;&gt;&gt; newtsgroup = tsgroup.value_from(tsd, ep)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ep</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ep</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">time_support</span>        
         <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
         <span class="n">newgr</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
@@ -1341,8 +1344,9 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">            The bin size (default is second)            </span>
 <span class="sd">        ep : IntervalSet, optional</span>
 <span class="sd">            IntervalSet to restrict the operation</span>
+<span class="sd">            If None, the time support of self is used.</span>
 <span class="sd">        time_units : str, optional</span>
-<span class="sd">            Time units of bin size (us, ms, s)</span>
+<span class="sd">            Time units of bin size (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1380,7 +1384,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
-            <span class="n">ep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_union_time_support</span><span class="p">()</span>
+            <span class="n">ep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span>
 
         <span class="n">bin_size_us</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bin_size</span><span class="p">]),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -1396,7 +1400,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
         <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
         <span class="n">time_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">time_index</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">count</span><span class="p">,</span> <span class="n">support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">count</span><span class="p">,</span> <span class="n">support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Special slicing of metadata</span>
@@ -1618,7 +1622,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
       <tr>
         <td><code>time_units</code></td>
         <td><code>str</code></td>
-        <td><p>Time units if data does not contain Ts/Tsd objects (us, ms, s)</p></td>
+        <td><p>Time units if data does not contain Ts/Tsd objects ('us', 'ms', 's' [default]).</p></td>
         <td><code>&#39;s&#39;</code></td>
       </tr>
       <tr>
@@ -1657,7 +1661,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">    time_support : IntervalSet, optional</span>
 <span class="sd">        The time support of the TsGroup. Ts/Tsd objects will be restricted to the time support if passed.</span>
 <span class="sd">    time_units : str, optional</span>
-<span class="sd">        Time units if data does not contain Ts/Tsd objects (us, ms, s)</span>
+<span class="sd">        Time units if data does not contain Ts/Tsd objects (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default]).</span>
 <span class="sd">    **kwargs</span>
 <span class="sd">        Meta-info about the Ts/Tsd objects.</span>
 
@@ -2209,7 +2213,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 
 
 <h3 id="pynapple.core.ts_group.TsGroup.value_from" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">)</span></code>
 
 
 </h3>
@@ -2238,8 +2242,9 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet</code></td>
-        <td><p>The IntervalSet object to restrict the operation</p></td>
-        <td><em>required</em></td>
+        <td><p>The IntervalSet object to restrict the operation.
+If None, the time support of the tsd input object is used.</p></td>
+        <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>align</code></td>
@@ -2282,7 +2287,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Replace the value of each Ts/Tsd object within the Ts group with the closest value from tsd argument</span>
 
@@ -2291,7 +2296,8 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">    tsd : Tsd</span>
 <span class="sd">        The Tsd object holding the values to replace</span>
 <span class="sd">    ep : IntervalSet</span>
-<span class="sd">        The IntervalSet object to restrict the operation</span>
+<span class="sd">        The IntervalSet object to restrict the operation.</span>
+<span class="sd">        If None, the time support of the tsd input object is used.</span>
 <span class="sd">    align : str, optional</span>
 <span class="sd">        The method to align (closest/prev/next)</span>
 
@@ -2318,6 +2324,8 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">    &gt;&gt;&gt; newtsgroup = tsgroup.value_from(tsd, ep)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ep</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ep</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">time_support</span>        
     <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
     <span class="n">newgr</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
@@ -2369,13 +2377,14 @@ If no epochs is passed, the data will be binned based on the time support.</p>
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet</code></td>
-        <td><p>IntervalSet to restrict the operation</p></td>
+        <td><p>IntervalSet to restrict the operation
+If None, the time support of self is used.</p></td>
         <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>time_units</code></td>
         <td><code>str</code></td>
-        <td><p>Time units of bin size (us, ms, s)</p></td>
+        <td><p>Time units of bin size ('us', 'ms', 's' [default])</p></td>
         <td><code>&#39;s&#39;</code></td>
       </tr>
   </tbody>
@@ -2437,8 +2446,9 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 <span class="sd">        The bin size (default is second)            </span>
 <span class="sd">    ep : IntervalSet, optional</span>
 <span class="sd">        IntervalSet to restrict the operation</span>
+<span class="sd">        If None, the time support of self is used.</span>
 <span class="sd">    time_units : str, optional</span>
-<span class="sd">        Time units of bin size (us, ms, s)</span>
+<span class="sd">        Time units of bin size (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2476,7 +2486,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
-        <span class="n">ep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_union_time_support</span><span class="p">()</span>
+        <span class="n">ep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span>
 
     <span class="n">bin_size_us</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bin_size</span><span class="p">]),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -2492,7 +2502,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
     <span class="n">time_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">time_index</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">count</span><span class="p">,</span> <span class="n">support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">count</span><span class="p">,</span> <span class="n">support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>

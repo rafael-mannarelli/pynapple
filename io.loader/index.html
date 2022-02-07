@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../process.peristimulus/" class="md-nav__link">
+      <a href="../process.perievent/" class="md-nav__link">
         Peri-Stimulus
       </a>
     </li>
@@ -982,35 +982,39 @@ BaseLoader        </code>
         <span class="c1"># Starting the GUI</span>
         <span class="k">if</span> <span class="n">start_gui</span><span class="p">:</span>
             <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
-            <span class="n">app</span><span class="o">.</span><span class="n">setQuitOnLastWindowClosed</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>    
-            <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">BaseLoaderGUI</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">setQuitOnLastWindowClosed</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">window</span> <span class="o">=</span> <span class="n">BaseLoaderGUI</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
             <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 
             <span class="c1"># Extracting all the informations from gui loader</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">session_information</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">session_information</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">subject_information</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">subject_information</span>
+            <span class="k">if</span> <span class="n">window</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">session_information</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">session_information</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">subject_information</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">subject_information</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_information</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">tracking_frequency</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">tracking_frequency</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tracking_frequency</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">tracking_frequency</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_position</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">tracking_parameters</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">tracking_method</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">tracking_frequency</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">time_units_epochs</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">tracking_alignement</span>
+                    <span class="n">window</span><span class="o">.</span><span class="n">tracking_parameters</span><span class="p">,</span>
+                    <span class="n">window</span><span class="o">.</span><span class="n">tracking_method</span><span class="p">,</span>
+                    <span class="n">window</span><span class="o">.</span><span class="n">tracking_frequency</span><span class="p">,</span>
+                    <span class="n">window</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
+                    <span class="n">window</span><span class="o">.</span><span class="n">time_units_epochs</span><span class="p">,</span>
+                    <span class="n">window</span><span class="o">.</span><span class="n">tracking_alignement</span>
                     <span class="p">)</span> 
                 <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_epochs</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> 
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">time_units_epochs</span>
+                    <span class="n">window</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> 
+                    <span class="n">window</span><span class="o">.</span><span class="n">time_units_epochs</span>
                     <span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_join_epochs</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">time_units_epochs</span>
+                    <span class="n">window</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
+                    <span class="n">window</span><span class="o">.</span><span class="n">time_units_epochs</span>
                     <span class="p">)</span>
                 <span class="c1"># Save the data</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">create_nwb_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">create_nwb_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>            
             <span class="n">app</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+            <span class="c1"># print(&#39;\n&#39;.join(repr(w) for w in app.allWidgets()))</span>
+            <span class="c1"># del app, window</span>
 
     <span class="k">def</span> <span class="nf">load_default_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">csv_file</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1056,13 +1060,17 @@ BaseLoader        </code>
             <span class="n">position</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">position</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="o">~</span><span class="n">position</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)]</span>
         <span class="n">order</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">position</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Rotation&#39;</span><span class="p">:</span>
                 <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="o">+</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+                <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Position&#39;</span><span class="p">:</span>
                 <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
-            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Unknow tracking format for csv file </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csv_file</span><span class="p">))</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
         <span class="n">position</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">order</span>
         <span class="k">return</span> <span class="n">position</span>
 
@@ -1478,7 +1486,11 @@ BaseLoader        </code>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
+<span class="sd">        tsd : TsdFrame</span>
+<span class="sd">            _</span>
 <span class="sd">        name : str</span>
+<span class="sd">            _</span>
+<span class="sd">        description : str, optional</span>
 <span class="sd">            _</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -1682,13 +1694,17 @@ BaseLoader        </code>
         <span class="n">position</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">position</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="o">~</span><span class="n">position</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)]</span>
     <span class="n">order</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">position</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Rotation&#39;</span><span class="p">:</span>
             <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="o">+</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+            <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Position&#39;</span><span class="p">:</span>
             <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
-        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Unknow tracking format for csv file </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csv_file</span><span class="p">))</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
     <span class="n">position</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">order</span>
     <span class="k">return</span> <span class="n">position</span>
 </code></pre></div>
@@ -2401,7 +2417,19 @@ BaseLoader        </code>
   </thead>
   <tbody>
       <tr>
+        <td><code>tsd</code></td>
+        <td><code>TsdFrame</code></td>
+        <td><p>_</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
         <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>_</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>description</code></td>
         <td><code>str</code></td>
         <td><p>_</p></td>
         <td><em>required</em></td>
@@ -2416,7 +2444,11 @@ BaseLoader        </code>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    tsd : TsdFrame</span>
+<span class="sd">        _</span>
 <span class="sd">    name : str</span>
+<span class="sd">        _</span>
+<span class="sd">    description : str, optional</span>
 <span class="sd">        _</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>

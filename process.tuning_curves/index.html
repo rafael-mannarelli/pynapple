@@ -643,6 +643,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pynapple.process.tuning_curves.compute_1d_tuning_curves_continous" class="md-nav__link">
+    compute_1d_tuning_curves_continous()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pynapple.process.tuning_curves.compute_2d_tuning_curves_continuous" class="md-nav__link">
+    compute_2d_tuning_curves_continuous()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -672,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../process.peristimulus/" class="md-nav__link">
+      <a href="../process.perievent/" class="md-nav__link">
         Peri-Stimulus
       </a>
     </li>
@@ -797,6 +811,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pynapple.process.tuning_curves.compute_1d_tuning_curves_continous" class="md-nav__link">
+    compute_1d_tuning_curves_continous()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pynapple.process.tuning_curves.compute_2d_tuning_curves_continuous" class="md-nav__link">
+    compute_2d_tuning_curves_continuous()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -838,7 +866,7 @@
 
 
 <h2 id="pynapple.process.tuning_curves.compute_1d_tuning_curves" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">compute_1d_tuning_curves</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">compute_1d_tuning_curves</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
 
 </h2>
@@ -860,7 +888,7 @@
   <tbody>
       <tr>
         <td><code>group</code></td>
-        <td><code>TsGroup or dict of Ts/Tsd objects</code></td>
+        <td><code>TsGroup</code></td>
         <td><p>The group of Ts/Tsd for which the tuning curves will be computed</p></td>
         <td><em>required</em></td>
       </tr>
@@ -871,16 +899,17 @@
         <td><em>required</em></td>
       </tr>
       <tr>
-        <td><code>ep</code></td>
-        <td><code>IntervalSet</code></td>
-        <td><p>The epoch on which tuning curves are computed</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
         <td><code>nb_bins</code></td>
         <td><code>int</code></td>
         <td><p>Number of bins in the tuning curve</p></td>
         <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>ep</code></td>
+        <td><code>IntervalSet</code></td>
+        <td><p>The epoch on which tuning curves are computed.
+If None, the epoch is the time support of the feature.</p></td>
+        <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>minmax</code></td>
@@ -888,6 +917,21 @@
         <td><p>The min and max boundaries of the tuning curves.
 If None, the boundaries are inferred from the target feature</p></td>
         <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>RuntimeError</code></td>
+        <td><p>If group is not a TsGroup object.</p></td>
       </tr>
   </tbody>
 </table>
@@ -908,21 +952,22 @@ If None, the boundaries are inferred from the target feature</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_tuning_curves</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_tuning_curves</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes 1-dimensional tuning curves relative to a 1d feature.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    group: TsGroup or dict of Ts/Tsd objects</span>
+<span class="sd">    group : TsGroup</span>
 <span class="sd">        The group of Ts/Tsd for which the tuning curves will be computed </span>
-<span class="sd">    feature: Tsd</span>
+<span class="sd">    feature : Tsd</span>
 <span class="sd">        The 1-dimensional target feature (e.g. head-direction)</span>
-<span class="sd">    ep: IntervalSet</span>
-<span class="sd">        The epoch on which tuning curves are computed</span>
-<span class="sd">    nb_bins: int</span>
+<span class="sd">    nb_bins : int</span>
 <span class="sd">        Number of bins in the tuning curve</span>
-<span class="sd">    minmax: tuple or list, optional</span>
+<span class="sd">    ep : IntervalSet, optional</span>
+<span class="sd">        The epoch on which tuning curves are computed.</span>
+<span class="sd">        If None, the epoch is the time support of the feature.</span>
+<span class="sd">    minmax : tuple or list, optional</span>
 <span class="sd">        The min and max boundaries of the tuning curves.</span>
 <span class="sd">        If None, the boundaries are inferred from the target feature</span>
 
@@ -930,11 +975,15 @@ If None, the boundaries are inferred from the target feature</p></td>
 <span class="sd">    -------</span>
 <span class="sd">    pandas.DataFrame</span>
 <span class="sd">        DataFrame to hold the tuning curves</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="n">group</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">)</span>
 
-    <span class="n">group_value</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">)</span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        If group is not a TsGroup object.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for group&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">nb_bins</span><span class="p">)</span>
@@ -942,12 +991,17 @@ If None, the boundaries are inferred from the target feature</p></td>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">)</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
 
-    <span class="n">tuning_curves</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>    
+    <span class="n">tuning_curves</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>    
 
-    <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+        <span class="n">group_value</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">)</span>
+        <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">group_value</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+        <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">group_value</span><span class="p">:</span>
-        <span class="n">count</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">group_value</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span> 
+        <span class="n">count</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">group_value</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span> 
         <span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">/</span><span class="n">occupancy</span>
         <span class="n">count</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">tuning_curves</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
@@ -967,7 +1021,7 @@ If None, the boundaries are inferred from the target feature</p></td>
 
 
 <h2 id="pynapple.process.tuning_curves.compute_2d_tuning_curves" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">compute_2d_tuning_curves</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">compute_2d_tuning_curves</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
 
 </h2>
@@ -989,20 +1043,14 @@ If None, the boundaries are inferred from the target feature</p></td>
   <tbody>
       <tr>
         <td><code>group</code></td>
-        <td><code>TsGroup or dict of Ts/Tsd objects</code></td>
-        <td><p>The group input</p></td>
+        <td><code>TsGroup</code></td>
+        <td><p>The group of Ts/Tsd for which the tuning curves will be computed</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>feature</code></td>
-        <td><code>2d TsdFrame</code></td>
-        <td><p>The 2d feature.</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>ep</code></td>
-        <td><code>IntervalSet</code></td>
-        <td><p>The epoch on which tuning curves are computed</p></td>
+        <td><code>TsdFrame</code></td>
+        <td><p>The 2d feature (i.e. 2 columns features).</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
@@ -1012,12 +1060,34 @@ If None, the boundaries are inferred from the target feature</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
+        <td><code>ep</code></td>
+        <td><code>IntervalSet</code></td>
+        <td><p>The epoch on which tuning curves are computed.
+If None, the epoch is the time support of the feature.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
         <td><code>minmax</code></td>
         <td><code>tuple or list</code></td>
         <td><p>The min and max boundaries of the tuning curves given as:
 (minx, maxx, miny, maxy)
 If None, the boundaries are inferred from the target variable</p></td>
         <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>RuntimeError</code></td>
+        <td><p>If group is not a TsGroup object or if feature is not 2 columns only.</p></td>
       </tr>
   </tbody>
 </table>
@@ -1039,21 +1109,22 @@ n is the number of object in the input group.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_2d_tuning_curves</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_2d_tuning_curves</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes 2-dimensional tuning curves relative to a 2d feature</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    group: TsGroup or dict of Ts/Tsd objects</span>
-<span class="sd">        The group input</span>
-<span class="sd">    feature: 2d TsdFrame</span>
-<span class="sd">        The 2d feature.</span>
-<span class="sd">    ep: IntervalSet</span>
-<span class="sd">        The epoch on which tuning curves are computed</span>
-<span class="sd">    nb_bins: int</span>
+<span class="sd">    group : TsGroup</span>
+<span class="sd">        The group of Ts/Tsd for which the tuning curves will be computed </span>
+<span class="sd">    feature : TsdFrame</span>
+<span class="sd">        The 2d feature (i.e. 2 columns features).</span>
+<span class="sd">    nb_bins : int</span>
 <span class="sd">        Number of bins in the tuning curves</span>
-<span class="sd">    minmax: tuple or list, optional</span>
+<span class="sd">    ep : IntervalSet, optional</span>
+<span class="sd">        The epoch on which tuning curves are computed.</span>
+<span class="sd">        If None, the epoch is the time support of the feature.</span>
+<span class="sd">    minmax : tuple or list, optional</span>
 <span class="sd">        The min and max boundaries of the tuning curves given as:</span>
 <span class="sd">        (minx, maxx, miny, maxy)</span>
 <span class="sd">        If None, the boundaries are inferred from the target variable</span>
@@ -1066,17 +1137,27 @@ n is the number of object in the input group.</p></td>
 <span class="sd">    list</span>
 <span class="sd">        bins center in the two dimensions</span>
 
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        If group is not a TsGroup object or if feature is not 2 columns only.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="n">group</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">)</span>
-
     <span class="k">if</span> <span class="n">feature</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Variable is not 2 dimensional.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;feature should have 2 columns only.&quot;</span><span class="p">)</span>
 
-    <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for group&quot;</span><span class="p">)</span>
 
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ep</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">time_support</span>
+
+    <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>    
     <span class="n">groups_value</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">binsxy</span> <span class="o">=</span> <span class="p">{}</span>
+
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
         <span class="n">groups_value</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">ep</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1117,7 +1198,7 @@ n is the number of object in the input group.</p></td>
 
 
 <h2 id="pynapple.process.tuning_curves.compute_1d_mutual_info" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">compute_1d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">compute_1d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 
 
 </h2>
@@ -1155,8 +1236,9 @@ In Advances in neural information processing systems (pp. 1030-1037).</p>
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet</code></td>
-        <td><p>The epoch over which the tuning curves were computed</p></td>
-        <td><em>required</em></td>
+        <td><p>The epoch over which the tuning curves were computed
+If None, the epoch is the time support of the feature.</p></td>
+        <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>minmax</code></td>
@@ -1191,7 +1273,7 @@ Set to true for bits per seconds</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Mutual information as defined in </span>
 
@@ -1205,12 +1287,13 @@ Set to true for bits per seconds</p></td>
 <span class="sd">        Tuning curves in columns</span>
 <span class="sd">    feature : Tsd</span>
 <span class="sd">        The feature that was used to compute the tuning curves</span>
-<span class="sd">    ep : IntervalSet</span>
+<span class="sd">    ep : IntervalSet, optional</span>
 <span class="sd">        The epoch over which the tuning curves were computed</span>
-<span class="sd">    minmax: tuple or list, optional</span>
+<span class="sd">        If None, the epoch is the time support of the feature.</span>
+<span class="sd">    minmax : tuple or list, optional</span>
 <span class="sd">        The min and max boundaries of the tuning curves.</span>
 <span class="sd">        If None, the boundaries are inferred from the target feature</span>
-<span class="sd">    bitssec: bool, optional</span>
+<span class="sd">    bitssec : bool, optional</span>
 <span class="sd">        By default, the function return bits per spikes.</span>
 <span class="sd">        Set to true for bits per seconds</span>
 
@@ -1233,9 +1316,10 @@ Set to true for bits per seconds</p></td>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">)</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
 
-
-
-    <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+        <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
     <span class="n">occupancy</span> <span class="o">=</span> <span class="n">occupancy</span> <span class="o">/</span> <span class="n">occupancy</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="n">occupancy</span> <span class="o">=</span> <span class="n">occupancy</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
@@ -1267,7 +1351,7 @@ Set to true for bits per seconds</p></td>
 
 
 <h2 id="pynapple.process.tuning_curves.compute_2d_mutual_info" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">compute_2d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">compute_2d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 
 
 </h2>
@@ -1299,14 +1383,15 @@ In Advances in neural information processing systems (pp. 1030-1037).</p>
       <tr>
         <td><code>features</code></td>
         <td><code>TsdFrame</code></td>
-        <td><p>The features that were used to compute the tuning curves</p></td>
+        <td><p>The 2 columns features that were used to compute the tuning curves</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet</code></td>
-        <td><p>The epoch over which the tuning curves were computed</p></td>
-        <td><em>required</em></td>
+        <td><p>The epoch over which the tuning curves were computed
+If None, the epoch is the time support of the feature.</p></td>
+        <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>minmax</code></td>
@@ -1341,7 +1426,7 @@ Set to true for bits per seconds</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_2d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_2d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Mutual information as defined in </span>
 
@@ -1354,9 +1439,10 @@ Set to true for bits per seconds</p></td>
 <span class="sd">    tc : dict or numpy.ndarray</span>
 <span class="sd">        If array, first dimension should be the neuron</span>
 <span class="sd">    features : TsdFrame</span>
-<span class="sd">        The features that were used to compute the tuning curves</span>
-<span class="sd">    ep : IntervalSet</span>
+<span class="sd">        The 2 columns features that were used to compute the tuning curves</span>
+<span class="sd">    ep : IntervalSet, optional</span>
 <span class="sd">        The epoch over which the tuning curves were computed</span>
+<span class="sd">        If None, the epoch is the time support of the feature.</span>
 <span class="sd">    minmax: tuple or list, optional</span>
 <span class="sd">        The min and max boundaries of the tuning curves.</span>
 <span class="sd">        If None, the boundaries are inferred from the target features</span>
@@ -1388,9 +1474,11 @@ Set to true for bits per seconds</p></td>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">bins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
+
     <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
     <span class="n">occupancy</span> <span class="o">=</span> <span class="n">occupancy</span> <span class="o">/</span> <span class="n">occupancy</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
 
     <span class="n">fr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">fx</span> <span class="o">*</span> <span class="n">occupancy</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
     <span class="n">fr</span> <span class="o">=</span> <span class="n">fr</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
@@ -1408,6 +1496,332 @@ Set to true for bits per seconds</p></td>
         <span class="n">SI</span> <span class="o">=</span> <span class="n">SI</span> <span class="o">/</span> <span class="n">fr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SI&#39;</span><span class="p">],</span> <span class="n">data</span> <span class="o">=</span> <span class="n">SI</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">SI</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="pynapple.process.tuning_curves.compute_1d_tuning_curves_continous" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">compute_1d_tuning_curves_continous</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Computes 1-dimensional tuning curves relative to a feature with continous data.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>tsdframe</code></td>
+        <td><code>Tsd or TsdFrame</code></td>
+        <td><p>Input data (e.g. continus calcium data 
+where each column is the calcium activity of one neuron)</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>feature</code></td>
+        <td><code>Tsd</code></td>
+        <td><p>The feature (one column)</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>nb_bins</code></td>
+        <td><code>int</code></td>
+        <td><p>Number of bins in the tuning curves</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>ep</code></td>
+        <td><code>IntervalSet</code></td>
+        <td><p>The epoch on which tuning curves are computed.
+If None, the epoch is the time support of the feature.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>minmax</code></td>
+        <td><code>tuple or list</code></td>
+        <td><p>The min and max boundaries of the tuning curves.
+If None, the boundaries are inferred from the target feature</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>RuntimeError</code></td>
+        <td><p>If tsdframe is not a Tsd or a TsdFrame object.</p></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pandas.DataFrame</code></td>
+      <td><p>DataFrame to hold the tuning curves</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_tuning_curves_continous</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes 1-dimensional tuning curves relative to a feature with continous data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tsdframe : Tsd or TsdFrame</span>
+<span class="sd">        Input data (e.g. continus calcium data </span>
+<span class="sd">        where each column is the calcium activity of one neuron)</span>
+<span class="sd">    feature : Tsd</span>
+<span class="sd">        The feature (one column)</span>
+<span class="sd">    nb_bins : int</span>
+<span class="sd">        Number of bins in the tuning curves</span>
+<span class="sd">    ep : IntervalSet, optional</span>
+<span class="sd">        The epoch on which tuning curves are computed.</span>
+<span class="sd">        If None, the epoch is the time support of the feature.</span>
+<span class="sd">    minmax : tuple or list, optional</span>
+<span class="sd">        The min and max boundaries of the tuning curves.</span>
+<span class="sd">        If None, the boundaries are inferred from the target feature</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        DataFrame to hold the tuning curves    </span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        If tsdframe is not a Tsd or a TsdFrame object.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">,</span> <span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for tsdframe.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
+        <span class="n">tsdframe</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tsdframe</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">nb_bins</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">)</span>
+
+    <span class="n">align_times</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">align_times</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">tmp</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="pynapple.process.tuning_curves.compute_2d_tuning_curves_continuous" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">compute_2d_tuning_curves_continuous</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Computes 2-dimensional tuning curves relative to a 2d feature with continous data.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>tsdframe</code></td>
+        <td><code>Tsd or TsdFrame</code></td>
+        <td><p>Input data (e.g. continus calcium data 
+where each column is the calcium activity of one neuron)</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>features</code></td>
+        <td><code>TsdFrame</code></td>
+        <td><p>The 2d feature (two columns).</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>nb_bins</code></td>
+        <td><code>int</code></td>
+        <td><p>Number of bins in the tuning curves</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>ep</code></td>
+        <td><code>IntervalSet</code></td>
+        <td><p>The epoch on which tuning curves are computed.
+If None, the epoch is the time support of the feature.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>minmax</code></td>
+        <td><code>tuple or list</code></td>
+        <td><p>The min and max boundaries of the tuning curves given as:
+(minx, maxx, miny, maxy)
+If None, the boundaries are inferred from the target variable</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>RuntimeError</code></td>
+        <td><p>If tsdframe is not a Tsd/TsdFrame or if features is not 2 columns</p></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>numpy.ndarray</code></td>
+      <td><p>Stacked array of the tuning curves with dimensions (n, nb_bins, nb_bins).
+n is the number of object in the input group.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_2d_tuning_curves_continuous</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes 2-dimensional tuning curves relative to a 2d feature with continous data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tsdframe : Tsd or TsdFrame</span>
+<span class="sd">        Input data (e.g. continus calcium data </span>
+<span class="sd">        where each column is the calcium activity of one neuron)</span>
+<span class="sd">    features : TsdFrame</span>
+<span class="sd">        The 2d feature (two columns).</span>
+<span class="sd">    nb_bins : int</span>
+<span class="sd">        Number of bins in the tuning curves</span>
+<span class="sd">    ep : IntervalSet, optional</span>
+<span class="sd">        The epoch on which tuning curves are computed.</span>
+<span class="sd">        If None, the epoch is the time support of the feature.</span>
+<span class="sd">    minmax : tuple or list, optional</span>
+<span class="sd">        The min and max boundaries of the tuning curves given as:</span>
+<span class="sd">        (minx, maxx, miny, maxy)</span>
+<span class="sd">        If None, the boundaries are inferred from the target variable</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        Stacked array of the tuning curves with dimensions (n, nb_bins, nb_bins).</span>
+<span class="sd">        n is the number of object in the input group. </span>
+<span class="sd">    list</span>
+<span class="sd">        bins center in the two dimensions</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        If tsdframe is not a Tsd/TsdFrame or if features is not 2 columns</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">,</span> <span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for tsdframe.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
+        <span class="n">tsdframe</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tsdframe</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;features input is not 2 columns.&quot;</span><span class="p">)</span>
+
+    <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+    <span class="n">binsxy</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">idxs</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">nb_bins</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">)</span>
+
+        <span class="n">align_times</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">ep</span><span class="p">)</span>
+        <span class="n">idxs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">align_times</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">bins</span>
+
+    <span class="n">idxs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">idxs</span><span class="p">)</span>
+
+    <span class="n">tc_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">tsdframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">tmp</span> <span class="ow">in</span> <span class="n">idxs</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+        <span class="n">tc_np</span><span class="p">[:,</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">tmp</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">binsxy</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+
+    <span class="k">return</span> <span class="n">tc_np</span><span class="p">,</span> <span class="n">xy</span>
 </code></pre></div>
         </details>
     </div>

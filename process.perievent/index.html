@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pynapple.process.peristimulus" class="md-skip">
+        <a href="#pynapple.process.perievent" class="md-skip">
           Skip to content
         </a>
       
@@ -637,22 +637,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pynapple.process.peristimulus" class="md-nav__link">
-    pynapple.process.peristimulus
+  <a href="#pynapple.process.perievent" class="md-nav__link">
+    pynapple.process.perievent
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pynapple.process.peristimulus.align_to_event" class="md-nav__link">
+  <a href="#pynapple.process.perievent.align_to_event" class="md-nav__link">
     align_to_event()
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pynapple.process.peristimulus.compute_peristimulus" class="md-nav__link">
-    compute_peristimulus()
+  <a href="#pynapple.process.perievent.compute_perievent" class="md-nav__link">
+    compute_perievent()
   </a>
   
 </li>
@@ -749,22 +749,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pynapple.process.peristimulus" class="md-nav__link">
-    pynapple.process.peristimulus
+  <a href="#pynapple.process.perievent" class="md-nav__link">
+    pynapple.process.perievent
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pynapple.process.peristimulus.align_to_event" class="md-nav__link">
+  <a href="#pynapple.process.perievent.align_to_event" class="md-nav__link">
     align_to_event()
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pynapple.process.peristimulus.compute_peristimulus" class="md-nav__link">
-    compute_peristimulus()
+  <a href="#pynapple.process.perievent.compute_perievent" class="md-nav__link">
+    compute_perievent()
   </a>
   
 </li>
@@ -781,7 +781,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/PeyracheLab/pynapple/edit/master/docs/process.peristimulus.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/PeyracheLab/pynapple/edit/master/docs/process.perievent.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
@@ -790,7 +790,7 @@
 
 <div class="doc doc-object doc-module">
 
-<a id="pynapple.process.peristimulus"></a>
+<a id="pynapple.process.perievent"></a>
     <div class="doc doc-contents first">
 
 
@@ -809,7 +809,7 @@
 
 
 
-<h2 id="pynapple.process.peristimulus.align_to_event" class="doc doc-heading">
+<h2 id="pynapple.process.perievent.align_to_event" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">align_to_event</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tref</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span></code>
 
 
@@ -818,7 +818,7 @@
     <div class="doc doc-contents ">
 
       <p>Helper function compiled with numba for aligning times.</p>
-<p>See compute_peristimulus for using this function</p>
+<p>See compute_perievent for using this function</p>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -873,12 +873,12 @@
   </tbody>
 </table>
         <details class="quote">
-          <summary>Source code in <code>pynapple/process/peristimulus.py</code></summary>
+          <summary>Source code in <code>pynapple/process/perievent.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">align_to_event</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tref</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Helper function compiled with numba for aligning times.</span>
-<span class="sd">    See compute_peristimulus for using this function</span>
+<span class="sd">    See compute_perievent for using this function</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -925,8 +925,8 @@
 
 
 
-<h2 id="pynapple.process.peristimulus.compute_peristimulus" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">compute_peristimulus</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">tref</span><span class="p">,</span> <span class="n">minmax</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span></code>
+<h2 id="pynapple.process.perievent.compute_perievent" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">compute_perievent</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">tref</span><span class="p">,</span> <span class="n">minmax</span><span class="p">,</span> <span class="n">time_unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span></code>
 
 
 </h2>
@@ -958,7 +958,7 @@ If TsGroup, returns a dictionnary of TsGroup</p></td>
       <tr>
         <td><code>tref</code></td>
         <td><code>Ts/Tsd</code></td>
-        <td><p>The timestamps of the stimulus to align to</p></td>
+        <td><p>The timestamps of the event to align to</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
@@ -968,9 +968,9 @@ If TsGroup, returns a dictionnary of TsGroup</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
-        <td><code>time_units</code></td>
+        <td><code>time_unit</code></td>
         <td><code>str</code></td>
-        <td><p>Time units of the minmax. Default is second.</p></td>
+        <td><p>Time units of the minmax ('s' [default], 'ms', 'us').</p></td>
         <td><code>&#39;s&#39;</code></td>
       </tr>
   </tbody>
@@ -1007,8 +1007,8 @@ a dictionnary of TsGroup if data is a TsGroup.</p></td>
   </tbody>
 </table>
         <details class="quote">
-          <summary>Source code in <code>pynapple/process/peristimulus.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_peristimulus</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">tref</span><span class="p">,</span>  <span class="n">minmax</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <summary>Source code in <code>pynapple/process/perievent.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_perievent</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">tref</span><span class="p">,</span>  <span class="n">minmax</span><span class="p">,</span> <span class="n">time_unit</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Center ts/tsd/tsgroup object around the timestamps given by the tref argument.</span>
 <span class="sd">    minmax indicates the start and end of the window.</span>
@@ -1020,11 +1020,11 @@ a dictionnary of TsGroup if data is a TsGroup.</p></td>
 <span class="sd">        If Ts/Tsd, returns a TsGroup. </span>
 <span class="sd">        If TsGroup, returns a dictionnary of TsGroup</span>
 <span class="sd">    tref : Ts/Tsd</span>
-<span class="sd">        The timestamps of the stimulus to align to</span>
+<span class="sd">        The timestamps of the event to align to</span>
 <span class="sd">    minmax : tuple or int or float</span>
 <span class="sd">        The window size. Can be unequal on each side i.e. (-500, 1000).</span>
-<span class="sd">    time_units : str, optional</span>
-<span class="sd">        Time units of the minmax. Default is second.</span>
+<span class="sd">    time_unit : str, optional</span>
+<span class="sd">        Time units of the minmax (&#39;s&#39; [default], &#39;ms&#39;, &#39;us&#39;).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -1043,14 +1043,14 @@ a dictionnary of TsGroup if data is a TsGroup.</p></td>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">minmax</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">minmax</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
         <span class="n">minmax</span> <span class="o">=</span> <span class="p">(</span><span class="n">minmax</span><span class="p">,</span> <span class="n">minmax</span><span class="p">)</span>
 
-    <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">minmax</span><span class="p">),</span> <span class="n">time_units</span><span class="p">))</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">minmax</span><span class="p">),</span> <span class="n">time_unit</span><span class="p">))</span>
 
     <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="o">-</span><span class="n">window</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span> <span class="o">=</span> <span class="n">window</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">):</span>
         <span class="n">toreturn</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">toreturn</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_peristimulus</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">tref</span><span class="p">,</span> <span class="n">minmax</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)</span>       
+            <span class="n">toreturn</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_perievent</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">tref</span><span class="p">,</span> <span class="n">minmax</span><span class="p">,</span> <span class="n">time_unit</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">toreturn</span>
 

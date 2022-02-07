@@ -734,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../process.peristimulus/" class="md-nav__link">
+      <a href="../process.perievent/" class="md-nav__link">
         Peri-Stimulus
       </a>
     </li>
@@ -980,7 +980,7 @@ IntervalSet        </code>
 <span class="sd">    A subclass of pandas.DataFrame representing a (irregular) set of time intervals in elapsed time,</span>
 <span class="sd">    with relative operations</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        IntervalSet initializer</span>
 
@@ -995,11 +995,24 @@ IntervalSet        </code>
 <span class="sd">        end : numpy.ndarray or number, optional</span>
 <span class="sd">            Ends of intervals</span>
 <span class="sd">        time_units : str, optional</span>
-<span class="sd">            Time unit of the intervals (&#39;us&#39; [default], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">            Time unit of the intervals (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 <span class="sd">        expect_fix : bool, optional</span>
 <span class="sd">            if False, will give a warning when a fix is needed (default: False)</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional parameters passed ot pandas.DataFrame</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        IntervalSet</span>
+<span class="sd">            _</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            Description</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If a pandas.DataFrame is passed, it should contains </span>
+<span class="sd">            a column &#39;start&#39; and a column &#39;end&#39;.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -1007,10 +1020,15 @@ IntervalSet        </code>
             <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
             <span class="k">if</span> <span class="s1">&#39;start&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="s1">&#39;end&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;wrong columns&#39;</span><span class="p">)</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">_join_helper</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s1">&#39;start&#39;</span><span class="p">:</span><span class="n">start</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">:</span><span class="n">end</span><span class="p">})</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">r_cache</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nts_class&#39;</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nts_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nap_class&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
             <span class="k">return</span>
 
         <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
@@ -1032,24 +1050,34 @@ IntervalSet        </code>
         <span class="n">end</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">end</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">,</span>
                                           <span class="n">give_warning</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-        <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts and ends are equal. Removing 1 microsecond!&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1"># removing 1 microseconds because bounds are both closed</span>
+            <span class="n">idx2</span> <span class="o">=</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
+
         <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some ends precede the relative start.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some ends precede the relative start. Dropping them!&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>            
 
         <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts precede the previous end.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>            
-            <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-
-        <span class="k">if</span> <span class="n">to_fix</span><span class="p">:</span>
-            <span class="n">mm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
-            <span class="n">mz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">start</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">end</span><span class="p">)))</span>
-            <span class="n">mx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span>
-            <span class="n">mm</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">mx</span><span class="p">]</span>
-            <span class="n">mz</span> <span class="o">=</span> <span class="n">mz</span><span class="p">[</span><span class="n">mx</span><span class="p">]</span>
-            <span class="n">good_ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">mz</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">start</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">good_ix</span><span class="p">]</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">good_ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts precede the previous end. Joining them!&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
+            <span class="n">start_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span>
+                                  <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)))</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s1">&#39;start_end&#39;</span><span class="p">:</span> <span class="n">start_end</span><span class="p">})</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cumsum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+            <span class="n">ix_stop</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cumsum&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">ix_start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">ix_stop</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix_start</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix_stop</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some epochs have no duration&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -1057,20 +1085,13 @@ IntervalSet        </code>
             <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts and ends are equal.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1"># removing 1 microseconds because bounds are both closed</span>
-            <span class="n">idx2</span> <span class="o">=</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span>
-            <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
 
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r_cache</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nts_class&#39;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nts_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nap_class&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
@@ -1089,16 +1110,16 @@ IntervalSet        </code>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">e</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">tot_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">tot_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Total elapsed time in the set.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        time_units : None, optional</span>
-<span class="sd">            The time units to return the result in (&#39;us&#39; [default], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">            The time units to return the result in (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1108,13 +1129,13 @@ IntervalSet        </code>
         <span class="n">tot_l</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">tot_l</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">intersect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">intersect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        set intersection of IntervalSet&#39;s</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        *a : IntervalSet or tuple of IntervalSets</span>
+<span class="sd">        a : IntervalSet or list/tuple of IntervalSets</span>
 <span class="sd">            the IntervalSet to intersect self with, or a tuple of</span>
 
 <span class="sd">        Returns</span>
@@ -1122,6 +1143,11 @@ IntervalSet        </code>
 <span class="sd">        out: IntervalSet</span>
 <span class="sd">            _</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
         <span class="n">i_sets</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">]</span>
         <span class="n">i_sets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
         <span class="n">n_sets</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_sets</span><span class="p">)</span>
@@ -1146,24 +1172,29 @@ IntervalSet        </code>
         <span class="c1"># noinspection PyTypeChecker</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        set union of IntervalSet&#39;s</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        *a : IntervalSet or tuple of IntervalSets</span>
-<span class="sd">            the IntervalSet to union self with, or a tuple of</span>
+<span class="sd">        a : IntervalSet or list/tuple of IntervalSets            </span>
+<span class="sd">            the IntervalSet to union self with, or a tuple of </span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        out: IntervalSet</span>
 <span class="sd">            _</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
         <span class="n">i_sets</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">]</span>
-        <span class="n">i_sets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">i_sets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        
         <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">i_set</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i_set</span> <span class="ow">in</span> <span class="n">i_sets</span><span class="p">]</span> <span class="o">+</span>
                          <span class="p">[</span><span class="n">i_set</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i_set</span> <span class="ow">in</span> <span class="n">i_sets</span><span class="p">])</span>
 
@@ -1183,7 +1214,7 @@ IntervalSet        </code>
         <span class="n">start</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix_start</span><span class="p">]</span>
         <span class="n">stop</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix_stop</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">set_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1218,9 +1249,12 @@ IntervalSet        </code>
         <span class="c1">################################################################################### </span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix</span><span class="p">]</span>
         <span class="c1"># noinspection PyTypeChecker</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>        
+        <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+        <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">start</span><span class="o">!=</span><span class="n">end</span>
 
-        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">in_interval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1252,7 +1286,7 @@ IntervalSet        </code>
         <span class="n">ix3</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix3</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">ix3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">drop_short_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">drop_short_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Drops the short intervals in the interval set.</span>
 
@@ -1261,7 +1295,7 @@ IntervalSet        </code>
 <span class="sd">        threshold : numeric</span>
 <span class="sd">            Time threshold for &quot;short&quot; intervals</span>
 <span class="sd">        time_units : None, optional</span>
-<span class="sd">            The time units for the treshold (&#39;us&#39;[default], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">            The time units for the treshold (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1269,9 +1303,9 @@ IntervalSet        </code>
 <span class="sd">            A copied IntervalSet with the dropped intervals</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">threshold</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">threshold</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">drop_long_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">drop_long_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Drops the long intervals in the interval set.</span>
 
@@ -1280,7 +1314,7 @@ IntervalSet        </code>
 <span class="sd">        threshold : numeric</span>
 <span class="sd">            Time threshold for &quot;long&quot; intervals</span>
 <span class="sd">        time_units : None, optional</span>
-<span class="sd">            The time units for the treshold (&#39;us&#39;[default], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">            The time units for the treshold (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1288,17 +1322,16 @@ IntervalSet        </code>
 <span class="sd">            A copied IntervalSet with the dropped intervals</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">threshold</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">threshold</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-
-    <span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;        </span>
 <span class="sd">        returns a DataFrame with time expressed in the desired unit</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        units : None, optional</span>
-<span class="sd">            &#39;us&#39;[default], &#39;ms&#39;, or &#39;s&#39;</span>
+<span class="sd">            &#39;us&#39;, &#39;ms&#39;, or &#39;s&#39; [default]</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1308,11 +1341,11 @@ IntervalSet        </code>
 
         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">df</span>
 
-    <span class="k">def</span> <span class="nf">merge_close_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">merge_close_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Merges intervals that are very close.</span>
 
@@ -1321,7 +1354,7 @@ IntervalSet        </code>
 <span class="sd">        threshold : numeric</span>
 <span class="sd">            time threshold for the closeness of the intervals</span>
 <span class="sd">        time_units : None, optional</span>
-<span class="sd">            time units for the threshold (&#39;us&#39;[optional], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">            time units for the threshold (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1339,7 +1372,7 @@ IntervalSet        </code>
         <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="n">tojoin</span><span class="p">]))</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">tojoin</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 
-        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span><span class="s1">&#39;us&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">the_store</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">data_to_store</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -1371,7 +1404,7 @@ IntervalSet        </code>
 
 
 <h3 id="pynapple.core.interval_set.IntervalSet.__init__" class="doc doc-heading">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-special"><code>special</code></small>
@@ -1412,8 +1445,8 @@ will try to "fix" the data by eliminating some of the start and end data point</
       <tr>
         <td><code>time_units</code></td>
         <td><code>str</code></td>
-        <td><p>Time unit of the intervals ('us' [default], 'ms', 's')</p></td>
-        <td><code>None</code></td>
+        <td><p>Time unit of the intervals ('us', 'ms', 's' [default])</p></td>
+        <td><code>&#39;s&#39;</code></td>
       </tr>
       <tr>
         <td><code>expect_fix</code></td>
@@ -1429,9 +1462,44 @@ will try to "fix" the data by eliminating some of the start and end data point</
       </tr>
   </tbody>
 </table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>RuntimeError</code></td>
+        <td><p>Description</p></td>
+      </tr>
+      <tr>
+        <td><code>ValueError</code></td>
+        <td><p>If a pandas.DataFrame is passed, it should contains 
+a column 'start' and a column 'end'.</p></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>IntervalSet</code></td>
+      <td><p>_</p></td>
+    </tr>
+  </tbody>
+</table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">expect_fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    IntervalSet initializer</span>
 
@@ -1446,11 +1514,24 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">    end : numpy.ndarray or number, optional</span>
 <span class="sd">        Ends of intervals</span>
 <span class="sd">    time_units : str, optional</span>
-<span class="sd">        Time unit of the intervals (&#39;us&#39; [default], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">        Time unit of the intervals (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 <span class="sd">    expect_fix : bool, optional</span>
 <span class="sd">        if False, will give a warning when a fix is needed (default: False)</span>
 <span class="sd">    **kwargs</span>
 <span class="sd">        Additional parameters passed ot pandas.DataFrame</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    IntervalSet</span>
+<span class="sd">        _</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        Description</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If a pandas.DataFrame is passed, it should contains </span>
+<span class="sd">        a column &#39;start&#39; and a column &#39;end&#39;.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -1458,10 +1539,15 @@ will try to "fix" the data by eliminating some of the start and end data point</
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
         <span class="k">if</span> <span class="s1">&#39;start&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="s1">&#39;end&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;wrong columns&#39;</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">_join_helper</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s1">&#39;start&#39;</span><span class="p">:</span><span class="n">start</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">:</span><span class="n">end</span><span class="p">})</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r_cache</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nts_class&#39;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nts_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nap_class&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
         <span class="k">return</span>
 
     <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
@@ -1483,24 +1569,34 @@ will try to "fix" the data by eliminating some of the start and end data point</
     <span class="n">end</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">end</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">,</span>
                                       <span class="n">give_warning</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-    <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts and ends are equal. Removing 1 microsecond!&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1"># removing 1 microseconds because bounds are both closed</span>
+        <span class="n">idx2</span> <span class="o">=</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
+
     <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some ends precede the relative start.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some ends precede the relative start. Dropping them!&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>            
 
     <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts precede the previous end.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>            
-        <span class="n">to_fix</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="k">if</span> <span class="n">to_fix</span><span class="p">:</span>
-        <span class="n">mm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
-        <span class="n">mz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">start</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">end</span><span class="p">)))</span>
-        <span class="n">mx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span>
-        <span class="n">mm</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">mx</span><span class="p">]</span>
-        <span class="n">mz</span> <span class="o">=</span> <span class="n">mz</span><span class="p">[</span><span class="n">mx</span><span class="p">]</span>
-        <span class="n">good_ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">mz</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">good_ix</span><span class="p">]</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">mm</span><span class="p">[</span><span class="n">good_ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts precede the previous end. Joining them!&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
+        <span class="n">start_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span>
+                              <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)))</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s1">&#39;start_end&#39;</span><span class="p">:</span> <span class="n">start_end</span><span class="p">})</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cumsum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+        <span class="n">ix_stop</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cumsum&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ix_start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">ix_stop</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix_start</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix_stop</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some epochs have no duration&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -1508,20 +1604,13 @@ will try to "fix" the data by eliminating some of the start and end data point</
         <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Some starts and ends are equal.&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1"># removing 1 microseconds because bounds are both closed</span>
-        <span class="n">idx2</span> <span class="o">=</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">end</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
 
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
 
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">r_cache</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nts_class&#39;</span><span class="p">]</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">nts_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nap_class&#39;</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 </code></pre></div>
         </details>
     </div>
@@ -1574,7 +1663,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">e</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1588,7 +1677,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 
 
 <h3 id="pynapple.core.interval_set.IntervalSet.tot_length" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">tot_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">tot_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span></code>
 
 
 </h3>
@@ -1611,8 +1700,8 @@ will try to "fix" the data by eliminating some of the start and end data point</
       <tr>
         <td><code>time_units</code></td>
         <td><code>None</code></td>
-        <td><p>The time units to return the result in ('us' [default], 'ms', 's')</p></td>
-        <td><code>None</code></td>
+        <td><p>The time units to return the result in ('us', 'ms', 's' [default])</p></td>
+        <td><code>&#39;s&#39;</code></td>
       </tr>
   </tbody>
 </table>
@@ -1633,14 +1722,14 @@ will try to "fix" the data by eliminating some of the start and end data point</
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">tot_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">tot_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Total elapsed time in the set.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    time_units : None, optional</span>
-<span class="sd">        The time units to return the result in (&#39;us&#39; [default], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">        The time units to return the result in (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -1662,7 +1751,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 
 
 <h3 id="pynapple.core.interval_set.IntervalSet.intersect" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">intersect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">intersect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span></code>
 
 
 </h3>
@@ -1683,10 +1772,10 @@ will try to "fix" the data by eliminating some of the start and end data point</
   </thead>
   <tbody>
       <tr>
-        <td><code>*a</code></td>
-        <td><code>IntervalSet or tuple of IntervalSets</code></td>
+        <td><code>a</code></td>
+        <td><code>IntervalSet or list/tuple of IntervalSets</code></td>
         <td><p>the IntervalSet to intersect self with, or a tuple of</p></td>
-        <td><code>()</code></td>
+        <td><em>required</em></td>
       </tr>
   </tbody>
 </table>
@@ -1707,13 +1796,13 @@ will try to "fix" the data by eliminating some of the start and end data point</
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">intersect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">intersect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    set intersection of IntervalSet&#39;s</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    *a : IntervalSet or tuple of IntervalSets</span>
+<span class="sd">    a : IntervalSet or list/tuple of IntervalSets</span>
 <span class="sd">        the IntervalSet to intersect self with, or a tuple of</span>
 
 <span class="sd">    Returns</span>
@@ -1721,6 +1810,11 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">    out: IntervalSet</span>
 <span class="sd">        _</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
     <span class="n">i_sets</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">]</span>
     <span class="n">i_sets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
     <span class="n">n_sets</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_sets</span><span class="p">)</span>
@@ -1745,7 +1839,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
     <span class="c1"># noinspection PyTypeChecker</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1759,7 +1853,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 
 
 <h3 id="pynapple.core.interval_set.IntervalSet.union" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span></code>
 
 
 </h3>
@@ -1780,10 +1874,10 @@ will try to "fix" the data by eliminating some of the start and end data point</
   </thead>
   <tbody>
       <tr>
-        <td><code>*a</code></td>
-        <td><code>IntervalSet or tuple of IntervalSets</code></td>
+        <td><code>a</code></td>
+        <td><code>IntervalSet or list/tuple of IntervalSets            </code></td>
         <td><p>the IntervalSet to union self with, or a tuple of</p></td>
-        <td><code>()</code></td>
+        <td><em>required</em></td>
       </tr>
   </tbody>
 </table>
@@ -1804,22 +1898,27 @@ will try to "fix" the data by eliminating some of the start and end data point</
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    set union of IntervalSet&#39;s</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    *a : IntervalSet or tuple of IntervalSets</span>
-<span class="sd">        the IntervalSet to union self with, or a tuple of</span>
+<span class="sd">    a : IntervalSet or list/tuple of IntervalSets            </span>
+<span class="sd">        the IntervalSet to union self with, or a tuple of </span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out: IntervalSet</span>
 <span class="sd">        _</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
     <span class="n">i_sets</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">]</span>
-    <span class="n">i_sets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">i_sets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        
     <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">i_set</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i_set</span> <span class="ow">in</span> <span class="n">i_sets</span><span class="p">]</span> <span class="o">+</span>
                      <span class="p">[</span><span class="n">i_set</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i_set</span> <span class="ow">in</span> <span class="n">i_sets</span><span class="p">])</span>
 
@@ -1839,7 +1938,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
     <span class="n">start</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix_start</span><span class="p">]</span>
     <span class="n">stop</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix_stop</span><span class="p">]</span>
 
-    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1931,9 +2030,12 @@ will try to "fix" the data by eliminating some of the start and end data point</
     <span class="c1">################################################################################### </span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix</span><span class="p">]</span>
     <span class="c1"># noinspection PyTypeChecker</span>
-    <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>        
+    <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+    <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">start</span><span class="o">!=</span><span class="n">end</span>
 
-    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -2036,7 +2138,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 
 
 <h3 id="pynapple.core.interval_set.IntervalSet.drop_short_intervals" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">drop_short_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">drop_short_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span></code>
 
 
 </h3>
@@ -2065,8 +2167,8 @@ will try to "fix" the data by eliminating some of the start and end data point</
       <tr>
         <td><code>time_units</code></td>
         <td><code>None</code></td>
-        <td><p>The time units for the treshold ('us'[default], 'ms', 's')</p></td>
-        <td><code>None</code></td>
+        <td><p>The time units for the treshold ('us', 'ms', 's' [default])</p></td>
+        <td><code>&#39;s&#39;</code></td>
       </tr>
   </tbody>
 </table>
@@ -2087,7 +2189,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">drop_short_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">drop_short_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Drops the short intervals in the interval set.</span>
 
@@ -2096,7 +2198,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">    threshold : numeric</span>
 <span class="sd">        Time threshold for &quot;short&quot; intervals</span>
 <span class="sd">    time_units : None, optional</span>
-<span class="sd">        The time units for the treshold (&#39;us&#39;[default], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">        The time units for the treshold (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2104,7 +2206,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">        A copied IntervalSet with the dropped intervals</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">threshold</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">threshold</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">]</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -2118,7 +2220,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 
 
 <h3 id="pynapple.core.interval_set.IntervalSet.drop_long_intervals" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">drop_long_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">drop_long_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span></code>
 
 
 </h3>
@@ -2147,8 +2249,8 @@ will try to "fix" the data by eliminating some of the start and end data point</
       <tr>
         <td><code>time_units</code></td>
         <td><code>None</code></td>
-        <td><p>The time units for the treshold ('us'[default], 'ms', 's')</p></td>
-        <td><code>None</code></td>
+        <td><p>The time units for the treshold ('us', 'ms', 's' [default])</p></td>
+        <td><code>&#39;s&#39;</code></td>
       </tr>
   </tbody>
 </table>
@@ -2169,7 +2271,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">drop_long_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">drop_long_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Drops the long intervals in the interval set.</span>
 
@@ -2178,7 +2280,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">    threshold : numeric</span>
 <span class="sd">        Time threshold for &quot;long&quot; intervals</span>
 <span class="sd">    time_units : None, optional</span>
-<span class="sd">        The time units for the treshold (&#39;us&#39;[default], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">        The time units for the treshold (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2186,7 +2288,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">        A copied IntervalSet with the dropped intervals</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">threshold</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">threshold</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">]</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -2200,7 +2302,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 
 
 <h3 id="pynapple.core.interval_set.IntervalSet.as_units" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span></code>
 
 
 </h3>
@@ -2223,8 +2325,8 @@ will try to "fix" the data by eliminating some of the start and end data point</
       <tr>
         <td><code>units</code></td>
         <td><code>None</code></td>
-        <td><p>'us'[default], 'ms', or 's'</p></td>
-        <td><code>None</code></td>
+        <td><p>'us', 'ms', or 's' [default]</p></td>
+        <td><code>&#39;s&#39;</code></td>
       </tr>
   </tbody>
 </table>
@@ -2245,14 +2347,14 @@ will try to "fix" the data by eliminating some of the start and end data point</
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;        </span>
 <span class="sd">    returns a DataFrame with time expressed in the desired unit</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    units : None, optional</span>
-<span class="sd">        &#39;us&#39;[default], &#39;ms&#39;, or &#39;s&#39;</span>
+<span class="sd">        &#39;us&#39;, &#39;ms&#39;, or &#39;s&#39; [default]</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2262,7 +2364,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 
     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">df</span>
 </code></pre></div>
@@ -2278,7 +2380,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 
 
 <h3 id="pynapple.core.interval_set.IntervalSet.merge_close_intervals" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">merge_close_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">merge_close_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span></code>
 
 
 </h3>
@@ -2307,8 +2409,8 @@ will try to "fix" the data by eliminating some of the start and end data point</
       <tr>
         <td><code>time_units</code></td>
         <td><code>None</code></td>
-        <td><p>time units for the threshold ('us'[optional], 'ms', 's')</p></td>
-        <td><code>None</code></td>
+        <td><p>time units for the threshold ('us', 'ms', 's' [default])</p></td>
+        <td><code>&#39;s&#39;</code></td>
       </tr>
   </tbody>
 </table>
@@ -2329,7 +2431,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">merge_close_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">merge_close_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Merges intervals that are very close.</span>
 
@@ -2338,7 +2440,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
 <span class="sd">    threshold : numeric</span>
 <span class="sd">        time threshold for the closeness of the intervals</span>
 <span class="sd">    time_units : None, optional</span>
-<span class="sd">        time units for the threshold (&#39;us&#39;[optional], &#39;ms&#39;, &#39;s&#39;)</span>
+<span class="sd">        time units for the threshold (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default])</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2356,7 +2458,7 @@ will try to "fix" the data by eliminating some of the start and end data point</
     <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="n">tojoin</span><span class="p">]))</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">tojoin</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 
-    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span><span class="s1">&#39;us&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>

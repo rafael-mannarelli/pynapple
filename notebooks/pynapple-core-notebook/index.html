@@ -669,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../process.peristimulus/" class="md-nav__link">
+      <a href="../../process.perievent/" class="md-nav__link">
         Peri-Stimulus
       </a>
     </li>
@@ -1559,17 +1559,17 @@ print(tsd)</div>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Time (s)
-0.0     0.671375
-1.0     0.184115
-2.0     0.745202
-3.0     0.041667
-4.0     0.844270
+0.0     0.235926
+1.0     0.540072
+2.0     0.959873
+3.0     0.772463
+4.0     0.652625
           ...   
-95.0    0.224841
-96.0    0.011205
-97.0    0.904223
-98.0    0.330948
-99.0    0.288449
+95.0    0.767254
+96.0    0.542153
+97.0    0.591573
+98.0    0.295443
+99.0    0.611083
 Length: 100, dtype: float64
 </pre>
 </div>
@@ -1629,30 +1629,30 @@ print(tsd.as_units('us'))</div>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Time (ms)
-0.0        0.671375
-1000.0     0.184115
-2000.0     0.745202
-3000.0     0.041667
-4000.0     0.844270
+0.0        0.235926
+1000.0     0.540072
+2000.0     0.959873
+3000.0     0.772463
+4000.0     0.652625
              ...   
-95000.0    0.224841
-96000.0    0.011205
-97000.0    0.904223
-98000.0    0.330948
-99000.0    0.288449
+95000.0    0.767254
+96000.0    0.542153
+97000.0    0.591573
+98000.0    0.295443
+99000.0    0.611083
 Length: 100, dtype: float64
 Time (us)
-0           0.671375
-1000000     0.184115
-2000000     0.745202
-3000000     0.041667
-4000000     0.844270
+0           0.235926
+1000000     0.540072
+2000000     0.959873
+3000000     0.772463
+4000000     0.652625
               ...   
-95000000    0.224841
-96000000    0.011205
-97000000    0.904223
-98000000    0.330948
-99000000    0.288449
+95000000    0.767254
+96000000    0.542153
+97000000    0.591573
+98000000    0.295443
+99000000    0.611083
 Length: 100, dtype: float64
 </pre>
 </div>
@@ -1714,16 +1714,16 @@ print(ts)</div>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Time (s)
-0.011981   NaN
-0.018039   NaN
-0.021218   NaN
-0.042355   NaN
-0.059233   NaN
-0.062366   NaN
-0.069332   NaN
-0.073728   NaN
-0.091412   NaN
-0.093179   NaN
+0.007284   NaN
+0.008769   NaN
+0.034506   NaN
+0.036594   NaN
+0.037349   NaN
+0.049195   NaN
+0.068217   NaN
+0.072521   NaN
+0.073755   NaN
+0.081131   NaN
 dtype: float64
 </pre>
 </div>
@@ -1758,11 +1758,17 @@ dtype: float64
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tsdframe</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tsdframe</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> 
+                        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> 
+                        <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> 
+                        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">)</span>
 </pre></div>
-<div id="cell-5" class="clipboard-copy-txt">tsdframe = nap.TsdFrame(t = np.arange(100), d = np.random.rand(100,3), time_units = 's', columns = ['a', 'b', 'c'])
+<div id="cell-5" class="clipboard-copy-txt">tsdframe = nap.TsdFrame(t = np.arange(100), 
+                        d = np.random.rand(100,3), 
+                        time_units = 's', 
+                        columns = ['a', 'b', 'c'])
 
 print(tsdframe)</div>
     
@@ -1786,17 +1792,17 @@ print(tsdframe)</div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>                 a         b         c
 Time (s)                              
-0.0       0.070958  0.248339  0.678089
-1.0       0.807558  0.782743  0.895054
-2.0       0.659416  0.937503  0.516411
-3.0       0.852223  0.219005  0.194536
-4.0       0.170820  0.639453  0.818144
+0.0       0.862972  0.427003  0.057419
+1.0       0.670653  0.417393  0.149445
+2.0       0.368096  0.311569  0.036069
+3.0       0.635116  0.256169  0.609751
+4.0       0.268285  0.397245  0.044431
 ...            ...       ...       ...
-95.0      0.565494  0.437288  0.370130
-96.0      0.904865  0.298250  0.590778
-97.0      0.697050  0.150686  0.462217
-98.0      0.040829  0.311084  0.668681
-99.0      0.150205  0.279965  0.883045
+95.0      0.475561  0.923455  0.951737
+96.0      0.486245  0.640364  0.946037
+97.0      0.913748  0.620687  0.654530
+98.0      0.708750  0.194539  0.366157
+99.0      0.173337  0.666129  0.266963
 
 [100 rows x 3 columns]
 </pre>
@@ -1872,16 +1878,18 @@ print(new_tsd)</div>
 
 
 Time (s)
-1.0     0.184115
-2.0     0.745202
-3.0     0.041667
-4.0     0.844270
-5.0     0.670595
-11.0    0.844376
-12.0    0.920450
-13.0    0.042605
-14.0    0.662674
-15.0    0.001379
+0.0     0.235926
+1.0     0.540072
+2.0     0.959873
+3.0     0.772463
+4.0     0.652625
+5.0     0.444844
+10.0    0.510173
+11.0    0.897890
+12.0    0.868307
+13.0    0.970114
+14.0    0.240858
+15.0    0.235236
 dtype: float64
 </pre>
 </div>
@@ -1950,16 +1958,16 @@ print(epoch)</div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>   start      end
-0    0.0  0.00001 
+<pre>   start   end
+0    0.0  10.0 
 
-      start       end
-0  0.000005  0.000020
-1  0.000030  0.000045 
+   start   end
+0    5.0  20.0
+1   30.0  45.0 
 
-     start       end
-0  0.00000  0.000020
-1  0.00003  0.000045
+   start   end
+0    0.0  20.0
+1   30.0  45.0
 </pre>
 </div>
 </div>
@@ -2033,28 +2041,28 @@ print(tsgroup[[0,2]]) # list like indexing</div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>  Index    Freq. (Hz)
 -------  ------------
-      0         10.02
-      1         19.98
-      2         29.98 
+      0         10.03
+      1         19.99
+      2         30.01 
 
 Time (s)
-0.432052    NaN
-0.529947    NaN
-0.601565    NaN
-0.774862    NaN
-0.799916    NaN
+0.221751    NaN
+0.281952    NaN
+0.320265    NaN
+0.378323    NaN
+0.394910    NaN
              ..
-99.579318   NaN
-99.647440   NaN
-99.680493   NaN
-99.836327   NaN
-99.848397   NaN
-Length: 999, dtype: float64 
+99.569663   NaN
+99.650782   NaN
+99.772230   NaN
+99.795203   NaN
+99.920375   NaN
+Length: 1000, dtype: float64 
 
   Index    Freq. (Hz)
 -------  ------------
-      0         10.02
-      2         29.98
+      0         10.03
+      2         30.01
 </pre>
 </div>
 </div>
@@ -2120,16 +2128,16 @@ print(count)</div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>           0   1   2
 Time (s)            
-0.5        6  13  31
-1.5        8  25  29
-2.5        7  26  22
-3.5       13  16  32
-4.5       14  20  32
-10.5       8  22  29
-11.5      10  21  27
-12.5       6  26  29
-13.5       9  18  45
-14.5      13  19  26
+0.5       13  20  23
+1.5        8  22  33
+2.5        8  19  35
+3.5       13  21  33
+4.5       11  28  36
+10.5      10  15  38
+11.5       8  20  32
+12.5      13  13  34
+13.5      16  19  24
+14.5       9  19  24
 </pre>
 </div>
 </div>
@@ -2202,18 +2210,18 @@ print(newtsgroup[1])
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>  Index    Freq. (Hz)    label1  label2
 -------  ------------  --------  --------
-      0         10.02         0  a
-      1         19.98         1  a
-      2         29.98         0  b 
+      0         10.03         0  a
+      1         19.99         1  a
+      2         30.01         0  b 
 
   Index    Freq. (Hz)    label1  label2
 -------  ------------  --------  --------
-      0         10.02         0  a
-      2         29.98         0  b 
+      0         10.03         0  a
+      2         30.01         0  b 
 
   Index    Freq. (Hz)    label1  label2
 -------  ------------  --------  --------
-      1         19.98         1  a
+      1         19.99         1  a
 </pre>
 </div>
 </div>
@@ -2248,7 +2256,7 @@ print(newtsgroup[1])
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
 
 <span class="n">my_ts</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">),</span> <span class="c1"># here a simple dictionnary</span>
          <span class="mi">1</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">)),</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">),</span>
@@ -2264,7 +2272,7 @@ print(newtsgroup[1])
 
 <span class="nb">print</span><span class="p">(</span><span class="n">tsgroup_with_time_support</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="c1"># acceding the time support</span>
 </pre></div>
-<div id="cell-11" class="clipboard-copy-txt">time_support = nap.IntervalSet(start = 0, end = 100, time_units = 's')
+<div id="cell-11" class="clipboard-copy-txt">time_support = nap.IntervalSet(start = 0, end = 200, time_units = 's')
 
 my_ts = {0:nap.Ts(t = np.sort(np.random.uniform(0, 100, 10)), time_units = 's'), # here a simple dictionnary
          1:nap.Ts(t = np.sort(np.random.uniform(0, 100, 20)), time_units = 's'),
@@ -2300,18 +2308,18 @@ print(tsgroup_with_time_support.time_support) # acceding the time support</div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>  Index    Freq. (Hz)
 -------  ------------
-      0          0.14
-      1          0.16
-      2          0.36 
+      0          0.12
+      1          0.2
+      2          0.34 
 
   Index    Freq. (Hz)
 -------  ------------
-      0           0.1
-      1           0.2
-      2           0.3 
+      0          0.05
+      1          0.1
+      2          0.15 
 
    start    end
-0    0.0  100.0
+0    0.0  200.0
 </pre>
 </div>
 </div>

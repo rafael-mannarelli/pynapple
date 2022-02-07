@@ -611,6 +611,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pynapple.io.neurosuite.NeuroSuite.load_mean_waveforms" class="md-nav__link">
+    load_mean_waveforms()
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -706,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../process.peristimulus/" class="md-nav__link">
+      <a href="../process.perievent/" class="md-nav__link">
         Peri-Stimulus
       </a>
     </li>
@@ -860,6 +867,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pynapple.io.neurosuite.NeuroSuite.load_mean_waveforms" class="md-nav__link">
+    load_mean_waveforms()
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -954,16 +968,17 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
             <span class="c1"># print(&quot;XML loaded&quot;)</span>
             <span class="c1"># To label the electrodes groups</span>
             <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">EphysGUI</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span><span class="p">)</span>
+            <span class="n">window</span> <span class="o">=</span> <span class="n">EphysGUI</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span><span class="p">)</span>
+            <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
             <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
             <span class="c1"># print(&quot;GUI DONE&quot;)     </span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">ephys_information</span>
-
-                <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_spikes</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span>
-
+            <span class="k">if</span> <span class="n">window</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">ephys_information</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_spikes</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span>                
                 <span class="bp">self</span><span class="o">.</span><span class="n">save_data</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
             <span class="n">app</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+            <span class="c1"># del app, window</span>
+
 
     <span class="k">def</span> <span class="nf">load_neurosuite_spikes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">path</span><span class="p">,</span> <span class="n">basename</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="mf">20000.0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1300,6 +1315,137 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
         <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>        
 
         <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">load_mean_waveforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">waveform_window</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">spike_count</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the mean waveforms from a dat file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        epoch : IntervalSet</span>
+<span class="sd">            default = None</span>
+<span class="sd">            Restrict spikes to an epoch.</span>
+<span class="sd">        waveform_window : IntervalSet</span>
+<span class="sd">            default interval nap.IntervalSet(start = -0.0005, end = 0.001, time_units = &#39;ms&#39;)</span>
+<span class="sd">            Limit waveform extraction before and after spike time</span>
+<span class="sd">        spike_count : int</span>
+<span class="sd">            default = 1000</span>
+<span class="sd">            Number of spikes used per neuron for the calculation of waveforms</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dictionary</span>
+<span class="sd">            the waveforms for all neurons</span>
+<span class="sd">        pandas.Series</span>
+<span class="sd">            the channel with the maximum waveform for each neuron</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">waveform_window</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+            <span class="n">waveform_window</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+
+        <span class="n">spikes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">):</span> <span class="c1">#check if path exists</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The path &quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">+</span><span class="s2">&quot; doesn&#39;t exist; Exiting ...&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>    
+
+        <span class="c1"># Load XML INFO</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_xml</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">n_channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span>
+        <span class="n">fs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fs_dat</span>
+        <span class="n">group_to_channel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span>
+
+        <span class="c1">#Check if there is an epoch, restrict spike times to epoch</span>
+        <span class="k">if</span> <span class="n">epoch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch must be an IntervalSet&#39;</span><span class="p">)</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Restricting spikes to epoch&#39;</span><span class="p">)</span>
+                <span class="n">spikes</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
+                <span class="n">epstart</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">epoch</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">fs</span><span class="p">)</span>
+                <span class="n">epend</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">epoch</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">fs</span><span class="p">)</span>
+
+        <span class="c1">#Find dat file</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">dat_files</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="s1">&#39;dat&#39;</span> <span class="ow">in</span> <span class="n">f</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
+
+        <span class="c1">#Need n_samples collected in the entire recording from dat file to load</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">dat_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="c1">#open file to get number of samples collected in the entire recording</span>
+        <span class="n">startoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">endoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span><span class="o">-</span><span class="n">startoffile</span><span class="p">)</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>     
+        <span class="c1">#map to memory all samples for all channels, channels are numbered according to neuroscope number</span>
+        <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>
+
+        <span class="c1">#convert spike times to spikes in sample number</span>
+        <span class="n">sample_spikes</span> <span class="o">=</span> <span class="p">{</span><span class="n">neuron</span><span class="p">:(</span><span class="n">spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="n">fs</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="n">spikes</span><span class="p">}</span>
+
+        <span class="c1">#prep for waveforms</span>
+        <span class="n">overlap</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">waveform_window</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">))</span> <span class="c1">#one spike&#39;s worth of overlap between windows</span>
+        <span class="n">waveform_window</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">waveform_window</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">fs</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#convert time to sample number</span>
+        <span class="n">neuron_waveforms</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">waveform_window</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">group_to_channel</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="n">n</span><span class="p">]])])</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sample_spikes</span><span class="p">}</span>
+
+        <span class="c1">#divide dat file into batches that slightly overlap for faster loading</span>
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">3000000</span>
+        <span class="n">windows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">endoffile</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">epoch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Restricting dat file to epoch&#39;</span><span class="p">)</span>
+            <span class="n">windows</span> <span class="o">=</span> <span class="n">windows</span><span class="p">[(</span><span class="n">windows</span><span class="o">&gt;=</span><span class="n">epstart</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">windows</span><span class="o">&lt;=</span><span class="n">epend</span><span class="p">)]</span>
+        <span class="n">batches</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">windows</span><span class="p">:</span> <span class="c1">#make overlapping batches from the beginning to end of recording</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">windows</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">batches</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="o">-</span><span class="n">overlap</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">i</span><span class="o">-</span><span class="mi">30</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span><span class="o">+</span><span class="mi">30</span> <span class="o">&lt;=</span> <span class="n">n_samples</span><span class="p">:</span>
+                <span class="n">batches</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="o">-</span><span class="n">overlap</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="o">+</span><span class="n">overlap</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">batches</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="o">+</span><span class="n">overlap</span><span class="p">])</span>
+        <span class="n">batches</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span> <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">]</span>
+
+        <span class="n">sample_counted_spikes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_spikes</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="n">spike_count</span><span class="p">:</span>
+                <span class="n">sample_counted_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sample_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]),</span> <span class="n">spike_count</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">spike_count</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not enough spikes in neuron &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;... using all spikes&#39;</span><span class="p">)</span>
+                <span class="n">sample_counted_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span>
+
+        <span class="c1">#Make one array containing all selected spike times of all neurons - will be used to check for spikes before loading dat file</span>
+        <span class="n">spike_check</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">spikes_neuron</span><span class="p">)</span> <span class="k">for</span> <span class="n">spikes_neuron</span> <span class="ow">in</span> <span class="n">sample_counted_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="k">for</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="n">sample_counted_spikes</span><span class="p">])</span>
+
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">timestep</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">batches</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Extracting waveforms from dat file: window &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">windows</span><span class="p">)))</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spike_check</span><span class="p">[(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">spike_check</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">spike_check</span><span class="p">)])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span> <span class="c1">#if there are no spikes for any neurons in this batch, skip and go to the next one</span>
+
+            <span class="c1">#Load dat file for timestep</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="p">[</span><span class="n">timestep</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">timestep</span><span class="p">[</span><span class="mi">1</span><span class="p">],:],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_channels</span><span class="p">),</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">timestep</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">#load dat file</span>
+
+            <span class="c1">#Check if any spikes are present</span>
+            <span class="k">for</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="n">sample_counted_spikes</span><span class="p">:</span>
+                <span class="n">neurontmp</span> <span class="o">=</span> <span class="n">sample_counted_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span>
+                <span class="n">tmp2</span> <span class="o">=</span> <span class="n">neurontmp</span><span class="p">[(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">neurontmp</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">neurontmp</span><span class="p">)]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">neurontmp</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">continue</span> <span class="c1">#skip neuron if it has no spikes in this batch</span>
+                <span class="n">tmpn</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">group_to_channel</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="n">neuron</span><span class="p">]]]</span> <span class="c1">#restrict dat file to the channel group of the neuron</span>
+
+                <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">tmp2</span><span class="p">:</span> <span class="c1">#add each spike waveform to neuron_waveform</span>
+                    <span class="n">spikewindow</span> <span class="o">=</span> <span class="n">tmpn</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">time</span><span class="o">-</span><span class="n">waveform_window</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">time</span><span class="o">+</span><span class="n">waveform_window</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#waveform for this spike time</span>
+                    <span class="k">if</span> <span class="n">spikewindow</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                        <span class="n">neuron_waveforms</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="o">+=</span> <span class="n">spikewindow</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">meanwf</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">neuron_waveforms</span><span class="p">[</span><span class="n">n</span><span class="p">])</span><span class="o">/</span><span class="n">spike_count</span><span class="p">,</span> 
+                                  <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">group_to_channel</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="n">n</span><span class="p">]])),</span> 
+                                  <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">waveform_window</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">waveform_window</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sample_counted_spikes</span><span class="p">}</span>
+
+        <span class="c1">#find the max channel for each neuron</span>
+        <span class="n">maxch</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">meanwf</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">meanwf</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()]</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">meanwf</span><span class="p">],</span> 
+                          <span class="n">index</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">meanwf</span><span class="p">,</span> <span class="n">maxch</span>
 </code></pre></div>
         </details>
 
@@ -1383,16 +1529,16 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
         <span class="c1"># print(&quot;XML loaded&quot;)</span>
         <span class="c1"># To label the electrodes groups</span>
         <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">EphysGUI</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span><span class="p">)</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">EphysGUI</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span><span class="p">)</span>
+        <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
         <span class="c1"># print(&quot;GUI DONE&quot;)     </span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">ephys_information</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_spikes</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span>
-
+        <span class="k">if</span> <span class="n">window</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">ephys_information</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_spikes</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span>                
             <span class="bp">self</span><span class="o">.</span><span class="n">save_data</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="n">app</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+        <span class="c1"># del app, window</span>
 </code></pre></div>
         </details>
     </div>
@@ -2123,6 +2269,209 @@ It can be useful it multiple dat files are present in the data directory</p></td
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>        
 
     <span class="k">return</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="pynapple.io.neurosuite.NeuroSuite.load_mean_waveforms" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load_mean_waveforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">waveform_window</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">spike_count</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Load the mean waveforms from a dat file.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>epoch</code></td>
+        <td><code>IntervalSet</code></td>
+        <td><p>default = None
+Restrict spikes to an epoch.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>waveform_window</code></td>
+        <td><code>IntervalSet</code></td>
+        <td><p>default interval nap.IntervalSet(start = -0.0005, end = 0.001, time_units = 'ms')
+Limit waveform extraction before and after spike time</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>spike_count</code></td>
+        <td><code>int</code></td>
+        <td><p>default = 1000
+Number of spikes used per neuron for the calculation of waveforms</p></td>
+        <td><code>1000</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dictionary</code></td>
+      <td><p>the waveforms for all neurons</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_mean_waveforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">waveform_window</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">spike_count</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load the mean waveforms from a dat file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    epoch : IntervalSet</span>
+<span class="sd">        default = None</span>
+<span class="sd">        Restrict spikes to an epoch.</span>
+<span class="sd">    waveform_window : IntervalSet</span>
+<span class="sd">        default interval nap.IntervalSet(start = -0.0005, end = 0.001, time_units = &#39;ms&#39;)</span>
+<span class="sd">        Limit waveform extraction before and after spike time</span>
+<span class="sd">    spike_count : int</span>
+<span class="sd">        default = 1000</span>
+<span class="sd">        Number of spikes used per neuron for the calculation of waveforms</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dictionary</span>
+<span class="sd">        the waveforms for all neurons</span>
+<span class="sd">    pandas.Series</span>
+<span class="sd">        the channel with the maximum waveform for each neuron</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">waveform_window</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+        <span class="n">waveform_window</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+
+    <span class="n">spikes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">):</span> <span class="c1">#check if path exists</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The path &quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">+</span><span class="s2">&quot; doesn&#39;t exist; Exiting ...&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>    
+
+    <span class="c1"># Load XML INFO</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_xml</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">n_channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fs_dat</span>
+    <span class="n">group_to_channel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_to_channel</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span>
+
+    <span class="c1">#Check if there is an epoch, restrict spike times to epoch</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch must be an IntervalSet&#39;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Restricting spikes to epoch&#39;</span><span class="p">)</span>
+            <span class="n">spikes</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
+            <span class="n">epstart</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">epoch</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">fs</span><span class="p">)</span>
+            <span class="n">epend</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">epoch</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">fs</span><span class="p">)</span>
+
+    <span class="c1">#Find dat file</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">dat_files</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="s1">&#39;dat&#39;</span> <span class="ow">in</span> <span class="n">f</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
+
+    <span class="c1">#Need n_samples collected in the entire recording from dat file to load</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">dat_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="c1">#open file to get number of samples collected in the entire recording</span>
+    <span class="n">startoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">endoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span><span class="o">-</span><span class="n">startoffile</span><span class="p">)</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>     
+    <span class="c1">#map to memory all samples for all channels, channels are numbered according to neuroscope number</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>
+
+    <span class="c1">#convert spike times to spikes in sample number</span>
+    <span class="n">sample_spikes</span> <span class="o">=</span> <span class="p">{</span><span class="n">neuron</span><span class="p">:(</span><span class="n">spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="n">fs</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="n">spikes</span><span class="p">}</span>
+
+    <span class="c1">#prep for waveforms</span>
+    <span class="n">overlap</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">waveform_window</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">))</span> <span class="c1">#one spike&#39;s worth of overlap between windows</span>
+    <span class="n">waveform_window</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">waveform_window</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">fs</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#convert time to sample number</span>
+    <span class="n">neuron_waveforms</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">waveform_window</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">group_to_channel</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="n">n</span><span class="p">]])])</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sample_spikes</span><span class="p">}</span>
+
+    <span class="c1">#divide dat file into batches that slightly overlap for faster loading</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">3000000</span>
+    <span class="n">windows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">endoffile</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Restricting dat file to epoch&#39;</span><span class="p">)</span>
+        <span class="n">windows</span> <span class="o">=</span> <span class="n">windows</span><span class="p">[(</span><span class="n">windows</span><span class="o">&gt;=</span><span class="n">epstart</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">windows</span><span class="o">&lt;=</span><span class="n">epend</span><span class="p">)]</span>
+    <span class="n">batches</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">windows</span><span class="p">:</span> <span class="c1">#make overlapping batches from the beginning to end of recording</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">windows</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">batches</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="o">-</span><span class="n">overlap</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">i</span><span class="o">-</span><span class="mi">30</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span><span class="o">+</span><span class="mi">30</span> <span class="o">&lt;=</span> <span class="n">n_samples</span><span class="p">:</span>
+            <span class="n">batches</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="o">-</span><span class="n">overlap</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="o">+</span><span class="n">overlap</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">batches</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="o">+</span><span class="n">overlap</span><span class="p">])</span>
+    <span class="n">batches</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span> <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">]</span>
+
+    <span class="n">sample_counted_spikes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_spikes</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="n">spike_count</span><span class="p">:</span>
+            <span class="n">sample_counted_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sample_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]),</span> <span class="n">spike_count</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">spike_count</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not enough spikes in neuron &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;... using all spikes&#39;</span><span class="p">)</span>
+            <span class="n">sample_counted_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span>
+
+    <span class="c1">#Make one array containing all selected spike times of all neurons - will be used to check for spikes before loading dat file</span>
+    <span class="n">spike_check</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">spikes_neuron</span><span class="p">)</span> <span class="k">for</span> <span class="n">spikes_neuron</span> <span class="ow">in</span> <span class="n">sample_counted_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="k">for</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="n">sample_counted_spikes</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">timestep</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">batches</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Extracting waveforms from dat file: window &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">windows</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spike_check</span><span class="p">[(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">spike_check</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">spike_check</span><span class="p">)])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span> <span class="c1">#if there are no spikes for any neurons in this batch, skip and go to the next one</span>
+
+        <span class="c1">#Load dat file for timestep</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="p">[</span><span class="n">timestep</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">timestep</span><span class="p">[</span><span class="mi">1</span><span class="p">],:],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_channels</span><span class="p">),</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">timestep</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">#load dat file</span>
+
+        <span class="c1">#Check if any spikes are present</span>
+        <span class="k">for</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="n">sample_counted_spikes</span><span class="p">:</span>
+            <span class="n">neurontmp</span> <span class="o">=</span> <span class="n">sample_counted_spikes</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span>
+            <span class="n">tmp2</span> <span class="o">=</span> <span class="n">neurontmp</span><span class="p">[(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">neurontmp</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">timestep</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">neurontmp</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">neurontmp</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span> <span class="c1">#skip neuron if it has no spikes in this batch</span>
+            <span class="n">tmpn</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">group_to_channel</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="n">neuron</span><span class="p">]]]</span> <span class="c1">#restrict dat file to the channel group of the neuron</span>
+
+            <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">tmp2</span><span class="p">:</span> <span class="c1">#add each spike waveform to neuron_waveform</span>
+                <span class="n">spikewindow</span> <span class="o">=</span> <span class="n">tmpn</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">time</span><span class="o">-</span><span class="n">waveform_window</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">time</span><span class="o">+</span><span class="n">waveform_window</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#waveform for this spike time</span>
+                <span class="k">if</span> <span class="n">spikewindow</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                    <span class="n">neuron_waveforms</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="o">+=</span> <span class="n">spikewindow</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">meanwf</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">neuron_waveforms</span><span class="p">[</span><span class="n">n</span><span class="p">])</span><span class="o">/</span><span class="n">spike_count</span><span class="p">,</span> 
+                              <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">group_to_channel</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="n">n</span><span class="p">]])),</span> 
+                              <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">waveform_window</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">waveform_window</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sample_counted_spikes</span><span class="p">}</span>
+
+    <span class="c1">#find the max channel for each neuron</span>
+    <span class="n">maxch</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">meanwf</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">meanwf</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()]</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">meanwf</span><span class="p">],</span> 
+                      <span class="n">index</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="n">meanwf</span><span class="p">,</span> <span class="n">maxch</span>
 </code></pre></div>
         </details>
     </div>
