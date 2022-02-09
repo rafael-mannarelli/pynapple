@@ -1101,9 +1101,8 @@ If None, the boundaries are inferred from the target variable</p></td>
   </thead>
   <tbody>
     <tr>
-      <td><code>numpy.ndarray</code></td>
-      <td><p>Stacked array of the tuning curves with dimensions (n, nb_bins, nb_bins).
-n is the number of object in the input group.</p></td>
+      <td><code>dict</code></td>
+      <td><p>Dictionnary of the tuning curves with dimensions (nb_bins, nb_bins).</p></td>
     </tr>
   </tbody>
 </table>
@@ -1131,9 +1130,8 @@ n is the number of object in the input group.</p></td>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    numpy.ndarray</span>
-<span class="sd">        Stacked array of the tuning curves with dimensions (n, nb_bins, nb_bins).</span>
-<span class="sd">        n is the number of object in the input group. </span>
+<span class="sd">    dict</span>
+<span class="sd">        Dictionnary of the tuning curves with dimensions (nb_bins, nb_bins).</span>
 <span class="sd">    list</span>
 <span class="sd">        bins center in the two dimensions</span>
 
@@ -1742,9 +1740,8 @@ If None, the boundaries are inferred from the target variable</p></td>
   </thead>
   <tbody>
     <tr>
-      <td><code>numpy.ndarray</code></td>
-      <td><p>Stacked array of the tuning curves with dimensions (n, nb_bins, nb_bins).
-n is the number of object in the input group.</p></td>
+      <td><code>dict</code></td>
+      <td><p>Dictionnary of the tuning curves with dimensions (nb_bins, nb_bins).</p></td>
     </tr>
   </tbody>
 </table>
@@ -1773,9 +1770,8 @@ n is the number of object in the input group.</p></td>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    numpy.ndarray</span>
-<span class="sd">        Stacked array of the tuning curves with dimensions (n, nb_bins, nb_bins).</span>
-<span class="sd">        n is the number of object in the input group. </span>
+<span class="sd">    dict</span>
+<span class="sd">        Dictionnary of the tuning curves with dimensions (nb_bins, nb_bins). </span>
 <span class="sd">    list</span>
 <span class="sd">        bins center in the two dimensions</span>
 
@@ -1821,7 +1817,9 @@ n is the number of object in the input group.</p></td>
 
     <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">binsxy</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
 
-    <span class="k">return</span> <span class="n">tc_np</span><span class="p">,</span> <span class="n">xy</span>
+    <span class="n">tc</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span><span class="n">tc_np</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tsdframe</span><span class="o">.</span><span class="n">columns</span><span class="p">)}</span>
+
+    <span class="k">return</span> <span class="n">tc</span><span class="p">,</span> <span class="n">xy</span>
 </code></pre></div>
         </details>
     </div>
