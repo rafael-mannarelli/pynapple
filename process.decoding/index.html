@@ -995,14 +995,12 @@ If indexes don't match between tuning_curves and group.</p></td>
     <span class="n">p</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
         <span class="n">t</span><span class="o">=</span><span class="n">count</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
         <span class="n">d</span><span class="o">=</span><span class="n">p</span><span class="p">,</span>
-        <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;us&#39;</span><span class="p">,</span>
         <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span>
         <span class="n">columns</span><span class="o">=</span><span class="n">tuning_curves</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
     <span class="n">decoded</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span>
         <span class="n">t</span><span class="o">=</span><span class="n">count</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
         <span class="n">d</span><span class="o">=</span><span class="n">tuning_curves</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">idxmax</span><span class="p">],</span>
-        <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;us&#39;</span><span class="p">,</span>
         <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">decoded</span><span class="p">,</span> <span class="n">p</span>
@@ -1235,7 +1233,6 @@ If indexes don't match between tuning_curves and group.</p></td>
     <span class="n">decoded</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">idxmax2d</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">idxmax2d</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-        <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;us&#39;</span><span class="p">,</span>
         <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span>
         <span class="n">columns</span><span class="o">=</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span>
         <span class="p">)</span>
