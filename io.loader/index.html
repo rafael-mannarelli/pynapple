@@ -646,6 +646,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.phy/" class="md-nav__link">
+        Phy
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1141,7 +1155,8 @@ BaseLoader        </code>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>
         <span class="k">else</span><span class="p">:</span>
-
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
             <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">time_supports_starts</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">time_support_ends</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1469,16 +1484,18 @@ BaseLoader        </code>
         <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
         <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-        <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
 
-        <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span>
-            <span class="n">start</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;stop_time&#39;</span><span class="p">],</span>
-            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
-
-        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-        <span class="k">return</span> <span class="n">isets</span>
+            <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+            <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;stop_time&#39;</span><span class="p">],</span>
+                <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+            <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">isets</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
 
     <span class="k">def</span> <span class="nf">load_nwb_timeseries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -2373,16 +2390,18 @@ BaseLoader        </code>
     <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
     <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-    <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
 
-    <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;stop_time&#39;</span><span class="p">],</span>
-        <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
-
-    <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">isets</span>
+        <span class="n">epochs</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+        <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;stop_time&#39;</span><span class="p">],</span>
+            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">isets</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span>
 </code></pre></div>
         </details>
     </div>

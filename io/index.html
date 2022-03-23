@@ -570,6 +570,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.phy/" class="md-nav__link">
+        Phy
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -826,7 +840,7 @@
       <tr>
         <td><code>session_type</code></td>
         <td><code>str</code></td>
-        <td><p>For the moment, pynapple support only 'neurosuite'.</p></td>
+        <td><p>Can be 'neurosuite', 'phy' or None for default loader.</p></td>
         <td><code>None</code></td>
       </tr>
   </tbody>
@@ -857,7 +871,7 @@
 <span class="sd">    path : str, optional</span>
 <span class="sd">        The path to load the data</span>
 <span class="sd">    session_type : str, optional</span>
-<span class="sd">        For the moment, pynapple support only &#39;neurosuite&#39;.</span>
+<span class="sd">        Can be &#39;neurosuite&#39;, &#39;phy&#39; or None for default loader.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -871,8 +885,8 @@
 
     <span class="k">if</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;neurosuite&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">NeuroSuite</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    <span class="c1"># elif session_type == &#39;phy&#39;:</span>
-    <span class="c1">#   return NeuroSuite(path)</span>
+    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;phy&#39;</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">Phy</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">BaseLoader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </code></pre></div>
