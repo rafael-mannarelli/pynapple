@@ -533,6 +533,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pynapple.io.misc.load_eeg" class="md-nav__link">
+    load_eeg()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -769,6 +776,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pynapple.io.misc.load_eeg" class="md-nav__link">
+    load_eeg()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -889,6 +903,195 @@
       <span class="k">return</span> <span class="n">Phy</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">BaseLoader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="pynapple.io.misc.load_eeg" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load_eeg</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_channels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Standalone function to load eeg/lfp/dat file in binary format.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>filepath</code></td>
+        <td><code>str</code></td>
+        <td><p>The path to the eeg file</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>channel</code></td>
+        <td><code>int or list of int</code></td>
+        <td><p>The channel(s) to load. If None return a memory map of the dat file to avoid memory error</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>n_channels</code></td>
+        <td><code>int</code></td>
+        <td><p>Number of channels</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>frequency</code></td>
+        <td><code>float</code></td>
+        <td><p>Sampling rate of the file</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>precision</code></td>
+        <td><code>str</code></td>
+        <td><p>The precision of the binary file</p></td>
+        <td><code>&#39;int16&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>bytes_size</code></td>
+        <td><code>int</code></td>
+        <td><p>Bytes size of the binary file</p></td>
+        <td><code>2</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>RuntimeError</code></td>
+        <td><p>If can't find the lfp/eeg/dat file</p></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Tsd or TsdFrame</code></td>
+      <td><p>The lfp in a time series format</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/misc.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_eeg</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_channels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Standalone function to load eeg/lfp/dat file in binary format.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filepath : str</span>
+<span class="sd">        The path to the eeg file</span>
+<span class="sd">    channel : int or list of int, optional</span>
+<span class="sd">        The channel(s) to load. If None return a memory map of the dat file to avoid memory error</span>
+<span class="sd">    n_channels : int, optional</span>
+<span class="sd">        Number of channels </span>
+<span class="sd">    frequency : float, optional</span>
+<span class="sd">        Sampling rate of the file</span>
+<span class="sd">    precision : str, optional</span>
+<span class="sd">        The precision of the binary file</span>
+<span class="sd">    bytes_size : int, optional</span>
+<span class="sd">        Bytes size of the binary file</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        If can&#39;t find the lfp/eeg/dat file</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tsd or TsdFrame</span>
+<span class="sd">        The lfp in a time series format</span>
+
+<span class="sd">    Deleted Parameters</span>
+<span class="sd">    ------------------</span>
+<span class="sd">    extension : str, optional</span>
+<span class="sd">        The file extenstion (.eeg, .dat, .lfp). Make sure the frequency match</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Need to check if a xml file exists</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">listdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">frequency</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">n_channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>    
+        <span class="k">if</span> <span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;.xml&#39;</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">:</span>
+            <span class="n">xmlpath</span>     <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">basename</span><span class="o">+</span><span class="s1">&#39;.xml&#39;</span><span class="p">)</span>
+            <span class="n">xmldoc</span>      <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">xmlpath</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find xml file; please specify sampling frequency or number of channels&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">frequency</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">filepath</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.dat&#39;</span><span class="p">):</span>
+                <span class="n">fs_dat</span>      <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;samplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+                <span class="n">frequency</span>  <span class="o">=</span> <span class="n">fs_dat</span>
+            <span class="k">elif</span> <span class="n">filepath</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s1">&#39;.lfp&#39;</span><span class="p">,</span> <span class="s1">&#39;.eeg&#39;</span><span class="p">)):</span>
+                <span class="n">fs_eeg</span>      <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;fieldPotentials&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;lfpSamplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+                <span class="n">frequency</span> <span class="o">=</span> <span class="n">fs_eeg</span>
+
+        <span class="k">if</span> <span class="n">n_channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">n_channels</span>   <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;nChannels&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">startoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">endoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>      
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span><span class="o">-</span><span class="n">startoffile</span><span class="p">)</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">)</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">n_samples</span><span class="o">/</span><span class="n">frequency</span>
+    <span class="n">interval</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">frequency</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>        
+    <span class="n">timestep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">/</span><span class="n">frequency</span>
+
+    <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">duration</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">channel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fp</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
+            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
+            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>            
+        <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span>
+            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
+            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
