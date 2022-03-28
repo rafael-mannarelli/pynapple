@@ -591,6 +591,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.cnmfe/" class="md-nav__link">
+        CNMF-E
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -854,7 +868,9 @@
       <tr>
         <td><code>session_type</code></td>
         <td><code>str</code></td>
-        <td><p>Can be 'neurosuite', 'phy' or None for default loader.</p></td>
+        <td><p>Can be 'neurosuite', 'phy',
+'minian', 'inscopix-cnmfe'
+ or None for default loader.</p></td>
         <td><code>None</code></td>
       </tr>
   </tbody>
@@ -885,7 +901,9 @@
 <span class="sd">    path : str, optional</span>
 <span class="sd">        The path to load the data</span>
 <span class="sd">    session_type : str, optional</span>
-<span class="sd">        Can be &#39;neurosuite&#39;, &#39;phy&#39; or None for default loader.</span>
+<span class="sd">        Can be &#39;neurosuite&#39;, &#39;phy&#39;,</span>
+<span class="sd">        &#39;minian&#39;, &#39;inscopix-cnmfe&#39;</span>
+<span class="sd">         or None for default loader.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -899,8 +917,19 @@
 
     <span class="k">if</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;neurosuite&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">NeuroSuite</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
     <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;phy&#39;</span><span class="p">:</span>
-      <span class="k">return</span> <span class="n">Phy</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Phy</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;inscopix-cnmfe&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">InscopixCNMFE</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;minian&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Minian</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;cnmfe-matlab&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">CNMF_E</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">BaseLoader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </code></pre></div>
