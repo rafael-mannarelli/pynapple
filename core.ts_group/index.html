@@ -1013,7 +1013,9 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 
     <div class="doc doc-contents ">
 
-      <p>The TsGroup is a dictionnary-like object to hold multiple <a href="../core.time_series/#pynapple.core.time_series.Ts"><code>Ts</code></a> or <a href="../core.time_series/#pynapple.core.time_series.Tsd"><code>Tsd</code></a> objects with different time index.</p>
+      <p>The TsGroup is a dictionnary-like object to hold multiple <a href="../core.time_series/#pynapple.core.time_series.Ts"><code>Ts</code></a> </p>
+<p>or <a href="../core.time_series/#pynapple.core.time_series.Tsd"><code>Tsd</code></a> objects
+with different time index.</p>
 
 <p><strong>Attributes:</strong></p>
 <table>
@@ -1036,7 +1038,9 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
           <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TsGroup</span><span class="p">(</span><span class="n">UserDict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The TsGroup is a dictionnary-like object to hold multiple [`Ts`][pynapple.core.time_series.Ts] or [`Tsd`][pynapple.core.time_series.Tsd] objects with different time index.</span>
+<span class="sd">    The TsGroup is a dictionnary-like object to hold multiple [`Ts`][pynapple.core.time_series.Ts] </span>
+<span class="sd">    or [`Tsd`][pynapple.core.time_series.Tsd] objects</span>
+<span class="sd">    with different time index.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1057,7 +1061,8 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">        time_units : str, optional</span>
 <span class="sd">            Time units if data does not contain Ts/Tsd objects (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default]).</span>
 <span class="sd">        **kwargs</span>
-<span class="sd">            Meta-info about the Ts/Tsd objects.</span>
+<span class="sd">            Meta-info about the Ts/Tsd objects. Can be either pandas.Series or numpy.ndarray.</span>
+<span class="sd">            Note that the index should match the index of the input dictionnary.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -1188,7 +1193,10 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        RuntimeError</span>
-<span class="sd">            Raise an error if no column labels are found when passing arguments.</span>
+<span class="sd">            Raise an error if</span>
+<span class="sd">                no column labels are found when passing simple arguments,</span>
+<span class="sd">                indexes are not equals for a pandas series,</span>
+<span class="sd">                not the same length when passing numpy array.</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -1226,13 +1234,25 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>                   
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">arg</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Index are not equals&quot;</span><span class="p">)</span>
                 <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
                     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Columns needs to be labelled for metadata&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> 
-                <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Index are not equals&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Array is not the same length.&quot;</span><span class="p">)</span>
         <span class="k">return</span>
 
     <span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
@@ -1661,7 +1681,8 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
       <tr>
         <td><code>**kwargs</code></td>
         <td><code>None</code></td>
-        <td><p>Meta-info about the Ts/Tsd objects.</p></td>
+        <td><p>Meta-info about the Ts/Tsd objects. Can be either pandas.Series or numpy.ndarray.
+Note that the index should match the index of the input dictionnary.</p></td>
         <td><code>{}</code></td>
       </tr>
   </tbody>
@@ -1696,7 +1717,8 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">    time_units : str, optional</span>
 <span class="sd">        Time units if data does not contain Ts/Tsd objects (&#39;us&#39;, &#39;ms&#39;, &#39;s&#39; [default]).</span>
 <span class="sd">    **kwargs</span>
-<span class="sd">        Meta-info about the Ts/Tsd objects.</span>
+<span class="sd">        Meta-info about the Ts/Tsd objects. Can be either pandas.Series or numpy.ndarray.</span>
+<span class="sd">        Note that the index should match the index of the input dictionnary.</span>
 
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
@@ -1944,7 +1966,10 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
   <tbody>
       <tr>
         <td><code>RuntimeError</code></td>
-        <td><p>Raise an error if no column labels are found when passing arguments.</p></td>
+        <td><p>Raise an error if
+    no column labels are found when passing simple arguments,
+    indexes are not equals for a pandas series,
+    not the same length when passing numpy array.</p></td>
       </tr>
   </tbody>
 </table>
@@ -1995,7 +2020,10 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
 <span class="sd">    RuntimeError</span>
-<span class="sd">        Raise an error if no column labels are found when passing arguments.</span>
+<span class="sd">        Raise an error if</span>
+<span class="sd">            no column labels are found when passing simple arguments,</span>
+<span class="sd">            indexes are not equals for a pandas series,</span>
+<span class="sd">            not the same length when passing numpy array.</span>
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
@@ -2033,13 +2061,25 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>                   
-                <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">arg</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Index are not equals&quot;</span><span class="p">)</span>
             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Columns needs to be labelled for metadata&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> 
-            <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Index are not equals&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Array is not the same length.&quot;</span><span class="p">)</span>
     <span class="k">return</span>
 </code></pre></div>
         </details>

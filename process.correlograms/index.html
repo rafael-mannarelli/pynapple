@@ -1157,11 +1157,11 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
     <span class="n">binsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">windowsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">windowsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>        
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">spk_time</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
         <span class="n">auc</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">cross_correlogram</span><span class="p">(</span><span class="n">spk_time</span><span class="p">,</span> <span class="n">spk_time</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span>
         <span class="c1"># times = nap.TimeUnits.return_timestamps(times, &#39;s&#39;)</span>
-        <span class="n">autocorrs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">times</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">auc</span><span class="p">)</span>
+        <span class="n">autocorrs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">auc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
 
     <span class="n">autocorrs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">autocorrs</span><span class="p">)</span>
 
@@ -1170,7 +1170,7 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
 
     <span class="n">autocorrs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-    <span class="k">return</span> <span class="n">autocorrs</span>
+    <span class="k">return</span> <span class="n">autocorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1352,7 +1352,7 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
         <span class="n">spk1</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
         <span class="n">spk2</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>            
         <span class="n">auc</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">cross_correlogram</span><span class="p">(</span><span class="n">spk1</span><span class="p">,</span> <span class="n">spk2</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span>        
-        <span class="n">crosscorrs</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">times</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">auc</span><span class="p">)</span>
+        <span class="n">crosscorrs</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">times</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">auc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
 
     <span class="n">crosscorrs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">crosscorrs</span><span class="p">)</span>
 
@@ -1361,7 +1361,7 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
         <span class="n">freq2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">pairs</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span><span class="n">freq</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">pairs</span><span class="p">)))</span>
         <span class="n">crosscorrs</span> <span class="o">=</span> <span class="n">crosscorrs</span> <span class="o">/</span> <span class="n">freq2</span>
 
-    <span class="k">return</span> <span class="n">crosscorrs</span>
+    <span class="k">return</span> <span class="n">crosscorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1533,14 +1533,14 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>        
         <span class="n">spk_time</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
         <span class="n">auc</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">cross_correlogram</span><span class="p">(</span><span class="n">tsd1</span><span class="p">,</span> <span class="n">spk_time</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span>        
-        <span class="n">crosscorrs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">times</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">auc</span><span class="p">)</span>
+        <span class="n">crosscorrs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">times</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">auc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
 
     <span class="n">crosscorrs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">crosscorrs</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>    
         <span class="n">crosscorrs</span> <span class="o">=</span> <span class="n">crosscorrs</span> <span class="o">/</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">crosscorrs</span>
+    <span class="k">return</span> <span class="n">crosscorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>

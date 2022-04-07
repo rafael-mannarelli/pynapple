@@ -540,6 +540,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pynapple.io.misc.append_NWB_LFP" class="md-nav__link">
+    append_NWB_LFP()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -797,6 +804,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pynapple.io.misc.append_NWB_LFP" class="md-nav__link">
+    append_NWB_LFP()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -846,7 +860,27 @@
 
     <div class="doc doc-contents ">
 
-      <p>General Loader for Neurosuite, Phy or default session.</p>
+      <p>General Loader for</p>
+<ul>
+<li>
+<p>Neurosuite</p>
+</li>
+<li>
+<p>Phy</p>
+</li>
+<li>
+<p>Minian</p>
+</li>
+<li>
+<p>Inscopix-cnmfe</p>
+</li>
+<li>
+<p>Matlab-cnmfe</p>
+</li>
+<li>
+<p>None for default session.</p>
+</li>
+</ul>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -869,7 +903,7 @@
         <td><code>session_type</code></td>
         <td><code>str</code></td>
         <td><p>Can be 'neurosuite', 'phy',
-'minian', 'inscopix-cnmfe'
+'minian', 'inscopix-cnmfe', 'cnmfe-matlab',
  or None for default loader.</p></td>
         <td><code>None</code></td>
       </tr>
@@ -894,7 +928,14 @@
           <summary>Source code in <code>pynapple/io/misc.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_session</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">session_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    General Loader for Neurosuite, Phy or default session.</span>
+<span class="sd">    General Loader for</span>
+
+<span class="sd">    - Neurosuite\n</span>
+<span class="sd">    - Phy\n</span>
+<span class="sd">    - Minian\n</span>
+<span class="sd">    - Inscopix-cnmfe\n</span>
+<span class="sd">    - Matlab-cnmfe\n</span>
+<span class="sd">    - None for default session.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -902,7 +943,7 @@
 <span class="sd">        The path to load the data</span>
 <span class="sd">    session_type : str, optional</span>
 <span class="sd">        Can be &#39;neurosuite&#39;, &#39;phy&#39;,</span>
-<span class="sd">        &#39;minian&#39;, &#39;inscopix-cnmfe&#39;</span>
+<span class="sd">        &#39;minian&#39;, &#39;inscopix-cnmfe&#39;, &#39;cnmfe-matlab&#39;,</span>
 <span class="sd">         or None for default loader.</span>
 
 <span class="sd">    Returns</span>
@@ -1121,6 +1162,148 @@
             <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
             <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span>
             <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="pynapple.io.misc.append_NWB_LFP" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">append_NWB_LFP</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">lfp</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Standalone function for adding lfp/eeg to already existing nwb files.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>path</code></td>
+        <td><code>str</code></td>
+        <td><p>The path to the data. The function will looks for a nwb file in path
+or in path/pynapplenwb.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>lfp</code></td>
+        <td><code>Tsd or TsdFrame</code></td>
+        <td><p>Description</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>channel</code></td>
+        <td><code>None</code></td>
+        <td><p>channel number in int ff lfp is a Tsd</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>RuntimeError</code></td>
+        <td><p>If can't find the nwb file </p>
+<p>If no channel is specify when passing a Tsd</p></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/misc.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">append_NWB_LFP</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">lfp</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Standalone function for adding lfp/eeg to already existing nwb files. </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : str</span>
+<span class="sd">        The path to the data. The function will looks for a nwb file in path</span>
+<span class="sd">        or in path/pynapplenwb.</span>
+<span class="sd">    lfp : Tsd or TsdFrame</span>
+<span class="sd">        Description</span>
+<span class="sd">    channel : None, optional</span>
+<span class="sd">        channel number in int ff lfp is a Tsd</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        If can&#39;t find the nwb file \n</span>
+<span class="sd">        If no channel is specify when passing a Tsd</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">new_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
+    <span class="n">nwb_path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">new_path</span><span class="p">):</span>                
+        <span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.nwb&#39;</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nwbfilename</span><span class="p">):</span>
+            <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">,</span> <span class="n">nwbfilename</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.nwb&#39;</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nwbfilename</span><span class="p">):</span>
+            <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">,</span> <span class="n">nwbfilename</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find nwb file in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lfp</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">):</span>
+        <span class="n">channels</span> <span class="o">=</span> <span class="n">lfp</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lfp</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="n">channel</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Please specify which channel it is.&quot;</span><span class="p">)</span>
+
+    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+    <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+
+    <span class="n">all_table_region</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">create_electrode_table_region</span><span class="p">(</span>
+        <span class="n">region</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;electrodes&#39;</span><span class="p">)</span>
+
+    <span class="n">lfp_electrical_series</span> <span class="o">=</span> <span class="n">ElectricalSeries</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ElectricalSeries&#39;</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">lfp</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">timestamps</span><span class="o">=</span><span class="n">lfp</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">electrodes</span><span class="o">=</span><span class="n">all_table_region</span><span class="p">,</span>        
+        <span class="p">)</span>
+
+    <span class="n">lfp</span> <span class="o">=</span> <span class="n">LFP</span><span class="p">(</span><span class="n">electrical_series</span><span class="o">=</span><span class="n">lfp_electrical_series</span><span class="p">)</span>
+
+    <span class="n">ecephys_module</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">create_processing_module</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ecephys&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;processed extracellular electrophysiology data&#39;</span>
+    <span class="p">)</span>
+    <span class="n">ecephys_module</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lfp</span><span class="p">)</span>
+
+    <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span>
 </code></pre></div>
         </details>
     </div>

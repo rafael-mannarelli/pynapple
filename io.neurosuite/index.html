@@ -605,6 +605,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pynapple.io.neurosuite.NeuroSuite.read_neuroscope_intervals" class="md-nav__link">
+    read_neuroscope_intervals()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pynapple.io.neurosuite.NeuroSuite.write_neuroscope_intervals" class="md-nav__link">
     write_neuroscope_intervals()
   </a>
@@ -884,6 +891,13 @@
           <li class="md-nav__item">
   <a href="#pynapple.io.neurosuite.NeuroSuite.load_lfp" class="md-nav__link">
     load_lfp()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.neurosuite.NeuroSuite.read_neuroscope_intervals" class="md-nav__link">
+    read_neuroscope_intervals()
   </a>
   
 </li>
@@ -1311,6 +1325,51 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
                 <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
                 <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span>
                 <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">read_neuroscope_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path2file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function reads .evt files in which odd raws indicate the beginning </span>
+<span class="sd">        of the time series and the even raws are the ends. </span>
+<span class="sd">        If the file is present in the nwb, provide the just the name. If the file </span>
+<span class="sd">        is not present in the nwb, it loads the events from the nwb directory. </span>
+<span class="sd">        If just the path is provided but not the name, it takes the name from the file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name: str</span>
+<span class="sd">            name of the epoch in the nwb file, e.g. &quot;rem&quot; or desired name save </span>
+<span class="sd">            the data in the nwb.</span>
+
+<span class="sd">        path2file: str</span>
+<span class="sd">            Path of the file you want to load.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        IntervalSet</span>
+<span class="sd">            Contains two columns corresponding to the start and end of the intervals.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">isets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_nwb_intervals</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">isets</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">isets</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">path2file</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">path2file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.evt&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">path2file</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path2file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;specify a valid name&quot;</span><span class="p">)</span>
+            <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+                        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">path2file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*** saving file in the nwb as&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save_nwb_intervals</span><span class="p">(</span><span class="n">isets</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;specify a valid path&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">isets</span>            
+
 
     <span class="k">def</span> <span class="nf">write_neuroscope_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span> <span class="n">isets</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Write events to load with neuroscope (e.g. ripples start and ends)</span>
@@ -2211,6 +2270,118 @@ It can be useful it multiple dat files are present in the data directory</p></td
             <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
             <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span>
             <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="pynapple.io.neurosuite.NeuroSuite.read_neuroscope_intervals" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">read_neuroscope_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path2file</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>This function reads .evt files in which odd raws indicate the beginning </p>
+<p>of the time series and the even raws are the ends. 
+If the file is present in the nwb, provide the just the name. If the file 
+is not present in the nwb, it loads the events from the nwb directory. 
+If just the path is provided but not the name, it takes the name from the file.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>name of the epoch in the nwb file, e.g. "rem" or desired name save 
+the data in the nwb.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>path2file</code></td>
+        <td><code>str</code></td>
+        <td><p>Path of the file you want to load.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>IntervalSet</code></td>
+      <td><p>Contains two columns corresponding to the start and end of the intervals.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">read_neuroscope_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path2file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function reads .evt files in which odd raws indicate the beginning </span>
+<span class="sd">    of the time series and the even raws are the ends. </span>
+<span class="sd">    If the file is present in the nwb, provide the just the name. If the file </span>
+<span class="sd">    is not present in the nwb, it loads the events from the nwb directory. </span>
+<span class="sd">    If just the path is provided but not the name, it takes the name from the file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name: str</span>
+<span class="sd">        name of the epoch in the nwb file, e.g. &quot;rem&quot; or desired name save </span>
+<span class="sd">        the data in the nwb.</span>
+
+<span class="sd">    path2file: str</span>
+<span class="sd">        Path of the file you want to load.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    IntervalSet</span>
+<span class="sd">        Contains two columns corresponding to the start and end of the intervals.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+        <span class="n">isets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_nwb_intervals</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">isets</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">isets</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">path2file</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">path2file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.evt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">path2file</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path2file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;specify a valid name&quot;</span><span class="p">)</span>
+        <span class="n">isets</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+                    <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">path2file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*** saving file in the nwb as&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_nwb_intervals</span><span class="p">(</span><span class="n">isets</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;specify a valid path&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">isets</span>            
 </code></pre></div>
         </details>
     </div>
