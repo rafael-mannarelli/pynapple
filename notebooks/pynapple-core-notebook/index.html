@@ -1524,10 +1524,12 @@ all of MD as it is not optimized for dense, information rich UIs.
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 <div id="cell-1" class="clipboard-copy-txt">import numpy as np
 import matplotlib.pyplot as plt
-import pynapple as nap</div>
+import pynapple as nap
+import pandas as pd</div>
     
         </div>
     </div>
@@ -1587,17 +1589,17 @@ print(tsd)</div>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Time (s)
-0.0     0.350383
-1.0     0.112004
-2.0     0.559038
-3.0     0.883592
-4.0     0.783561
+0.0     0.926051
+1.0     0.849987
+2.0     0.034611
+3.0     0.241067
+4.0     0.931331
           ...   
-95.0    0.989078
-96.0    0.240785
-97.0    0.127436
-98.0    0.936579
-99.0    0.575566
+95.0    0.388211
+96.0    0.219992
+97.0    0.327807
+98.0    0.959152
+99.0    0.416207
 Length: 100, dtype: float64
 </pre>
 </div>
@@ -1657,30 +1659,30 @@ print(tsd.as_units('us'))</div>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Time (ms)
-0.0        0.350383
-1000.0     0.112004
-2000.0     0.559038
-3000.0     0.883592
-4000.0     0.783561
+0.0        0.926051
+1000.0     0.849987
+2000.0     0.034611
+3000.0     0.241067
+4000.0     0.931331
              ...   
-95000.0    0.989078
-96000.0    0.240785
-97000.0    0.127436
-98000.0    0.936579
-99000.0    0.575566
+95000.0    0.388211
+96000.0    0.219992
+97000.0    0.327807
+98000.0    0.959152
+99000.0    0.416207
 Length: 100, dtype: float64
 Time (us)
-0           0.350383
-1000000     0.112004
-2000000     0.559038
-3000000     0.883592
-4000000     0.783561
+0           0.926051
+1000000     0.849987
+2000000     0.034611
+3000000     0.241067
+4000000     0.931331
               ...   
-95000000    0.989078
-96000000    0.240785
-97000000    0.127436
-98000000    0.936579
-99000000    0.575566
+95000000    0.388211
+96000000    0.219992
+97000000    0.327807
+98000000    0.959152
+99000000    0.416207
 Length: 100, dtype: float64
 </pre>
 </div>
@@ -1742,16 +1744,16 @@ print(ts)</div>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Time (s)
-0.019642   NaN
-0.023977   NaN
-0.032920   NaN
-0.047616   NaN
-0.048708   NaN
-0.076251   NaN
-0.087913   NaN
-0.092497   NaN
-0.095161   NaN
-0.099498   NaN
+0.000332   NaN
+0.007557   NaN
+0.015512   NaN
+0.017357   NaN
+0.019130   NaN
+0.036301   NaN
+0.052718   NaN
+0.068055   NaN
+0.079949   NaN
+0.099882   NaN
 dtype: float64
 </pre>
 </div>
@@ -1820,17 +1822,17 @@ print(tsdframe)</div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>                 a         b         c
 Time (s)                              
-0.0       0.357438  0.647921  0.982669
-1.0       0.442921  0.162486  0.750832
-2.0       0.283657  0.602511  0.322299
-3.0       0.069515  0.987253  0.396827
-4.0       0.244561  0.943814  0.540749
+0.0       0.710777  0.045811  0.419415
+1.0       0.010244  0.496336  0.253601
+2.0       0.075987  0.079342  0.714916
+3.0       0.195139  0.773036  0.518782
+4.0       0.021775  0.313341  0.819941
 ...            ...       ...       ...
-95.0      0.476016  0.777918  0.518801
-96.0      0.927694  0.129702  0.389647
-97.0      0.820231  0.992514  0.589118
-98.0      0.570093  0.897525  0.099027
-99.0      0.937407  0.545003  0.032018
+95.0      0.603578  0.319764  0.984949
+96.0      0.788123  0.534558  0.886920
+97.0      0.957802  0.675862  0.140417
+98.0      0.393128  0.887271  0.061764
+99.0      0.196731  0.357804  0.517005
 
 [100 rows x 3 columns]
 </pre>
@@ -1906,18 +1908,18 @@ print(new_tsd)</div>
 
 
 Time (s)
-0.0     0.350383
-1.0     0.112004
-2.0     0.559038
-3.0     0.883592
-4.0     0.783561
-5.0     0.367693
-10.0    0.679473
-11.0    0.181329
-12.0    0.116674
-13.0    0.107616
-14.0    0.449670
-15.0    0.579260
+0.0     0.926051
+1.0     0.849987
+2.0     0.034611
+3.0     0.241067
+4.0     0.931331
+5.0     0.287283
+10.0    0.603891
+11.0    0.336611
+12.0    0.631118
+13.0    0.343460
+14.0    0.608318
+15.0    0.000967
 dtype: float64
 </pre>
 </div>
@@ -2069,28 +2071,28 @@ print(tsgroup[[0,2]]) # list like indexing</div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>  Index    Freq. (Hz)
 -------  ------------
-      0            10
-      1            20
-      2            30 
+      0         10
+      1         20.01
+      2         30.01 
 
 Time (s)
-0.003141    NaN
-0.067542    NaN
-0.152387    NaN
-0.360369    NaN
-0.452814    NaN
+0.019797    NaN
+0.451827    NaN
+0.464079    NaN
+0.465697    NaN
+0.517745    NaN
              ..
-99.467991   NaN
-99.611809   NaN
-99.647528   NaN
-99.819072   NaN
-99.912819   NaN
+99.468552   NaN
+99.492707   NaN
+99.520110   NaN
+99.849291   NaN
+99.993950   NaN
 Length: 1000, dtype: float64 
 
   Index    Freq. (Hz)
 -------  ------------
-      0            10
-      2            30
+      0         10
+      2         30.01
 </pre>
 </div>
 </div>
@@ -2156,16 +2158,16 @@ print(count)</div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>           0   1   2
 Time (s)            
-0.0        7  14  28
-1.0       10  27  36
-2.0       10  15  38
-3.0       14  19  31
-4.0       10  22  30
-10.0       4  21  37
-11.0       8  20  30
-12.0       6  20  27
-13.0      15  18  32
-14.0       7  19  29
+0.5        7  15  29
+1.5       13  14  36
+2.5        8  19  32
+3.5        8  15  23
+4.5       11  17  36
+10.5      15  19  34
+11.5      14  26  20
+12.5      11  19  41
+13.5      13  20  27
+14.5       9  24  40
 </pre>
 </div>
 </div>
@@ -2199,8 +2201,10 @@ Time (s)
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tsgroup</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">my_ts</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label1</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">tsgroup</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">label2</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">label1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">my_ts</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">tsgroup</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">my_ts</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label1</span><span class="o">=</span><span class="n">label1</span><span class="p">)</span>
+<span class="n">tsgroup</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">label2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">tsgroup</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -2208,8 +2212,10 @@ Time (s)
 <span class="nb">print</span><span class="p">(</span><span class="n">newtsgroup</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">newtsgroup</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
-<div id="cell-10" class="clipboard-copy-txt">tsgroup = nap.TsGroup(my_ts, time_units = 's', label1=[0,1,0])
-tsgroup.set_info(label2=['a', 'a', 'b'])
+<div id="cell-10" class="clipboard-copy-txt">label1 = pd.Series(index=list(my_ts.keys()), data = [0,1,0])
+
+tsgroup = nap.TsGroup(my_ts, time_units = 's', label1=label1)
+tsgroup.set_info(label2=np.array(['a', 'a', 'b']))
 
 print(tsgroup, '\n')
 
@@ -2238,18 +2244,18 @@ print(newtsgroup[1])
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>  Index    Freq. (Hz)    label1  label2
 -------  ------------  --------  --------
-      0            10         0  a
-      1            20         1  a
-      2            30         0  b 
+      0         10            0  a
+      1         20.01         1  a
+      2         30.01         0  b 
 
   Index    Freq. (Hz)    label1  label2
 -------  ------------  --------  --------
-      0            10         0  a
-      2            30         0  b 
+      0         10            0  a
+      2         30.01         0  b 
 
   Index    Freq. (Hz)    label1  label2
 -------  ------------  --------  --------
-      1            20         1  a
+      1         20.01         1  a
 </pre>
 </div>
 </div>
