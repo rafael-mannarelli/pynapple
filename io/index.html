@@ -963,9 +963,19 @@
         <span class="k">return</span> <span class="n">Phy</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
     <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;inscopix-cnmfe&#39;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">tifffile</span> <span class="k">as</span> <span class="nn">tiff</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install module tifffile for loading inscopix-cnmfe data.&quot;</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>        
         <span class="k">return</span> <span class="n">InscopixCNMFE</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
     <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;minian&#39;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">zarr</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install module zarr for loading minian data&quot;</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>        
         <span class="k">return</span> <span class="n">Minian</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
     <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;cnmfe-matlab&#39;</span><span class="p">:</span>

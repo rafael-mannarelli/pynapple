@@ -1803,6 +1803,11 @@ Minian            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">minian_folder</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> does not contain a minian folder&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">zarr</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install module zarr for loading minian data&quot;</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">zarr</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">minian_folder</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 
         <span class="n">C</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;C.zarr&#39;</span><span class="p">][</span><span class="s1">&#39;C&#39;</span><span class="p">][:]</span>
@@ -2084,6 +2089,11 @@ Minian            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">minian_folder</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> does not contain a minian folder&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">zarr</span>
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install module zarr for loading minian data&quot;</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">zarr</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">minian_folder</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 
     <span class="n">C</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;C.zarr&#39;</span><span class="p">][</span><span class="s1">&#39;C&#39;</span><span class="p">][:]</span>
@@ -2449,6 +2459,11 @@ and a tiff file for spatial footprints.</p>
             <span class="n">t</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">,</span>
             <span class="n">d</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">values</span>            
             <span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">tifffile</span> <span class="k">as</span> <span class="nn">tiff</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install module tifffile for loading inscopix-cnmfe data&quot;</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
         <span class="n">tifffile</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.tiff&#39;</span><span class="p">)]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tifffile</span><span class="p">):</span>
@@ -2734,6 +2749,11 @@ and a tiff file for spatial footprints.</p>
         <span class="n">t</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">,</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">values</span>            
         <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">tifffile</span> <span class="k">as</span> <span class="nn">tiff</span>
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install module tifffile for loading inscopix-cnmfe data&quot;</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
     <span class="n">tifffile</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.tiff&#39;</span><span class="p">)]</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tifffile</span><span class="p">):</span>

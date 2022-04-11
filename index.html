@@ -865,17 +865,22 @@
 <p>pynapple is a light-weight python library for neurophysiological data analysis. The goal is to offer a versatile set of tools to study typical data in the field, i.e. time series (spike times, behavioral events, etc.) and time intervals (trials, brain states, etc.). It also provides users with generic functions for neuroscience such as tuning curves and cross-correlograms.</p>
 <ul>
 <li>Free software: GNU General Public License v3</li>
-<li>Documentation:
-    <a href="https://peyrachelab.github.io/pynapple">https://peyrachelab.github.io/pynapple</a></li>
+<li><strong>Documentation</strong>: <a href="https://peyrachelab.github.io/pynapple">https://peyrachelab.github.io/pynapple</a></li>
+<li><strong>Notebooks and tutorials</strong> : <a href="https://peyrachelab.github.io/pynapple/notebooks/pynapple-quick-start/">https://peyrachelab.github.io/pynapple/notebooks/pynapple-quick-start/</a></li>
+<li><strong>Collaborative repository</strong>: <a href="https://github.com/PeyracheLab/pynacollada">https://github.com/PeyracheLab/pynacollada</a></li>
 </ul>
 <hr />
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="installation">Installation</h3>
-<p>pynapple can be installed with pip:</p>
-<pre class="shell"><code class="language-sourceCode">$ pip install pynapple
+<p>The best way to install pynapple is with pip within a new <a href="https://docs.conda.io/en/latest/">conda</a> environment :</p>
+<pre class="shell"><code class="language-sourceCode">$ conda create --name pynapple pip
+$ conda activate pynapple
+$ pip install pynapple
 </code></pre>
 <p>or directly from the source code:</p>
-<pre class="shell"><code class="language-sourceCode">$ # clone the repository
+<pre class="shell"><code class="language-sourceCode">$ conda create --name pynapple pip
+$ conda activate pynapple
+$ # clone the repository
 $ git clone https://github.com/PeyracheLab/pynapple.git
 $ cd pynapple
 $ # Install in editable mode with `-e` or, equivalently, `--editable`
@@ -883,8 +888,7 @@ $ pip install -e .
 </code></pre>
 <p>This procedure will install all the dependencies including </p>
 <ul>
-<li>Python 3.6+</li>
-<li>Pandas</li>
+<li>pandas</li>
 <li>numpy</li>
 <li>scipy</li>
 <li>numba</li>
@@ -894,6 +898,13 @@ $ pip install -e .
 <li>pyqtgraph</li>
 <li>h5py</li>
 </ul>
+<p>For spyder users, it is recommended to install spyder after installing pynapple with :</p>
+<pre class="shell"><code class="language-sourceCode">$ conda create --name pynapple pip
+$ conda activate pynapple
+$ pip install pynapple
+$ pip install spyder
+$ spyder
+</code></pre>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>After installation, the package can imported:</p>
 <pre class="shell"><code class="language-sourceCode">$ python
