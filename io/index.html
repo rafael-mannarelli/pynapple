@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.1.4">
     
     
       
@@ -141,7 +141,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -186,7 +186,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -956,29 +956,19 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> is not found.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
-    <span class="k">if</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;neurosuite&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s2">&quot;neurosuite&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">NeuroSuite</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;phy&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s2">&quot;phy&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">Phy</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;inscopix-cnmfe&#39;</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="kn">import</span> <span class="nn">tifffile</span> <span class="k">as</span> <span class="nn">tiff</span>
-        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install module tifffile for loading inscopix-cnmfe data.&quot;</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
-            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>        
+    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s2">&quot;inscopix-cnmfe&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">InscopixCNMFE</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;minian&#39;</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="kn">import</span> <span class="nn">zarr</span>
-        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please install module zarr for loading minian data&quot;</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
-            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>        
+    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s2">&quot;minian&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">Minian</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;cnmfe-matlab&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s2">&quot;cnmfe-matlab&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">CNMF_E</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
     <span class="k">else</span><span class="p">:</span>
@@ -1086,7 +1076,14 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/io/misc.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_eeg</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_channels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_eeg</span><span class="p">(</span>
+    <span class="n">filepath</span><span class="p">,</span>
+    <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_channels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">precision</span><span class="o">=</span><span class="s2">&quot;int16&quot;</span><span class="p">,</span>
+    <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Standalone function to load eeg/lfp/dat file in binary format.</span>
 
@@ -1097,7 +1094,7 @@
 <span class="sd">    channel : int or list of int, optional</span>
 <span class="sd">        The channel(s) to load. If None return a memory map of the dat file to avoid memory error</span>
 <span class="sd">    n_channels : int, optional</span>
-<span class="sd">        Number of channels </span>
+<span class="sd">        Number of channels</span>
 <span class="sd">    frequency : float, optional</span>
 <span class="sd">        Sampling rate of the file</span>
 <span class="sd">    precision : str, optional</span>
@@ -1123,55 +1120,67 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Need to check if a xml file exists</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
-    <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">listdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">frequency</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">n_channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>    
-        <span class="k">if</span> <span class="n">basename</span> <span class="o">+</span> <span class="s1">&#39;.xml&#39;</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">:</span>
-            <span class="n">xmlpath</span>     <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">basename</span><span class="o">+</span><span class="s1">&#39;.xml&#39;</span><span class="p">)</span>
-            <span class="n">xmldoc</span>      <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">xmlpath</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">frequency</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">n_channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">basename</span> <span class="o">+</span> <span class="s2">&quot;.xml&quot;</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">:</span>
+            <span class="n">xmlpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">basename</span> <span class="o">+</span> <span class="s2">&quot;.xml&quot;</span><span class="p">)</span>
+            <span class="n">xmldoc</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">xmlpath</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find xml file; please specify sampling frequency or number of channels&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Can&#39;t find xml file; please specify sampling frequency or number of channels&quot;</span>
+            <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">frequency</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">filepath</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.dat&#39;</span><span class="p">):</span>
-                <span class="n">fs_dat</span>      <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;samplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-                <span class="n">frequency</span>  <span class="o">=</span> <span class="n">fs_dat</span>
-            <span class="k">elif</span> <span class="n">filepath</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s1">&#39;.lfp&#39;</span><span class="p">,</span> <span class="s1">&#39;.eeg&#39;</span><span class="p">)):</span>
-                <span class="n">fs_eeg</span>      <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;fieldPotentials&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;lfpSamplingRate&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">filepath</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.dat&quot;</span><span class="p">):</span>
+                <span class="n">fs_dat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                    <span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;acquisitionSystem&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;samplingRate&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span>
+                <span class="p">)</span>
+                <span class="n">frequency</span> <span class="o">=</span> <span class="n">fs_dat</span>
+            <span class="k">elif</span> <span class="n">filepath</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">&quot;.lfp&quot;</span><span class="p">,</span> <span class="s2">&quot;.eeg&quot;</span><span class="p">)):</span>
+                <span class="n">fs_eeg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                    <span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;fieldPotentials&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;lfpSamplingRate&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span>
+                <span class="p">)</span>
                 <span class="n">frequency</span> <span class="o">=</span> <span class="n">fs_eeg</span>
 
         <span class="k">if</span> <span class="n">n_channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">n_channels</span>   <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;acquisitionSystem&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;nChannels&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">n_channels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                <span class="n">xmldoc</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;acquisitionSystem&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;nChannels&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="o">.</span><span class="n">firstChild</span><span class="o">.</span><span class="n">data</span>
+            <span class="p">)</span>
 
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
     <span class="n">startoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">endoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>      
-    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span><span class="o">-</span><span class="n">startoffile</span><span class="p">)</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">)</span>
-    <span class="n">duration</span> <span class="o">=</span> <span class="n">n_samples</span><span class="o">/</span><span class="n">frequency</span>
-    <span class="n">interval</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">frequency</span>
+    <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span> <span class="o">-</span> <span class="n">startoffile</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_channels</span> <span class="o">/</span> <span class="n">bytes_size</span><span class="p">)</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">n_samples</span> <span class="o">/</span> <span class="n">frequency</span>
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>        
-    <span class="n">timestep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">/</span><span class="n">frequency</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>
+    <span class="n">timestep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span> <span class="o">/</span> <span class="n">frequency</span>
 
-    <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">duration</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">channel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fp</span>
     <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
-            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
-            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>            
+            <span class="n">t</span><span class="o">=</span><span class="n">timestep</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span> <span class="n">channel</span><span class="p">],</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span>
-            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
-            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span>
-            <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+            <span class="n">t</span><span class="o">=</span><span class="n">timestep</span><span class="p">,</span>
+            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span> <span class="n">channel</span><span class="p">],</span>
+            <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span>
+            <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
+        <span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1245,7 +1254,7 @@ or in path/pynapplenwb.</p></td>
         <details class="quote">
           <summary>Source code in <code>pynapple/io/misc.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">append_NWB_LFP</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">lfp</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Standalone function for adding lfp/eeg to already existing nwb files. </span>
+    <span class="sd">&quot;&quot;&quot;Standalone function for adding lfp/eeg to already existing nwb files.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1264,16 +1273,16 @@ or in path/pynapplenwb.</p></td>
 <span class="sd">        If no channel is specify when passing a Tsd</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">new_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
-    <span class="n">nwb_path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">new_path</span><span class="p">):</span>                
-        <span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.nwb&#39;</span><span class="p">)]</span>
+    <span class="n">new_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">)</span>
+    <span class="n">nwb_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">new_path</span><span class="p">):</span>
+        <span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.nwb&quot;</span><span class="p">)]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nwbfilename</span><span class="p">):</span>
-            <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">,</span> <span class="n">nwbfilename</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">,</span> <span class="n">nwbfilename</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.nwb&#39;</span><span class="p">)]</span>
+        <span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.nwb&quot;</span><span class="p">)]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nwbfilename</span><span class="p">):</span>
-            <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">,</span> <span class="n">nwbfilename</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">,</span> <span class="n">nwbfilename</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find nwb file in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
@@ -1286,27 +1295,24 @@ or in path/pynapplenwb.</p></td>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Please specify which channel it is.&quot;</span><span class="p">)</span>
 
-    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">)</span>
     <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-
     <span class="n">all_table_region</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">create_electrode_table_region</span><span class="p">(</span>
-        <span class="n">region</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;electrodes&#39;</span><span class="p">)</span>
+        <span class="n">region</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;electrodes&quot;</span>
+    <span class="p">)</span>
 
     <span class="n">lfp_electrical_series</span> <span class="o">=</span> <span class="n">ElectricalSeries</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ElectricalSeries&#39;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ElectricalSeries&quot;</span><span class="p">,</span>
         <span class="n">data</span><span class="o">=</span><span class="n">lfp</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
         <span class="n">timestamps</span><span class="o">=</span><span class="n">lfp</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-        <span class="n">electrodes</span><span class="o">=</span><span class="n">all_table_region</span><span class="p">,</span>        
-        <span class="p">)</span>
+        <span class="n">electrodes</span><span class="o">=</span><span class="n">all_table_region</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="n">lfp</span> <span class="o">=</span> <span class="n">LFP</span><span class="p">(</span><span class="n">electrical_series</span><span class="o">=</span><span class="n">lfp_electrical_series</span><span class="p">)</span>
 
     <span class="n">ecephys_module</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">create_processing_module</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ecephys&#39;</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;processed extracellular electrophysiology data&#39;</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ecephys&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;processed extracellular electrophysiology data&quot;</span>
     <span class="p">)</span>
     <span class="n">ecephys_module</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lfp</span><span class="p">)</span>
 
@@ -1395,7 +1401,7 @@ or in path/pynapplenwb.</p></td>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.361d90f1.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>

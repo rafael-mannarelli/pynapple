@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.1.4">
     
     
       
@@ -141,7 +141,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -186,7 +186,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -938,6 +938,7 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loader for Phy data</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Instantiate the data class from a Phy folder.</span>
@@ -946,7 +947,7 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
 <span class="sd">        ----------</span>
 <span class="sd">        path : str</span>
 <span class="sd">            The path to the data.</span>
-<span class="sd">        &quot;&quot;&quot;</span>     
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -955,12 +956,13 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
         <span class="c1"># Need to check if nwb file exists and if data are there</span>
         <span class="n">loading_phy</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
+            <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">):</span>
                 <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">)</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.nwb&#39;</span><span class="p">)]):</span>                    
+                <span class="k">if</span> <span class="nb">len</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.nwb&quot;</span><span class="p">)]):</span>
                     <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_nwb_spikes</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">success</span><span class="p">:</span> <span class="n">loading_phy</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+                        <span class="n">loading_phy</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="c1"># Bypass if data have already been transfered to nwb</span>
         <span class="k">if</span> <span class="n">loading_phy</span><span class="p">:</span>
@@ -979,9 +981,9 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        path should be the folder session containing the params.py file</span>
 
-<span class="sd">        Function reads :        </span>
+<span class="sd">        Function reads :</span>
 <span class="sd">        1. the number of channels</span>
-<span class="sd">        2. the sampling frequency of the dat file </span>
+<span class="sd">        2. the sampling frequency of the dat file</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -993,30 +995,33 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
 <span class="sd">        RuntimeError</span>
 <span class="sd">            If path does not contain the params file or channel_map.npy</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-            <span class="n">listdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;params.py&#39;</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;params.py&quot;</span><span class="p">)):</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
             <span class="kn">import</span> <span class="nn">params</span> <span class="k">as</span> <span class="nn">params</span>
+
             <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">sample_rate</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">n_channels_dat</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">n_channels_dat</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find params.py in path </span><span class="si">{}</span><span class="s2">;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;channel_map.npy&#39;</span><span class="p">)):</span>
-            <span class="n">channel_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;channel_map.npy&#39;</span><span class="p">))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">channel_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">channel_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">))}</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;channel_map.npy&quot;</span><span class="p">)):</span>
+            <span class="n">channel_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;channel_map.npy&quot;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">channel_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">channel_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">))}</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ch_to_sh</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
-                <span class="n">index</span><span class="o">=</span><span class="n">channel_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> 
-                <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">))])</span>
-                <span class="p">)</span>
+                <span class="n">index</span><span class="o">=</span><span class="n">channel_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
+                    <span class="p">[</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">i</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">))</span>
+                    <span class="p">]</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find channel_map.npy in path </span><span class="si">{}</span><span class="s2">;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
         <span class="k">return</span>
 
-    <span class="k">def</span> <span class="nf">load_phy_spikes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">path</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">load_phy_spikes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load Phy spike times and convert to NWB.</span>
 <span class="sd">        Instantiate automatically a TsGroup object.</span>
@@ -1032,7 +1037,7 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        RuntimeError</span>
-<span class="sd">            If files are missing. </span>
+<span class="sd">            If files are missing.</span>
 <span class="sd">            The function needs :</span>
 <span class="sd">            - cluster_info.tsv or cluster_group.tsv</span>
 <span class="sd">            - spike_times.npy</span>
@@ -1044,51 +1049,68 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
         <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
         <span class="n">has_cluster_info</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="s1">&#39;cluster_info.tsv&#39;</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;cluster_info.tsv&#39;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;cluster_id&#39;</span><span class="p">)</span>
-            <span class="n">cluster_id_good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;good&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">if</span> <span class="s2">&quot;cluster_info.tsv&quot;</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;cluster_info.tsv&quot;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;cluster_id&quot;</span>
+            <span class="p">)</span>
+            <span class="n">cluster_id_good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="s2">&quot;good&quot;</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
             <span class="n">has_cluster_info</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">elif</span> <span class="s1">&#39;cluster_group.tsv&#39;</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;cluster_group.tsv&#39;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;cluster_id&#39;</span><span class="p">)</span>
-            <span class="n">cluster_id_good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;good&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">elif</span> <span class="s2">&quot;cluster_group.tsv&quot;</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;cluster_group.tsv&quot;</span><span class="p">),</span>
+                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;cluster_id&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">cluster_id_good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span><span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="s2">&quot;good&quot;</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find cluster_info.tsv or cluster_group.tsv in </span><span class="si">{}</span><span class="s2">;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Can&#39;t find cluster_info.tsv or cluster_group.tsv in </span><span class="si">{}</span><span class="s2">;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="p">)</span>
 
-        <span class="n">spike_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;spike_times.npy&#39;</span><span class="p">))</span>
-        <span class="n">spike_clusters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;spike_clusters.npy&#39;</span><span class="p">))</span>
+        <span class="n">spike_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;spike_times.npy&quot;</span><span class="p">))</span>
+        <span class="n">spike_clusters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;spike_clusters.npy&quot;</span><span class="p">))</span>
 
         <span class="n">spikes</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">cluster_id_good</span><span class="p">:</span>
-            <span class="n">spikes</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">spike_times</span><span class="p">[</span><span class="n">spike_clusters</span><span class="o">==</span><span class="n">n</span><span class="p">]</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
+            <span class="n">spikes</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span>
+                <span class="n">t</span><span class="o">=</span><span class="n">spike_times</span><span class="p">[</span><span class="n">spike_clusters</span> <span class="o">==</span> <span class="n">n</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span>
+                <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span>
+            <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
 
         <span class="c1"># Adding the position of the electrodes in case</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">channel_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;channel_positions.npy&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;channel_positions.npy&quot;</span><span class="p">))</span>
 
         <span class="c1"># Adding shank group info from cluster_info if present</span>
         <span class="k">if</span> <span class="n">has_cluster_info</span><span class="p">:</span>
-            <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cluster_id_good</span><span class="p">,</span><span class="s1">&#39;sh&#39;</span><span class="p">]</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cluster_id_good</span><span class="p">,</span> <span class="s2">&quot;sh&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">template</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;templates.npy&#39;</span><span class="p">))</span>
+            <span class="n">template</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;templates.npy&quot;</span><span class="p">))</span>
             <span class="n">template</span> <span class="o">=</span> <span class="n">template</span><span class="p">[</span><span class="n">cluster_id_good</span><span class="p">]</span>
-            <span class="n">ch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>            
-            <span class="n">group</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">cluster_id_good</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ch_to_sh</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+            <span class="n">ch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">cluster_id_good</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ch_to_sh</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
 
         <span class="n">names</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-            <span class="p">)</span>
-        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">names</span><span class="o">.</span><span class="n">values</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <span class="n">index</span><span class="o">=</span><span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">names</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
 
         <span class="n">locations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;location&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-            <span class="p">)</span>
-        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">locations</span><span class="o">.</span><span class="n">values</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <span class="n">index</span><span class="o">=</span><span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span>
+            <span class="p">],</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">locations</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">locations</span><span class="p">)</span>
 
         <span class="k">return</span>
@@ -1103,16 +1125,14 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
 <span class="sd">            The path to save the data</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
-            <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> does not exist.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;nwb&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;nwb&quot;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span><span class="p">)</span>
 
-
-        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">)</span>
         <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
         <span class="n">electrode_groups</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1120,43 +1140,54 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
         <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_map</span><span class="p">:</span>
 
             <span class="n">device</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">create_device</span><span class="p">(</span>
-                <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">),</span>
-                <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;description&#39;</span><span class="p">],</span>
-                <span class="n">manufacturer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;manufacturer&#39;</span><span class="p">]</span>
-                <span class="p">)</span>
+                <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;device&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">),</span>
+                <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;device&quot;</span><span class="p">][</span><span class="s2">&quot;description&quot;</span><span class="p">],</span>
+                <span class="n">manufacturer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;device&quot;</span><span class="p">][</span><span class="s2">&quot;manufacturer&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
 
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;|,| &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">])</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">])</span>
+                <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span>
+            <span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
+                    <span class="s2">&quot;;|,| &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
             <span class="n">electrode_groups</span><span class="p">[</span><span class="n">g</span><span class="p">]</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">create_electrode_group</span><span class="p">(</span>
-                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
-                <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;description&#39;</span><span class="p">],</span>
-                <span class="n">position</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">],</span>
-                <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">],</span>
-                <span class="n">device</span><span class="o">=</span><span class="n">device</span>
-                <span class="p">)</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;group&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;description&quot;</span><span class="p">],</span>
+                <span class="n">position</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">],</span>
+                <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">],</span>
+                <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+            <span class="p">)</span>
 
             <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_map</span><span class="p">[</span><span class="n">g</span><span class="p">]:</span>
-                <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_electrode</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span>
-                                      <span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                                      <span class="n">imp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                                      <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">],</span> 
-                                      <span class="n">filtering</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
-                                      <span class="n">group</span><span class="o">=</span><span class="n">electrode_groups</span><span class="p">[</span><span class="n">g</span><span class="p">])</span>
+                <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_electrode</span><span class="p">(</span>
+                    <span class="nb">id</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span>
+                    <span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                    <span class="n">y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                    <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                    <span class="n">imp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                    <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">],</span>
+                    <span class="n">filtering</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                    <span class="n">group</span><span class="o">=</span><span class="n">electrode_groups</span><span class="p">[</span><span class="n">g</span><span class="p">],</span>
+                <span class="p">)</span>
 
         <span class="c1"># Adding units</span>
-        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit_column</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="s1">&#39;the anatomical location of this unit&#39;</span><span class="p">)</span>
-        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit_column</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;the group of the unit&#39;</span><span class="p">)</span>
+        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit_column</span><span class="p">(</span><span class="s2">&quot;location&quot;</span><span class="p">,</span> <span class="s2">&quot;the anatomical location of this unit&quot;</span><span class="p">)</span>
+        <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit_column</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="s2">&quot;the group of the unit&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit</span><span class="p">(</span>
                 <span class="nb">id</span><span class="o">=</span><span class="n">u</span><span class="p">,</span>
-                <span class="n">spike_times</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>                
-                <span class="n">electrode_group</span><span class="o">=</span><span class="n">electrode_groups</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]],</span>
-                <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]][</span><span class="s1">&#39;location&#39;</span><span class="p">],</span>
-                <span class="n">group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
-                <span class="p">)</span>
+                <span class="n">spike_times</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                <span class="n">electrode_group</span><span class="o">=</span><span class="n">electrode_groups</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]],</span>
+                <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]][</span>
+                    <span class="s2">&quot;location&quot;</span>
+                <span class="p">],</span>
+                <span class="n">group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">],</span>
+            <span class="p">)</span>
 
         <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
         <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1177,15 +1208,13 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
 <span class="sd">        TYPE</span>
 <span class="sd">            Description</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
-            <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> does not exist.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;nwb&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;nwb&quot;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span><span class="p">)</span>
 
-        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
         <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">units</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1193,22 +1222,33 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">units</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
-            <span class="n">spikes</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="s1">&#39;spike_times&#39;</span><span class="p">],</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">units</span><span class="o">.</span><span class="n">index</span><span class="p">}</span>
+            <span class="n">spikes</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">n</span><span class="p">:</span> <span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;spike_times&quot;</span><span class="p">],</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">units</span><span class="o">.</span><span class="n">index</span>
+            <span class="p">}</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span>
-                <span class="n">spikes</span><span class="p">,</span> 
+                <span class="n">spikes</span><span class="p">,</span>
                 <span class="n">time_support</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span>
-                <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
-                <span class="n">group</span><span class="o">=</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span>
-                <span class="p">)</span>
+                <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span>
+                <span class="n">group</span><span class="o">=</span><span class="n">units</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
 
-            <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">units</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">])</span>
 
             <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="k">return</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">load_lfp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;.eeg&#39;</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mf">1250.0</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">load_lfp</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;.eeg&quot;</span><span class="p">,</span>
+        <span class="n">frequency</span><span class="o">=</span><span class="mf">1250.0</span><span class="p">,</span>
+        <span class="n">precision</span><span class="o">=</span><span class="s2">&quot;int16&quot;</span><span class="p">,</span>
+        <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load the LFP.</span>
 
@@ -1244,7 +1284,9 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
             <span class="n">listdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
             <span class="n">eegfile</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">extension</span><span class="p">)]</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">eegfile</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> contains no </span><span class="si">{}</span><span class="s2"> files;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">extension</span><span class="p">))</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> contains no </span><span class="si">{}</span><span class="s2"> files;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
+                <span class="p">)</span>
 
             <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">eegfile</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
@@ -1252,38 +1294,34 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
 
         <span class="n">n_channels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span><span class="p">)</span>
 
-        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
         <span class="n">startoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">endoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>      
-        <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span><span class="o">-</span><span class="n">startoffile</span><span class="p">)</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">)</span>
-        <span class="n">duration</span> <span class="o">=</span> <span class="n">n_samples</span><span class="o">/</span><span class="n">frequency</span>
-        <span class="n">interval</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">frequency</span>
+        <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span> <span class="o">-</span> <span class="n">startoffile</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_channels</span> <span class="o">/</span> <span class="n">bytes_size</span><span class="p">)</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">n_samples</span> <span class="o">/</span> <span class="n">frequency</span>
         <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>        
-        <span class="n">timestep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">/</span><span class="n">frequency</span>
+        <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>
+        <span class="n">timestep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span> <span class="o">/</span> <span class="n">frequency</span>
 
-        <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">duration</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">channel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
-                <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
-                <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">,</span> 
-                <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> 
-                <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
+                <span class="n">t</span><span class="o">=</span><span class="n">timestep</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span>
+            <span class="p">)</span>
         <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span>
-                <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
-                <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
-                <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
-                <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>            
+                <span class="n">t</span><span class="o">=</span><span class="n">timestep</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span> <span class="n">channel</span><span class="p">],</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
-                <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span>
-                <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
-                <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
-                <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span>
-                <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+                <span class="n">t</span><span class="o">=</span><span class="n">timestep</span><span class="p">,</span>
+                <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span> <span class="n">channel</span><span class="p">],</span>
+                <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span>
+                <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span>
+                <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
+            <span class="p">)</span>
 </code></pre></div>
         </details>
 
@@ -1345,7 +1383,7 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
 <span class="sd">    ----------</span>
 <span class="sd">    path : str</span>
 <span class="sd">        The path to the data.</span>
-<span class="sd">    &quot;&quot;&quot;</span>     
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -1354,12 +1392,13 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
     <span class="c1"># Need to check if nwb file exists and if data are there</span>
     <span class="n">loading_phy</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
+        <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">):</span>
             <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.nwb&#39;</span><span class="p">)]):</span>                    
+            <span class="k">if</span> <span class="nb">len</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.nwb&quot;</span><span class="p">)]):</span>
                 <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_nwb_spikes</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">success</span><span class="p">:</span> <span class="n">loading_phy</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+                    <span class="n">loading_phy</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="c1"># Bypass if data have already been transfered to nwb</span>
     <span class="k">if</span> <span class="n">loading_phy</span><span class="p">:</span>
@@ -1394,7 +1433,7 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
     <div class="doc doc-contents ">
 
       <p>path should be the folder session containing the params.py file</p>
-<p>Function reads :      <br />
+<p>Function reads :
 1. the number of channels
 2. the sampling frequency of the dat file</p>
 
@@ -1438,9 +1477,9 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    path should be the folder session containing the params.py file</span>
 
-<span class="sd">    Function reads :        </span>
+<span class="sd">    Function reads :</span>
 <span class="sd">    1. the number of channels</span>
-<span class="sd">    2. the sampling frequency of the dat file </span>
+<span class="sd">    2. the sampling frequency of the dat file</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1452,24 +1491,27 @@ Phy            (<a title="pynapple.io.loader.BaseLoader" href="../io.loader/#pyn
 <span class="sd">    RuntimeError</span>
 <span class="sd">        If path does not contain the params file or channel_map.npy</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-        <span class="n">listdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;params.py&#39;</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;params.py&quot;</span><span class="p">)):</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="kn">import</span> <span class="nn">params</span> <span class="k">as</span> <span class="nn">params</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">sample_rate</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_channels_dat</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">n_channels_dat</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find params.py in path </span><span class="si">{}</span><span class="s2">;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;channel_map.npy&#39;</span><span class="p">)):</span>
-        <span class="n">channel_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;channel_map.npy&#39;</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">channel_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">channel_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">))}</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;channel_map.npy&quot;</span><span class="p">)):</span>
+        <span class="n">channel_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;channel_map.npy&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">channel_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">))}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch_to_sh</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
-            <span class="n">index</span><span class="o">=</span><span class="n">channel_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> 
-            <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">))])</span>
-            <span class="p">)</span>
+            <span class="n">index</span><span class="o">=</span><span class="n">channel_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">i</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channel_map</span><span class="p">))</span>
+                <span class="p">]</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find channel_map.npy in path </span><span class="si">{}</span><span class="s2">;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
@@ -1534,7 +1576,7 @@ The cluster group is taken first from cluster_info.tsv and second from cluster_g
   <tbody>
       <tr>
         <td><code>RuntimeError</code></td>
-        <td><p>If files are missing. 
+        <td><p>If files are missing.
 The function needs :
 - cluster_info.tsv or cluster_group.tsv
 - spike_times.npy
@@ -1546,7 +1588,7 @@ The function needs :
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/io/phy.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_phy_spikes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">path</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_phy_spikes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load Phy spike times and convert to NWB.</span>
 <span class="sd">    Instantiate automatically a TsGroup object.</span>
@@ -1562,7 +1604,7 @@ The function needs :
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
 <span class="sd">    RuntimeError</span>
-<span class="sd">        If files are missing. </span>
+<span class="sd">        If files are missing.</span>
 <span class="sd">        The function needs :</span>
 <span class="sd">        - cluster_info.tsv or cluster_group.tsv</span>
 <span class="sd">        - spike_times.npy</span>
@@ -1574,51 +1616,68 @@ The function needs :
     <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
     <span class="n">has_cluster_info</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">if</span> <span class="s1">&#39;cluster_info.tsv&#39;</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;cluster_info.tsv&#39;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;cluster_id&#39;</span><span class="p">)</span>
-        <span class="n">cluster_id_good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;good&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+    <span class="k">if</span> <span class="s2">&quot;cluster_info.tsv&quot;</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;cluster_info.tsv&quot;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;cluster_id&quot;</span>
+        <span class="p">)</span>
+        <span class="n">cluster_id_good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="s2">&quot;good&quot;</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
         <span class="n">has_cluster_info</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">elif</span> <span class="s1">&#39;cluster_group.tsv&#39;</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;cluster_group.tsv&#39;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;cluster_id&#39;</span><span class="p">)</span>
-        <span class="n">cluster_id_good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;good&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+    <span class="k">elif</span> <span class="s2">&quot;cluster_group.tsv&quot;</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;cluster_group.tsv&quot;</span><span class="p">),</span>
+            <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;cluster_id&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">cluster_id_good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cluster_group</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="s2">&quot;good&quot;</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find cluster_info.tsv or cluster_group.tsv in </span><span class="si">{}</span><span class="s2">;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+            <span class="s2">&quot;Can&#39;t find cluster_info.tsv or cluster_group.tsv in </span><span class="si">{}</span><span class="s2">;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="p">)</span>
 
-    <span class="n">spike_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;spike_times.npy&#39;</span><span class="p">))</span>
-    <span class="n">spike_clusters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;spike_clusters.npy&#39;</span><span class="p">))</span>
+    <span class="n">spike_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;spike_times.npy&quot;</span><span class="p">))</span>
+    <span class="n">spike_clusters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;spike_clusters.npy&quot;</span><span class="p">))</span>
 
     <span class="n">spikes</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">cluster_id_good</span><span class="p">:</span>
-        <span class="n">spikes</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">spike_times</span><span class="p">[</span><span class="n">spike_clusters</span><span class="o">==</span><span class="n">n</span><span class="p">]</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
+        <span class="n">spikes</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span>
+            <span class="n">t</span><span class="o">=</span><span class="n">spike_times</span><span class="p">[</span><span class="n">spike_clusters</span> <span class="o">==</span> <span class="n">n</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span>
+            <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span>
+        <span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
 
     <span class="c1"># Adding the position of the electrodes in case</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">channel_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;channel_positions.npy&#39;</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">channel_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;channel_positions.npy&quot;</span><span class="p">))</span>
 
     <span class="c1"># Adding shank group info from cluster_info if present</span>
     <span class="k">if</span> <span class="n">has_cluster_info</span><span class="p">:</span>
-        <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cluster_id_good</span><span class="p">,</span><span class="s1">&#39;sh&#39;</span><span class="p">]</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_info</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cluster_id_good</span><span class="p">,</span> <span class="s2">&quot;sh&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">template</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;templates.npy&#39;</span><span class="p">))</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;templates.npy&quot;</span><span class="p">))</span>
         <span class="n">template</span> <span class="o">=</span> <span class="n">template</span><span class="p">[</span><span class="n">cluster_id_good</span><span class="p">]</span>
-        <span class="n">ch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>            
-        <span class="n">group</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">cluster_id_good</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ch_to_sh</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">cluster_id_good</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ch_to_sh</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
 
     <span class="n">names</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
-        <span class="n">index</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-        <span class="p">)</span>
-    <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">names</span><span class="o">.</span><span class="n">values</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">names</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
 
     <span class="n">locations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
-        <span class="n">index</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;location&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-        <span class="p">)</span>
-    <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">locations</span><span class="o">.</span><span class="n">values</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">locations</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">locations</span><span class="p">)</span>
 
     <span class="k">return</span>
@@ -1675,16 +1734,14 @@ The function needs :
 <span class="sd">        The path to save the data</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
-        <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> does not exist.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">))</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;nwb&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;nwb&quot;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span><span class="p">)</span>
 
-
-    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">)</span>
     <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
     <span class="n">electrode_groups</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1692,43 +1749,54 @@ The function needs :
     <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_map</span><span class="p">:</span>
 
         <span class="n">device</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">create_device</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">),</span>
-            <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;description&#39;</span><span class="p">],</span>
-            <span class="n">manufacturer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;manufacturer&#39;</span><span class="p">]</span>
-            <span class="p">)</span>
+            <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;device&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">),</span>
+            <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;device&quot;</span><span class="p">][</span><span class="s2">&quot;description&quot;</span><span class="p">],</span>
+            <span class="n">manufacturer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;device&quot;</span><span class="p">][</span><span class="s2">&quot;manufacturer&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;|,| &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">])</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">])</span>
+            <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
+                <span class="s2">&quot;;|,| &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="n">electrode_groups</span><span class="p">[</span><span class="n">g</span><span class="p">]</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">create_electrode_group</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
-            <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;description&#39;</span><span class="p">],</span>
-            <span class="n">position</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">],</span>
-            <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">],</span>
-            <span class="n">device</span><span class="o">=</span><span class="n">device</span>
-            <span class="p">)</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;group&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;description&quot;</span><span class="p">],</span>
+            <span class="n">position</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">],</span>
+            <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">],</span>
+            <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_map</span><span class="p">[</span><span class="n">g</span><span class="p">]:</span>
-            <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_electrode</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span>
-                                  <span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                                  <span class="n">imp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                                  <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">],</span> 
-                                  <span class="n">filtering</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
-                                  <span class="n">group</span><span class="o">=</span><span class="n">electrode_groups</span><span class="p">[</span><span class="n">g</span><span class="p">])</span>
+            <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_electrode</span><span class="p">(</span>
+                <span class="nb">id</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span>
+                <span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                <span class="n">y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                <span class="n">imp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">],</span>
+                <span class="n">filtering</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                <span class="n">group</span><span class="o">=</span><span class="n">electrode_groups</span><span class="p">[</span><span class="n">g</span><span class="p">],</span>
+            <span class="p">)</span>
 
     <span class="c1"># Adding units</span>
-    <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit_column</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="s1">&#39;the anatomical location of this unit&#39;</span><span class="p">)</span>
-    <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit_column</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;the group of the unit&#39;</span><span class="p">)</span>
+    <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit_column</span><span class="p">(</span><span class="s2">&quot;location&quot;</span><span class="p">,</span> <span class="s2">&quot;the anatomical location of this unit&quot;</span><span class="p">)</span>
+    <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit_column</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="s2">&quot;the group of the unit&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">nwbfile</span><span class="o">.</span><span class="n">add_unit</span><span class="p">(</span>
             <span class="nb">id</span><span class="o">=</span><span class="n">u</span><span class="p">,</span>
-            <span class="n">spike_times</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>                
-            <span class="n">electrode_group</span><span class="o">=</span><span class="n">electrode_groups</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]],</span>
-            <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]][</span><span class="s1">&#39;location&#39;</span><span class="p">],</span>
-            <span class="n">group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
-            <span class="p">)</span>
+            <span class="n">spike_times</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="n">electrode_group</span><span class="o">=</span><span class="n">electrode_groups</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]],</span>
+            <span class="n">location</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ephys_information</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">]][</span>
+                <span class="s2">&quot;location&quot;</span>
+            <span class="p">],</span>
+            <span class="n">group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">u</span><span class="p">],</span>
+        <span class="p">)</span>
 
     <span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nwbfile</span><span class="p">)</span>
     <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1806,15 +1874,13 @@ The function needs :
 <span class="sd">    TYPE</span>
 <span class="sd">        Description</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;pynapplenwb&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
-        <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> does not exist.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">))</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;nwb&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;nwb&quot;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwbfilename</span><span class="p">)</span>
 
-    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwbfilepath</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
     <span class="n">nwbfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">units</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1822,17 +1888,20 @@ The function needs :
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">units</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
-        <span class="n">spikes</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="s1">&#39;spike_times&#39;</span><span class="p">],</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">units</span><span class="o">.</span><span class="n">index</span><span class="p">}</span>
+        <span class="n">spikes</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">n</span><span class="p">:</span> <span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;spike_times&quot;</span><span class="p">],</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">units</span><span class="o">.</span><span class="n">index</span>
+        <span class="p">}</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span>
-            <span class="n">spikes</span><span class="p">,</span> 
+            <span class="n">spikes</span><span class="p">,</span>
             <span class="n">time_support</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span>
-            <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
-            <span class="n">group</span><span class="o">=</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span>
-            <span class="p">)</span>
+            <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span>
+            <span class="n">group</span><span class="o">=</span><span class="n">units</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
 
-        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">units</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">])</span>
 
         <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="k">return</span> <span class="kc">True</span>
@@ -1940,7 +2009,15 @@ It can be useful it multiple dat files are present in the data directory</p></td
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/io/phy.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_lfp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;.eeg&#39;</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mf">1250.0</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_lfp</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;.eeg&quot;</span><span class="p">,</span>
+    <span class="n">frequency</span><span class="o">=</span><span class="mf">1250.0</span><span class="p">,</span>
+    <span class="n">precision</span><span class="o">=</span><span class="s2">&quot;int16&quot;</span><span class="p">,</span>
+    <span class="n">bytes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load the LFP.</span>
 
@@ -1976,7 +2053,9 @@ It can be useful it multiple dat files are present in the data directory</p></td
         <span class="n">listdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
         <span class="n">eegfile</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">extension</span><span class="p">)]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">eegfile</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> contains no </span><span class="si">{}</span><span class="s2"> files;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">extension</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> contains no </span><span class="si">{}</span><span class="s2"> files;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
+            <span class="p">)</span>
 
         <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">eegfile</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
@@ -1984,38 +2063,34 @@ It can be useful it multiple dat files are present in the data directory</p></td
 
     <span class="n">n_channels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nChannels</span><span class="p">)</span>
 
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
     <span class="n">startoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">endoffile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>      
-    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span><span class="o">-</span><span class="n">startoffile</span><span class="p">)</span><span class="o">/</span><span class="n">n_channels</span><span class="o">/</span><span class="n">bytes_size</span><span class="p">)</span>
-    <span class="n">duration</span> <span class="o">=</span> <span class="n">n_samples</span><span class="o">/</span><span class="n">frequency</span>
-    <span class="n">interval</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">frequency</span>
+    <span class="n">bytes_size</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">endoffile</span> <span class="o">-</span> <span class="n">startoffile</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_channels</span> <span class="o">/</span> <span class="n">bytes_size</span><span class="p">)</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">n_samples</span> <span class="o">/</span> <span class="n">frequency</span>
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>        
-    <span class="n">timestep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">/</span><span class="n">frequency</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>
+    <span class="n">timestep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span> <span class="o">/</span> <span class="n">frequency</span>
 
-    <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">duration</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">channel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
-            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">,</span> 
-            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> 
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
+            <span class="n">t</span><span class="o">=</span><span class="n">timestep</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span>
+        <span class="p">)</span>
     <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span> 
-            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
-            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>            
+            <span class="n">t</span><span class="o">=</span><span class="n">timestep</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span> <span class="n">channel</span><span class="p">],</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">timestep</span><span class="p">,</span>
-            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span><span class="n">channel</span><span class="p">],</span> 
-            <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span>
-            <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+            <span class="n">t</span><span class="o">=</span><span class="n">timestep</span><span class="p">,</span>
+            <span class="n">d</span><span class="o">=</span><span class="n">fp</span><span class="p">[:,</span> <span class="n">channel</span><span class="p">],</span>
+            <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span>
+            <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
+        <span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -2108,7 +2183,7 @@ It can be useful it multiple dat files are present in the data directory</p></td
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.361d90f1.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>

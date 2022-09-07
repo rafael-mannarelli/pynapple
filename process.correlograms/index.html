@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.1.4">
     
     
       
@@ -141,7 +141,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -186,7 +186,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -873,7 +873,7 @@
 
     <div class="doc doc-contents ">
 
-      <p>Performs the discrete cross-correlogram of two time series. </p>
+      <p>Performs the discrete cross-correlogram of two time series.</p>
 <p>The units should be in s for all arguments.
 Return the firing rate of the series t2 relative to the timings of t1.
 See compute_crosscorrelogram, compute_autocorrelogram and compute_eventcorrelogram
@@ -936,7 +936,7 @@ for wrappers of this function.</p>
           <div class="highlight"><pre><span></span><code><span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">cross_correlogram</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Performs the discrete cross-correlogram of two time series. </span>
+<span class="sd">    Performs the discrete cross-correlogram of two time series.</span>
 <span class="sd">    The units should be in s for all arguments.</span>
 <span class="sd">    Return the firing rate of the series t2 relative to the timings of t1.</span>
 <span class="sd">    See compute_crosscorrelogram, compute_autocorrelogram and compute_eventcorrelogram</span>
@@ -961,43 +961,43 @@ for wrappers of this function.</p>
 <span class="sd">        Center of the bins (in s)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># nbins = ((windowsize//binsize)*2)    </span>
+    <span class="c1"># nbins = ((windowsize//binsize)*2)</span>
 
     <span class="n">nt1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
     <span class="n">nt2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
 
-    <span class="n">nbins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">windowsize</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">//</span><span class="n">binsize</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">nbins</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span> <span class="o">==</span> <span class="n">nbins</span><span class="p">:</span>
-        <span class="n">nbins</span> <span class="o">=</span> <span class="n">nbins</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">nbins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">windowsize</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">//</span> <span class="n">binsize</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">nbins</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">nbins</span><span class="p">:</span>
+        <span class="n">nbins</span> <span class="o">=</span> <span class="n">nbins</span> <span class="o">+</span> <span class="mi">1</span>
 
-    <span class="n">w</span> <span class="o">=</span> <span class="p">((</span><span class="n">nbins</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">binsize</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="p">(</span><span class="n">nbins</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">binsize</span>
     <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nbins</span><span class="p">)</span>
     <span class="n">i2</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt1</span><span class="p">):</span>
         <span class="n">lbound</span> <span class="o">=</span> <span class="n">t1</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span> <span class="o">-</span> <span class="n">w</span>
         <span class="k">while</span> <span class="n">i2</span> <span class="o">&lt;</span> <span class="n">nt2</span> <span class="ow">and</span> <span class="n">t2</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lbound</span><span class="p">:</span>
-            <span class="n">i2</span> <span class="o">=</span> <span class="n">i2</span><span class="o">+</span><span class="mi">1</span>
-        <span class="k">while</span> <span class="n">i2</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">t2</span><span class="p">[</span><span class="n">i2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">lbound</span><span class="p">:</span>
-            <span class="n">i2</span> <span class="o">=</span> <span class="n">i2</span><span class="o">-</span><span class="mi">1</span>
+            <span class="n">i2</span> <span class="o">=</span> <span class="n">i2</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">i2</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">t2</span><span class="p">[</span><span class="n">i2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">lbound</span><span class="p">:</span>
+            <span class="n">i2</span> <span class="o">=</span> <span class="n">i2</span> <span class="o">-</span> <span class="mi">1</span>
 
         <span class="n">rbound</span> <span class="o">=</span> <span class="n">lbound</span>
-        <span class="n">l</span> <span class="o">=</span> <span class="n">i2</span>
+        <span class="n">leftb</span> <span class="o">=</span> <span class="n">i2</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbins</span><span class="p">):</span>
             <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="n">rbound</span> <span class="o">=</span> <span class="n">rbound</span><span class="o">+</span><span class="n">binsize</span>
-            <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">nt2</span> <span class="ow">and</span> <span class="n">t2</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rbound</span><span class="p">:</span>
-                <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span>
-                <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">rbound</span> <span class="o">=</span> <span class="n">rbound</span> <span class="o">+</span> <span class="n">binsize</span>
+            <span class="k">while</span> <span class="n">leftb</span> <span class="o">&lt;</span> <span class="n">nt2</span> <span class="ow">and</span> <span class="n">t2</span><span class="p">[</span><span class="n">leftb</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rbound</span><span class="p">:</span>
+                <span class="n">leftb</span> <span class="o">=</span> <span class="n">leftb</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
 
             <span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">k</span>
 
-    <span class="n">C</span> <span class="o">=</span> <span class="n">C</span><span class="o">/</span><span class="p">(</span><span class="n">nt1</span> <span class="o">*</span> <span class="n">binsize</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">C</span> <span class="o">/</span> <span class="p">(</span><span class="n">nt1</span> <span class="o">*</span> <span class="n">binsize</span><span class="p">)</span>
 
-    <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">w</span> <span class="o">+</span> <span class="n">binsize</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">w</span> <span class="o">+</span> <span class="n">binsize</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nbins</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbins</span><span class="p">):</span>
-        <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="n">binsize</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">binsize</span>
 
     <span class="k">return</span> <span class="n">C</span><span class="p">,</span> <span class="n">B</span>
 </code></pre></div>
@@ -1043,7 +1043,7 @@ for wrappers of this function.</p>
       <tr>
         <td><code>binsize</code></td>
         <td><code>float</code></td>
-        <td><p>The bin size. Default is second. 
+        <td><p>The bin size. Default is second.
 If different, specify with the parameter time_units ('s' [default], 'ms', 'us').</p></td>
         <td><code>&#39;second.&#39;</code></td>
       </tr>
@@ -1057,7 +1057,7 @@ If different, specify with the parameter time_units ('s' [default], 'ms', 'us').
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet</code></td>
-        <td><p>The epoch on which auto-corrs are computed. 
+        <td><p>The epoch on which auto-corrs are computed.
 If None, the epoch is the time support of the group.</p></td>
         <td><code>None</code></td>
       </tr>
@@ -1109,7 +1109,9 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_autocorrelogram</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_autocorrelogram</span><span class="p">(</span>
+    <span class="n">group</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the autocorrelogram of a group of Ts/Tsd objects.</span>
 <span class="sd">    The group can be passed directly as a TsGroup object.</span>
@@ -1119,13 +1121,13 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
 <span class="sd">    group : TsGroup</span>
 <span class="sd">        The group of Ts/Tsd objects to auto-correlate</span>
 <span class="sd">    binsize : float</span>
-<span class="sd">        The bin size. Default is second. </span>
+<span class="sd">        The bin size. Default is second.</span>
 <span class="sd">        If different, specify with the parameter time_units (&#39;s&#39; [default], &#39;ms&#39;, &#39;us&#39;).</span>
 <span class="sd">    windowsize : float</span>
 <span class="sd">        The window size. Default is second.</span>
 <span class="sd">        If different, specify with the parameter time_units (&#39;s&#39; [default], &#39;ms&#39;, &#39;us&#39;).</span>
 <span class="sd">    ep : IntervalSet</span>
-<span class="sd">        The epoch on which auto-corrs are computed. </span>
+<span class="sd">        The epoch on which auto-corrs are computed.</span>
 <span class="sd">        If None, the epoch is the time support of the group.</span>
 <span class="sd">    norm : bool, optional</span>
 <span class="sd">         If True, autocorrelograms are normalized to baseline (i.e. divided by the average rate)</span>
@@ -1145,7 +1147,7 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
 <span class="sd">        group must be TsGroup</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="ow">is</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>            
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
             <span class="n">newgroup</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">newgroup</span> <span class="o">=</span> <span class="n">group</span>
@@ -1158,19 +1160,21 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
     <span class="n">windowsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">windowsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="n">spk_time</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">spk_time</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
         <span class="n">auc</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">cross_correlogram</span><span class="p">(</span><span class="n">spk_time</span><span class="p">,</span> <span class="n">spk_time</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span>
         <span class="c1"># times = nap.TimeUnits.return_timestamps(times, &#39;s&#39;)</span>
-        <span class="n">autocorrs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">auc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+        <span class="n">autocorrs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">auc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 
     <span class="n">autocorrs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">autocorrs</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>    
-        <span class="n">autocorrs</span> <span class="o">=</span> <span class="n">autocorrs</span> <span class="o">/</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>
+        <span class="n">autocorrs</span> <span class="o">=</span> <span class="n">autocorrs</span> <span class="o">/</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s2">&quot;freq&quot;</span><span class="p">)</span>
 
-    <span class="n">autocorrs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># Bug here</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">autocorrs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+        <span class="n">autocorrs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-    <span class="k">return</span> <span class="n">autocorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">autocorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1194,7 +1198,7 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
       <p>Computes all the pairwise cross-correlograms from a group of Ts/Tsd objects.</p>
 <p>The group can be passed directly as a TsGroup object.
 The reference Ts/Tsd and target are chosen based on the builtin itertools.combinations function.
-For example if indexes are [0,1,2], the function computes cross-correlograms 
+For example if indexes are [0,1,2], the function computes cross-correlograms
 for the pairs (0,1), (0, 2), and (1, 2). The left index gives the reference time series.
 To reverse the order, set reverse=True.</p>
 
@@ -1218,7 +1222,7 @@ To reverse the order, set reverse=True.</p>
       <tr>
         <td><code>binsize</code></td>
         <td><code>float</code></td>
-        <td><p>The bin size. Default is second. 
+        <td><p>The bin size. Default is second.
 If different, specify with the parameter time_units ('s' [default], 'ms', 'us').</p></td>
         <td><code>&#39;second.&#39;</code></td>
       </tr>
@@ -1232,7 +1236,7 @@ If different, specify with the parameter time_units ('s' [default], 'ms', 'us').
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet</code></td>
-        <td><p>The epoch on which cross-corrs are computed. 
+        <td><p>The epoch on which cross-corrs are computed.
 If None, the epoch is the time support of the group.</p></td>
         <td><code>None</code></td>
       </tr>
@@ -1290,12 +1294,14 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_crosscorrelogram</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_crosscorrelogram</span><span class="p">(</span>
+    <span class="n">group</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes all the pairwise cross-correlograms from a group of Ts/Tsd objects.</span>
 <span class="sd">    The group can be passed directly as a TsGroup object.</span>
 <span class="sd">    The reference Ts/Tsd and target are chosen based on the builtin itertools.combinations function.</span>
-<span class="sd">    For example if indexes are [0,1,2], the function computes cross-correlograms </span>
+<span class="sd">    For example if indexes are [0,1,2], the function computes cross-correlograms</span>
 <span class="sd">    for the pairs (0,1), (0, 2), and (1, 2). The left index gives the reference time series.</span>
 <span class="sd">    To reverse the order, set reverse=True.</span>
 
@@ -1304,13 +1310,13 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
 <span class="sd">    group : TsGroup</span>
 <span class="sd">        The group of Ts/Tsd objects to cross-correlate</span>
 <span class="sd">    binsize : float</span>
-<span class="sd">        The bin size. Default is second. </span>
+<span class="sd">        The bin size. Default is second.</span>
 <span class="sd">        If different, specify with the parameter time_units (&#39;s&#39; [default], &#39;ms&#39;, &#39;us&#39;).</span>
 <span class="sd">    windowsize : float</span>
 <span class="sd">        The window size. Default is second.</span>
 <span class="sd">        If different, specify with the parameter time_units (&#39;s&#39; [default], &#39;ms&#39;, &#39;us&#39;).</span>
 <span class="sd">    ep : IntervalSet</span>
-<span class="sd">        The epoch on which cross-corrs are computed. </span>
+<span class="sd">        The epoch on which cross-corrs are computed.</span>
 <span class="sd">        If None, the epoch is the time support of the group.</span>
 <span class="sd">    norm : bool, optional</span>
 <span class="sd">        If True (default), cross-correlograms are normalized to baseline (i.e. divided by the average rate of the target time series)</span>
@@ -1333,7 +1339,7 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="ow">is</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>            
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
             <span class="n">newgroup</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">newgroup</span> <span class="o">=</span> <span class="n">group</span>
@@ -1342,26 +1348,27 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
 
     <span class="n">neurons</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">newgroup</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
     <span class="n">pairs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="n">neurons</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">reverse</span><span class="p">:</span> <span class="n">pairs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">pairs</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">reverse</span><span class="p">:</span>
+        <span class="n">pairs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">pairs</span><span class="p">))</span>
     <span class="n">crosscorrs</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="n">binsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">windowsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">windowsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
-        <span class="n">spk1</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-        <span class="n">spk2</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>            
-        <span class="n">auc</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">cross_correlogram</span><span class="p">(</span><span class="n">spk1</span><span class="p">,</span> <span class="n">spk2</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span>        
-        <span class="n">crosscorrs</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">times</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">auc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+        <span class="n">spk1</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">spk2</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">auc</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">cross_correlogram</span><span class="p">(</span><span class="n">spk1</span><span class="p">,</span> <span class="n">spk2</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span>
+        <span class="n">crosscorrs</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">auc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 
     <span class="n">crosscorrs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">crosscorrs</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>    
-        <span class="n">freq</span> <span class="o">=</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
-        <span class="n">freq2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">pairs</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span><span class="n">freq</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">pairs</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>
+        <span class="n">freq</span> <span class="o">=</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s2">&quot;freq&quot;</span><span class="p">)</span>
+        <span class="n">freq2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">pairs</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">freq</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">pairs</span><span class="p">)))</span>
         <span class="n">crosscorrs</span> <span class="o">=</span> <span class="n">crosscorrs</span> <span class="o">/</span> <span class="n">freq2</span>
 
-    <span class="k">return</span> <span class="n">crosscorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">crosscorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1411,7 +1418,7 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
       <tr>
         <td><code>binsize</code></td>
         <td><code>float</code></td>
-        <td><p>The bin size. Default is second. 
+        <td><p>The bin size. Default is second.
 If different, specify with the parameter time_units ('s' [default], 'ms', 'us').</p></td>
         <td><code>&#39;second.&#39;</code></td>
       </tr>
@@ -1425,7 +1432,7 @@ If different, specify with the parameter time_units ('s' [default], 'ms', 'us').
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet</code></td>
-        <td><p>The epoch on which cross-corrs are computed. 
+        <td><p>The epoch on which cross-corrs are computed.
 If None, the epoch is the time support of the event.</p></td>
         <td><code>None</code></td>
       </tr>
@@ -1477,7 +1484,9 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_eventcorrelogram</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_eventcorrelogram</span><span class="p">(</span>
+    <span class="n">group</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the correlograms of a group of Ts/Tsd objects with another single Ts/Tsd object</span>
 <span class="sd">    The time of reference is the event times.</span>
@@ -1489,13 +1498,13 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
 <span class="sd">    event : Ts/Tsd</span>
 <span class="sd">        The event to correlate the each of the time series in the group with.</span>
 <span class="sd">    binsize : float</span>
-<span class="sd">        The bin size. Default is second. </span>
+<span class="sd">        The bin size. Default is second.</span>
 <span class="sd">        If different, specify with the parameter time_units (&#39;s&#39; [default], &#39;ms&#39;, &#39;us&#39;).</span>
 <span class="sd">    windowsize : float</span>
 <span class="sd">        The window size. Default is second.</span>
 <span class="sd">        If different, specify with the parameter time_units (&#39;s&#39; [default], &#39;ms&#39;, &#39;us&#39;).</span>
 <span class="sd">    ep : IntervalSet</span>
-<span class="sd">        The epoch on which cross-corrs are computed. </span>
+<span class="sd">        The epoch on which cross-corrs are computed.</span>
 <span class="sd">        If None, the epoch is the time support of the event.</span>
 <span class="sd">    norm : bool, optional</span>
 <span class="sd">        If True (default), cross-correlograms are normalized to baseline (i.e. divided by the average rate of the target time series)</span>
@@ -1516,9 +1525,9 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ep</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ep</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">time_support</span>
-        <span class="n">tsd1</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">tsd1</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">tsd1</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">tsd1</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
 
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="ow">is</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">:</span>
         <span class="n">newgroup</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
@@ -1530,17 +1539,17 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
     <span class="n">binsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">windowsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">windowsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>        
-        <span class="n">spk_time</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-        <span class="n">auc</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">cross_correlogram</span><span class="p">(</span><span class="n">tsd1</span><span class="p">,</span> <span class="n">spk_time</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span>        
-        <span class="n">crosscorrs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">times</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">auc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">spk_time</span> <span class="o">=</span> <span class="n">newgroup</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">auc</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">cross_correlogram</span><span class="p">(</span><span class="n">tsd1</span><span class="p">,</span> <span class="n">spk_time</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span>
+        <span class="n">crosscorrs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">auc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 
     <span class="n">crosscorrs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">crosscorrs</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>    
-        <span class="n">crosscorrs</span> <span class="o">=</span> <span class="n">crosscorrs</span> <span class="o">/</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>
+        <span class="n">crosscorrs</span> <span class="o">=</span> <span class="n">crosscorrs</span> <span class="o">/</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s2">&quot;freq&quot;</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">crosscorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">crosscorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1622,7 +1631,7 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.361d90f1.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>

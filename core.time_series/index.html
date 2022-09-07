@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.1.4">
     
     
       
@@ -141,7 +141,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -186,7 +186,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -1203,7 +1203,7 @@ Tsd        </code>
 <span class="sd">        The time support of the time series</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Tsd Initializer.</span>
 
@@ -1223,7 +1223,8 @@ Tsd        </code>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">SingleBlockManager</span><span class="p">):</span>
             <span class="n">d</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">array</span>
             <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-            <span class="k">if</span> <span class="s1">&#39;index&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>            
+            <span class="k">if</span> <span class="s2">&quot;index&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
             <span class="n">d</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">values</span>
             <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
@@ -1234,30 +1235,45 @@ Tsd        </code>
             <span class="k">if</span> <span class="n">time_support</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">bins</span> <span class="o">=</span> <span class="n">time_support</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
                 <span class="c1"># Because yes there is no funtion with both bounds closed as an option</span>
-                <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))),</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-                    <span class="p">))</span><span class="o">.</span><span class="n">T</span>
+                <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+                    <span class="p">(</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                            <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span>
+                                <span class="n">t</span><span class="p">,</span>
+                                <span class="n">bins</span><span class="p">,</span>
+                                <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+                            <span class="p">)</span>
+                        <span class="p">),</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                            <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span>
+                                <span class="n">t</span><span class="p">,</span>
+                                <span class="n">bins</span><span class="p">,</span>
+                                <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+                                <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="p">),</span>
+                    <span class="p">)</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">T</span>
                 <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">!=</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
-                <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-                <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">1</span><span class="p">]</span>
-                <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
                 <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">ix</span><span class="p">])</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+                <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">]))</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">]))</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Time (s)&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;nap_class&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
@@ -1277,15 +1293,16 @@ Tsd        </code>
     <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_series</span><span class="p">()</span><span class="o">.</span><span class="fm">__ne__</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>        
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_series</span><span class="p">()</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_series</span><span class="p">()</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The time index of the Tsd, returned as np.double in the desired time units.</span>
 
@@ -1313,7 +1330,7 @@ Tsd        </code>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a Series with time expressed in the desired unit.</span>
 
@@ -1330,12 +1347,12 @@ Tsd        </code>
         <span class="n">ss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_series</span><span class="p">()</span>
         <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s1">&#39;us&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s2">&quot;us&quot;</span><span class="p">:</span>
             <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
         <span class="n">ss</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">t</span>
         <span class="n">units_str</span> <span class="o">=</span> <span class="n">units</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">units_str</span><span class="p">:</span>
-            <span class="n">units_str</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span>
+            <span class="n">units_str</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>
         <span class="n">ss</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Time (&quot;</span> <span class="o">+</span> <span class="n">units_str</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
         <span class="k">return</span> <span class="n">ss</span>
 
@@ -1350,7 +1367,7 @@ Tsd        </code>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
 
-    <span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;closest&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Replace the value with the closest value from tsd argument</span>
 
@@ -1359,7 +1376,7 @@ Tsd        </code>
 <span class="sd">        tsd : Tsd</span>
 <span class="sd">            The Tsd object holding the values to replace</span>
 <span class="sd">        ep : IntervalSet (optional)</span>
-<span class="sd">            The IntervalSet object to restrict the operation. </span>
+<span class="sd">            The IntervalSet object to restrict the operation.</span>
 <span class="sd">            If None, the time support of the tsd input object is used.</span>
 <span class="sd">        align : str, optional</span>
 <span class="sd">            The method to align (closest/prev/next)</span>
@@ -1376,7 +1393,7 @@ Tsd        </code>
 <span class="sd">        &gt;&gt;&gt; import pynapple as nap</span>
 <span class="sd">        &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">        &gt;&gt;&gt; t = np.unique(np.sort(np.random.randint(0, 1000, 100))) # random times</span>
-<span class="sd">        &gt;&gt;&gt; ts = nap.Ts(t=t, time_units=&#39;s&#39;)             </span>
+<span class="sd">        &gt;&gt;&gt; ts = nap.Ts(t=t, time_units=&#39;s&#39;)</span>
 <span class="sd">        &gt;&gt;&gt; tsd = nap.Tsd(t=np.arange(0,1000), d=np.random.rand(1000), time_units=&#39;s&#39;)</span>
 <span class="sd">        &gt;&gt;&gt; ep = nap.IntervalSet(start = 0, end = 500, time_units = &#39;s&#39;)</span>
 
@@ -1397,7 +1414,7 @@ Tsd        </code>
         <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
         <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">as_series</span><span class="p">()</span>
         <span class="n">new_tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">new_tsd</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">new_tsd</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">restrict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ep</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1406,7 +1423,7 @@ Tsd        </code>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        ep : IntervalSet</span>
-<span class="sd">            the IntervalSet object </span>
+<span class="sd">            the IntervalSet object</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1434,14 +1451,14 @@ Tsd        </code>
         <span class="n">ix</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">in_interval</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">tsd_r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">col</span> <span class="o">=</span> <span class="n">tsd_r</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">tsd_r</span><span class="p">[</span><span class="s1">&#39;interval&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span>
+        <span class="n">tsd_r</span><span class="p">[</span><span class="s2">&quot;interval&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
         <span class="n">tsd_r</span> <span class="o">=</span> <span class="n">tsd_r</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">tsd_r</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">ep</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Count occurences of events within bin_size. </span>
+<span class="sd">        Count occurences of events within bin_size.</span>
 <span class="sd">        bin_size should be seconds unless specified.</span>
 <span class="sd">        If no epochs is passed, the data will be binned based on the time support.</span>
 
@@ -1476,7 +1493,7 @@ Tsd        </code>
 <span class="sd">        &gt;&gt;&gt; ep = nap.IntervalSet(start = 100, end = 800, time_units = &#39;s&#39;)</span>
 <span class="sd">        &gt;&gt;&gt; bincount = ts.count(0.1, ep=ep)</span>
 
-<span class="sd">        And bincount automatically inherit ep as time support: </span>
+<span class="sd">        And bincount automatically inherit ep as time support:</span>
 
 <span class="sd">        &gt;&gt;&gt; bincount.time_support</span>
 <span class="sd">        &gt;&gt;&gt;    start    end</span>
@@ -1493,14 +1510,14 @@ Tsd        </code>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ep</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
             <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ep</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">)</span>
             <span class="n">count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">time_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">time_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
         <span class="n">time_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">time_index</span><span class="p">)</span>
         <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">time_index</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">count</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thr</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;above&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thr</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;above&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Apply a threshold function to the tsd to return a new tsd </span>
+<span class="sd">        Apply a threshold function to the tsd to return a new tsd</span>
 <span class="sd">        with the time support being the epochs above/below the threshold</span>
 
 <span class="sd">        Parameters</span>
@@ -1543,39 +1560,43 @@ Tsd        </code>
         <span class="n">idx_rising</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">d</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thr</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">idx_falling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">d</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thr</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="n">thr</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;above&#39;</span><span class="p">:</span>
-            <span class="n">starts</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
-            <span class="n">ends</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;above&quot;</span><span class="p">:</span>
+            <span class="n">starts</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">ends</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
             <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">:</span>
-                <span class="n">starts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">starts</span><span class="p">))</span>                
+                <span class="n">starts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">starts</span><span class="p">))</span>
             <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">:</span>
                 <span class="n">ends</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ends</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;below&#39;</span><span class="p">:</span>
-            <span class="n">starts</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
-            <span class="n">ends</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;below&quot;</span><span class="p">:</span>
+            <span class="n">starts</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">ends</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
             <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thr</span><span class="p">:</span>
-                <span class="n">starts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">starts</span><span class="p">))</span>                
+                <span class="n">starts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">starts</span><span class="p">))</span>
             <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thr</span><span class="p">:</span>
                 <span class="n">ends</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ends</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Method </span><span class="si">{}</span><span class="s2"> for thresholding is not accepted.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Method </span><span class="si">{}</span><span class="s2"> for thresholding is not accepted.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+            <span class="p">)</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span><span class="o">!=</span><span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Threshold </span><span class="si">{}</span><span class="s2"> with method </span><span class="si">{}</span><span class="s2"> returned empty tsd.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thr</span><span class="p">,</span> <span class="n">method</span><span class="p">))</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Threshold </span><span class="si">{}</span><span class="s2"> with method </span><span class="si">{}</span><span class="s2"> returned empty tsd.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thr</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">starts</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">ends</span><span class="p">)</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">ends</span><span class="p">)</span>
             <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="o">.</span><span class="n">drop_short_intervals</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
             <span class="n">time_support</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">time_support</span><span class="p">)</span>
             <span class="n">tsd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">time_support</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">tsd</span>
 
-    <span class="k">def</span> <span class="nf">gaps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;absolute&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">gaps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;absolute&quot;</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">gaps_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;absolute&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;absolute&quot;</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">support_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The first time index in the Ts/Tsd object</span>
 
@@ -1588,10 +1609,10 @@ Tsd        </code>
 <span class="sd">        -------</span>
 <span class="sd">        out: numpy.float64</span>
 <span class="sd">            _</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The last time index in the Ts/Tsd object</span>
 
@@ -1604,7 +1625,7 @@ Tsd        </code>
 <span class="sd">        -------</span>
 <span class="sd">        out: numpy.float64</span>
 <span class="sd">            _</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="nd">@property</span>
@@ -1687,7 +1708,7 @@ Tsd        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Tsd Initializer.</span>
 
@@ -1707,7 +1728,8 @@ Tsd        </code>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">SingleBlockManager</span><span class="p">):</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">array</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-        <span class="k">if</span> <span class="s1">&#39;index&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>            
+        <span class="k">if</span> <span class="s2">&quot;index&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">values</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
@@ -1718,30 +1740,45 @@ Tsd        </code>
         <span class="k">if</span> <span class="n">time_support</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">bins</span> <span class="o">=</span> <span class="n">time_support</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
             <span class="c1"># Because yes there is no funtion with both bounds closed as an option</span>
-            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))),</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-                <span class="p">))</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                        <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span>
+                            <span class="n">t</span><span class="p">,</span>
+                            <span class="n">bins</span><span class="p">,</span>
+                            <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+                        <span class="p">)</span>
+                    <span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                        <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span>
+                            <span class="n">t</span><span class="p">,</span>
+                            <span class="n">bins</span><span class="p">,</span>
+                            <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+                            <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">T</span>
             <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">!=</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
-            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
             <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">ix</span><span class="p">])</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">]))</span>
+        <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">]))</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Time (s)&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;nap_class&quot;</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
@@ -1811,7 +1848,7 @@ Tsd        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The time index of the Tsd, returned as np.double in the desired time units.</span>
 
@@ -1934,7 +1971,7 @@ Tsd        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a Series with time expressed in the desired unit.</span>
 
@@ -1951,12 +1988,12 @@ Tsd        </code>
     <span class="n">ss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_series</span><span class="p">()</span>
     <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s1">&#39;us&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s2">&quot;us&quot;</span><span class="p">:</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
     <span class="n">ss</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">t</span>
     <span class="n">units_str</span> <span class="o">=</span> <span class="n">units</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">units_str</span><span class="p">:</span>
-        <span class="n">units_str</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span>
+        <span class="n">units_str</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>
     <span class="n">ss</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Time (&quot;</span> <span class="o">+</span> <span class="n">units_str</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
     <span class="k">return</span> <span class="n">ss</span>
 </code></pre></div>
@@ -2050,7 +2087,7 @@ Tsd        </code>
       <tr>
         <td><code>ep</code></td>
         <td><code>IntervalSet </code></td>
-        <td><p>The IntervalSet object to restrict the operation. 
+        <td><p>The IntervalSet object to restrict the operation.
 If None, the time support of the tsd input object is used.</p></td>
         <td><code>None</code></td>
       </tr>
@@ -2067,7 +2104,7 @@ If None, the time support of the tsd input object is used.</p></td>
     <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)))</span> <span class="c1"># random times</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>             
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">tsd</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> <span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">ep</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -2097,7 +2134,7 @@ The tsd object containing the values, for example the tracking data, and the epo
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;closest&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Replace the value with the closest value from tsd argument</span>
 
@@ -2106,7 +2143,7 @@ The tsd object containing the values, for example the tracking data, and the epo
 <span class="sd">    tsd : Tsd</span>
 <span class="sd">        The Tsd object holding the values to replace</span>
 <span class="sd">    ep : IntervalSet (optional)</span>
-<span class="sd">        The IntervalSet object to restrict the operation. </span>
+<span class="sd">        The IntervalSet object to restrict the operation.</span>
 <span class="sd">        If None, the time support of the tsd input object is used.</span>
 <span class="sd">    align : str, optional</span>
 <span class="sd">        The method to align (closest/prev/next)</span>
@@ -2123,7 +2160,7 @@ The tsd object containing the values, for example the tracking data, and the epo
 <span class="sd">    &gt;&gt;&gt; import pynapple as nap</span>
 <span class="sd">    &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">    &gt;&gt;&gt; t = np.unique(np.sort(np.random.randint(0, 1000, 100))) # random times</span>
-<span class="sd">    &gt;&gt;&gt; ts = nap.Ts(t=t, time_units=&#39;s&#39;)             </span>
+<span class="sd">    &gt;&gt;&gt; ts = nap.Ts(t=t, time_units=&#39;s&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; tsd = nap.Tsd(t=np.arange(0,1000), d=np.random.rand(1000), time_units=&#39;s&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; ep = nap.IntervalSet(start = 0, end = 500, time_units = &#39;s&#39;)</span>
 
@@ -2144,7 +2181,7 @@ The tsd object containing the values, for example the tracking data, and the epo
     <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
     <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">as_series</span><span class="p">()</span>
     <span class="n">new_tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">new_tsd</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">new_tsd</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -2225,7 +2262,7 @@ The tsd object containing the values, for example the tracking data, and the epo
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    ep : IntervalSet</span>
-<span class="sd">        the IntervalSet object </span>
+<span class="sd">        the IntervalSet object</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2253,7 +2290,7 @@ The tsd object containing the values, for example the tracking data, and the epo
     <span class="n">ix</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">in_interval</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     <span class="n">tsd_r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">col</span> <span class="o">=</span> <span class="n">tsd_r</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">tsd_r</span><span class="p">[</span><span class="s1">&#39;interval&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span>
+    <span class="n">tsd_r</span><span class="p">[</span><span class="s2">&quot;interval&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span>
     <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
     <span class="n">tsd_r</span> <span class="o">=</span> <span class="n">tsd_r</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">tsd_r</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
@@ -2277,7 +2314,7 @@ The tsd object containing the values, for example the tracking data, and the epo
 
     <div class="doc doc-contents ">
 
-      <p>Count occurences of events within bin_size. </p>
+      <p>Count occurences of events within bin_size.</p>
 <p>bin_size should be seconds unless specified.
 If no epochs is passed, the data will be binned based on the time support.</p>
 
@@ -2324,7 +2361,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
     <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">ep</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bincount</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 </code></pre></div>
-    <p>And bincount automatically inherit ep as time support: </p>
+    <p>And bincount automatically inherit ep as time support:</p>
     <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">bincount</span><span class="o">.</span><span class="n">time_support</span>
 <span class="o">&gt;&gt;&gt;</span>    <span class="n">start</span>    <span class="n">end</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span>  <span class="mf">100.0</span>  <span class="mf">800.0</span>
@@ -2347,9 +2384,9 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">ep</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Count occurences of events within bin_size. </span>
+<span class="sd">    Count occurences of events within bin_size.</span>
 <span class="sd">    bin_size should be seconds unless specified.</span>
 <span class="sd">    If no epochs is passed, the data will be binned based on the time support.</span>
 
@@ -2384,7 +2421,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 <span class="sd">    &gt;&gt;&gt; ep = nap.IntervalSet(start = 100, end = 800, time_units = &#39;s&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; bincount = ts.count(0.1, ep=ep)</span>
 
-<span class="sd">    And bincount automatically inherit ep as time support: </span>
+<span class="sd">    And bincount automatically inherit ep as time support:</span>
 
 <span class="sd">    &gt;&gt;&gt; bincount.time_support</span>
 <span class="sd">    &gt;&gt;&gt;    start    end</span>
@@ -2401,7 +2438,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ep</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ep</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">)</span>
         <span class="n">count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">time_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">time_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">time_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">time_index</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">time_index</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">count</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
@@ -2425,7 +2462,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Apply a threshold function to the tsd to return a new tsd </p>
+      <p>Apply a threshold function to the tsd to return a new tsd</p>
 <p>with the time support being the epochs above/below the threshold</p>
 
 <p><strong>Parameters:</strong></p>
@@ -2502,9 +2539,9 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thr</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;above&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thr</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;above&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Apply a threshold function to the tsd to return a new tsd </span>
+<span class="sd">    Apply a threshold function to the tsd to return a new tsd</span>
 <span class="sd">    with the time support being the epochs above/below the threshold</span>
 
 <span class="sd">    Parameters</span>
@@ -2547,27 +2584,31 @@ If no epochs is passed, the data will be binned based on the time support.</p>
     <span class="n">idx_rising</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">d</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thr</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">idx_falling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">d</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thr</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="n">thr</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;above&#39;</span><span class="p">:</span>
-        <span class="n">starts</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
-        <span class="n">ends</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;above&quot;</span><span class="p">:</span>
+        <span class="n">starts</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">ends</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">:</span>
-            <span class="n">starts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">starts</span><span class="p">))</span>                
+            <span class="n">starts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">starts</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">:</span>
             <span class="n">ends</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ends</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;below&#39;</span><span class="p">:</span>
-        <span class="n">starts</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
-        <span class="n">ends</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;below&quot;</span><span class="p">:</span>
+        <span class="n">starts</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_falling</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">ends</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">idx_rising</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thr</span><span class="p">:</span>
-            <span class="n">starts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">starts</span><span class="p">))</span>                
+            <span class="n">starts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">starts</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thr</span><span class="p">:</span>
             <span class="n">ends</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">ends</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Method </span><span class="si">{}</span><span class="s2"> for thresholding is not accepted.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Method </span><span class="si">{}</span><span class="s2"> for thresholding is not accepted.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+        <span class="p">)</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span><span class="o">!=</span><span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Threshold </span><span class="si">{}</span><span class="s2"> with method </span><span class="si">{}</span><span class="s2"> returned empty tsd.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thr</span><span class="p">,</span> <span class="n">method</span><span class="p">))</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+            <span class="s2">&quot;Threshold </span><span class="si">{}</span><span class="s2"> with method </span><span class="si">{}</span><span class="s2"> returned empty tsd.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thr</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">starts</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">ends</span><span class="p">)</span>
+        <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">ends</span><span class="p">)</span>
         <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="o">.</span><span class="n">drop_short_intervals</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">time_support</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">time_support</span><span class="p">)</span>
         <span class="n">tsd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">time_support</span><span class="p">)</span>
@@ -2632,7 +2673,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The first time index in the Ts/Tsd object</span>
 
@@ -2645,7 +2686,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 <span class="sd">    -------</span>
 <span class="sd">    out: numpy.float64</span>
 <span class="sd">        _</span>
-<span class="sd">    &quot;&quot;&quot;</span>        
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
         </details>
@@ -2705,7 +2746,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The last time index in the Ts/Tsd object</span>
 
@@ -2718,7 +2759,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 <span class="sd">    -------</span>
 <span class="sd">    out: numpy.float64</span>
 <span class="sd">        _</span>
-<span class="sd">    &quot;&quot;&quot;</span>        
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
         </details>
@@ -2793,7 +2834,7 @@ TsdFrame        </code>
 <span class="sd">        The time support of the time series</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        TsdFrame initializer</span>
 
@@ -2815,8 +2856,8 @@ TsdFrame        </code>
             <span class="n">c</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
             <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s1">&#39;columns&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                <span class="n">c</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;columns&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;columns&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
@@ -2825,32 +2866,46 @@ TsdFrame        </code>
         <span class="k">if</span> <span class="n">time_support</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">bins</span> <span class="o">=</span> <span class="n">time_support</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
             <span class="c1"># Because yes there is no funtion with both bounds closed as an option</span>
-            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))),</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-                <span class="p">))</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                        <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span>
+                            <span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+                        <span class="p">)</span>
+                    <span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                        <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span>
+                            <span class="n">t</span><span class="p">,</span>
+                            <span class="n">bins</span><span class="p">,</span>
+                            <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+                            <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">T</span>
             <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">!=</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
-            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
-            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">c</span><span class="p">)</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
 
         <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Time (s)&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;nap_class&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -2860,7 +2915,7 @@ TsdFrame        </code>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The time index of the TsdFrame, returned as np.double in the desired time units.</span>
 
@@ -2871,9 +2926,9 @@ TsdFrame        </code>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        out: numpy.ndarray        </span>
+<span class="sd">        out: numpy.ndarray</span>
 <span class="sd">            _</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">units</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">as_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -2887,7 +2942,7 @@ TsdFrame        </code>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a DataFrame with time expressed in the desired unit.</span>
 
@@ -2903,13 +2958,13 @@ TsdFrame        </code>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s1">&#39;us&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s2">&quot;us&quot;</span><span class="p">:</span>
             <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
 
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
         <span class="n">units_str</span> <span class="o">=</span> <span class="n">units</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">units_str</span><span class="p">:</span>
-            <span class="n">units_str</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span>
+            <span class="n">units_str</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>
         <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Time (&quot;</span> <span class="o">+</span> <span class="n">units_str</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
         <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">df</span>
@@ -2922,19 +2977,19 @@ TsdFrame        </code>
 <span class="sd">        -------</span>
 <span class="sd">        out: numpy.ndarray</span>
 <span class="sd">            _</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
 
-    <span class="k">def</span> <span class="nf">realign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">realign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;closest&quot;</span><span class="p">):</span>
         <span class="n">method</span> <span class="o">=</span> <span class="n">_get_restrict_method</span><span class="p">(</span><span class="n">align</span><span class="p">)</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 
         <span class="n">rest_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">rest_t</span>
 
-    <span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;closest&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Replace the value with the closest value from tsd argument</span>
 
@@ -2981,7 +3036,7 @@ TsdFrame        </code>
         <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
         <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">as_series</span><span class="p">()</span>
         <span class="n">new_tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">new_tsd</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">new_tsd</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">restrict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iset</span><span class="p">,</span> <span class="n">keep_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -2990,7 +3045,7 @@ TsdFrame        </code>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        iset : IntervalSet</span>
-<span class="sd">            the IntervalSet object </span>
+<span class="sd">            the IntervalSet object</span>
 <span class="sd">        keep_labels : bool, optional</span>
 <span class="sd">            Wheter or not to drop the label of a column</span>
 
@@ -3002,23 +3057,23 @@ TsdFrame        </code>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="n">iset</span><span class="o">.</span><span class="n">in_interval</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">tsd_r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">tsd_r</span><span class="p">[</span><span class="s1">&#39;interval&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span>
+        <span class="n">tsd_r</span><span class="p">[</span><span class="s2">&quot;interval&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
         <span class="n">tsd_r</span> <span class="o">=</span> <span class="n">tsd_r</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">keep_labels</span><span class="p">:</span>
-            <span class="k">del</span> <span class="n">tsd_r</span><span class="p">[</span><span class="s1">&#39;interval&#39;</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">tsd_r</span><span class="p">[</span><span class="s2">&quot;interval&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">tsd_r</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">iset</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">gaps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;absolute&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">gaps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;absolute&quot;</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">gaps_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;absolute&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;absolute&quot;</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">support_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_gap</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
         </details>
@@ -3097,7 +3152,7 @@ TsdFrame        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    TsdFrame initializer</span>
 
@@ -3119,8 +3174,8 @@ TsdFrame        </code>
         <span class="n">c</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s1">&#39;columns&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;columns&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;columns&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
@@ -3129,24 +3184,37 @@ TsdFrame        </code>
     <span class="k">if</span> <span class="n">time_support</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">time_support</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
         <span class="c1"># Because yes there is no funtion with both bounds closed as an option</span>
-        <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))),</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-            <span class="p">))</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                    <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span>
+                        <span class="n">t</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="p">),</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                    <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span>
+                        <span class="n">t</span><span class="p">,</span>
+                        <span class="n">bins</span><span class="p">,</span>
+                        <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+                        <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">T</span>
         <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">!=</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
-        <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">ix</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
 
     <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="o">.</span><span class="n">tot_length</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Time (s)&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;nap_class&quot;</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
@@ -3204,14 +3272,14 @@ TsdFrame        </code>
   </thead>
   <tbody>
     <tr>
-      <td><code>numpy.ndarray        </code></td>
+      <td><code>numpy.ndarray</code></td>
       <td><p>_</p></td>
     </tr>
   </tbody>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The time index of the TsdFrame, returned as np.double in the desired time units.</span>
 
@@ -3222,9 +3290,9 @@ TsdFrame        </code>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    out: numpy.ndarray        </span>
+<span class="sd">    out: numpy.ndarray</span>
 <span class="sd">        _</span>
-<span class="sd">    &quot;&quot;&quot;</span>        
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">units</span><span class="p">)</span>
 </code></pre></div>
         </details>
@@ -3333,7 +3401,7 @@ TsdFrame        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">as_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a DataFrame with time expressed in the desired unit.</span>
 
@@ -3349,13 +3417,13 @@ TsdFrame        </code>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s1">&#39;us&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s2">&quot;us&quot;</span><span class="p">:</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
 
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     <span class="n">units_str</span> <span class="o">=</span> <span class="n">units</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">units_str</span><span class="p">:</span>
-        <span class="n">units_str</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span>
+        <span class="n">units_str</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>
     <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Time (&quot;</span> <span class="o">+</span> <span class="n">units_str</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
     <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">df</span>
@@ -3406,7 +3474,7 @@ TsdFrame        </code>
 <span class="sd">    -------</span>
 <span class="sd">    out: numpy.ndarray</span>
 <span class="sd">        _</span>
-<span class="sd">    &quot;&quot;&quot;</span>        
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
@@ -3500,7 +3568,7 @@ The tsd object containing the values, for example the tracking data, and the epo
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;closest&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Replace the value with the closest value from tsd argument</span>
 
@@ -3547,7 +3615,7 @@ The tsd object containing the values, for example the tracking data, and the epo
     <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
     <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">as_series</span><span class="p">()</span>
     <span class="n">new_tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">new_tsd</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">new_tsd</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -3619,7 +3687,7 @@ The tsd object containing the values, for example the tracking data, and the epo
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    iset : IntervalSet</span>
-<span class="sd">        the IntervalSet object </span>
+<span class="sd">        the IntervalSet object</span>
 <span class="sd">    keep_labels : bool, optional</span>
 <span class="sd">        Wheter or not to drop the label of a column</span>
 
@@ -3631,11 +3699,11 @@ The tsd object containing the values, for example the tracking data, and the epo
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">ix</span> <span class="o">=</span> <span class="n">iset</span><span class="o">.</span><span class="n">in_interval</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     <span class="n">tsd_r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">tsd_r</span><span class="p">[</span><span class="s1">&#39;interval&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span>
+    <span class="n">tsd_r</span><span class="p">[</span><span class="s2">&quot;interval&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ix</span>
     <span class="n">ix</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
     <span class="n">tsd_r</span> <span class="o">=</span> <span class="n">tsd_r</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">keep_labels</span><span class="p">:</span>
-        <span class="k">del</span> <span class="n">tsd_r</span><span class="p">[</span><span class="s1">&#39;interval&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">tsd_r</span><span class="p">[</span><span class="s2">&quot;interval&quot;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">tsd_r</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">iset</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
         </details>
@@ -3716,7 +3784,7 @@ All the functions of a Tsd object are available in a Ts object.</p>
 <span class="sd">        The time support of the time series</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Ts Initializer</span>
 
@@ -3731,10 +3799,14 @@ All the functions of a Tsd object are available in a Ts object.</p>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Arguments that will be passed to the pandas.Series initializer.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> 
-            <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">,</span> 
-            <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span> 
-            <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">t</span><span class="p">,</span>
+            <span class="kc">None</span><span class="p">,</span>
+            <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">,</span>
+            <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nts_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 </code></pre></div>
         </details>
@@ -3807,7 +3879,7 @@ All the functions of a Tsd object are available in a Ts object.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Ts Initializer</span>
 
@@ -3822,10 +3894,14 @@ All the functions of a Tsd object are available in a Ts object.</p>
 <span class="sd">    **kwargs</span>
 <span class="sd">        Arguments that will be passed to the pandas.Series initializer.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> 
-        <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">,</span> 
-        <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span> 
-        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="n">t</span><span class="p">,</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">,</span>
+        <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">nts_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 </code></pre></div>
         </details>
@@ -3919,7 +3995,7 @@ All the functions of a Tsd object are available in a Ts object.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.361d90f1.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>

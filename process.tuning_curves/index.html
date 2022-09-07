@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.1.4">
     
     
       
@@ -141,7 +141,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -186,7 +186,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -685,6 +685,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pynapple.process.tuning_curves.PoissonIRLS" class="md-nav__link">
+    PoissonIRLS()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pynapple.process.tuning_curves.compute_1d_poisson_glm" class="md-nav__link">
+    compute_1d_poisson_glm()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -853,6 +867,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pynapple.process.tuning_curves.PoissonIRLS" class="md-nav__link">
+    PoissonIRLS()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pynapple.process.tuning_curves.compute_1d_poisson_glm" class="md-nav__link">
+    compute_1d_poisson_glm()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -987,7 +1015,7 @@ If None, the boundaries are inferred from the target feature</p></td>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    group : TsGroup</span>
-<span class="sd">        The group of Ts/Tsd for which the tuning curves will be computed </span>
+<span class="sd">        The group of Ts/Tsd for which the tuning curves will be computed</span>
 <span class="sd">    feature : Tsd</span>
 <span class="sd">        The 1-dimensional target feature (e.g. head-direction)</span>
 <span class="sd">    nb_bins : int</span>
@@ -1014,12 +1042,12 @@ If None, the boundaries are inferred from the target feature</p></td>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for group&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">nb_bins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">nb_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 
-    <span class="n">tuning_curves</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>    
+    <span class="n">tuning_curves</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
         <span class="n">group_value</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="p">)</span>
@@ -1029,11 +1057,11 @@ If None, the boundaries are inferred from the target feature</p></td>
         <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">group_value</span><span class="p">:</span>
-        <span class="n">count</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">group_value</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span> 
-        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">/</span><span class="n">occupancy</span>
+        <span class="n">count</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">group_value</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">/</span> <span class="n">occupancy</span>
         <span class="n">count</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">tuning_curves</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
-        <span class="n">tuning_curves</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="o">*</span><span class="n">feature</span><span class="o">.</span><span class="n">rate</span>
+        <span class="n">tuning_curves</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span> <span class="o">*</span> <span class="n">feature</span><span class="o">.</span><span class="n">rate</span>
 
     <span class="k">return</span> <span class="n">tuning_curves</span>
 </code></pre></div>
@@ -1145,7 +1173,7 @@ If None, the boundaries are inferred from the target variable</p></td>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    group : TsGroup</span>
-<span class="sd">        The group of Ts/Tsd for which the tuning curves will be computed </span>
+<span class="sd">        The group of Ts/Tsd for which the tuning curves will be computed</span>
 <span class="sd">    feature : TsdFrame</span>
 <span class="sd">        The 2d feature (i.e. 2 columns features).</span>
 <span class="sd">    nb_bins : int</span>
@@ -1182,35 +1210,36 @@ If None, the boundaries are inferred from the target variable</p></td>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">ep</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">time_support</span>
 
-    <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>    
+    <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
     <span class="n">groups_value</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">binsxy</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
         <span class="n">groups_value</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">ep</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">nb_bins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">nb_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">nb_bins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">],</span> <span class="n">nb_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">bins</span>
 
     <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span>
-        <span class="n">feature</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
-        <span class="n">feature</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
-        <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
+        <span class="n">feature</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">feature</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]],</span>
+    <span class="p">)</span>
 
     <span class="n">tc</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="n">count</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span>
+        <span class="n">count</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span>
             <span class="n">groups_value</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
             <span class="n">groups_value</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]][</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-            <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]]</span>
-            <span class="p">)</span>
+            <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">binsxy</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]],</span>
+        <span class="p">)</span>
         <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">/</span> <span class="n">occupancy</span>
         <span class="c1"># count[np.isnan(count)] = 0.0</span>
         <span class="n">tc</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span> <span class="o">*</span> <span class="n">feature</span><span class="o">.</span><span class="n">rate</span>
 
-    <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">binsxy</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+    <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">binsxy</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
 
     <span class="k">return</span> <span class="n">tc</span><span class="p">,</span> <span class="n">xy</span>
 </code></pre></div>
@@ -1233,9 +1262,9 @@ If None, the boundaries are inferred from the target variable</p></td>
 
     <div class="doc doc-contents ">
 
-      <p>Mutual information as defined in </p>
-<p>Skaggs, W. E., McNaughton, B. L., &amp; Gothard, K. M. (1993). 
-An information-theoretic approach to deciphering the hippocampal code. 
+      <p>Mutual information as defined in</p>
+<p>Skaggs, W. E., McNaughton, B. L., &amp; Gothard, K. M. (1993).
+An information-theoretic approach to deciphering the hippocampal code.
 In Advances in neural information processing systems (pp. 1030-1037).</p>
 
 <p><strong>Parameters:</strong></p>
@@ -1303,10 +1332,10 @@ Set to true for bits per seconds</p></td>
           <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Mutual information as defined in </span>
+<span class="sd">    Mutual information as defined in</span>
 
-<span class="sd">    Skaggs, W. E., McNaughton, B. L., &amp; Gothard, K. M. (1993). </span>
-<span class="sd">    An information-theoretic approach to deciphering the hippocampal code. </span>
+<span class="sd">    Skaggs, W. E., McNaughton, B. L., &amp; Gothard, K. M. (1993).</span>
+<span class="sd">    An information-theoretic approach to deciphering the hippocampal code.</span>
 <span class="sd">    In Advances in neural information processing systems (pp. 1030-1037).</span>
 
 <span class="sd">    Parameters</span>
@@ -1337,34 +1366,33 @@ Set to true for bits per seconds</p></td>
         <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">fx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">tc</span><span class="p">)</span>
 
-    <span class="n">nb_bins</span> <span class="o">=</span> <span class="n">tc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">nb_bins</span> <span class="o">=</span> <span class="n">tc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">nb_bins</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">)</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
         <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
     <span class="n">occupancy</span> <span class="o">=</span> <span class="n">occupancy</span> <span class="o">/</span> <span class="n">occupancy</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    <span class="n">occupancy</span> <span class="o">=</span> <span class="n">occupancy</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">occupancy</span> <span class="o">=</span> <span class="n">occupancy</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
     <span class="n">fr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">fx</span> <span class="o">*</span> <span class="n">occupancy</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">fxfr</span> <span class="o">=</span> <span class="n">fx</span><span class="o">/</span><span class="n">fr</span>
+    <span class="n">fxfr</span> <span class="o">=</span> <span class="n">fx</span> <span class="o">/</span> <span class="n">fr</span>
     <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-        <span class="n">logfx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">fxfr</span><span class="p">)</span>        
+        <span class="n">logfx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">fxfr</span><span class="p">)</span>
     <span class="n">logfx</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">logfx</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">SI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">occupancy</span> <span class="o">*</span> <span class="n">fx</span> <span class="o">*</span> <span class="n">logfx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">bitssec</span><span class="p">:</span>
-        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">columns</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SI&#39;</span><span class="p">],</span> <span class="n">data</span> <span class="o">=</span> <span class="n">SI</span><span class="p">)</span>    
+        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SI&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">SI</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">SI</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">SI</span> <span class="o">=</span> <span class="n">SI</span> <span class="o">/</span> <span class="n">fr</span>
-        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">columns</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SI&#39;</span><span class="p">],</span> <span class="n">data</span> <span class="o">=</span> <span class="n">SI</span><span class="p">)</span>
+        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SI&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">SI</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">SI</span>
 </code></pre></div>
         </details>
@@ -1386,9 +1414,9 @@ Set to true for bits per seconds</p></td>
 
     <div class="doc doc-contents ">
 
-      <p>Mutual information as defined in </p>
-<p>Skaggs, W. E., McNaughton, B. L., &amp; Gothard, K. M. (1993). 
-An information-theoretic approach to deciphering the hippocampal code. 
+      <p>Mutual information as defined in</p>
+<p>Skaggs, W. E., McNaughton, B. L., &amp; Gothard, K. M. (1993).
+An information-theoretic approach to deciphering the hippocampal code.
 In Advances in neural information processing systems (pp. 1030-1037).</p>
 
 <p><strong>Parameters:</strong></p>
@@ -1456,10 +1484,10 @@ Set to true for bits per seconds</p></td>
           <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_2d_mutual_info</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitssec</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Mutual information as defined in </span>
+<span class="sd">    Mutual information as defined in</span>
 
-<span class="sd">    Skaggs, W. E., McNaughton, B. L., &amp; Gothard, K. M. (1993). </span>
-<span class="sd">    An information-theoretic approach to deciphering the hippocampal code. </span>
+<span class="sd">    Skaggs, W. E., McNaughton, B. L., &amp; Gothard, K. M. (1993).</span>
+<span class="sd">    An information-theoretic approach to deciphering the hippocampal code.</span>
 <span class="sd">    In Advances in neural information processing systems (pp. 1030-1037).</span>
 
 <span class="sd">    Parameters</span>
@@ -1491,38 +1519,44 @@ Set to true for bits per seconds</p></td>
         <span class="n">fx</span> <span class="o">=</span> <span class="n">tc</span>
         <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tc</span><span class="p">))</span>
 
-    <span class="n">nb_bins</span> <span class="o">=</span> <span class="p">(</span><span class="n">fx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">fx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">nb_bins</span> <span class="o">=</span> <span class="p">(</span><span class="n">fx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="n">cols</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span>
 
     <span class="n">bins</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">bins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">nb_bins</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="n">bins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">nb_bins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">bins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="n">bins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
         <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
 
-    <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span>
+        <span class="n">features</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="p">)</span>
     <span class="n">occupancy</span> <span class="o">=</span> <span class="n">occupancy</span> <span class="o">/</span> <span class="n">occupancy</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-    <span class="n">fr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">fx</span> <span class="o">*</span> <span class="n">occupancy</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-    <span class="n">fr</span> <span class="o">=</span> <span class="n">fr</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-    <span class="n">fxfr</span> <span class="o">=</span> <span class="n">fx</span><span class="o">/</span><span class="n">fr</span>
+    <span class="n">fr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">fx</span> <span class="o">*</span> <span class="n">occupancy</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">fr</span> <span class="o">=</span> <span class="n">fr</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">fxfr</span> <span class="o">=</span> <span class="n">fx</span> <span class="o">/</span> <span class="n">fr</span>
     <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-        <span class="n">logfx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">fxfr</span><span class="p">)</span>        
+        <span class="n">logfx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">fxfr</span><span class="p">)</span>
     <span class="n">logfx</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">logfx</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">SI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">occupancy</span> <span class="o">*</span> <span class="n">fx</span> <span class="o">*</span> <span class="n">logfx</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">SI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">occupancy</span> <span class="o">*</span> <span class="n">fx</span> <span class="o">*</span> <span class="n">logfx</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">bitssec</span><span class="p">:</span>
-        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SI&#39;</span><span class="p">],</span> <span class="n">data</span> <span class="o">=</span> <span class="n">SI</span><span class="p">)</span>    
+        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SI&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">SI</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">SI</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">SI</span> <span class="o">=</span> <span class="n">SI</span> <span class="o">/</span> <span class="n">fr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SI&#39;</span><span class="p">],</span> <span class="n">data</span> <span class="o">=</span> <span class="n">SI</span><span class="p">)</span>
+        <span class="n">SI</span> <span class="o">=</span> <span class="n">SI</span> <span class="o">/</span> <span class="n">fr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SI&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">SI</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">SI</span>
 </code></pre></div>
         </details>
@@ -1560,7 +1594,7 @@ Set to true for bits per seconds</p></td>
       <tr>
         <td><code>tsdframe</code></td>
         <td><code>Tsd or TsdFrame</code></td>
-        <td><p>Input data (e.g. continus calcium data 
+        <td><p>Input data (e.g. continus calcium data
 where each column is the calcium activity of one neuron)</p></td>
         <td><em>required</em></td>
       </tr>
@@ -1624,14 +1658,16 @@ If None, the boundaries are inferred from the target feature</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_tuning_curves_continous</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_tuning_curves_continous</span><span class="p">(</span>
+    <span class="n">tsdframe</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes 1-dimensional tuning curves relative to a feature with continous data.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    tsdframe : Tsd or TsdFrame</span>
-<span class="sd">        Input data (e.g. continus calcium data </span>
+<span class="sd">        Input data (e.g. continus calcium data</span>
 <span class="sd">        where each column is the calcium activity of one neuron)</span>
 <span class="sd">    feature : Tsd</span>
 <span class="sd">        The feature (one column)</span>
@@ -1647,7 +1683,7 @@ If None, the boundaries are inferred from the target feature</p></td>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    pandas.DataFrame</span>
-<span class="sd">        DataFrame to hold the tuning curves    </span>
+<span class="sd">        DataFrame to hold the tuning curves</span>
 
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
@@ -1665,15 +1701,15 @@ If None, the boundaries are inferred from the target feature</p></td>
         <span class="n">tsdframe</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">nb_bins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">feature</span><span class="p">),</span> <span class="n">nb_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="n">align_times</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">align_times</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">align_times</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">tmp</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 
     <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
@@ -1714,7 +1750,7 @@ If None, the boundaries are inferred from the target feature</p></td>
       <tr>
         <td><code>tsdframe</code></td>
         <td><code>Tsd or TsdFrame</code></td>
-        <td><p>Input data (e.g. continus calcium data 
+        <td><p>Input data (e.g. continus calcium data
 where each column is the calcium activity of one neuron)</p></td>
         <td><em>required</em></td>
       </tr>
@@ -1781,14 +1817,16 @@ If None, the boundaries are inferred from the target variable</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_2d_tuning_curves_continuous</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_2d_tuning_curves_continuous</span><span class="p">(</span>
+    <span class="n">tsdframe</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes 2-dimensional tuning curves relative to a 2d feature with continous data.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    tsdframe : Tsd or TsdFrame</span>
-<span class="sd">        Input data (e.g. continus calcium data </span>
+<span class="sd">        Input data (e.g. continus calcium data</span>
 <span class="sd">        where each column is the calcium activity of one neuron)</span>
 <span class="sd">    features : TsdFrame</span>
 <span class="sd">        The 2d feature (two columns).</span>
@@ -1834,29 +1872,345 @@ If None, the boundaries are inferred from the target variable</p></td>
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">nb_bins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span> <span class="n">nb_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">],</span> <span class="n">nb_bins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">],</span> <span class="n">minmax</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">],</span> <span class="n">nb_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="n">align_times</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">ep</span><span class="p">)</span>
-        <span class="n">idxs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">align_times</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">idxs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">align_times</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">bins</span>
 
     <span class="n">idxs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">idxs</span><span class="p">)</span>
 
-    <span class="n">tc_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">tsdframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">tc_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">tsdframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">tmp</span> <span class="ow">in</span> <span class="n">idxs</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
-        <span class="k">if</span> <span class="p">(</span><span class="mi">0</span><span class="o">&lt;=</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">nb_bins</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">0</span><span class="o">&lt;=</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;</span><span class="n">nb_bins</span><span class="p">):</span>
-            <span class="n">tc_np</span><span class="p">[:,</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">tmp</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nb_bins</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nb_bins</span><span class="p">):</span>
+            <span class="n">tc_np</span><span class="p">[:,</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">tsdframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">tmp</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 
     <span class="n">tc_np</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">tc_np</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-    <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">binsxy</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+    <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">binsxy</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">binsxy</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
 
-    <span class="n">tc</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span><span class="n">tc_np</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tsdframe</span><span class="o">.</span><span class="n">columns</span><span class="p">)}</span>
+    <span class="n">tc</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span> <span class="n">tc_np</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tsdframe</span><span class="o">.</span><span class="n">columns</span><span class="p">)}</span>
 
     <span class="k">return</span> <span class="n">tc</span><span class="p">,</span> <span class="n">xy</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="pynapple.process.tuning_curves.PoissonIRLS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PoissonIRLS</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Poisson Iteratively Reweighted Least Square</p>
+<p>for fitting Poisson GLM.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>X</code></td>
+        <td><code>numpy.ndarray</code></td>
+        <td><p>Predictors</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>y</code></td>
+        <td><code>numpy.ndarray</code></td>
+        <td><p>Target</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>niter</code></td>
+        <td><code>int</code></td>
+        <td><p>Number of iterations</p></td>
+        <td><code>100</code></td>
+      </tr>
+      <tr>
+        <td><code>tolerance</code></td>
+        <td><code>float</code></td>
+        <td><p>Default is 10^-5</p></td>
+        <td><code>1e-05</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>numpy.ndarray</code></td>
+      <td><p>Regression coefficients</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">PoissonIRLS</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Poisson Iteratively Reweighted Least Square</span>
+<span class="sd">    for fitting Poisson GLM.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : numpy.ndarray</span>
+<span class="sd">        Predictors</span>
+<span class="sd">    y : numpy.ndarray</span>
+<span class="sd">        Target</span>
+<span class="sd">    niter : int, optional</span>
+<span class="sd">        Number of iterations</span>
+<span class="sd">    tolerance : float, optional</span>
+<span class="sd">        Default is 10^-5</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        Regression coefficients</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">iXtWX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>
+    <span class="n">XtWY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">iXtWX</span><span class="p">,</span> <span class="n">XtWY</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+        <span class="n">B_</span> <span class="o">=</span> <span class="n">B</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>  <span class="c1"># Link function</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">X</span>  <span class="c1"># partial derivatives</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">Z</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="n">delta</span>
+        <span class="n">tol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">B</span> <span class="o">-</span> <span class="n">B_</span><span class="p">)</span> <span class="o">/</span> <span class="n">B_</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">tol</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">B</span>
+    <span class="k">return</span> <span class="n">B</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="pynapple.process.tuning_curves.compute_1d_poisson_glm" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">compute_1d_poisson_glm</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Summary</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>group</code></td>
+        <td><code>TYPE</code></td>
+        <td><p>Description</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>feature</code></td>
+        <td><code>TYPE</code></td>
+        <td><p>Description</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>binsize</code></td>
+        <td><code>TYPE</code></td>
+        <td><p>Description</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>windowsize</code></td>
+        <td><code>TYPE</code></td>
+        <td><p>Description</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>ep</code></td>
+        <td><code>None</code></td>
+        <td><p>Description</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>time_units</code></td>
+        <td><code>str</code></td>
+        <td><p>Description</p></td>
+        <td><code>&#39;s&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>niter</code></td>
+        <td><code>int</code></td>
+        <td><p>Description</p></td>
+        <td><code>100</code></td>
+      </tr>
+      <tr>
+        <td><code>tolerance</code></td>
+        <td><code>float</code></td>
+        <td><p>Description</p></td>
+        <td><code>1e-05</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>RuntimeError</code></td>
+        <td><p>Description</p></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>TYPE</code></td>
+      <td><p>Description</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_poisson_glm</span><span class="p">(</span>
+    <span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-5</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Summary</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    group : TYPE</span>
+<span class="sd">        Description</span>
+<span class="sd">    feature : TYPE</span>
+<span class="sd">        Description</span>
+<span class="sd">    binsize : TYPE</span>
+<span class="sd">        Description</span>
+<span class="sd">    windowsize : TYPE</span>
+<span class="sd">        Description</span>
+<span class="sd">    ep : None, optional</span>
+<span class="sd">        Description</span>
+<span class="sd">    time_units : str, optional</span>
+<span class="sd">        Description</span>
+<span class="sd">    niter : int, optional</span>
+<span class="sd">        Description</span>
+<span class="sd">    tolerance : float, optional</span>
+<span class="sd">        Description</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TYPE</span>
+<span class="sd">        Description</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        Description</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="ow">is</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">:</span>
+        <span class="n">newgroup</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for group&quot;</span><span class="p">)</span>
+
+    <span class="n">binsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">windowsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">windowsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Bin the spike train</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">binsize</span><span class="p">)</span>
+
+    <span class="c1"># Downsample the feature to binsize</span>
+    <span class="n">tidx</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dfeat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ep</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ep</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">binsize</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">tidx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">dfeat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+    <span class="n">dfeat</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">tidx</span><span class="p">),</span> <span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">dfeat</span><span class="p">),</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
+
+    <span class="c1"># Build the Hankel matrix</span>
+    <span class="n">nt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">windowsize</span> <span class="o">//</span> <span class="n">binsize</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">hankel</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dfeat</span><span class="o">.</span><span class="n">values</span><span class="p">))[:</span> <span class="o">-</span><span class="n">nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dfeat</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="n">nt</span><span class="p">:]</span>
+    <span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">dfeat</span><span class="p">),</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">))</span>
+
+    <span class="c1"># Fitting GLM for each neuron</span>
+    <span class="n">regressors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fitting Poisson GLM for unit </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">PoissonIRLS</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">count</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="n">niter</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
+        <span class="n">regressors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+    <span class="n">regressors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">regressors</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">regressors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">regressors</span> <span class="o">=</span> <span class="n">regressors</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">regressors</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
+        <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">regressors</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">data</span><span class="o">=</span><span class="n">offset</span><span class="p">)</span>
+
+    <span class="n">prediction</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span>
+        <span class="n">t</span><span class="o">=</span><span class="n">dfeat</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">regressors</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">*</span> <span class="n">binsize</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">regressors</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">prediction</span>
 </code></pre></div>
         </details>
     </div>
@@ -1938,7 +2292,7 @@ If None, the boundaries are inferred from the target variable</p></td>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.361d90f1.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>

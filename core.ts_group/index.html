@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.1.4">
     
     
       
@@ -141,7 +141,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -186,7 +186,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -1013,7 +1013,7 @@ TsGroup            (<span title="collections.UserDict">UserDict</span>)
 
     <div class="doc doc-contents ">
 
-      <p>The TsGroup is a dictionnary-like object to hold multiple <a href="../core.time_series/#pynapple.core.time_series.Ts"><code>Ts</code></a> </p>
+      <p>The TsGroup is a dictionnary-like object to hold multiple <a href="../core.time_series/#pynapple.core.time_series.Ts"><code>Ts</code></a></p>
 <p>or <a href="../core.time_series/#pynapple.core.time_series.Tsd"><code>Tsd</code></a> objects
 with different time index.</p>
 
@@ -1038,7 +1038,7 @@ with different time index.</p>
           <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TsGroup</span><span class="p">(</span><span class="n">UserDict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The TsGroup is a dictionnary-like object to hold multiple [`Ts`][pynapple.core.time_series.Ts] </span>
+<span class="sd">    The TsGroup is a dictionnary-like object to hold multiple [`Ts`][pynapple.core.time_series.Ts]</span>
 <span class="sd">    or [`Tsd`][pynapple.core.time_series.Tsd] objects</span>
 <span class="sd">    with different time index.</span>
 
@@ -1048,7 +1048,7 @@ with different time index.</p>
 <span class="sd">        The time support of the TsGroup</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        TsGroup Initializer</span>
 
@@ -1073,25 +1073,32 @@ with different time index.</p>
 
         <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;freq&quot;</span><span class="p">])</span>
 
         <span class="c1"># Transform elements to Ts/Tsd objects</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="nb">list</span><span class="p">)):</span>
-                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Elements should not be passed as numpy array. Default time units is seconds when creating the Ts object.&#39;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-                <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="n">time_units</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s2">&quot;Elements should not be passed as numpy array. Default time units is seconds when creating the Ts object.&quot;</span><span class="p">,</span>
+                    <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">(</span>
+                    <span class="n">t</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span>
+                <span class="p">)</span>
 
         <span class="c1"># If time_support is passed, all elements of data are restricted prior to init</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time_support</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">}</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">}</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Otherwise do the union of all time supports            </span>
+            <span class="c1"># Otherwise do the union of all time supports</span>
             <span class="n">time_support</span> <span class="o">=</span> <span class="n">union_intervals</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">time_support</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">])</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_support</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Intersection of time supports is empty. Consider passing a time support as argument.&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>                
-            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">}</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="s2">&quot;Intersection of time supports is empty. Consider passing a time support as argument.&quot;</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">}</span>
 
         <span class="n">UserDict</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
@@ -1104,6 +1111,7 @@ with different time index.</p>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base functions</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initialized</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;TsGroup object is not mutable.&quot;</span><span class="p">)</span>
@@ -1111,12 +1119,15 @@ with different time index.</p>
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Key </span><span class="si">{}</span><span class="s2"> already in group index.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Tsd</span><span class="p">)):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">rate</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s2">&quot;freq&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">rate</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">value</span><span class="p">)</span>
             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
-                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Elements should not be passed as numpy array. Default time units is seconds when creating the Ts object.&#39;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-                <span class="n">tmp</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">rate</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s2">&quot;Elements should not be passed as numpy array. Default time units is seconds when creating the Ts object.&quot;</span><span class="p">,</span>
+                    <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s2">&quot;freq&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">rate</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">tmp</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Value with key </span><span class="si">{}</span><span class="s2"> is not an iterable.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
@@ -1127,23 +1138,28 @@ with different time index.</p>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find key </span><span class="si">{}</span><span class="s2"> in group index.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>           
-            <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">key</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)]</span>
-            <span class="k">return</span> <span class="n">TsGroup</span><span class="p">({</span><span class="n">k</span><span class="p">:</span><span class="bp">self</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key</span><span class="p">},</span> <span class="n">time_support</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;freq&quot;</span><span class="p">)]</span>
+            <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span>
+                <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key</span><span class="p">},</span> <span class="n">time_support</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span>
+            <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
-        <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">,</span> <span class="s1">&#39;Freq. (Hz)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">]</span>       
-        <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>      
+        <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;freq&quot;</span><span class="p">)</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="s2">&quot;Freq. (Hz)&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">]</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;freq&#39;</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">tabulate</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>       
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;freq&quot;</span><span class="p">]]</span>
+                <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">tabulate</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return index/keys of TsGroup</span>
 
@@ -1177,9 +1193,9 @@ with different time index.</p>
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 
     <span class="c1">#######################</span>
-    <span class="c1"># Metadata </span>
+    <span class="c1"># Metadata</span>
     <span class="c1">#######################</span>
-    <span class="k">def</span> <span class="nf">set_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>        
+    <span class="k">def</span> <span class="nf">set_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add metadata informations about the TsGroup.</span>
 <span class="sd">        Metadata are saved as a DataFrame.</span>
@@ -1287,9 +1303,8 @@ with different time index.</p>
         <span class="n">i_sets</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">time_support</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">intersect_intervals</span><span class="p">(</span><span class="n">i_sets</span><span class="p">)</span>
 
-
     <span class="c1">#################################</span>
-    <span class="c1">#Generic functions of Tsd objects</span>
+    <span class="c1"># Generic functions of Tsd objects</span>
     <span class="c1">#################################</span>
     <span class="k">def</span> <span class="nf">restrict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ep</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1298,7 +1313,7 @@ with different time index.</p>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        ep : IntervalSet</span>
-<span class="sd">            the IntervalSet object </span>
+<span class="sd">            the IntervalSet object</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1329,11 +1344,11 @@ with different time index.</p>
         <span class="n">newgr</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="n">newgr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
-        <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;freq&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;closest&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Replace the value of each Ts/Tsd object within the Ts group with the closest value from tsd argument</span>
 
@@ -1361,7 +1376,7 @@ with different time index.</p>
 <span class="sd">        2:nap.Ts(t=np.arange(0,300,0.25), time_units=&#39;s&#39;),</span>
 <span class="sd">        }</span>
 <span class="sd">        &gt;&gt;&gt; tsgroup = nap.TsGroup(tmp)</span>
-<span class="sd">        &gt;&gt;&gt; ep = nap.IntervalSet(start=0, end=100, time_units=&#39;s&#39;)      </span>
+<span class="sd">        &gt;&gt;&gt; ep = nap.IntervalSet(start=0, end=100, time_units=&#39;s&#39;)</span>
 
 <span class="sd">        The variable tsd is a time series object containing the values to assign, for example the tracking data:</span>
 
@@ -1371,16 +1386,16 @@ with different time index.</p>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">ep</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ep</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">time_support</span>        
+            <span class="n">ep</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">time_support</span>
         <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
         <span class="n">newgr</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="n">newgr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">align</span><span class="p">)</span>
 
-        <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;freq&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">ep</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Count occurences of events within bin_size.</span>
 <span class="sd">        bin_size should be seconds unless specified.</span>
@@ -1389,7 +1404,7 @@ with different time index.</p>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        bin_size : float</span>
-<span class="sd">            The bin size (default is second)            </span>
+<span class="sd">            The bin size (default is second)</span>
 <span class="sd">        ep : IntervalSet, optional</span>
 <span class="sd">            IntervalSet to restrict the operation</span>
 <span class="sd">            If None, the time support of self is used.</span>
@@ -1412,11 +1427,11 @@ with different time index.</p>
 <span class="sd">        2:nap.Ts(t=np.arange(0,300,0.25), time_units=&#39;s&#39;),</span>
 <span class="sd">        }</span>
 <span class="sd">        &gt;&gt;&gt; tsgroup = nap.TsGroup(tmp)</span>
-<span class="sd">        &gt;&gt;&gt; ep = nap.IntervalSet(start=0, end=100, time_units=&#39;s&#39;)          </span>
+<span class="sd">        &gt;&gt;&gt; ep = nap.IntervalSet(start=0, end=100, time_units=&#39;s&#39;)</span>
 <span class="sd">        &gt;&gt;&gt; bincount = tsgroup.count(0.1, ep)</span>
 <span class="sd">        &gt;&gt;&gt; bincount</span>
 <span class="sd">                  0  1  2</span>
-<span class="sd">        Time (s)         </span>
+<span class="sd">        Time (s)</span>
 <span class="sd">        0.05      0  0  0</span>
 <span class="sd">        0.15      0  0  0</span>
 <span class="sd">        0.25      0  0  1</span>
@@ -1428,7 +1443,7 @@ with different time index.</p>
 <span class="sd">        99.75     0  0  1</span>
 <span class="sd">        99.85     0  0  0</span>
 <span class="sd">        99.95     1  1  1</span>
-<span class="sd">        [1000 rows x 3 columns]     </span>
+<span class="sd">        [1000 rows x 3 columns]</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
@@ -1441,24 +1456,25 @@ with different time index.</p>
         <span class="n">count</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ep</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
             <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ep</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">)</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+            <span class="p">)</span>
             <span class="n">count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
-            <span class="n">time_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">time_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 
         <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
         <span class="n">time_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">time_index</span><span class="p">)</span>
 
         <span class="n">toreturn</span> <span class="o">=</span> <span class="n">TsdFrame</span><span class="p">(</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">,</span> 
-            <span class="n">d</span> <span class="o">=</span> <span class="n">count</span><span class="p">,</span> 
-            <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span> 
-            <span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+            <span class="n">t</span><span class="o">=</span><span class="n">time_index</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">count</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">toreturn</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Special slicing of metadata</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">getby_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">thr</span><span class="p">,</span> <span class="n">op</span> <span class="o">=</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">getby_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">thr</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;&gt;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a TsGroup with all Ts/Tsd objects with values above threshold for metainfo under key.</span>
 
@@ -1494,7 +1510,7 @@ with different time index.</p>
 <span class="sd">        -------  ------------</span>
 <span class="sd">              0             1</span>
 <span class="sd">              1             2</span>
-<span class="sd">              2             4   </span>
+<span class="sd">              2             4</span>
 
 <span class="sd">        This exemple shows how to get a new TsGroup with all elements for which the metainfo frequency is above 1.</span>
 <span class="sd">        &gt;&gt;&gt; newtsgroup = tsgroup.getby_threshold(&#39;freq&#39;, 1, op = &#39;&gt;&#39;)</span>
@@ -1504,21 +1520,20 @@ with different time index.</p>
 <span class="sd">              2             4</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">:</span>
             <span class="n">ix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">])</span>
             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">:</span>
             <span class="n">ix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thr</span><span class="p">])</span>
             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&gt;=&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;&gt;=&quot;</span><span class="p">:</span>
             <span class="n">ix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thr</span><span class="p">])</span>
             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&lt;=&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">:</span>
             <span class="n">ix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thr</span><span class="p">])</span>
             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Operation </span><span class="si">{}</span><span class="s2"> not recognized.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">op</span><span class="p">))</span>
-
 
     <span class="k">def</span> <span class="nf">getby_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1545,7 +1560,7 @@ with different time index.</p>
 <span class="sd">        2:nap.Ts(t=np.arange(0,300,0.25), time_units=&#39;s&#39;),</span>
 <span class="sd">        }</span>
 <span class="sd">        &gt;&gt;&gt; tsgroup = nap.TsGroup(tmp, alpha = np.arange(3))</span>
-<span class="sd">          Index    Freq. (Hz)    alpha                                                                    </span>
+<span class="sd">          Index    Freq. (Hz)    alpha</span>
 <span class="sd">        -------  ------------  -------</span>
 <span class="sd">              0             1        0</span>
 <span class="sd">              1             2        1</span>
@@ -1565,14 +1580,14 @@ with different time index.</p>
 <span class="sd">        &gt;&gt;&gt; bincenter</span>
 <span class="sd">        array([0.5, 1.5])</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-        <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">ix</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">ix</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">xb</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-        <span class="n">sliced</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ix</span><span class="p">]</span>  
-        <span class="k">return</span> <span class="n">sliced</span><span class="p">,</span> <span class="n">xb</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>           
+        <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">ix</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">ix</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">xb</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">sliced</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ix</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">sliced</span><span class="p">,</span> <span class="n">xb</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">getby_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1612,10 +1627,10 @@ with different time index.</p>
 <span class="sd">         1:   Index    Freq. (Hz)    group</span>
 <span class="sd">         -------  ------------  -------</span>
 <span class="sd">               1             2        1</span>
-<span class="sd">               2             4        1}        </span>
+<span class="sd">               2             4        1}</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span>
-        <span class="n">sliced</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">k</span><span class="p">])]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+        <span class="n">sliced</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">k</span><span class="p">])]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
         <span class="k">return</span> <span class="n">sliced</span>
 </code></pre></div>
         </details>
@@ -1704,7 +1719,7 @@ Note that the index should match the index of the input dictionnary.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    TsGroup Initializer</span>
 
@@ -1729,25 +1744,32 @@ Note that the index should match the index of the input dictionnary.</p></td>
 
     <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">])</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;freq&quot;</span><span class="p">])</span>
 
     <span class="c1"># Transform elements to Ts/Tsd objects</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="nb">list</span><span class="p">)):</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Elements should not be passed as numpy array. Default time units is seconds when creating the Ts object.&#39;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="n">time_units</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Elements should not be passed as numpy array. Default time units is seconds when creating the Ts object.&quot;</span><span class="p">,</span>
+                <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">(</span>
+                <span class="n">t</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span>
+            <span class="p">)</span>
 
     <span class="c1"># If time_support is passed, all elements of data are restricted prior to init</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time_support</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">}</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">}</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># Otherwise do the union of all time supports            </span>
+        <span class="c1"># Otherwise do the union of all time supports</span>
         <span class="n">time_support</span> <span class="o">=</span> <span class="n">union_intervals</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">time_support</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">])</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_support</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Intersection of time supports is empty. Consider passing a time support as argument.&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>                
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">}</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Intersection of time supports is empty. Consider passing a time support as argument.&quot;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span> <span class="o">=</span> <span class="n">time_support</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">index</span><span class="p">}</span>
 
     <span class="n">UserDict</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
@@ -1799,7 +1821,7 @@ Note that the index should match the index of the input dictionnary.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return index/keys of TsGroup</span>
 
@@ -2006,7 +2028,7 @@ Note that the index should match the index of the input dictionnary.</p></td>
 
         <details class="quote">
           <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>        
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add metadata informations about the TsGroup.</span>
 <span class="sd">    Metadata are saved as a DataFrame.</span>
@@ -2239,7 +2261,7 @@ Note that the index should match the index of the input dictionnary.</p></td>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    ep : IntervalSet</span>
-<span class="sd">        the IntervalSet object </span>
+<span class="sd">        the IntervalSet object</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2270,9 +2292,9 @@ Note that the index should match the index of the input dictionnary.</p></td>
     <span class="n">newgr</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
         <span class="n">newgr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
-    <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;freq&quot;</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
 </code></pre></div>
         </details>
     </div>
@@ -2335,7 +2357,7 @@ If None, the time support of the tsd input object is used.</p></td>
 <span class="mi">2</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mf">0.25</span><span class="p">),</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">),</span>
 <span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">tsgroup</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">ep</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>      
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ep</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
 </code></pre></div>
     <p>The variable tsd is a time series object containing the values to assign, for example the tracking data:</p>
     <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">tsd</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
@@ -2360,7 +2382,7 @@ If None, the time support of the tsd input object is used.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">value_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;closest&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Replace the value of each Ts/Tsd object within the Ts group with the closest value from tsd argument</span>
 
@@ -2388,7 +2410,7 @@ If None, the time support of the tsd input object is used.</p></td>
 <span class="sd">    2:nap.Ts(t=np.arange(0,300,0.25), time_units=&#39;s&#39;),</span>
 <span class="sd">    }</span>
 <span class="sd">    &gt;&gt;&gt; tsgroup = nap.TsGroup(tmp)</span>
-<span class="sd">    &gt;&gt;&gt; ep = nap.IntervalSet(start=0, end=100, time_units=&#39;s&#39;)      </span>
+<span class="sd">    &gt;&gt;&gt; ep = nap.IntervalSet(start=0, end=100, time_units=&#39;s&#39;)</span>
 
 <span class="sd">    The variable tsd is a time series object containing the values to assign, for example the tracking data:</span>
 
@@ -2398,14 +2420,14 @@ If None, the time support of the tsd input object is used.</p></td>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ep</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ep</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">time_support</span>        
+        <span class="n">ep</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">time_support</span>
     <span class="n">tsd</span> <span class="o">=</span> <span class="n">tsd</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
     <span class="n">newgr</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
         <span class="n">newgr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">align</span><span class="p">)</span>
 
-    <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;freq&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
 </code></pre></div>
         </details>
     </div>
@@ -2471,11 +2493,11 @@ If None, the time support of self is used.</p></td>
 <span class="mi">2</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mf">0.25</span><span class="p">),</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">),</span>
 <span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">tsgroup</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">ep</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>          
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ep</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bincount</span> <span class="o">=</span> <span class="n">tsgroup</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">ep</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bincount</span>
           <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>
-<span class="n">Time</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>         
+<span class="n">Time</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="mf">0.05</span>      <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
 <span class="mf">0.15</span>      <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
 <span class="mf">0.25</span>      <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>
@@ -2507,7 +2529,7 @@ If None, the time support of self is used.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">ep</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Count occurences of events within bin_size.</span>
 <span class="sd">    bin_size should be seconds unless specified.</span>
@@ -2516,7 +2538,7 @@ If None, the time support of self is used.</p></td>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    bin_size : float</span>
-<span class="sd">        The bin size (default is second)            </span>
+<span class="sd">        The bin size (default is second)</span>
 <span class="sd">    ep : IntervalSet, optional</span>
 <span class="sd">        IntervalSet to restrict the operation</span>
 <span class="sd">        If None, the time support of self is used.</span>
@@ -2539,11 +2561,11 @@ If None, the time support of self is used.</p></td>
 <span class="sd">    2:nap.Ts(t=np.arange(0,300,0.25), time_units=&#39;s&#39;),</span>
 <span class="sd">    }</span>
 <span class="sd">    &gt;&gt;&gt; tsgroup = nap.TsGroup(tmp)</span>
-<span class="sd">    &gt;&gt;&gt; ep = nap.IntervalSet(start=0, end=100, time_units=&#39;s&#39;)          </span>
+<span class="sd">    &gt;&gt;&gt; ep = nap.IntervalSet(start=0, end=100, time_units=&#39;s&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; bincount = tsgroup.count(0.1, ep)</span>
 <span class="sd">    &gt;&gt;&gt; bincount</span>
 <span class="sd">              0  1  2</span>
-<span class="sd">    Time (s)         </span>
+<span class="sd">    Time (s)</span>
 <span class="sd">    0.05      0  0  0</span>
 <span class="sd">    0.15      0  0  0</span>
 <span class="sd">    0.25      0  0  1</span>
@@ -2555,7 +2577,7 @@ If None, the time support of self is used.</p></td>
 <span class="sd">    99.75     0  0  1</span>
 <span class="sd">    99.85     0  0  0</span>
 <span class="sd">    99.95     1  1  1</span>
-<span class="sd">    [1000 rows x 3 columns]     </span>
+<span class="sd">    [1000 rows x 3 columns]</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">IntervalSet</span><span class="p">):</span>
@@ -2568,18 +2590,18 @@ If None, the time support of self is used.</p></td>
     <span class="n">count</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ep</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ep</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_size</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">)</span>
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+        <span class="p">)</span>
         <span class="n">count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
-        <span class="n">time_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">time_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
     <span class="n">time_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">time_index</span><span class="p">)</span>
 
     <span class="n">toreturn</span> <span class="o">=</span> <span class="n">TsdFrame</span><span class="p">(</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">,</span> 
-        <span class="n">d</span> <span class="o">=</span> <span class="n">count</span><span class="p">,</span> 
-        <span class="n">time_support</span> <span class="o">=</span> <span class="n">ep</span><span class="p">,</span> 
-        <span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="n">t</span><span class="o">=</span><span class="n">time_index</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">count</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="n">toreturn</span>
 </code></pre></div>
         </details>
@@ -2661,7 +2683,7 @@ If None, the time support of self is used.</p></td>
 <span class="o">-------</span>  <span class="o">------------</span>
       <span class="mi">0</span>             <span class="mi">1</span>
       <span class="mi">1</span>             <span class="mi">2</span>
-      <span class="mi">2</span>             <span class="mi">4</span>   
+      <span class="mi">2</span>             <span class="mi">4</span>
 </code></pre></div>
     <p>This exemple shows how to get a new TsGroup with all elements for which the metainfo frequency is above 1.</p>
     <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">newtsgroup</span> <span class="o">=</span> <span class="n">tsgroup</span><span class="o">.</span><span class="n">getby_threshold</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">op</span> <span class="o">=</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">)</span>
@@ -2688,7 +2710,7 @@ If None, the time support of self is used.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">getby_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">thr</span><span class="p">,</span> <span class="n">op</span> <span class="o">=</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">getby_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">thr</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;&gt;&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a TsGroup with all Ts/Tsd objects with values above threshold for metainfo under key.</span>
 
@@ -2724,7 +2746,7 @@ If None, the time support of self is used.</p></td>
 <span class="sd">    -------  ------------</span>
 <span class="sd">          0             1</span>
 <span class="sd">          1             2</span>
-<span class="sd">          2             4   </span>
+<span class="sd">          2             4</span>
 
 <span class="sd">    This exemple shows how to get a new TsGroup with all elements for which the metainfo frequency is above 1.</span>
 <span class="sd">    &gt;&gt;&gt; newtsgroup = tsgroup.getby_threshold(&#39;freq&#39;, 1, op = &#39;&gt;&#39;)</span>
@@ -2734,16 +2756,16 @@ If None, the time support of self is used.</p></td>
 <span class="sd">          2             4</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">:</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">])</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">:</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thr</span><span class="p">])</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&gt;=&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;&gt;=&quot;</span><span class="p">:</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thr</span><span class="p">])</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&lt;=&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">:</span>
         <span class="n">ix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thr</span><span class="p">])</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
@@ -2803,7 +2825,7 @@ If None, the time support of self is used.</p></td>
 <span class="mi">2</span><span class="p">:</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mf">0.25</span><span class="p">),</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">),</span>
 <span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">tsgroup</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-  <span class="n">Index</span>    <span class="n">Freq</span><span class="o">.</span> <span class="p">(</span><span class="n">Hz</span><span class="p">)</span>    <span class="n">alpha</span>                                                                    
+  <span class="n">Index</span>    <span class="n">Freq</span><span class="o">.</span> <span class="p">(</span><span class="n">Hz</span><span class="p">)</span>    <span class="n">alpha</span>
 <span class="o">-------</span>  <span class="o">------------</span>  <span class="o">-------</span>
       <span class="mi">0</span>             <span class="mi">1</span>        <span class="mi">0</span>
       <span class="mi">1</span>             <span class="mi">2</span>        <span class="mi">1</span>
@@ -2866,7 +2888,7 @@ If None, the time support of self is used.</p></td>
 <span class="sd">    2:nap.Ts(t=np.arange(0,300,0.25), time_units=&#39;s&#39;),</span>
 <span class="sd">    }</span>
 <span class="sd">    &gt;&gt;&gt; tsgroup = nap.TsGroup(tmp, alpha = np.arange(3))</span>
-<span class="sd">      Index    Freq. (Hz)    alpha                                                                    </span>
+<span class="sd">      Index    Freq. (Hz)    alpha</span>
 <span class="sd">    -------  ------------  -------</span>
 <span class="sd">          0             1        0</span>
 <span class="sd">          1             2        1</span>
@@ -2886,14 +2908,14 @@ If None, the time support of self is used.</p></td>
 <span class="sd">    &gt;&gt;&gt; bincenter</span>
 <span class="sd">    array([0.5, 1.5])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
     <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-    <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">ix</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">ix</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">xb</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-    <span class="n">sliced</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ix</span><span class="p">]</span>  
-    <span class="k">return</span> <span class="n">sliced</span><span class="p">,</span> <span class="n">xb</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>           
+    <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">ix</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span><span class="p">[</span><span class="n">ix</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">xb</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">sliced</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ix</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">sliced</span><span class="p">,</span> <span class="n">xb</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
 </code></pre></div>
         </details>
     </div>
@@ -3016,10 +3038,10 @@ If None, the time support of self is used.</p></td>
 <span class="sd">     1:   Index    Freq. (Hz)    group</span>
 <span class="sd">     -------  ------------  -------</span>
 <span class="sd">           1             2        1</span>
-<span class="sd">           2             4        1}        </span>
+<span class="sd">           2             4        1}</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span>
-    <span class="n">sliced</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">k</span><span class="p">])]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+    <span class="n">sliced</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">k</span><span class="p">])]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
     <span class="k">return</span> <span class="n">sliced</span>
 </code></pre></div>
         </details>
@@ -3113,7 +3135,7 @@ If None, the time support of self is used.</p></td>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.361d90f1.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>

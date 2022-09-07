@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.1.4">
     
     
       
@@ -141,7 +141,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -186,7 +186,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/PeyracheLab/pynapple/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/PeyracheLab/pynapple" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -926,6 +926,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight-ipynb .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight-ipynb .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight-ipynb .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight-ipynb .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight-ipynb .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight-ipynb .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight-ipynb .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -1384,12 +1385,12 @@ all of MD as it is not optimized for dense, information rich UIs.
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -1398,6 +1399,8 @@ all of MD as it is not optimized for dense, information rich UIs.
     <!-- End of mathjax configuration --><div class="jupyter-wrapper"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1417,13 +1420,13 @@ all of MD as it is not optimized for dense, information rich UIs.
 <span class="c1"># @Date:   2022-01-26 21:18:16</span>
 <span class="c1"># @Last Modified by:   gviejo</span>
 <span class="c1"># @Last Modified time: 2022-01-26 21:27:38</span>
-<span class="err">!</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">env</span> <span class="n">python</span>
+<span class="c1">#!/usr/bin/env python</span>
 </pre></div>
 <div id="cell-1" class="clipboard-copy-txt"># @Author: gviejo
 # @Date:   2022-01-26 21:18:16
 # @Last Modified by:   gviejo
 # @Last Modified time: 2022-01-26 21:27:38
-!/usr/bin/env python</div>
+#!/usr/bin/env python</div>
     
         </div>
     </div>
@@ -1433,7 +1436,11 @@ all of MD as it is not optimized for dense, information rich UIs.
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="quick-start">Quick start<a class="anchor-link" href="#quick-start">&#182;</a></h1><p>The example data to replicate the figure in the jupyter notebook can be found here :
 <a href="https://www.dropbox.com/s/1kc0ulz7yudd9ru/A2929-200711.tar.gz?dl=1">https://www.dropbox.com/s/1kc0ulz7yudd9ru/A2929-200711.tar.gz?dl=1</a></p>
@@ -1451,9 +1458,13 @@ It contains both head-direction cells (i.e. cells that fire for a particular dir
 </ol>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1485,14 +1496,22 @@ import pynapple as nap</div>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The first step is to give the path to the data folder.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1508,9 +1527,9 @@ import pynapple as nap</div>
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">data_directory</span> <span class="o">=</span> <span class="s1">&#39;../your/path/to/A2929-200711&#39;</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">data_directory</span> <span class="o">=</span> <span class="s1">&#39;../../your/path/to/A2929-200711&#39;</span>
 </pre></div>
-<div id="cell-3" class="clipboard-copy-txt">data_directory = '../your/path/to/A2929-200711'</div>
+<div id="cell-3" class="clipboard-copy-txt">data_directory = '../../your/path/to/A2929-200711'</div>
     
         </div>
     </div>
@@ -1520,7 +1539,11 @@ import pynapple as nap</div>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The first step is to load the session with the function <em>load_session</em>. 
 When loading a session for the first time, pynapple will show a GUI 
@@ -1529,9 +1552,13 @@ When informations has been entered, a <a href="https://pynwb.readthedocs.io/en/s
 In this example dataset, the NWB file already exists.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1559,15 +1586,23 @@ In this example dataset, the NWB file already exists.</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The object <em>data</em> contains the information about the session such as the spike times of all the neurons, 
 the tracking data and the start and ends of the epochs. We can check each object.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1597,7 +1632,11 @@ spikes</div>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><em>spikes</em> is a TsGroup object. 
 It allows to group together time series with different timestamps and associate metainformation about each neuron. 
@@ -1606,9 +1645,13 @@ In this case, the location of where the neuron was recorded has been added when 
 <p>In this case it holds 15 neurons and it is possible to access, similar to a dictionnary, the spike times of a single neuron:</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1638,16 +1681,24 @@ neuron_0</div>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><em>neuron_0</em> is a Ts object containing the times of the spikes. Under the hood, it's wrapping a pandas series.</p>
 <p>The other information about the session is contained in <em>data.epochs</em>. 
 In this case, the start and end of the sleep and wake epochs.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1677,16 +1728,24 @@ epochs</div>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Finally this dataset contains tracking of the animal in the environment. 
 It can be accessed through <em>data.position</em>. <em>rx, ry, rz</em> represent respectively 
 the roll, the yaw and the pitch of the head of the animal. <em>x</em> and <em>z</em> represent the position of the animal in the horizontal plane while <em>y</em> represent the elevation.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1716,15 +1775,23 @@ print(position)</div>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The core functions of pynapple provides many ways to manipulate time series. 
 In this example, spike times are restricted to the wake epoch. Notice how the frequencies are changing.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1741,8 +1808,12 @@ In this example, spike times are restricted to the wake epoch. Notice how the fr
         </div>
         <div class="CodeMirror cm-s-jupyter">
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">spikes_wake</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;wake&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">spikes_wake</span><span class="p">)</span>
 </pre></div>
-<div id="cell-9" class="clipboard-copy-txt">spikes_wake = spikes.restrict(epochs['wake'])</div>
+<div id="cell-9" class="clipboard-copy-txt">spikes_wake = spikes.restrict(epochs['wake'])
+
+print(spikes_wake)</div>
     
         </div>
     </div>
@@ -1751,9 +1822,25 @@ In this example, spike times are restricted to the wake epoch. Notice how the fr
 </div>
 
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The same operation can be applied to position. 
+But in this example, we want all the epochs for which position in <em>x</em> is above a certain threhsold. 
+We can used the function <em>threshold</em>.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1769,9 +1856,29 @@ In this example, spike times are restricted to the wake epoch. Notice how the fr
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">spikes_wake</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">posx</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.08</span>
+<span class="n">posxpositive</span> <span class="o">=</span> <span class="n">posx</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">posx</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">posxpositive</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 </pre></div>
-<div id="cell-10" class="clipboard-copy-txt">print(spikes_wake)</div>
+<div id="cell-10" class="clipboard-copy-txt">import matplotlib.pyplot as plt
+
+posx = position['x']
+threshold = 0.08
+posxpositive = posx.threshold(threshold)
+
+plt.plot(posx.as_units('s'))
+plt.plot(posxpositive.as_units('s'), '.')
+plt.axhline(threshold)
+plt.xlabel("Time (s)")
+plt.ylabel("x")</div>
     
         </div>
     </div>
@@ -1781,16 +1888,26 @@ In this example, spike times are restricted to the wake epoch. Notice how the fr
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The same operation can be applied to position. 
-But in this example, we want all the epochs for which position in <em>x</em> is above a certain threhsold. 
-We can used the function <em>threshold</em>.</p>
+<p>The epochs above the threshold can be accessed through the time support of the Tsd object. 
+The time support is an important concept in the pynapple package. 
+It helps the user to define the epochs for which the time serie should be defined. 
+By default, Ts, Tsd and TsGroup objects possess a time support (defined as an IntervalSet). 
+It is recommended to pass the time support when instantiating one of those objects.</p>
 
+</div>
+</div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1806,9 +1923,11 @@ We can used the function <em>threshold</em>.</p>
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">epochs_above_thr</span> <span class="o">=</span> <span class="n">posxpositive</span><span class="o">.</span><span class="n">time_support</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">epochs_above_thr</span><span class="p">)</span>
 </pre></div>
-<div id="cell-11" class="clipboard-copy-txt">import matplotlib.pyplot as plt</div>
+<div id="cell-11" class="clipboard-copy-txt">epochs_above_thr = posxpositive.time_support
+print(epochs_above_thr)</div>
     
         </div>
     </div>
@@ -1817,9 +1936,28 @@ We can used the function <em>threshold</em>.</p>
 </div>
 
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="tuning-curves">Tuning curves<a class="anchor-link" href="#tuning-curves">&#182;</a></h1><p>Let's do more advanced analysis. 
+Neurons from ADn (group 0 in the <em>spikes</em> group object) are know for firing for a particular direction. 
+Therefore, we can compute their tuning curves, i.e. their firing rates as a function of the head-direction 
+of the animal in the horizontal plane (<em>ry</em>). 
+We can use the function <em>compute_1d_tuning_curves</em>. 
+In this case, the tuning curves are computed over 120 bins and between 0 and 2$\pi$.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1835,9 +1973,21 @@ We can used the function <em>threshold</em>.</p>
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">posx</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tuning_curves</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">compute_1d_tuning_curves</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> 
+                                             <span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">],</span> 
+                                             <span class="mi">121</span><span class="p">,</span> 
+                                             <span class="n">ep</span><span class="o">=</span><span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span> 
+                                             <span class="n">minmax</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="n">tuning_curves</span>
 </pre></div>
-<div id="cell-12" class="clipboard-copy-txt">posx = position['x']</div>
+<div id="cell-12" class="clipboard-copy-txt">tuning_curves = nap.compute_1d_tuning_curves(spikes, 
+                                             position['ry'], 
+                                             121, 
+                                             ep=position['ry'].time_support, 
+                                             minmax=(0, 2*np.pi))
+
+tuning_curves</div>
     
         </div>
     </div>
@@ -1846,9 +1996,23 @@ We can used the function <em>threshold</em>.</p>
 </div>
 
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We can plot tuning curves in polar plots.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1864,9 +2028,23 @@ We can used the function <em>threshold</em>.</p>
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.08</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">neuron_location</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span> <span class="c1"># to know where the neuron was recorded</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tuning_curves</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">neuron_location</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-13" class="clipboard-copy-txt">threshold = 0.08</div>
+<div id="cell-13" class="clipboard-copy-txt">neuron_location = spikes.get_info('location') # to know where the neuron was recorded
+plt.figure(figsize=(12,9))
+for i,n in enumerate(tuning_curves.columns):
+    plt.subplot(3,5,i+1, projection = 'polar')
+    plt.plot(tuning_curves[n])
+    plt.title(neuron_location[n] + '-' + str(n), fontsize = 18)
+plt.tight_layout()
+plt.show()    </div>
     
         </div>
     </div>
@@ -1875,9 +2053,25 @@ We can used the function <em>threshold</em>.</p>
 </div>
 
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>While ADN neurons show obvious modulation for head-direction, it is not obvious for all CA1 cells. 
+Therefore we want to restrict the remaining of the analysis to only ADN neurons. 
+We can split the <em>spikes</em> group with the function <em>getby_category</em>.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1893,9 +2087,15 @@ We can used the function <em>threshold</em>.</p>
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">posxpositive</span> <span class="o">=</span> <span class="n">posx</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">spikes_by_location</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">getby_category</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">spikes_by_location</span><span class="p">[</span><span class="s1">&#39;adn&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spikes_by_location</span><span class="p">[</span><span class="s1">&#39;ca1&#39;</span><span class="p">])</span>
 </pre></div>
-<div id="cell-14" class="clipboard-copy-txt">posxpositive = posx.threshold(threshold)</div>
+<div id="cell-14" class="clipboard-copy-txt">spikes_by_location = spikes.getby_category('location')
+
+print(spikes_by_location['adn'])
+print(spikes_by_location['ca1'])</div>
     
         </div>
     </div>
@@ -1907,6 +2107,8 @@ We can used the function <em>threshold</em>.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1922,17 +2124,9 @@ We can used the function <em>threshold</em>.</p>
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">posx</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">posxpositive</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">spikes_adn</span> <span class="o">=</span> <span class="n">spikes_by_location</span><span class="p">[</span><span class="s1">&#39;adn&#39;</span><span class="p">]</span>
 </pre></div>
-<div id="cell-15" class="clipboard-copy-txt">plt.plot(posx.as_units('s'))
-plt.plot(posxpositive.as_units('s'), '.')
-plt.axhline(threshold)
-plt.xlabel("Time (s)")
-plt.ylabel("x")</div>
+<div id="cell-15" class="clipboard-copy-txt">spikes_adn = spikes_by_location['adn']</div>
     
         </div>
     </div>
@@ -1942,18 +2136,24 @@ plt.ylabel("x")</div>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The epochs above the threshold can be accessed through the time support of the Tsd object. 
-The time support is an important concept in the pynapple package. 
-It helps the user to define the epochs for which the time serie should be defined. 
-By default, Ts, Tsd and TsGroup objects possess a time support (defined as an IntervalSet). 
-It is recommended to pass the time support when instantiating one of those objects.</p>
+<h1 id="correlograms">Correlograms<a class="anchor-link" href="#correlograms">&#182;</a></h1><p>A classical question with head-direction cells is how pairs stay coordinated across brain states i.e. wake vs sleep (see Peyrache, A., Lacroix, M. M., Petersen, P. C., &amp; Buzsáki, G. (2015). Internally organized mechanisms of the head direction sense. Nature neuroscience, 18(4), 569-575.)
+In this example, this coordination across brain states will be evaluated with cross-correlograms of pairs of neurons. 
+We can call the function <em>compute_crosscorrelogram</em> on both sleep and wake epochs.</p>
 
+</div>
+</div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -1969,11 +2169,31 @@ It is recommended to pass the time support when instantiating one of those objec
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">epochs_above_thr</span> <span class="o">=</span> <span class="n">posxpositive</span><span class="o">.</span><span class="n">time_support</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">epochs_above_thr</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">cc_wake</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">compute_crosscorrelogram</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">spikes_adn</span><span class="p">,</span> 
+                                       <span class="n">binsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="c1"># ms</span>
+                                       <span class="n">windowsize</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="c1"># ms                                       </span>
+                                       <span class="n">ep</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;wake&#39;</span><span class="p">],</span>
+                                       <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                       <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;ms&quot;</span><span class="p">)</span>
+<span class="n">cc_sleep</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">compute_crosscorrelogram</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">spikes_adn</span><span class="p">,</span>
+                                        <span class="n">binsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="c1"># ms</span>
+                                        <span class="n">windowsize</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="c1"># ms                                        </span>
+                                        <span class="n">ep</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;sleep&#39;</span><span class="p">],</span> 
+                                        <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;ms&quot;</span><span class="p">)</span>
 </pre></div>
-<div id="cell-16" class="clipboard-copy-txt">epochs_above_thr = posxpositive.time_support
-print(epochs_above_thr)</div>
+<div id="cell-16" class="clipboard-copy-txt">cc_wake = nap.compute_crosscorrelogram(group=spikes_adn, 
+                                       binsize=20, # ms
+                                       windowsize=4000, # ms                                       
+                                       ep=epochs['wake'],
+                                       norm=True,
+                                       time_units="ms")
+cc_sleep = nap.compute_crosscorrelogram(group=spikes_adn,
+                                        binsize=5, # ms
+                                        windowsize=400, # ms                                        
+                                        ep=epochs['sleep'], 
+                                        norm=True,
+                                        time_units="ms")</div>
     
         </div>
     </div>
@@ -1982,20 +2202,11 @@ print(epochs_above_thr)</div>
 </div>
 
 </div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="tuning-curves">Tuning curves<a class="anchor-link" href="#tuning-curves">&#182;</a></h1><p>Let's do more advanced analysis. 
-Neurons from ADn (group 0 in the <em>spikes</em> group object) are know for firing for a particular direction. 
-Therefore, we can compute their tuning curves, i.e. their firing rates as a function of the head-direction 
-of the animal in the horizontal plane (<em>ry</em>). 
-We can use the function <em>compute_1d_tuning_curves</em>. 
-In this case, the tuning curves are computed over 120 bins and between 0 and 2$\pi$.</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -2011,17 +2222,9 @@ In this case, the tuning curves are computed over 120 bins and between 0 and 2$\
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tuning_curves</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">compute_1d_tuning_curves</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">spikes</span><span class="p">,</span> 
-                                             <span class="n">feature</span><span class="o">=</span><span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">],</span> 
-                                             <span class="n">ep</span><span class="o">=</span><span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span> 
-                                             <span class="n">nb_bins</span><span class="o">=</span><span class="mi">121</span><span class="p">,</span> 
-                                             <span class="n">minmax</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div id="cell-17" class="clipboard-copy-txt">tuning_curves = nap.compute_1d_tuning_curves(group=spikes, 
-                                             feature=position['ry'], 
-                                             ep=position['ry'].time_support, 
-                                             nb_bins=121, 
-                                             minmax=(0, 2*np.pi))</div>
+<div id="cell-17" class="clipboard-copy-txt"></div>
     
         </div>
     </div>
@@ -2030,9 +2233,25 @@ In this case, the tuning curves are computed over 120 bins and between 0 and 2$\
 </div>
 
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>From the previous figure, we can see that neurons 0 and 1 fires for opposite direction during wake. 
+Therefore we expect their cross-correlograms to show a through around 0 time lag meaning those two neurons do not fire spikes together. 
+A similar through during sleep for the same pair will thus indicates a persistence of their coordination even if the animal is not moving its head.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -2048,9 +2267,47 @@ In this case, the tuning curves are computed over 120 bins and between 0 and 2$\
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tuning_curves</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">xtwake</span> <span class="o">=</span> <span class="n">cc_wake</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+<span class="n">xtsleep</span> <span class="o">=</span> <span class="n">cc_sleep</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span> <span class="c1"># The tuning curves of the pair [0,1]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="c1"># plt.plot(cc_wake[(0,1)], color = &#39;red&#39;) # The wake cross-corr of pair (0,1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xtwake</span><span class="p">,</span> <span class="n">cc_wake</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="c1"># The wake cross-corr of pair (0,1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;wake&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (ms)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;CC&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="c1"># plt.plot(cc_sleep[(0,1)], color = &#39;red&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xtsleep</span><span class="p">,</span> <span class="n">cc_sleep</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="c1"># The wake cross-corr of pair (0,1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;sleep&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (ms)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;CC&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-18" class="clipboard-copy-txt">tuning_curves</div>
+<div id="cell-18" class="clipboard-copy-txt">xtwake = cc_wake.index.values
+xtsleep = cc_sleep.index.values
+
+plt.figure(figsize = (15, 5))
+plt.subplot(131, projection = 'polar')
+plt.plot(tuning_curves[[0,1]]) # The tuning curves of the pair [0,1]
+plt.subplot(132)
+# plt.plot(cc_wake[(0,1)], color = 'red') # The wake cross-corr of pair (0,1)
+plt.bar(xtwake, cc_wake[(0,1)].values, 0.02, color = 'green') # The wake cross-corr of pair (0,1)
+plt.title('wake')
+plt.xlabel("Time (ms)")
+plt.ylabel("CC")
+plt.subplot(133)
+# plt.plot(cc_sleep[(0,1)], color = 'red')
+plt.bar(xtsleep, cc_sleep[(0,1)].values, 0.005, color = 'green') # The wake cross-corr of pair (0,1)
+plt.title('sleep')
+plt.xlabel("Time (ms)")
+plt.ylabel("CC")
+plt.tight_layout()
+plt.show()</div>
     
         </div>
     </div>
@@ -2060,14 +2317,26 @@ In this case, the tuning curves are computed over 120 bins and between 0 and 2$\
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We can plot tuning curves in polar plots.</p>
+<h1 id="decoding">Decoding<a class="anchor-link" href="#decoding">&#182;</a></h1><p>This last analysis shows how to use the function decoding of pynapple, in this case with head-direction cells.</p>
+<p>The previous result indicates a persistent coordination of head-direction cells during sleep. 
+Therefore it is possible to decode a virtual head-direction signal even if the animal is not moving its head. 
+This example uses the function <em>decode_1d</em> which implements bayesian decoding (see : Zhang, K., Ginzburg, I., McNaughton, B. L., &amp; Sejnowski, T. J. (1998). Interpreting neuronal population activity by reconstruction: unified framework with application to hippocampal place cells. Journal of neurophysiology, 79(2), 1017-1044.)</p>
+<p>First we can validate the decoding function with the real position of the head of the animal during wake.</p>
 
+</div>
+</div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -2083,11 +2352,19 @@ In this case, the tuning curves are computed over 120 bins and between 0 and 2$\
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">neuron_location</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span> <span class="c1"># to know where the neuron was recorded</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tuning_curves_adn</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">compute_1d_tuning_curves</span><span class="p">(</span>
+    <span class="n">spikes_adn</span><span class="p">,</span>
+    <span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">],</span>
+    <span class="n">nb_bins</span><span class="o">=</span><span class="mi">121</span><span class="p">,</span>
+    <span class="n">ep</span><span class="o">=</span><span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span>
+    <span class="n">minmax</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
 </pre></div>
-<div id="cell-19" class="clipboard-copy-txt">neuron_location = spikes.get_info('location') # to know where the neuron was recorded
-plt.figure(figsize=(12,9))</div>
+<div id="cell-19" class="clipboard-copy-txt">tuning_curves_adn = nap.compute_1d_tuning_curves(
+    spikes_adn,
+    position['ry'],
+    nb_bins=121,
+    ep=position['ry'].time_support,
+    minmax=(0, 2*np.pi))</div>
     
         </div>
     </div>
@@ -2099,6 +2376,8 @@ plt.figure(figsize=(12,9))</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
@@ -2114,376 +2393,19 @@ plt.figure(figsize=(12,9))</div>
             </clipboard-copy>
         </div>
         <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tuning_curves</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s1">&#39;polar&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">neuron_location</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
-</pre></div>
-<div id="cell-20" class="clipboard-copy-txt">for i,n in enumerate(tuning_curves.columns):
-    plt.subplot(3,5,i+1, projection = 'polar')
-    plt.plot(tuning_curves[n])
-    plt.title(neuron_location[n] + '-' + str(n), fontsize = 18)</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-21">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-<div id="cell-21" class="clipboard-copy-txt">plt.tight_layout()
-plt.show()</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>While ADN neurons show obvious modulation for head-direction, it is not obvious for all CA1 cells. 
-Therefore we want to restrict the remaining of the analysis to only ADN neurons. 
-We can split the <em>spikes</em> group with the function <em>getby_category</em>.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-22">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">spikes_by_location</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">getby_category</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span>
-</pre></div>
-<div id="cell-22" class="clipboard-copy-txt">spikes_by_location = spikes.getby_category('location')</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-23">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">spikes_by_location</span><span class="p">[</span><span class="s1">&#39;adn&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">spikes_by_location</span><span class="p">[</span><span class="s1">&#39;ca1&#39;</span><span class="p">])</span>
-</pre></div>
-<div id="cell-23" class="clipboard-copy-txt">print(spikes_by_location['adn'])
-print(spikes_by_location['ca1'])</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-24">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">spikes_adn</span> <span class="o">=</span> <span class="n">spikes_by_location</span><span class="p">[</span><span class="s1">&#39;adn&#39;</span><span class="p">]</span>
-</pre></div>
-<div id="cell-24" class="clipboard-copy-txt">spikes_adn = spikes_by_location['adn']</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="correlograms">Correlograms<a class="anchor-link" href="#correlograms">&#182;</a></h1><p>A classical question with head-direction cells is how pairs stay coordinated across brain states i.e. wake vs sleep (see Peyrache, A., Lacroix, M. M., Petersen, P. C., &amp; Buzsáki, G. (2015). Internally organized mechanisms of the head direction sense. Nature neuroscience, 18(4), 569-575.)
-In this example, this coordination across brain states will be evaluated with cross-correlograms of pairs of neurons. 
-We can call the function <em>compute_crosscorrelogram</em> on both sleep and wake epochs.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-25">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">cc_wake</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">compute_crosscorrelogram</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">spikes_adn</span><span class="p">,</span> 
-                                       <span class="n">ep</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;wake&#39;</span><span class="p">],</span> 
-                                       <span class="n">binsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="c1"># ms</span>
-                                       <span class="n">windowsize</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="c1"># ms</span>
-                                       <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">cc_sleep</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">compute_crosscorrelogram</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">spikes_adn</span><span class="p">,</span>
-                                       <span class="n">ep</span><span class="o">=</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;sleep&#39;</span><span class="p">],</span> 
-                                       <span class="n">binsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="c1"># ms</span>
-                                       <span class="n">windowsize</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="c1"># ms</span>
-                                       <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-<div id="cell-25" class="clipboard-copy-txt">cc_wake = nap.compute_crosscorrelogram(group=spikes_adn, 
-                                       ep=epochs['wake'], 
-                                       binsize=20, # ms
-                                       windowsize=4000, # ms
-                                       norm=True)
-cc_sleep = nap.compute_crosscorrelogram(group=spikes_adn,
-                                       ep=epochs['sleep'], 
-                                       binsize=5, # ms
-                                       windowsize=400, # ms
-                                       norm=True)</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>From the previous figure, we can see that neurons 0 and 1 fires for opposite direction during wake. 
-Therefore we expect their cross-correlograms to show a through around 0 time lag meaning those two neurons do not fire spikes together. 
-A similar through during sleep for the same pair will thus indicates a persistence of their coordination even if the animal is not moving its head.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-26">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">xtwake</span> <span class="o">=</span> <span class="n">cc_wake</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-<span class="n">xtsleep</span> <span class="o">=</span> <span class="n">cc_sleep</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-</pre></div>
-<div id="cell-26" class="clipboard-copy-txt">xtwake = cc_wake.index.values
-xtsleep = cc_sleep.index.values</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-27">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s1">&#39;polar&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span> <span class="c1"># The tuning curves of the pair [0,1]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
-<span class="c1"># plt.plot(cc_wake[(0,1)], color = &#39;red&#39;) # The wake cross-corr of pair (0,1)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xtwake</span><span class="p">,</span> <span class="n">cc_wake</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="c1"># The wake cross-corr of pair (0,1)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;wake&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (ms)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;CC&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
-<span class="c1"># plt.plot(cc_sleep[(0,1)], color = &#39;red&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xtsleep</span><span class="p">,</span> <span class="n">cc_sleep</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="c1"># The wake cross-corr of pair (0,1)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;sleep&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (ms)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;CC&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-<div id="cell-27" class="clipboard-copy-txt">plt.figure(figsize = (15, 5))
-plt.subplot(131, projection = 'polar')
-plt.plot(tuning_curves[[0,1]]) # The tuning curves of the pair [0,1]
-plt.subplot(132)
-# plt.plot(cc_wake[(0,1)], color = 'red') # The wake cross-corr of pair (0,1)
-plt.bar(xtwake, cc_wake[(0,1)].values, 20, color = 'green') # The wake cross-corr of pair (0,1)
-plt.title('wake')
-plt.xlabel("Time (ms)")
-plt.ylabel("CC")
-plt.subplot(133)
-# plt.plot(cc_sleep[(0,1)], color = 'red')
-plt.bar(xtsleep, cc_sleep[(0,1)].values, 5, color = 'green') # The wake cross-corr of pair (0,1)
-plt.title('sleep')
-plt.xlabel("Time (ms)")
-plt.ylabel("CC")
-plt.tight_layout()
-plt.show()</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="decoding">Decoding<a class="anchor-link" href="#decoding">&#182;</a></h1><p>This last analysis shows how to use the function decoding of pynapple, in this case with head-direction cells.</p>
-<p>The previous result indicates a persistent coordination of head-direction cells during sleep. 
-Therefore it is possible to decode a virtual head-direction signal even if the animal is not moving its head. 
-This example uses the function <em>decode_1d</em> which implements bayesian decoding (see : Zhang, K., Ginzburg, I., McNaughton, B. L., &amp; Sejnowski, T. J. (1998). Interpreting neuronal population activity by reconstruction: unified framework with application to hippocampal place cells. Journal of neurophysiology, 79(2), 1017-1044.)</p>
-<p>First we can validate the decoding function with the real position of the head of the animal during wake.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-28">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tuning_curves_adn</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">compute_1d_tuning_curves</span><span class="p">(</span><span class="n">spikes_adn</span><span class="p">,</span><span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">],</span><span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span><span class="n">nb_bins</span><span class="o">=</span><span class="mi">121</span><span class="p">,</span><span class="n">minmax</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-</pre></div>
-<div id="cell-28" class="clipboard-copy-txt">tuning_curves_adn = nap.compute_1d_tuning_curves(spikes_adn,position['ry'],position['ry'].time_support,nb_bins=121,minmax=(0, 2*np.pi))</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-29">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">decoded</span><span class="p">,</span> <span class="n">proba_angle</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">decode_1d</span><span class="p">(</span><span class="n">tuning_curves</span><span class="o">=</span><span class="n">tuning_curves_adn</span><span class="p">,</span> 
                                      <span class="n">group</span><span class="o">=</span><span class="n">spikes_adn</span><span class="p">,</span> 
-                                     <span class="n">feature</span><span class="o">=</span><span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">],</span> 
                                      <span class="n">ep</span><span class="o">=</span><span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span>
-                                     <span class="n">bin_size</span><span class="o">=</span><span class="mf">0.3</span> <span class="c1"># second</span>
+                                     <span class="n">bin_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="c1"># second</span>
+                                     <span class="n">feature</span><span class="o">=</span><span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span>
                                     <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">decoded</span><span class="p">)</span>
 </pre></div>
-<div id="cell-29" class="clipboard-copy-txt">decoded, proba_angle = nap.decode_1d(tuning_curves=tuning_curves_adn, 
+<div id="cell-20" class="clipboard-copy-txt">decoded, proba_angle = nap.decode_1d(tuning_curves=tuning_curves_adn, 
                                      group=spikes_adn, 
-                                     feature=position['ry'], 
                                      ep=position['ry'].time_support,
-                                     bin_size=0.3 # second
+                                     bin_size=0.3, # second
+                                     feature=position['ry']
                                     )
 print(decoded)</div>
     
@@ -2495,49 +2417,28 @@ print(decoded)</div>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We can plot the decoded head-direction along with the true head-direction.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-30">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span>
-</pre></div>
-<div id="cell-30" class="clipboard-copy-txt"></div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-31">
+            <clipboard-copy for="cell-21">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2555,7 +2456,7 @@ print(decoded)</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Head-direction (rad)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-31" class="clipboard-copy-txt">plt.figure(figsize=(15,5))
+<div id="cell-21" class="clipboard-copy-txt">plt.figure(figsize=(15,5))
 plt.plot(position['ry'].as_units('s'), label = 'True')
 plt.plot(decoded.as_units('s'), label = 'Decoded')
 plt.legend()
@@ -2571,21 +2472,29 @@ plt.show()</div>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Finally we can plot the decoded activity during sleep and overlay spiking activity of ADN neurons 
 as a raster plot (in this case only during the first 10 seconds).</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-32">
+            <clipboard-copy for="cell-22">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2602,7 +2511,7 @@ as a raster plot (in this case only during the first 10 seconds).</p>
                                                  <span class="n">bin_size</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1"># second</span>
                                                 <span class="p">)</span>
 </pre></div>
-<div id="cell-32" class="clipboard-copy-txt">decoded_sleep, proba_angle_Sleep = nap.decode_1d(tuning_curves=tuning_curves_adn,
+<div id="cell-22" class="clipboard-copy-txt">decoded_sleep, proba_angle_Sleep = nap.decode_1d(tuning_curves=tuning_curves_adn,
                                                  group=spikes_adn, 
                                                  feature=position['ry'], 
                                                  ep=epochs['sleep'],
@@ -2619,12 +2528,14 @@ as a raster plot (in this case only during the first 10 seconds).</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-33">
+            <clipboard-copy for="cell-23">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2637,7 +2548,7 @@ as a raster plot (in this case only during the first 10 seconds).</p>
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Finding quickly max direction of tuning curves</span>
 <span class="n">peaks_adn</span> <span class="o">=</span> <span class="n">tuning_curves_adn</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
 </pre></div>
-<div id="cell-33" class="clipboard-copy-txt"># Finding quickly max direction of tuning curves
+<div id="cell-23" class="clipboard-copy-txt"># Finding quickly max direction of tuning curves
 peaks_adn = tuning_curves_adn.idxmax()</div>
     
         </div>
@@ -2650,12 +2561,14 @@ peaks_adn = tuning_curves_adn.idxmax()</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-34">
+            <clipboard-copy for="cell-24">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2668,7 +2581,7 @@ peaks_adn = tuning_curves_adn.idxmax()</div>
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Defining a sub epoch during sleep</span>
 <span class="n">subep</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
 </pre></div>
-<div id="cell-34" class="clipboard-copy-txt"># Defining a sub epoch during sleep
+<div id="cell-24" class="clipboard-copy-txt"># Defining a sub epoch during sleep
 subep = nap.IntervalSet(start=0, end=10, time_units='s')</div>
     
         </div>
@@ -2681,12 +2594,14 @@ subep = nap.IntervalSet(start=0, end=10, time_units='s')</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-35">
+            <clipboard-copy for="cell-25">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2700,44 +2615,17 @@ subep = nap.IntervalSet(start=0, end=10, time_units='s')</div>
 <span class="c1"># create a raster plot</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">spikes_adn</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spikes_adn</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">subep</span><span class="p">)</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">peaks_adn</span><span class="p">[</span><span class="n">n</span><span class="p">]),</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>
-</pre></div>
-<div id="cell-35" class="clipboard-copy-txt">plt.figure(figsize=(16,5))
-# create a raster plot
-for n in spikes_adn.keys():
-    plt.plot(spikes_adn[n].restrict(subep).as_units('s').fillna(peaks_adn[n]), '|')</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-36">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">decoded_sleep</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">subep</span><span class="p">)</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Decoded sleep&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">decoded_sleep</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">subep</span><span class="p">)</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Decoded sleep&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Head-direction (rad)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-36" class="clipboard-copy-txt">plt.plot(decoded_sleep.restrict(subep).as_units('s'), label = 'Decoded sleep')
+<div id="cell-25" class="clipboard-copy-txt">plt.figure(figsize=(16,5))
+# create a raster plot
+for n in spikes_adn.keys():
+    plt.plot(spikes_adn[n].restrict(subep).as_units('s').fillna(peaks_adn[n]), '|')
+plt.plot(decoded_sleep.restrict(subep).as_units('s'), label = 'Decoded sleep')
 plt.legend()
 plt.xlabel("Time (s)")
 plt.ylabel("Head-direction (rad)")
@@ -2784,7 +2672,7 @@ plt.show()</div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.361d90f1.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
