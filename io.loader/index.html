@@ -674,6 +674,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.suite2p/" class="md-nav__link">
+        Suite2p
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -998,7 +1012,6 @@ BaseLoader        </code>
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
 
         <span class="n">start_gui</span> <span class="o">=</span> <span class="kc">True</span>
-
         <span class="c1"># Check if a pynapplenwb folder exist to bypass GUI</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">nwb_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;pynapplenwb&quot;</span><span class="p">)</span>
@@ -1230,7 +1243,10 @@ BaseLoader        </code>
                         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No ttl detected for </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
 
                     <span class="c1"># Make sure start epochs in seconds</span>
-                    <span class="n">start_epoch</span> <span class="o">=</span> <span class="n">format_timestamp</span><span class="p">(</span>
+                    <span class="c1"># start_epoch = format_timestamp(</span>
+                    <span class="c1">#     epochs.loc[parameters.loc[f, &quot;epoch&quot;], &quot;start&quot;], time_units</span>
+                    <span class="c1"># )</span>
+                    <span class="n">start_epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span>
                         <span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">parameters</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">],</span> <span class="s2">&quot;start&quot;</span><span class="p">],</span> <span class="n">time_units</span>
                     <span class="p">)</span>
                     <span class="n">timestamps</span> <span class="o">=</span> <span class="n">start_epoch</span> <span class="o">+</span> <span class="n">ttl</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>

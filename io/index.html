@@ -612,6 +612,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.suite2p/" class="md-nav__link">
+        Suite2p
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -878,8 +892,9 @@
 <p>Matlab-cnmfe</p>
 </li>
 <li>
-<p>None for default session.</p>
+<p>Suite2p</p>
 </li>
+<li>None for default session.</li>
 </ul>
 
 <p><strong>Parameters:</strong></p>
@@ -904,7 +919,7 @@
         <td><code>str</code></td>
         <td><p>Can be 'neurosuite', 'phy',
 'minian', 'inscopix-cnmfe', 'cnmfe-matlab',
- or None for default loader.</p></td>
+'suite2p' or None for default loader.</p></td>
         <td><code>None</code></td>
       </tr>
   </tbody>
@@ -935,6 +950,7 @@
 <span class="sd">    - Minian\n</span>
 <span class="sd">    - Inscopix-cnmfe\n</span>
 <span class="sd">    - Matlab-cnmfe\n</span>
+<span class="sd">    - Suite2p</span>
 <span class="sd">    - None for default session.</span>
 
 <span class="sd">    Parameters</span>
@@ -944,7 +960,7 @@
 <span class="sd">    session_type : str, optional</span>
 <span class="sd">        Can be &#39;neurosuite&#39;, &#39;phy&#39;,</span>
 <span class="sd">        &#39;minian&#39;, &#39;inscopix-cnmfe&#39;, &#39;cnmfe-matlab&#39;,</span>
-<span class="sd">         or None for default loader.</span>
+<span class="sd">        &#39;suite2p&#39; or None for default loader.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -955,6 +971,9 @@
     <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Path </span><span class="si">{}</span><span class="s2"> is not found.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">session_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">session_type</span> <span class="o">=</span> <span class="n">session_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s2">&quot;neurosuite&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">NeuroSuite</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -970,6 +989,9 @@
 
     <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s2">&quot;cnmfe-matlab&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">CNMF_E</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">session_type</span> <span class="o">==</span> <span class="s2">&quot;suite2p&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Suite2P</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">BaseLoader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
