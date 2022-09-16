@@ -1621,7 +1621,7 @@ NeuroSuite            (<a title="pynapple.io.loader.BaseLoader" href="../io.load
                     <span class="p">]</span>  <span class="c1"># waveform for this spike time</span>
                     <span class="k">try</span><span class="p">:</span>
                         <span class="n">neuron_waveforms</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="o">+=</span> <span class="n">spikewindow</span><span class="o">.</span><span class="n">values</span>
-                    <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>  <span class="c1"># ignore if full waveform is not present in this batch</span>
+                    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># ignore if full waveform is not present in this batch</span>
                         <span class="k">pass</span>
 
         <span class="n">meanwf</span> <span class="o">=</span> <span class="p">{</span>
@@ -2853,7 +2853,7 @@ Number of spikes used per neuron for the calculation of waveforms</p></td>
                 <span class="p">]</span>  <span class="c1"># waveform for this spike time</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">neuron_waveforms</span><span class="p">[</span><span class="n">neuron</span><span class="p">]</span> <span class="o">+=</span> <span class="n">spikewindow</span><span class="o">.</span><span class="n">values</span>
-                <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>  <span class="c1"># ignore if full waveform is not present in this batch</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># ignore if full waveform is not present in this batch</span>
                     <span class="k">pass</span>
 
     <span class="n">meanwf</span> <span class="o">=</span> <span class="p">{</span>
