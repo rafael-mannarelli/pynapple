@@ -707,13 +707,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pynapple.process.tuning_curves.PoissonIRLS" class="md-nav__link">
-    PoissonIRLS()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pynapple.process.tuning_curves.compute_1d_poisson_glm" class="md-nav__link">
     compute_1d_poisson_glm()
   </a>
@@ -891,13 +884,6 @@
         <li class="md-nav__item">
   <a href="#pynapple.process.tuning_curves.compute_2d_tuning_curves_continuous" class="md-nav__link">
     compute_2d_tuning_curves_continuous()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pynapple.process.tuning_curves.PoissonIRLS" class="md-nav__link">
-    PoissonIRLS()
   </a>
   
 </li>
@@ -1537,12 +1523,12 @@ Set to true for bits per seconds</p></td>
 <span class="sd">    pandas.DataFrame</span>
 <span class="sd">        Spatial Information (default is bits/spikes)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">tc</span><span class="p">)</span> <span class="ow">is</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
         <span class="n">columns</span> <span class="o">=</span> <span class="n">tc</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
         <span class="n">fx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">tc</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">tc</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-        <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
         <span class="n">fx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">tc</span><span class="p">)</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
     <span class="n">nb_bins</span> <span class="o">=</span> <span class="n">tc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">minmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1802,42 +1788,36 @@ If None, the epoch is the time support of the feature.</p></td>
 If None, the boundaries are inferred from the target feature</p></td>
         <td><code>None</code></td>
       </tr>
-      <tr>
-        <td><code>No Longer Returned</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>------------------</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>pandas.DataFrame</code></td>
-        <td><code>None</code></td>
-        <td><p>DataFrame to hold the tuning curves</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>No Longer Raises</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>----------------</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
         <td><code>RuntimeError</code></td>
-        <td><code>None</code></td>
         <td><p>If tsdframe is not a Tsd or a TsdFrame object.</p></td>
-        <td><em>required</em></td>
       </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pandas.DataFrame</code></td>
+      <td><p>DataFrame to hold the tuning curves</p></td>
+    </tr>
   </tbody>
 </table>
         <details class="quote">
@@ -1864,13 +1844,13 @@ If None, the boundaries are inferred from the target feature</p></td>
 <span class="sd">        The min and max boundaries of the tuning curves.</span>
 <span class="sd">        If None, the boundaries are inferred from the target feature</span>
 
-<span class="sd">    No Longer Returned</span>
-<span class="sd">    ------------------</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
 <span class="sd">    pandas.DataFrame</span>
 <span class="sd">        DataFrame to hold the tuning curves</span>
 
-<span class="sd">    No Longer Raises</span>
-<span class="sd">    ----------------</span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
 <span class="sd">    RuntimeError</span>
 <span class="sd">        If tsdframe is not a Tsd or a TsdFrame object.</span>
 
@@ -1897,7 +1877,7 @@ If None, the boundaries are inferred from the target feature</p></td>
 
     <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">tmp</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1918,7 +1898,7 @@ If None, the boundaries are inferred from the target feature</p></td>
 
     <div class="doc doc-contents ">
 
-      <p>Computes 2-dimensional tuning curves relative to a 2d feature with continous data.</p>
+      <p>Computes 1-dimensional tuning curves relative to a feature with continous data.</p>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -1941,7 +1921,7 @@ where each column is the calcium activity of one neuron)</p></td>
       <tr>
         <td><code>features</code></td>
         <td><code>TsdFrame</code></td>
-        <td><p>The 2d feature (two columns).</p></td>
+        <td><p>The 2d feature (two columns)</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
@@ -1960,49 +1940,43 @@ If None, the epoch is the time support of the feature.</p></td>
       <tr>
         <td><code>minmax</code></td>
         <td><code>tuple or list</code></td>
-        <td><p>The min and max boundaries of the tuning curves given as:
-(minx, maxx, miny, maxy)
-If None, the boundaries are inferred from the target variable</p></td>
+        <td><p>The min and max boundaries of the tuning curves.
+Should be a tuple of minx, maxx, miny, maxy
+If None, the boundaries are inferred from the target feature</p></td>
         <td><code>None</code></td>
       </tr>
-      <tr>
-        <td><code>No Longer Returned</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>------------------</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>tuple</code></td>
-        <td><code>None</code></td>
-        <td><p>A tuple containing: </p>
-<p>tc (dict): Dictionnary of the tuning curves with dimensions (nb_bins, nb_bins).</p>
-<p>xy (list): List of bins center in the two dimensions</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>No Longer Raises</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>----------------</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
         <td><code>RuntimeError</code></td>
-        <td><code>None</code></td>
-        <td><p>If tsdframe is not a Tsd/TsdFrame or if features is not 2 columns</p></td>
-        <td><em>required</em></td>
+        <td><p>If tsdframe is not a Tsd or a TsdFrame object.</p></td>
       </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>tuple</code></td>
+      <td><p>A typle containing : </p>
+<p>tc (dict): Dictionnary of the tuning curves with dimensions (nb_bins, nb_bins). </p>
+<p>xy (list): List of bins center in the two dimensions</p></td>
+    </tr>
   </tbody>
 </table>
         <details class="quote">
@@ -2011,7 +1985,7 @@ If None, the boundaries are inferred from the target variable</p></td>
     <span class="n">tsdframe</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">nb_bins</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes 2-dimensional tuning curves relative to a 2d feature with continous data.</span>
+<span class="sd">    Computes 1-dimensional tuning curves relative to a feature with continous data.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2019,32 +1993,35 @@ If None, the boundaries are inferred from the target variable</p></td>
 <span class="sd">        Input data (e.g. continus calcium data</span>
 <span class="sd">        where each column is the calcium activity of one neuron)</span>
 <span class="sd">    features : TsdFrame</span>
-<span class="sd">        The 2d feature (two columns).</span>
+<span class="sd">        The 2d feature (two columns)</span>
 <span class="sd">    nb_bins : int</span>
 <span class="sd">        Number of bins in the tuning curves</span>
 <span class="sd">    ep : IntervalSet, optional</span>
 <span class="sd">        The epoch on which tuning curves are computed.</span>
 <span class="sd">        If None, the epoch is the time support of the feature.</span>
 <span class="sd">    minmax : tuple or list, optional</span>
-<span class="sd">        The min and max boundaries of the tuning curves given as:</span>
-<span class="sd">        (minx, maxx, miny, maxy)</span>
-<span class="sd">        If None, the boundaries are inferred from the target variable</span>
+<span class="sd">        The min and max boundaries of the tuning curves.</span>
+<span class="sd">        Should be a tuple of minx, maxx, miny, maxy</span>
+<span class="sd">        If None, the boundaries are inferred from the target feature</span>
 
-<span class="sd">    No Longer Returned</span>
-<span class="sd">    ------------------</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
 <span class="sd">    tuple</span>
-<span class="sd">        A tuple containing: \n</span>
-<span class="sd">        tc (dict): Dictionnary of the tuning curves with dimensions (nb_bins, nb_bins).\n</span>
+<span class="sd">        A typle containing : \n</span>
+<span class="sd">        tc (dict): Dictionnary of the tuning curves with dimensions (nb_bins, nb_bins). \n</span>
 <span class="sd">        xy (list): List of bins center in the two dimensions</span>
 
-<span class="sd">    No Longer Raises</span>
-<span class="sd">    ----------------</span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
 <span class="sd">    RuntimeError</span>
-<span class="sd">        If tsdframe is not a Tsd/TsdFrame or if features is not 2 columns</span>
+<span class="sd">        If tsdframe is not a Tsd or a TsdFrame object.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tsdframe</span><span class="p">,</span> <span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">)):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for tsdframe.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for features.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">):</span>
         <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
@@ -2097,122 +2074,6 @@ If None, the boundaries are inferred from the target variable</p></td>
 
 
 
-<h2 id="pynapple.process.tuning_curves.PoissonIRLS" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">PoissonIRLS</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">)</span></code>
-
-
-</h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Poisson Iteratively Reweighted Least Square</p>
-<p>for fitting Poisson GLM.</p>
-
-<p><strong>Parameters:</strong></p>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><code>X</code></td>
-        <td><code>numpy.ndarray</code></td>
-        <td><p>Predictors</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>y</code></td>
-        <td><code>numpy.ndarray</code></td>
-        <td><p>Target</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>niter</code></td>
-        <td><code>int</code></td>
-        <td><p>Number of iterations</p></td>
-        <td><code>100</code></td>
-      </tr>
-      <tr>
-        <td><code>tolerance</code></td>
-        <td><code>float</code></td>
-        <td><p>Default is 10^-5</p></td>
-        <td><code>1e-05</code></td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>numpy.ndarray</code></td>
-      <td><p>Regression coefficients</p></td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">PoissonIRLS</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Poisson Iteratively Reweighted Least Square</span>
-<span class="sd">    for fitting Poisson GLM.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    X : numpy.ndarray</span>
-<span class="sd">        Predictors</span>
-<span class="sd">    y : numpy.ndarray</span>
-<span class="sd">        Target</span>
-<span class="sd">    niter : int, optional</span>
-<span class="sd">        Number of iterations</span>
-<span class="sd">    tolerance : float, optional</span>
-<span class="sd">        Default is 10^-5</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    numpy.ndarray</span>
-<span class="sd">        Regression coefficients</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-    <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">iXtWX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>
-    <span class="n">XtWY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">iXtWX</span><span class="p">,</span> <span class="n">XtWY</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
-        <span class="n">B_</span> <span class="o">=</span> <span class="n">B</span>
-        <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>  <span class="c1"># Link function</span>
-        <span class="n">Z</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">X</span>  <span class="c1"># partial derivatives</span>
-        <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">Z</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
-        <span class="n">B</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="n">delta</span>
-        <span class="n">tol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">B</span> <span class="o">-</span> <span class="n">B_</span><span class="p">)</span> <span class="o">/</span> <span class="n">B_</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">tol</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">B</span>
-    <span class="k">return</span> <span class="n">B</span>
-</code></pre></div>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
 <h2 id="pynapple.process.tuning_curves.compute_1d_poisson_glm" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">compute_1d_poisson_glm</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">)</span></code>
 
@@ -2221,7 +2082,8 @@ If None, the boundaries are inferred from the target variable</p></td>
 
     <div class="doc doc-contents ">
 
-      <p>Summary</p>
+      <p>Poisson GLM</p>
+<p>Warning : this function is still experimental!</p>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -2236,88 +2098,84 @@ If None, the boundaries are inferred from the target variable</p></td>
   <tbody>
       <tr>
         <td><code>group</code></td>
-        <td><code>TYPE</code></td>
-        <td><p>Description</p></td>
+        <td><code>TsGroup</code></td>
+        <td><p>Spike trains</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>feature</code></td>
-        <td><code>TYPE</code></td>
-        <td><p>Description</p></td>
+        <td><code>Tsd</code></td>
+        <td><p>The regressors</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>binsize</code></td>
-        <td><code>TYPE</code></td>
-        <td><p>Description</p></td>
+        <td><code>float</code></td>
+        <td><p>Bin size</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>windowsize</code></td>
-        <td><code>TYPE</code></td>
-        <td><p>Description</p></td>
+        <td><code>Float</code></td>
+        <td><p>The window for offsetting the regressors</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>ep</code></td>
-        <td><code>None</code></td>
-        <td><p>Description</p></td>
+        <td><code>IntervalSet</code></td>
+        <td><p>On which epoch to perfom the GLM</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>time_units</code></td>
         <td><code>str</code></td>
-        <td><p>Description</p></td>
+        <td><p>Time units of binsize and windowsize</p></td>
         <td><code>&#39;s&#39;</code></td>
       </tr>
       <tr>
         <td><code>niter</code></td>
         <td><code>int</code></td>
-        <td><p>Description</p></td>
+        <td><p>Number of iteration for fitting the GLM</p></td>
         <td><code>100</code></td>
       </tr>
       <tr>
         <td><code>tolerance</code></td>
         <td><code>float</code></td>
-        <td><p>Description</p></td>
+        <td><p>Tolerance for stopping the IRLS</p></td>
         <td><code>1e-05</code></td>
       </tr>
-      <tr>
-        <td><code>No Longer Returned</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>------------------</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>TYPE</code></td>
-        <td><code>None</code></td>
-        <td><p>Description</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>No Longer Raises</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>----------------</code></td>
-        <td><code>None</code></td>
-        <td></td>
-        <td><em>required</em></td>
-      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
         <td><code>RuntimeError</code></td>
-        <td><code>None</code></td>
-        <td><p>Description</p></td>
-        <td><em>required</em></td>
+        <td><p>if group is not a TsGroup</p></td>
       </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>tuple</code></td>
+      <td><p>regressors : TsdFrame</p>
+<p>offset : pandas.Series</p>
+<p>prediction : TsdFrame</p></td>
+    </tr>
   </tbody>
 </table>
         <details class="quote">
@@ -2325,36 +2183,41 @@ If None, the boundaries are inferred from the target variable</p></td>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_1d_poisson_glm</span><span class="p">(</span>
     <span class="n">group</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-5</span>
 <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Summary</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Poisson GLM</span>
+
+<span class="sd">    Warning : this function is still experimental!</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    group : TYPE</span>
-<span class="sd">        Description</span>
-<span class="sd">    feature : TYPE</span>
-<span class="sd">        Description</span>
-<span class="sd">    binsize : TYPE</span>
-<span class="sd">        Description</span>
-<span class="sd">    windowsize : TYPE</span>
-<span class="sd">        Description</span>
-<span class="sd">    ep : None, optional</span>
-<span class="sd">        Description</span>
+<span class="sd">    group : TsGroup</span>
+<span class="sd">        Spike trains</span>
+<span class="sd">    feature : Tsd</span>
+<span class="sd">        The regressors</span>
+<span class="sd">    binsize : float</span>
+<span class="sd">        Bin size</span>
+<span class="sd">    windowsize : Float</span>
+<span class="sd">        The window for offsetting the regressors</span>
+<span class="sd">    ep : IntervalSet, optional</span>
+<span class="sd">        On which epoch to perfom the GLM</span>
 <span class="sd">    time_units : str, optional</span>
-<span class="sd">        Description</span>
+<span class="sd">        Time units of binsize and windowsize</span>
 <span class="sd">    niter : int, optional</span>
-<span class="sd">        Description</span>
+<span class="sd">        Number of iteration for fitting the GLM</span>
 <span class="sd">    tolerance : float, optional</span>
-<span class="sd">        Description</span>
+<span class="sd">        Tolerance for stopping the IRLS</span>
 
-<span class="sd">    No Longer Returned</span>
-<span class="sd">    ------------------</span>
-<span class="sd">    TYPE</span>
-<span class="sd">        Description</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        regressors : TsdFrame\n</span>
+<span class="sd">        offset : pandas.Series\n</span>
+<span class="sd">        prediction : TsdFrame\n</span>
 
-<span class="sd">    No Longer Raises</span>
-<span class="sd">    ----------------</span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
 <span class="sd">    RuntimeError</span>
-<span class="sd">        Description</span>
+<span class="sd">        if group is not a TsGroup</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="ow">is</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">:</span>
@@ -2362,8 +2225,8 @@ If None, the boundaries are inferred from the target variable</p></td>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for group&quot;</span><span class="p">)</span>
 
-    <span class="n">binsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">windowsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">windowsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">binsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">windowsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">windowsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="c1"># Bin the spike train</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">newgroup</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">binsize</span><span class="p">)</span>
@@ -2390,7 +2253,9 @@ If None, the boundaries are inferred from the target variable</p></td>
     <span class="n">regressors</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fitting Poisson GLM for unit </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">PoissonIRLS</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">count</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="n">niter</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">jitted_functions</span><span class="o">.</span><span class="n">jit_poisson_IRLS</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">count</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="n">niter</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span>
+        <span class="p">)</span>
         <span class="n">regressors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
     <span class="n">regressors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">regressors</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
@@ -2406,7 +2271,7 @@ If None, the boundaries are inferred from the target variable</p></td>
         <span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">regressors</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">*</span> <span class="n">binsize</span><span class="p">,</span>
     <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">regressors</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">prediction</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">regressors</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>

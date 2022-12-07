@@ -1012,19 +1012,23 @@ If indexes don't match between tuning_curves and group.</p></td>
     <span class="c1"># Occupancy</span>
     <span class="k">if</span> <span class="n">feature</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">occupancy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">tuning_curves</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">):</span>
         <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tuning_curves</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">tuning_curves</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">diff</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
             <span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="p">[</span><span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">diff</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">diff</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
         <span class="p">)</span>  <span class="c1"># assuming the size of the last 2 bins is equal</span>
         <span class="n">occupancy</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for feature in decode_1d&quot;</span><span class="p">)</span>
 
     <span class="c1"># Transforming to pure numpy array</span>
     <span class="n">tc</span> <span class="o">=</span> <span class="n">tuning_curves</span><span class="o">.</span><span class="n">values</span>
     <span class="n">ct</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">values</span>
 
-    <span class="n">bin_size_s</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bin_size</span><span class="p">]),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">bin_size_s</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bin_size</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">time_units</span>
+    <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">bin_size_s</span> <span class="o">*</span> <span class="n">tc</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">p2</span> <span class="o">=</span> <span class="n">occupancy</span> <span class="o">/</span> <span class="n">occupancy</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1258,7 +1262,9 @@ If indexes don't match between tuning_curves and group.</p></td>
 
     <span class="n">ct</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">values</span>
 
-    <span class="n">bin_size_s</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bin_size</span><span class="p">]),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">bin_size_s</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bin_size</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">time_units</span>
+    <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">bin_size_s</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
     <span class="n">p2</span> <span class="o">=</span> <span class="n">occupancy</span> <span class="o">/</span> <span class="n">occupancy</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>

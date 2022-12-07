@@ -1209,15 +1209,15 @@ BaseLoader        </code>
                     <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_default_csv</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;csv&quot;</span><span class="p">])</span>
 
                 <span class="k">if</span> <span class="n">alignement</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;local&quot;</span><span class="p">:</span>
-                    <span class="n">start_epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span>
+                    <span class="n">start_epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span>
                         <span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">parameters</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">],</span> <span class="s2">&quot;start&quot;</span><span class="p">],</span> <span class="n">time_units</span>
                     <span class="p">)</span>
-                    <span class="n">end_epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span>
+                    <span class="n">end_epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span>
                         <span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">parameters</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">],</span> <span class="s2">&quot;end&quot;</span><span class="p">],</span> <span class="n">time_units</span>
                     <span class="p">)</span>
                     <span class="n">timestamps</span> <span class="o">=</span> <span class="p">(</span>
                         <span class="n">position</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-                        <span class="o">+</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">start_epoch</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="o">+</span> <span class="n">nap</span><span class="o">.</span><span class="n">return_timestamps</span><span class="p">(</span><span class="n">start_epoch</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
                     <span class="p">)</span>
                     <span class="c1"># Make sure timestamps are within the epochs</span>
                     <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">timestamps</span> <span class="o">&lt;</span> <span class="n">end_epoch</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -1246,7 +1246,7 @@ BaseLoader        </code>
                     <span class="c1"># start_epoch = format_timestamp(</span>
                     <span class="c1">#     epochs.loc[parameters.loc[f, &quot;epoch&quot;], &quot;start&quot;], time_units</span>
                     <span class="c1"># )</span>
-                    <span class="n">start_epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span>
+                    <span class="n">start_epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span>
                         <span class="n">epochs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">parameters</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">],</span> <span class="s2">&quot;start&quot;</span><span class="p">],</span> <span class="n">time_units</span>
                     <span class="p">)</span>
                     <span class="n">timestamps</span> <span class="o">=</span> <span class="n">start_epoch</span> <span class="o">+</span> <span class="n">ttl</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>

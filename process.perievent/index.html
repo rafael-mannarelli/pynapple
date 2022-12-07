@@ -686,13 +686,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pynapple.process.perievent.align_to_event" class="md-nav__link">
-    align_to_event()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pynapple.process.perievent.compute_perievent" class="md-nav__link">
     compute_perievent()
   </a>
@@ -805,13 +798,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pynapple.process.perievent.align_to_event" class="md-nav__link">
-    align_to_event()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pynapple.process.perievent.compute_perievent" class="md-nav__link">
     compute_perievent()
   </a>
@@ -858,122 +844,6 @@
 
 
 
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h2 id="pynapple.process.perievent.align_to_event" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">align_to_event</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tref</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">)</span></code>
-
-
-</h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Helper function compiled with numba for aligning times.</p>
-<p>See compute_perievent for using this function</p>
-
-<p><strong>Parameters:</strong></p>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><code>times</code></td>
-        <td><code>numpy.ndarray</code></td>
-        <td><p>The timestamps to align</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>data</code></td>
-        <td><code>numpy.ndarray</code></td>
-        <td><p>The data to align</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>tref</code></td>
-        <td><code>numpy.ndarray</code></td>
-        <td><p>The reference times</p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>windowsize</code></td>
-        <td><code>tuple</code></td>
-        <td><p>Start and end of the window size around tref</p></td>
-        <td><em>required</em></td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>list</code></td>
-      <td><p>The align times and data</p></td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>pynapple/process/perievent.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">align_to_event</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tref</span><span class="p">,</span> <span class="n">windowsize</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Helper function compiled with numba for aligning times.</span>
-<span class="sd">    See compute_perievent for using this function</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    times : numpy.ndarray</span>
-<span class="sd">        The timestamps to align</span>
-<span class="sd">    data : numpy.ndarray</span>
-<span class="sd">        The data to align</span>
-<span class="sd">    tref : numpy.ndarray</span>
-<span class="sd">        The reference times</span>
-<span class="sd">    windowsize : tuple</span>
-<span class="sd">        Start and end of the window size around tref</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    list</span>
-<span class="sd">        The align times and data</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">nt2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tref</span><span class="p">)</span>
-
-    <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt2</span><span class="p">):</span>
-        <span class="n">lbound</span> <span class="o">=</span> <span class="n">tref</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">windowsize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">rbound</span> <span class="o">=</span> <span class="n">tref</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">windowsize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">left</span> <span class="o">=</span> <span class="n">times</span> <span class="o">&gt;</span> <span class="n">lbound</span>
-        <span class="n">right</span> <span class="o">=</span> <span class="n">times</span> <span class="o">&lt;</span> <span class="n">rbound</span>
-
-        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
-
-        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-</span> <span class="n">tref</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-</code></pre></div>
-        </details>
-    </div>
-
-  </div>
 
 
 
@@ -1093,40 +963,30 @@ a dictionnary of TsGroup if data is a TsGroup.</p></td>
 <span class="sd">    RuntimeError</span>
 <span class="sd">        if tref is not a Ts/Tsd object or if data is not a Ts/Tsd or TsGroup</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tref</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tref</span><span class="p">,</span> <span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">)):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;tref should be a Tsd object.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">minmax</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">minmax</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="n">minmax</span> <span class="o">=</span> <span class="p">(</span><span class="n">minmax</span><span class="p">,</span> <span class="n">minmax</span><span class="p">)</span>
+        <span class="n">minmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">minmax</span><span class="p">,</span> <span class="n">minmax</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 
-    <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">minmax</span><span class="p">),</span> <span class="n">time_unit</span><span class="p">))</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">minmax</span><span class="p">),</span> <span class="n">time_unit</span><span class="p">))</span>
 
     <span class="n">time_support</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="n">window</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">window</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">):</span>
+
         <span class="n">toreturn</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">toreturn</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_perievent</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">tref</span><span class="p">,</span> <span class="n">minmax</span><span class="p">,</span> <span class="n">time_unit</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">toreturn</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">_align_tsd</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">tref</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">time_support</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">toreturn</span>
 
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">Ts</span><span class="p">,</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">)):</span>
-
-        <span class="n">xt</span><span class="p">,</span> <span class="n">yd</span> <span class="o">=</span> <span class="n">align_to_event</span><span class="p">(</span>
-            <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">tref</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span>
-        <span class="p">)</span>
-
-        <span class="n">group</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">yd</span><span class="p">)):</span>
-            <span class="n">group</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
-
-        <span class="n">group</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
-        <span class="n">group</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">ref_times</span><span class="o">=</span><span class="n">tref</span><span class="o">.</span><span class="n">as_units</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_align_tsd</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">tref</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">time_support</span><span class="p">)</span>
 
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for data&quot;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">group</span>
 </code></pre></div>
         </details>
     </div>
@@ -1148,7 +1008,8 @@ a dictionnary of TsGroup if data is a TsGroup.</p></td>
     <div class="doc doc-contents ">
 
       <p>Bin the spike train in binsize and compute the Spike Trigger Average (STA) within windowsize.</p>
-<p>If C is the spike count matrix and feature is a Tsd array, the function computes the Hankel matrix H from windowsize=(-t1,+t2) by offseting the Tsd array.</p>
+<p>If C is the spike count matrix and feature is a Tsd array, the function computes
+the Hankel matrix H from windowsize=(-t1,+t2) by offseting the Tsd array.</p>
 <p>The STA is then defined as the dot product between H and C divided by the number of spikes.</p>
 
 <p><strong>Parameters:</strong></p>
@@ -1240,7 +1101,8 @@ If different, specify with the parameter time_units ('s' [default], 'ms', 'us').
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Bin the spike train in binsize and compute the Spike Trigger Average (STA) within windowsize.</span>
-<span class="sd">    If C is the spike count matrix and feature is a Tsd array, the function computes the Hankel matrix H from windowsize=(-t1,+t2) by offseting the Tsd array.</span>
+<span class="sd">    If C is the spike count matrix and feature is a Tsd array, the function computes</span>
+<span class="sd">    the Hankel matrix H from windowsize=(-t1,+t2) by offseting the Tsd array.</span>
 
 <span class="sd">    The STA is then defined as the dot product between H and C divided by the number of spikes.</span>
 
@@ -1275,55 +1137,38 @@ If different, specify with the parameter time_units ('s' [default], 'ms', 'us').
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown format for group&quot;</span><span class="p">)</span>
 
-    <span class="n">binsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">windowsize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nap</span><span class="o">.</span><span class="n">TimeUnits</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">windowsize</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">binsize</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">binsize</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">time_units</span><span class="p">)[</span>
+        <span class="mi">0</span>
+    <span class="p">]</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
+        <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">windowsize</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">time_units</span><span class="p">)[</span>
+            <span class="mi">0</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
+        <span class="n">nap</span><span class="o">.</span><span class="n">format_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">windowsize</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">time_units</span><span class="p">)[</span>
+            <span class="mi">0</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
     <span class="n">idx1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">start</span> <span class="o">+</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">binsize</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">idx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">+</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">binsize</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
     <span class="n">time_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">idx1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">idx2</span><span class="p">))</span>
 
-    <span class="c1"># Bin the spike train</span>
-    <span class="c1">#    count = newgroup.count(binsize)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">ep</span><span class="p">)</span>
 
-    <span class="n">sta</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">n_spikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">))</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">bin_average</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">ep</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ep</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ep</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">binsize</span><span class="p">)</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
-        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">tmp</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">:</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-        <span class="k">if</span> <span class="n">tmp</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># Build the Hankel matrix</span>
+    <span class="n">n_p</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx1</span><span class="p">)</span>
+    <span class="n">n_f</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx2</span><span class="p">)</span>
+    <span class="n">pad_tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="p">(</span><span class="n">n_p</span><span class="p">,</span> <span class="n">n_f</span><span class="p">))</span>
+    <span class="n">offset_tmp</span> <span class="o">=</span> <span class="n">hankel</span><span class="p">(</span><span class="n">pad_tmp</span><span class="p">,</span> <span class="n">pad_tmp</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">n_p</span> <span class="o">+</span> <span class="n">n_f</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:])[</span><span class="mi">0</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)]</span>
 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># dirty</span>
-            <span class="n">tmp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
-            <span class="n">tmp2</span><span class="p">[</span><span class="n">tmp</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">values</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp2</span>
+    <span class="n">sta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">offset_tmp</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">count</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
-        <span class="n">tidx</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)))</span>
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">tidx</span><span class="o">.</span><span class="n">restrict</span><span class="p">(</span><span class="n">ep</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">i</span><span class="p">]])</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+    <span class="n">sta</span> <span class="o">=</span> <span class="n">sta</span> <span class="o">/</span> <span class="n">count</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 
-        <span class="c1"># count_e = count.restrict(ep.loc[[i]]).values</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">binsize</span><span class="p">,</span> <span class="n">ep</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">i</span><span class="p">]])</span>
-
-        <span class="c1"># Build the Hankel matrix</span>
-        <span class="n">n_p</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx1</span><span class="p">)</span>
-        <span class="n">n_f</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx2</span><span class="p">)</span>
-        <span class="n">pad_tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="p">(</span><span class="n">n_p</span><span class="p">,</span> <span class="n">n_f</span><span class="p">))</span>
-        <span class="n">offset_tmp</span> <span class="o">=</span> <span class="n">hankel</span><span class="p">(</span><span class="n">pad_tmp</span><span class="p">,</span> <span class="n">pad_tmp</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">n_p</span> <span class="o">+</span> <span class="n">n_f</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:])[</span><span class="mi">0</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)]</span>
-
-        <span class="n">n_spikes</span> <span class="o">+=</span> <span class="n">count</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-
-        <span class="n">sta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">offset_tmp</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">count</span><span class="p">))</span>
-
-    <span class="n">sta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-    <span class="n">sta</span> <span class="o">=</span> <span class="n">sta</span> <span class="o">/</span> <span class="n">n_spikes</span>
-
-    <span class="n">sta</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">time_idx</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">sta</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+    <span class="n">sta</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">time_idx</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">sta</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">sta</span>
 </code></pre></div>

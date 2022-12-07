@@ -865,9 +865,10 @@
   <h1>Overview</h1>
 
 <!-- ![pic1](banner_logo.png) -->
-<p align="center">
+<!-- <p align="center">
   <img width="60%" src="banner_logo.png">
 </p>
+ -->
 
 <!-- ========================== -->
 
@@ -902,6 +903,10 @@ $ cd pynapple
 $ # Install in editable mode with `-e` or, equivalently, `--editable`
 $ pip install -e .
 </code></pre>
+<blockquote>
+<p><strong>Note</strong>
+The package is now using a pyproject.toml file for installation and dependencies management. If you want to run the tests, use pip install -e .[dev]</p>
+</blockquote>
 <p>This procedure will install all the dependencies including </p>
 <ul>
 <li>pandas</li>
@@ -923,7 +928,7 @@ $ spyder
 </code></pre>
 <blockquote>
 <p><strong>Warning</strong>
-The package is now using a pyproject.toml file for installation and dependencies management. If you want to run the tests, use pip install -e .[dev]</p>
+note for <strong>Windows</strong> users: on a multi-user Windows, make sure you open the conda prompt with <em>administrative access</em>: <code>run as administrator</code>; otherwise directory paths for some dependencies may be missing from the PYTHONPATH environment variable. The most common is the error in importing PyQt5. In case of such errors, right click on your conda prompt and select <code>run as administrator</code>, activate your pynapple environment, and install the said package again (e.g. pip install PyQt) so that the paths are properly saved by Windows.</p>
 </blockquote>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>After installation, the package can imported:</p>
