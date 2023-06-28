@@ -13,7 +13,7 @@
         <link rel="next" href="notebooks/pynapple-quick-start/">
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
@@ -21,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -894,7 +894,6 @@
 
 <!-- <!-- ![pic1](banner_logo.png) -->
 
-<p>==========================</p>
 <p><a href="https://pypi.python.org/pypi/pynapple"><img alt="image" src="https://img.shields.io/pypi/v/pynapple.svg" /></a>
 <a href="https://github.com/pynapple-org/pynapple/actions/workflows/main.yml"><img alt="pynapple CI" src="https://github.com/pynapple-org/pynapple/actions/workflows/main.yml/badge.svg" /></a>
 <a href="https://coveralls.io/github/pynapple-org/pynapple?branch=main"><img alt="Coverage Status" src="https://coveralls.io/repos/github/pynapple-org/pynapple/badge.svg?branch=main" /></a>
@@ -907,7 +906,7 @@
 <li>Free software: GNU General Public License v3</li>
 <li><strong>Documentation</strong>: <a href="https://pynapple-org.github.io/pynapple">https://pynapple-org.github.io/pynapple</a></li>
 <li><strong>Notebooks and tutorials</strong> : <a href="https://pynapple-org.github.io/pynapple/notebooks/pynapple-quick-start/">https://pynapple-org.github.io/pynapple/notebooks/pynapple-quick-start/</a></li>
-<li><strong>Collaborative repository</strong>: <a href="https://github.com/pynapple-org/pynacollada">https://github.com/pynapple-org/pynacollada</a></li>
+<li><strong>Collaborative repository</strong>: <a href="https://github.com/PeyracheLab/pynacollada">https://github.com/PeyracheLab/pynacollada</a></li>
 </ul>
 <blockquote>
 <p><strong>Note</strong>
@@ -917,19 +916,19 @@ If you are using pynapple, please cite the following <a href="https://www.biorxi
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="installation">Installation</h3>
 <p>The best way to install pynapple is with pip within a new <a href="https://docs.conda.io/en/latest/">conda</a> environment :</p>
-<pre class="shell"><code class="language-sourceCode">$ conda create --name pynapple pip python=3.8
-$ conda activate pynapple
-$ pip install pynapple
-</code></pre>
+<div class="language-text shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ conda create --name pynapple pip python=3.8
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$ conda activate pynapple
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$ pip install pynapple
+</span></code></pre></div>
 <p>or directly from the source code:</p>
-<pre class="shell"><code class="language-sourceCode">$ conda create --name pynapple pip python=3.8
-$ conda activate pynapple
-$ # clone the repository
-$ git clone https://github.com/pynapple-org/pynapple.git
-$ cd pynapple
-$ # Install in editable mode with `-e` or, equivalently, `--editable`
-$ pip install -e .
-</code></pre>
+<div class="language-text shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ conda create --name pynapple pip python=3.8
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$ conda activate pynapple
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$ # clone the repository
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>$ git clone https://github.com/pynapple-org/pynapple.git
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>$ cd pynapple
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>$ # Install in editable mode with `-e` or, equivalently, `--editable`
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>$ pip install -e .
+</span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong>
 The package is now using a pyproject.toml file for installation and dependencies management. If you want to run the tests, use pip install -e .[dev]</p>
@@ -945,72 +944,67 @@ The package is now using a pyproject.toml file for installation and dependencies
 <li>h5py</li>
 </ul>
 <p>For spyder users, it is recommended to install spyder after installing pynapple with :</p>
-<pre class="shell"><code class="language-sourceCode">$ conda create --name pynapple pip python=3.8
-$ conda activate pynapple
-$ pip install pynapple
-$ pip install spyder
-$ spyder
-</code></pre>
+<div class="language-text shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ conda create --name pynapple pip python=3.8
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$ conda activate pynapple
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$ pip install pynapple
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>$ pip install spyder
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>$ spyder
+</span></code></pre></div>
 <!-- > **Warning**
 > note for **Windows** users: on a multi-user Windows, make sure you open the conda prompt with *administrative access*: `run as administrator`; otherwise directory paths for some dependencies may be missing from the PYTHONPATH environment variable. The most common is the error in importing PyQt5. In case of such errors, right click on your conda prompt and select `run as administrator`, activate your pynapple environment, and install the said package again (e.g. pip install PyQt) so that the paths are properly saved by Windows.
 
 > **Warning**
 > note for **Mac** users with M1/M2 chips: PyQt5 may fail to install. In the Application folder, make a copy of the Terminal app (or any other console you're using), and call the second one, for exampe, 'Terminal-Rosetta'. Right click->Get Info and click on 'Open using Rosetta'. Open this terminal and enter the following instructions (you need to install virtualenv before)
-
-<pre class="shell"><code class="language-sourceCode">$ /usr/bin/python3 -m venv pynapple
-$ (pynapple) pip install --upgrade pip
-$ (pynapple) pip install pynapple
-</code></pre>
-
+<div class="language-text shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ /usr/bin/python3 -m venv pynapple
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$ (pynapple) pip install --upgrade pip
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>$ (pynapple) pip install pynapple
+</span></code></pre></div>
 Open python and try:
-
-<pre><code class="language-py">import pynapple as nap
-nap.load_session()
-</code></pre>
-
+<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">nap</span><span class="o">.</span><span class="n">load_session</span><span class="p">()</span>
+</span></code></pre></div>
 The data loader should open in a new window. -->
 
 <h2 id="basic-usage">Basic Usage</h2>
 <p>After installation, you can now import the package: </p>
-<pre class="shell"><code class="language-sourceCode">$ python
-&gt;&gt;&gt; import pynapple as nap
-</code></pre>
+<div class="language-text shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ python
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&gt;&gt;&gt; import pynapple as nap
+</span></code></pre></div>
 <p>You'll find an example of the package below. Click <a href="https://www.dropbox.com/s/su4oaje57g3kit9/A2929-200711.zip?dl=1">here</a> to download the example dataset. The folder includes a NWB file containing the data (See this <a href="https://github.com/pynapple-org/pynapple/blob/main/docs/notebooks/pynapple-io-notebook.ipynb">notebook</a> for more information on the creation of the NWB file).</p>
-<pre><code class="language-py">import numpy as np
-import pandas as pd
-import pynapple as nap
-from matplotlib.pyplot import *
-
-data_directory = '/your/path/to/A2929-200711'
-
-# LOADING DATA
-data = nap.load_session(data_directory, 'neurosuite')
-
-
-spikes = data.spikes
-position = data.position
-wake_ep = data.epochs['wake']
-
-# COMPUTING TUNING CURVES
-tuning_curves = nap.compute_1d_tuning_curves(group = spikes, 
-                                            feature = position['ry'], 
-                                            ep = position['ry'].time_support, 
-                                            nb_bins = 120,  
-                                            minmax=(0, 2*np.pi) )
-
-
-
-# PLOT
-figure()
-for i in spikes:
-    subplot(6,7,i+1, projection = 'polar')
-    plot(tuning_curves[i])
-
-
-show()
-
-</code></pre>
-<p>Shown below, the final figure from the example code displays the firing rate of 15 neurons as a function of the direction of the head of the animal in the horizontal plane.</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">data_directory</span> <span class="o">=</span> <span class="s1">&#39;/your/path/to/A2929-200711&#39;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># LOADING DATA</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">data</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">load_session</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="s1">&#39;neurosuite&#39;</span><span class="p">)</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">spikes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">spikes</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">position</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">position</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">wake_ep</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;wake&#39;</span><span class="p">]</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1"># COMPUTING TUNING CURVES</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="n">tuning_curves</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">compute_1d_tuning_curves</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="n">spikes</span><span class="p">,</span> 
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>                                            <span class="n">feature</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">],</span> 
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>                                            <span class="n">ep</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">time_support</span><span class="p">,</span> 
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>                                            <span class="n">nb_bins</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span>  
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>                                            <span class="n">minmax</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="p">)</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="c1"># PLOT</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="n">figure</span><span class="p">()</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">spikes</span><span class="p">:</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>    <span class="n">subplot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>    <span class="n">plot</span><span class="p">(</span><span class="n">tuning_curves</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div>
+Shown below, the final figure from the example code displays the firing rate of 15 neurons as a function of the direction of the head of the animal in the horizontal plane.</p>
 <!-- ![pic1](readme_figure.png) -->
 <p align="center">
   <img width="90%" src="readme_figure.png">
@@ -1065,7 +1059,7 @@ the latter constituting the core of <em>pynapple</em>.</p>
     <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="assets/javascripts/bundle.b425cdc4.min.js"></script>
       
     
   </body>
