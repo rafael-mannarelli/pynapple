@@ -15,7 +15,7 @@
         <link rel="next" href="../core.interval_set/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -257,33 +257,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-          Tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
         Quick start
@@ -327,8 +300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../notebooks/pynapple-old-io-notebook/" class="md-nav__link">
-        (Deprecated IO)
+      <a href="../notebooks/pynapple-dandi-notebook/" class="md-nav__link">
+        DANDI+NWB
       </a>
     </li>
   
@@ -344,13 +317,6 @@
       <a href="../notebooks/pynapple-process-notebook/" class="md-nav__link">
         Process
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1358,19 +1324,21 @@
 
 
 <h2 id="pynapple.core.time_series.Tsd" class="doc doc-heading">
-        <code>Tsd</code>
+          <code>Tsd</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="pandas">pd</span>.<span title="pandas.Series">Series</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="pandas">pd</span>.<span title="pandas.Series">Series</span></code></p>
 
   
       <p>A subclass of pandas.Series specialized for neurophysiology time series.</p>
 <p>Tsd provides standardized time representation, plus various functions for manipulating times series.</p>
+
+
 
   <p><strong>Attributes:</strong></p>
   <table>
@@ -1407,10 +1375,9 @@
     </tbody>
   </table>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-30"> 30</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-30"> 30</a></span>
 <span class="normal"><a href="#__codelineno-0-31"> 31</a></span>
 <span class="normal"><a href="#__codelineno-0-32"> 32</a></span>
 <span class="normal"><a href="#__codelineno-0-33"> 33</a></span>
@@ -2816,11 +2783,12 @@
 </span><span id="__span-0-731"><a id="__codelineno-0-731" name="__codelineno-0-731"></a>    <span class="k">def</span> <span class="nf">_constructor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span id="__span-0-732"><a id="__codelineno-0-732" name="__codelineno-0-732"></a>        <span class="k">return</span> <span class="n">Tsd</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -2844,6 +2812,8 @@
   
       <p>Tsd Initializer.</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -2858,7 +2828,7 @@
         <tr>
           <td><code>t</code></td>
           <td>
-                <code>numpy.ndarray or pandas.Series</code>
+                <code>numpy.<span title="numpy.ndarray">ndarray</span> or pandas.<span title="pandas.Series">Series</span></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2927,9 +2897,9 @@
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-45"> 45</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-45"> 45</a></span>
 <span class="normal"><a href="#__codelineno-0-46"> 46</a></span>
 <span class="normal"><a href="#__codelineno-0-47"> 47</a></span>
 <span class="normal"><a href="#__codelineno-0-48"> 48</a></span>
@@ -3053,10 +3023,11 @@
 </span><span id="__span-0-105"><a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="c1"># self._metadata.append(&quot;nap_class&quot;)</span>
 </span><span id="__span-0-106"><a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3071,6 +3042,8 @@
   <div class="doc doc-contents ">
   
       <p>The time index of the Tsd, returned as np.double in the desired time units.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3100,6 +3073,8 @@
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3122,9 +3097,9 @@
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-160">160</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-160">160</a></span>
 <span class="normal"><a href="#__codelineno-0-161">161</a></span>
 <span class="normal"><a href="#__codelineno-0-162">162</a></span>
 <span class="normal"><a href="#__codelineno-0-163">163</a></span>
@@ -3154,10 +3129,11 @@
 </span><span id="__span-0-173"><a id="__codelineno-0-173" name="__codelineno-0-173"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-174"><a id="__codelineno-0-174" name="__codelineno-0-174"></a>    <span class="k">return</span> <span class="n">return_timestamps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3172,6 +3148,8 @@
   <div class="doc doc-contents ">
   
       <p>Convert the Ts/Tsd object to a pandas.Series object.</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -3195,9 +3173,9 @@
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-176">176</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-176">176</a></span>
 <span class="normal"><a href="#__codelineno-0-177">177</a></span>
 <span class="normal"><a href="#__codelineno-0-178">178</a></span>
 <span class="normal"><a href="#__codelineno-0-179">179</a></span>
@@ -3217,10 +3195,11 @@
 </span><span id="__span-0-184"><a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-185"><a id="__codelineno-0-185" name="__codelineno-0-185"></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3235,6 +3214,8 @@
   <div class="doc doc-contents ">
   
       <p>Returns a Series with time expressed in the desired unit.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3264,6 +3245,8 @@
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3286,9 +3269,9 @@
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-187">187</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-187">187</a></span>
 <span class="normal"><a href="#__codelineno-0-188">188</a></span>
 <span class="normal"><a href="#__codelineno-0-189">189</a></span>
 <span class="normal"><a href="#__codelineno-0-190">190</a></span>
@@ -3332,10 +3315,11 @@
 </span><span id="__span-0-207"><a id="__codelineno-0-207" name="__codelineno-0-207"></a>    <span class="n">ss</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Time (&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">units</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
 </span><span id="__span-0-208"><a id="__codelineno-0-208" name="__codelineno-0-208"></a>    <span class="k">return</span> <span class="n">ss</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3350,6 +3334,8 @@
   <div class="doc doc-contents ">
   
       <p>The data in the Tsd object</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -3373,9 +3359,9 @@
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-210">210</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-210">210</a></span>
 <span class="normal"><a href="#__codelineno-0-211">211</a></span>
 <span class="normal"><a href="#__codelineno-0-212">212</a></span>
 <span class="normal"><a href="#__codelineno-0-213">213</a></span>
@@ -3395,10 +3381,11 @@
 </span><span id="__span-0-218"><a id="__codelineno-0-218" name="__codelineno-0-218"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-219"><a id="__codelineno-0-219" name="__codelineno-0-219"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3415,6 +3402,8 @@
       <p>Replace the value with the closest value from Tsd/TsdFrame argument
 If data is TsdFrame, the output is also TsdFrame.</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -3429,7 +3418,7 @@ If data is TsdFrame, the output is also TsdFrame.</p>
         <tr>
           <td><code>data</code></td>
           <td>
-                <code>Tsd/TsdFrame</code>
+                <code><a class="autorefs autorefs-internal" title="pynapple.core.time_series.Tsd" href="#pynapple.core.time_series.Tsd">Tsd</a> / <a class="autorefs autorefs-internal" title="pynapple.core.time_series.TsdFrame" href="#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3458,6 +3447,8 @@ If None, the time support of the tsd input object is used.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3469,7 +3460,7 @@ If None, the time support of the tsd input object is used.</p>
     <tbody>
         <tr>
 <td><code>out</code></td>          <td>
-                <code>Tsd/TsdFrame</code>
+                <code><a class="autorefs autorefs-internal" title="pynapple.core.time_series.Tsd" href="#pynapple.core.time_series.Tsd">Tsd</a> / <a class="autorefs autorefs-internal" title="pynapple.core.time_series.TsdFrame" href="#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3479,6 +3470,8 @@ If None, the time support of the tsd input object is used.</p>
         </tr>
     </tbody>
   </table>
+
+
 
 <p><strong>Examples:</strong></p>
     <p>In this example, the ts object will receive the closest values in time from tsd.</p>
@@ -3498,9 +3491,9 @@ The tsd object containing the values, for example the tracking data, and the epo
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">    52 52</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-221">221</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-221">221</a></span>
 <span class="normal"><a href="#__codelineno-0-222">222</a></span>
 <span class="normal"><a href="#__codelineno-0-223">223</a></span>
 <span class="normal"><a href="#__codelineno-0-224">224</a></span>
@@ -3640,10 +3633,11 @@ The tsd object containing the values, for example the tracking data, and the epo
 </span><span id="__span-0-289"><a id="__codelineno-0-289" name="__codelineno-0-289"></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="__span-0-290"><a id="__codelineno-0-290" name="__codelineno-0-290"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;The time series to align to should be Tsd/TsdFrame.&quot;</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3658,6 +3652,8 @@ The tsd object containing the values, for example the tracking data, and the epo
   <div class="doc doc-contents ">
   
       <p>Restricts a Tsd object to a set of time intervals delimited by an IntervalSet object</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3687,6 +3683,8 @@ The tsd object containing the values, for example the tracking data, and the epo
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3709,6 +3707,8 @@ The tsd object containing the values, for example the tracking data, and the epo
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <p>The Ts object is restrict to the intervals defined by ep.</p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -3724,9 +3724,9 @@ The tsd object containing the values, for example the tracking data, and the epo
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span>    <span class="mf">0.0</span>  <span class="mf">500.0</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-292">292</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-292">292</a></span>
 <span class="normal"><a href="#__codelineno-0-293">293</a></span>
 <span class="normal"><a href="#__codelineno-0-294">294</a></span>
 <span class="normal"><a href="#__codelineno-0-295">295</a></span>
@@ -3802,10 +3802,11 @@ The tsd object containing the values, for example the tracking data, and the epo
 </span><span id="__span-0-328"><a id="__codelineno-0-328" name="__codelineno-0-328"></a>    <span class="n">t</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">jitrestrict</span><span class="p">(</span><span class="n">time_array</span><span class="p">,</span> <span class="n">data_array</span><span class="p">,</span> <span class="n">starts</span><span class="p">,</span> <span class="n">ends</span><span class="p">)</span>
 </span><span id="__span-0-329"><a id="__codelineno-0-329" name="__codelineno-0-329"></a>    <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3842,6 +3843,8 @@ You can call this function in multiple ways :</p>
 <p>bin_size should be seconds unless specified.
 If bin_size is used and no epochs is passed, the data will be binned based on the time support of the object.</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -3870,7 +3873,7 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
         <tr>
           <td><code>ep</code></td>
           <td>
-                <code>None or IntervalSet</code>
+                <code>None or <a class="autorefs autorefs-internal" title="pynapple.core.interval_set.IntervalSet" href="../core.interval_set/#pynapple.core.interval_set.IntervalSet">IntervalSet</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3898,6 +3901,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3920,6 +3925,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <p>This example shows how to count events within bins of 0.1 second.</p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -3938,9 +3945,9 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span>  <span class="mf">100.0</span>  <span class="mf">800.0</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-331">331</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-331">331</a></span>
 <span class="normal"><a href="#__codelineno-0-332">332</a></span>
 <span class="normal"><a href="#__codelineno-0-333">333</a></span>
 <span class="normal"><a href="#__codelineno-0-334">334</a></span>
@@ -4142,10 +4149,11 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-430"><a id="__codelineno-0-430" name="__codelineno-0-430"></a>        <span class="n">t</span> <span class="o">=</span> <span class="n">starts</span> <span class="o">+</span> <span class="p">(</span><span class="n">ends</span> <span class="o">-</span> <span class="n">starts</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 </span><span id="__span-0-431"><a id="__codelineno-0-431" name="__codelineno-0-431"></a>        <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">countin</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4162,6 +4170,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
       <p>Bin the data by averaging points within bin_size
 bin_size should be seconds unless specified.
 If no epochs is passed, the data will be binned based on the time support.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -4191,7 +4201,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
         <tr>
           <td><code>ep</code></td>
           <td>
-                <code>None or IntervalSet</code>
+                <code>None or <a class="autorefs autorefs-internal" title="pynapple.core.interval_set.IntervalSet" href="../core.interval_set/#pynapple.core.interval_set.IntervalSet">IntervalSet</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -4219,6 +4229,8 @@ If no epochs is passed, the data will be binned based on the time support.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -4241,6 +4253,8 @@ If no epochs is passed, the data will be binned based on the time support.</p>
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <p>This example shows how to bin data within bins of 0.1 second.</p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -4258,9 +4272,9 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span>  <span class="mf">10.0</span>     <span class="mf">80.0</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-433">433</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-433">433</a></span>
 <span class="normal"><a href="#__codelineno-0-434">434</a></span>
 <span class="normal"><a href="#__codelineno-0-435">435</a></span>
 <span class="normal"><a href="#__codelineno-0-436">436</a></span>
@@ -4364,10 +4378,11 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 </span><span id="__span-0-483"><a id="__codelineno-0-483" name="__codelineno-0-483"></a>    <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">ends</span><span class="p">)</span>
 </span><span id="__span-0-484"><a id="__codelineno-0-484" name="__codelineno-0-484"></a>    <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4383,6 +4398,8 @@ If no epochs is passed, the data will be binned based on the time support.</p>
   
       <p>Apply a threshold function to the tsd to return a new tsd
 with the time support being the epochs above/below/&gt;=/&lt;= the threshold</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -4426,6 +4443,8 @@ with the time support being the epochs above/below/&gt;=/&lt;= the threshold</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -4447,6 +4466,8 @@ with the time support being the epochs above/below/&gt;=/&lt;= the threshold</p>
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -4480,6 +4501,8 @@ with the time support being the epochs above/below/&gt;=/&lt;= the threshold</p>
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <p>This example finds all epoch above 0.5 within the tsd object.</p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -4493,9 +4516,9 @@ with the time support being the epochs above/below/&gt;=/&lt;= the threshold</p>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span>   <span class="mf">50.5</span>  <span class="mf">99.0</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-486">486</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-486">486</a></span>
 <span class="normal"><a href="#__codelineno-0-487">487</a></span>
 <span class="normal"><a href="#__codelineno-0-488">488</a></span>
 <span class="normal"><a href="#__codelineno-0-489">489</a></span>
@@ -4599,10 +4622,11 @@ with the time support being the epochs above/below/&gt;=/&lt;= the threshold</p>
 </span><span id="__span-0-536"><a id="__codelineno-0-536" name="__codelineno-0-536"></a>    <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">ns</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">ne</span><span class="p">)</span>
 </span><span id="__span-0-537"><a id="__codelineno-0-537" name="__codelineno-0-537"></a>    <span class="k">return</span> <span class="n">Tsd</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4618,6 +4642,8 @@ with the time support being the epochs above/below/&gt;=/&lt;= the threshold</p>
   
       <p>Convert Tsd to a TsGroup by grouping timestamps with the same values.
 By default, the values are converted to integers.</p>
+
+
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -4647,6 +4673,8 @@ By default, the values are converted to integers.</p>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="go">dtype: float64</span>
 </span></code></pre></div>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -4669,9 +4697,9 @@ By default, the values are converted to integers.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-539">539</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-539">539</a></span>
 <span class="normal"><a href="#__codelineno-0-540">540</a></span>
 <span class="normal"><a href="#__codelineno-0-541">541</a></span>
 <span class="normal"><a href="#__codelineno-0-542">542</a></span>
@@ -4771,10 +4799,11 @@ By default, the values are converted to integers.</p>
 </span><span id="__span-0-587"><a id="__codelineno-0-587" name="__codelineno-0-587"></a>
 </span><span id="__span-0-588"><a id="__codelineno-0-588" name="__codelineno-0-588"></a>    <span class="k">return</span> <span class="n">ts_group</span><span class="o">.</span><span class="n">TsGroup</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4796,6 +4825,8 @@ filtered it. You can save the filtered channel as a npz to avoid
 reprocessing it.</p>
 <p>You can load the object with numpy.load. Keys are 't', 'd', 'start', 'end' and 'type'.
 See the example below.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -4825,6 +4856,8 @@ See the example below.</p>
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -4846,6 +4879,8 @@ See the example below.</p>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">1.0    3</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">dtype: int64</span>
 </span></code></pre></div>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -4869,9 +4904,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-590">590</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-590">590</a></span>
 <span class="normal"><a href="#__codelineno-0-591">591</a></span>
 <span class="normal"><a href="#__codelineno-0-592">592</a></span>
 <span class="normal"><a href="#__codelineno-0-593">593</a></span>
@@ -5019,10 +5054,11 @@ See the example below.</p>
 </span><span id="__span-0-662"><a id="__codelineno-0-662" name="__codelineno-0-662"></a>
 </span><span id="__span-0-663"><a id="__codelineno-0-663" name="__codelineno-0-663"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5037,6 +5073,8 @@ See the example below.</p>
   <div class="doc doc-contents ">
   
       <p>The first time index in the Ts/Tsd object</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -5066,6 +5104,8 @@ See the example below.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -5088,9 +5128,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-698">698</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-698">698</a></span>
 <span class="normal"><a href="#__codelineno-0-699">699</a></span>
 <span class="normal"><a href="#__codelineno-0-700">700</a></span>
 <span class="normal"><a href="#__codelineno-0-701">701</a></span>
@@ -5120,10 +5160,11 @@ See the example below.</p>
 </span><span id="__span-0-711"><a id="__codelineno-0-711" name="__codelineno-0-711"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-712"><a id="__codelineno-0-712" name="__codelineno-0-712"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5138,6 +5179,8 @@ See the example below.</p>
   <div class="doc doc-contents ">
   
       <p>The last time index in the Ts/Tsd object</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -5167,6 +5210,8 @@ See the example below.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -5189,9 +5234,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-714">714</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-714">714</a></span>
 <span class="normal"><a href="#__codelineno-0-715">715</a></span>
 <span class="normal"><a href="#__codelineno-0-716">716</a></span>
 <span class="normal"><a href="#__codelineno-0-717">717</a></span>
@@ -5221,7 +5266,7 @@ See the example below.</p>
 </span><span id="__span-0-727"><a id="__codelineno-0-727" name="__codelineno-0-727"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-728"><a id="__codelineno-0-728" name="__codelineno-0-728"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -5239,20 +5284,22 @@ See the example below.</p>
 
 
 <h2 id="pynapple.core.time_series.Ts" class="doc doc-heading">
-        <code>Ts</code>
+          <code>Ts</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="pynapple.core.time_series.Tsd" href="#pynapple.core.time_series.Tsd">Tsd</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="pynapple.core.time_series.Tsd" href="#pynapple.core.time_series.Tsd">Tsd</a></code></p>
 
   
       <p>A subclass of the Tsd object for a time series with only time index,
 By default, the values are set to nan.
 All the functions of a Tsd object are available in a Ts object.</p>
+
+
 
   <p><strong>Attributes:</strong></p>
   <table>
@@ -5289,10 +5336,9 @@ All the functions of a Tsd object are available in a Ts object.</p>
     </tbody>
   </table>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1226">1226</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1226">1226</a></span>
 <span class="normal"><a href="#__codelineno-0-1227">1227</a></span>
 <span class="normal"><a href="#__codelineno-0-1228">1228</a></span>
 <span class="normal"><a href="#__codelineno-0-1229">1229</a></span>
@@ -5526,11 +5572,12 @@ All the functions of a Tsd object are available in a Ts object.</p>
 </span><span id="__span-0-1341"><a id="__codelineno-0-1341" name="__codelineno-0-1341"></a>
 </span><span id="__span-0-1342"><a id="__codelineno-0-1342" name="__codelineno-0-1342"></a>        <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -5554,6 +5601,8 @@ All the functions of a Tsd object are available in a Ts object.</p>
   
       <p>Ts Initializer</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -5568,7 +5617,7 @@ All the functions of a Tsd object are available in a Ts object.</p>
         <tr>
           <td><code>t</code></td>
           <td>
-                <code>numpy.ndarray or pandas.Series</code>
+                <code>numpy.<span title="numpy.ndarray">ndarray</span> or pandas.<span title="pandas.Series">Series</span></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -5623,9 +5672,9 @@ All the functions of a Tsd object are available in a Ts object.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1240">1240</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1240">1240</a></span>
 <span class="normal"><a href="#__codelineno-0-1241">1241</a></span>
 <span class="normal"><a href="#__codelineno-0-1242">1242</a></span>
 <span class="normal"><a href="#__codelineno-0-1243">1243</a></span>
@@ -5673,10 +5722,11 @@ All the functions of a Tsd object are available in a Ts object.</p>
 </span><span id="__span-0-1262"><a id="__codelineno-0-1262" name="__codelineno-0-1262"></a>    <span class="p">)</span>
 </span><span id="__span-0-1263"><a id="__codelineno-0-1263" name="__codelineno-0-1263"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nts_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5696,6 +5746,8 @@ the time support.</p>
 object.</p>
 <p>You can load the object with numpy.load. Keys are 't', 'start' and 'end' and 'type'.
 See the example below.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -5725,6 +5777,8 @@ See the example below.</p>
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -5746,6 +5800,8 @@ See the example below.</p>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">1.0</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">1.5</span>
 </span></code></pre></div>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -5769,9 +5825,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1271">1271</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1271">1271</a></span>
 <span class="normal"><a href="#__codelineno-0-1272">1272</a></span>
 <span class="normal"><a href="#__codelineno-0-1273">1273</a></span>
 <span class="normal"><a href="#__codelineno-0-1274">1274</a></span>
@@ -5915,7 +5971,7 @@ See the example below.</p>
 </span><span id="__span-0-1341"><a id="__codelineno-0-1341" name="__codelineno-0-1341"></a>
 </span><span id="__span-0-1342"><a id="__codelineno-0-1342" name="__codelineno-0-1342"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -5933,19 +5989,21 @@ See the example below.</p>
 
 
 <h2 id="pynapple.core.time_series.TsdFrame" class="doc doc-heading">
-        <code>TsdFrame</code>
+          <code>TsdFrame</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code></p>
 
   
       <p>A subclass of pandas.DataFrame specialized for neurophysiological time series.</p>
 <p>TsdFrame provides standardized time representation, plus various functions for manipulating times series with identical sampling frequency.</p>
+
+
 
   <p><strong>Attributes:</strong></p>
   <table>
@@ -5982,10 +6040,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-735"> 735</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-735"> 735</a></span>
 <span class="normal"><a href="#__codelineno-0-736"> 736</a></span>
 <span class="normal"><a href="#__codelineno-0-737"> 737</a></span>
 <span class="normal"><a href="#__codelineno-0-738"> 738</a></span>
@@ -6963,11 +7020,12 @@ See the example below.</p>
 </span><span id="__span-0-1222"><a id="__codelineno-0-1222" name="__codelineno-0-1222"></a>    <span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">):</span>
 </span><span id="__span-0-1223"><a id="__codelineno-0-1223" name="__codelineno-0-1223"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -6991,6 +7049,8 @@ See the example below.</p>
   
       <p>TsdFrame initializer</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -7005,7 +7065,7 @@ See the example below.</p>
         <tr>
           <td><code>t</code></td>
           <td>
-                <code>numpy.ndarray or pandas.DataFrame</code>
+                <code>numpy.<span title="numpy.ndarray">ndarray</span> or pandas.<span title="pandas.DataFrame">DataFrame</span></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -7074,9 +7134,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-750">750</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-750">750</a></span>
 <span class="normal"><a href="#__codelineno-0-751">751</a></span>
 <span class="normal"><a href="#__codelineno-0-752">752</a></span>
 <span class="normal"><a href="#__codelineno-0-753">753</a></span>
@@ -7222,10 +7282,11 @@ See the example below.</p>
 </span><span id="__span-0-821"><a id="__codelineno-0-821" name="__codelineno-0-821"></a>    <span class="c1"># self._metadata.append(&quot;nap_class&quot;)</span>
 </span><span id="__span-0-822"><a id="__codelineno-0-822" name="__codelineno-0-822"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7240,6 +7301,8 @@ See the example below.</p>
   <div class="doc doc-contents ">
   
       <p>The time index of the TsdFrame, returned as np.double in the desired time units.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -7269,6 +7332,8 @@ See the example below.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -7291,9 +7356,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-888">888</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-888">888</a></span>
 <span class="normal"><a href="#__codelineno-0-889">889</a></span>
 <span class="normal"><a href="#__codelineno-0-890">890</a></span>
 <span class="normal"><a href="#__codelineno-0-891">891</a></span>
@@ -7323,10 +7388,11 @@ See the example below.</p>
 </span><span id="__span-0-901"><a id="__codelineno-0-901" name="__codelineno-0-901"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-902"><a id="__codelineno-0-902" name="__codelineno-0-902"></a>    <span class="k">return</span> <span class="n">return_timestamps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7341,6 +7407,8 @@ See the example below.</p>
   <div class="doc doc-contents ">
   
       <p>Convert the TsdFrame object to a pandas.DataFrame object.</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -7364,9 +7432,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-904">904</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-904">904</a></span>
 <span class="normal"><a href="#__codelineno-0-905">905</a></span>
 <span class="normal"><a href="#__codelineno-0-906">906</a></span>
 <span class="normal"><a href="#__codelineno-0-907">907</a></span>
@@ -7386,10 +7454,11 @@ See the example below.</p>
 </span><span id="__span-0-912"><a id="__codelineno-0-912" name="__codelineno-0-912"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-913"><a id="__codelineno-0-913" name="__codelineno-0-913"></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7404,6 +7473,8 @@ See the example below.</p>
   <div class="doc doc-contents ">
   
       <p>Returns a DataFrame with time expressed in the desired unit.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -7433,6 +7504,8 @@ See the example below.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -7455,9 +7528,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-915">915</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-915">915</a></span>
 <span class="normal"><a href="#__codelineno-0-916">916</a></span>
 <span class="normal"><a href="#__codelineno-0-917">917</a></span>
 <span class="normal"><a href="#__codelineno-0-918">918</a></span>
@@ -7503,10 +7576,11 @@ See the example below.</p>
 </span><span id="__span-0-936"><a id="__codelineno-0-936" name="__codelineno-0-936"></a>    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </span><span id="__span-0-937"><a id="__codelineno-0-937" name="__codelineno-0-937"></a>    <span class="k">return</span> <span class="n">df</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7521,6 +7595,8 @@ See the example below.</p>
   <div class="doc doc-contents ">
   
       <p>The data in the TsdFrame object</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -7544,9 +7620,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-939">939</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-939">939</a></span>
 <span class="normal"><a href="#__codelineno-0-940">940</a></span>
 <span class="normal"><a href="#__codelineno-0-941">941</a></span>
 <span class="normal"><a href="#__codelineno-0-942">942</a></span>
@@ -7566,10 +7642,11 @@ See the example below.</p>
 </span><span id="__span-0-947"><a id="__codelineno-0-947" name="__codelineno-0-947"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-948"><a id="__codelineno-0-948" name="__codelineno-0-948"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7586,6 +7663,8 @@ See the example below.</p>
       <p>Replace the value with the closest value from Tsd/TsdFrame argument
 If data is TsdFrame, the output is also TsdFrame.</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -7600,7 +7679,7 @@ If data is TsdFrame, the output is also TsdFrame.</p>
         <tr>
           <td><code>data</code></td>
           <td>
-                <code>Tsd/TsdFrame</code>
+                <code><a class="autorefs autorefs-internal" title="pynapple.core.time_series.Tsd" href="#pynapple.core.time_series.Tsd">Tsd</a> / <a class="autorefs autorefs-internal" title="pynapple.core.time_series.TsdFrame" href="#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -7629,6 +7708,8 @@ If None, the time support of the tsd input object is used.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -7640,7 +7721,7 @@ If None, the time support of the tsd input object is used.</p>
     <tbody>
         <tr>
 <td><code>out</code></td>          <td>
-                <code>Tsd/TsdFrame</code>
+                <code><a class="autorefs autorefs-internal" title="pynapple.core.time_series.Tsd" href="#pynapple.core.time_series.Tsd">Tsd</a> / <a class="autorefs autorefs-internal" title="pynapple.core.time_series.TsdFrame" href="#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -7650,6 +7731,8 @@ If None, the time support of the tsd input object is used.</p>
         </tr>
     </tbody>
   </table>
+
+
 
 <p><strong>Examples:</strong></p>
     <p>In this example, the ts object will receive the closest values in time from tsd.</p>
@@ -7669,9 +7752,9 @@ The tsd object containing the values, for example the tracking data, and the epo
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">    52 52</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-950"> 950</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-950"> 950</a></span>
 <span class="normal"><a href="#__codelineno-0-951"> 951</a></span>
 <span class="normal"><a href="#__codelineno-0-952"> 952</a></span>
 <span class="normal"><a href="#__codelineno-0-953"> 953</a></span>
@@ -7811,10 +7894,11 @@ The tsd object containing the values, for example the tracking data, and the epo
 </span><span id="__span-0-1018"><a id="__codelineno-0-1018" name="__codelineno-0-1018"></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="__span-0-1019"><a id="__codelineno-0-1019" name="__codelineno-0-1019"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;The time series to align to should be Tsd/TsdFrame.&quot;</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7829,6 +7913,8 @@ The tsd object containing the values, for example the tracking data, and the epo
   <div class="doc doc-contents ">
   
       <p>Restricts a TsdFrame object to a set of time intervals delimited by an IntervalSet object`</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -7858,6 +7944,8 @@ The tsd object containing the values, for example the tracking data, and the epo
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -7880,9 +7968,9 @@ The tsd object containing the values, for example the tracking data, and the epo
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1021">1021</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1021">1021</a></span>
 <span class="normal"><a href="#__codelineno-0-1022">1022</a></span>
 <span class="normal"><a href="#__codelineno-0-1023">1023</a></span>
 <span class="normal"><a href="#__codelineno-0-1024">1024</a></span>
@@ -7926,10 +8014,11 @@ The tsd object containing the values, for example the tracking data, and the epo
 </span><span id="__span-0-1041"><a id="__codelineno-0-1041" name="__codelineno-0-1041"></a>    <span class="n">t</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">jitrestrict</span><span class="p">(</span><span class="n">time_array</span><span class="p">,</span> <span class="n">data_array</span><span class="p">,</span> <span class="n">starts</span><span class="p">,</span> <span class="n">ends</span><span class="p">)</span>
 </span><span id="__span-0-1042"><a id="__codelineno-0-1042" name="__codelineno-0-1042"></a>    <span class="k">return</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">iset</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7946,6 +8035,8 @@ The tsd object containing the values, for example the tracking data, and the epo
       <p>Bin the data by averaging points within bin_size
 bin_size should be seconds unless specified.
 If no epochs is passed, the data will be binned based on the time support.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -7975,7 +8066,7 @@ If no epochs is passed, the data will be binned based on the time support.</p>
         <tr>
           <td><code>ep</code></td>
           <td>
-                <code>None or IntervalSet</code>
+                <code>None or <a class="autorefs autorefs-internal" title="pynapple.core.interval_set.IntervalSet" href="../core.interval_set/#pynapple.core.interval_set.IntervalSet">IntervalSet</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -8003,6 +8094,8 @@ If no epochs is passed, the data will be binned based on the time support.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -8025,6 +8118,8 @@ If no epochs is passed, the data will be binned based on the time support.</p>
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <p>This example shows how to bin data within bins of 0.1 second.</p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -8042,9 +8137,9 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span>  <span class="mf">10.0</span>     <span class="mf">80.0</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1044">1044</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1044">1044</a></span>
 <span class="normal"><a href="#__codelineno-0-1045">1045</a></span>
 <span class="normal"><a href="#__codelineno-0-1046">1046</a></span>
 <span class="normal"><a href="#__codelineno-0-1047">1047</a></span>
@@ -8148,10 +8243,11 @@ If no epochs is passed, the data will be binned based on the time support.</p>
 </span><span id="__span-0-1094"><a id="__codelineno-0-1094" name="__codelineno-0-1094"></a>    <span class="n">time_support</span> <span class="o">=</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">ends</span><span class="p">)</span>
 </span><span id="__span-0-1095"><a id="__codelineno-0-1095" name="__codelineno-0-1095"></a>    <span class="k">return</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">time_support</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8173,6 +8269,8 @@ filtered them. You can save the filtered channels as a npz to avoid
 reprocessing it.</p>
 <p>You can load the object with numpy.load. Keys are 't', 'd', 'start', 'end', 'type'
 and 'columns' for columns names.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -8202,6 +8300,8 @@ and 'columns' for columns names.</p>
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -8223,6 +8323,8 @@ and 'columns' for columns names.</p>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">0.0       2  3</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">1.0       4  5</span>
 </span></code></pre></div>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -8246,9 +8348,9 @@ and 'columns' for columns names.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1097">1097</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/time_series.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1097">1097</a></span>
 <span class="normal"><a href="#__codelineno-0-1098">1098</a></span>
 <span class="normal"><a href="#__codelineno-0-1099">1099</a></span>
 <span class="normal"><a href="#__codelineno-0-1100">1100</a></span>
@@ -8408,7 +8510,7 @@ and 'columns' for columns names.</p>
 </span><span id="__span-0-1175"><a id="__codelineno-0-1175" name="__codelineno-0-1175"></a>
 </span><span id="__span-0-1176"><a id="__codelineno-0-1176" name="__codelineno-0-1176"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -8466,10 +8568,10 @@ and 'columns' for columns names.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

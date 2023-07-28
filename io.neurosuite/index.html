@@ -15,7 +15,7 @@
         <link rel="next" href="../io.phy/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -257,33 +257,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-          Tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
         Quick start
@@ -327,8 +300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../notebooks/pynapple-old-io-notebook/" class="md-nav__link">
-        (Deprecated IO)
+      <a href="../notebooks/pynapple-dandi-notebook/" class="md-nav__link">
+        DANDI+NWB
       </a>
     </li>
   
@@ -344,13 +317,6 @@
       <a href="../notebooks/pynapple-process-notebook/" class="md-nav__link">
         Process
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1087,23 +1053,22 @@
 
 
 <h2 id="pynapple.io.neurosuite.NeuroSuite" class="doc doc-heading">
-        <code>NeuroSuite</code>
+          <code>NeuroSuite</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
 
   
       <p>Loader for kluster data</p>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-27"> 27</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-27"> 27</a></span>
 <span class="normal"><a href="#__codelineno-0-28"> 28</a></span>
 <span class="normal"><a href="#__codelineno-0-29"> 29</a></span>
 <span class="normal"><a href="#__codelineno-0-30"> 30</a></span>
@@ -2409,11 +2374,12 @@
 </span><span id="__span-0-678"><a id="__codelineno-0-678" name="__codelineno-0-678"></a>
 </span><span id="__span-0-679"><a id="__codelineno-0-679" name="__codelineno-0-679"></a>        <span class="k">return</span> <span class="n">meanwf</span><span class="p">,</span> <span class="n">maxch</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -2436,6 +2402,8 @@
   <div class="doc doc-contents ">
   
       <p>Instantiate the data class from a neurosuite folder.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2465,9 +2433,9 @@
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-32">32</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-32">32</a></span>
 <span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
@@ -2553,10 +2521,11 @@
 </span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">load_neurosuite_spikes</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_support</span><span class="p">)</span>
 </span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">save_data</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2572,6 +2541,8 @@
   
       <p>Read the clus and res files and convert to NWB.
 Instantiate automatically a TsGroup object.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2643,6 +2614,8 @@ Instantiate automatically a TsGroup object.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -2665,9 +2638,9 @@ Instantiate automatically a TsGroup object.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-76"> 76</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-76"> 76</a></span>
 <span class="normal"><a href="#__codelineno-0-77"> 77</a></span>
 <span class="normal"><a href="#__codelineno-0-78"> 78</a></span>
 <span class="normal"><a href="#__codelineno-0-79"> 79</a></span>
@@ -2817,10 +2790,11 @@ Instantiate automatically a TsGroup object.</p>
 </span><span id="__span-0-149"><a id="__codelineno-0-149" name="__codelineno-0-149"></a>
 </span><span id="__span-0-150"><a id="__codelineno-0-150" name="__codelineno-0-150"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2840,6 +2814,8 @@ Instantiate automatically a TsGroup object.</p>
 2. the sampling frequency of the dat file or the eeg file depending of what is present in the folder
     eeg file first if both are present or both are absent
 3. the mappings shanks to channels as a dict</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2868,6 +2844,8 @@ Instantiate automatically a TsGroup object.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -2890,9 +2868,9 @@ Instantiate automatically a TsGroup object.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-152">152</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-152">152</a></span>
 <span class="normal"><a href="#__codelineno-0-153">153</a></span>
 <span class="normal"><a href="#__codelineno-0-154">154</a></span>
 <span class="normal"><a href="#__codelineno-0-155">155</a></span>
@@ -3010,10 +2988,11 @@ Instantiate automatically a TsGroup object.</p>
 </span><span id="__span-0-209"><a id="__codelineno-0-209" name="__codelineno-0-209"></a>
 </span><span id="__span-0-210"><a id="__codelineno-0-210" name="__codelineno-0-210"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3028,6 +3007,8 @@ Instantiate automatically a TsGroup object.</p>
   <div class="doc doc-contents ">
   
       <p>Save the data to NWB format.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3057,9 +3038,9 @@ Instantiate automatically a TsGroup object.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-212">212</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-212">212</a></span>
 <span class="normal"><a href="#__codelineno-0-213">213</a></span>
 <span class="normal"><a href="#__codelineno-0-214">214</a></span>
 <span class="normal"><a href="#__codelineno-0-215">215</a></span>
@@ -3211,10 +3192,11 @@ Instantiate automatically a TsGroup object.</p>
 </span><span id="__span-0-286"><a id="__codelineno-0-286" name="__codelineno-0-286"></a>
 </span><span id="__span-0-287"><a id="__codelineno-0-287" name="__codelineno-0-287"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3229,6 +3211,8 @@ Instantiate automatically a TsGroup object.</p>
   <div class="doc doc-contents ">
   
       <p>Read the NWB spikes to extract the spike times.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3258,6 +3242,8 @@ Instantiate automatically a TsGroup object.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3280,9 +3266,9 @@ Instantiate automatically a TsGroup object.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-289">289</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-289">289</a></span>
 <span class="normal"><a href="#__codelineno-0-290">290</a></span>
 <span class="normal"><a href="#__codelineno-0-291">291</a></span>
 <span class="normal"><a href="#__codelineno-0-292">292</a></span>
@@ -3372,10 +3358,11 @@ Instantiate automatically a TsGroup object.</p>
 </span><span id="__span-0-332"><a id="__codelineno-0-332" name="__codelineno-0-332"></a>        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-333"><a id="__codelineno-0-333" name="__codelineno-0-333"></a>        <span class="k">return</span> <span class="kc">True</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3390,6 +3377,8 @@ Instantiate automatically a TsGroup object.</p>
   <div class="doc doc-contents ">
   
       <p>Load the LFP.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3490,6 +3479,8 @@ It can be useful it multiple dat files are present in the data directory</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -3512,6 +3503,8 @@ It can be useful it multiple dat files are present in the data directory</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3523,7 +3516,7 @@ It can be useful it multiple dat files are present in the data directory</p>
     <tbody>
         <tr>
           <td>
-                <code>Tsd or TsdFrame</code>
+                <code><a class="autorefs autorefs-internal" title="pynapple.core.Tsd" href="../core.time_series/#pynapple.core.time_series.Tsd">Tsd</a> or <a class="autorefs autorefs-internal" title="pynapple.core.TsdFrame" href="../core.time_series/#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3534,9 +3527,9 @@ It can be useful it multiple dat files are present in the data directory</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-335">335</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-335">335</a></span>
 <span class="normal"><a href="#__codelineno-0-336">336</a></span>
 <span class="normal"><a href="#__codelineno-0-337">337</a></span>
 <span class="normal"><a href="#__codelineno-0-338">338</a></span>
@@ -3700,10 +3693,11 @@ It can be useful it multiple dat files are present in the data directory</p>
 </span><span id="__span-0-415"><a id="__codelineno-0-415" name="__codelineno-0-415"></a>            <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
 </span><span id="__span-0-416"><a id="__codelineno-0-416" name="__codelineno-0-416"></a>        <span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3722,6 +3716,8 @@ of the time series and the even raws are the ends.
 If the file is present in the nwb, provide the just the name. If the file
 is not present in the nwb, it loads the events from the nwb directory.
 If just the path is provided but not the name, it takes the name from the file.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3753,6 +3749,8 @@ the data in the nwb.</p>
       <p>path2file: str
     Path of the file you want to load.</p>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3775,9 +3773,9 @@ the data in the nwb.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-418">418</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-418">418</a></span>
 <span class="normal"><a href="#__codelineno-0-419">419</a></span>
 <span class="normal"><a href="#__codelineno-0-420">420</a></span>
 <span class="normal"><a href="#__codelineno-0-421">421</a></span>
@@ -3865,10 +3863,11 @@ the data in the nwb.</p>
 </span><span id="__span-0-460"><a id="__codelineno-0-460" name="__codelineno-0-460"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;specify a valid path&quot;</span><span class="p">)</span>
 </span><span id="__span-0-461"><a id="__codelineno-0-461" name="__codelineno-0-461"></a>    <span class="k">return</span> <span class="n">isets</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3883,6 +3882,8 @@ the data in the nwb.</p>
   <div class="doc doc-contents ">
   
       <p>Write events to load with neuroscope (e.g. ripples start and ends)</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3940,9 +3941,9 @@ the data in the nwb.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-463">463</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-463">463</a></span>
 <span class="normal"><a href="#__codelineno-0-464">464</a></span>
 <span class="normal"><a href="#__codelineno-0-465">465</a></span>
 <span class="normal"><a href="#__codelineno-0-466">466</a></span>
@@ -4010,10 +4011,11 @@ the data in the nwb.</p>
 </span><span id="__span-0-495"><a id="__codelineno-0-495" name="__codelineno-0-495"></a>
 </span><span id="__span-0-496"><a id="__codelineno-0-496" name="__codelineno-0-496"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4028,6 +4030,8 @@ the data in the nwb.</p>
   <div class="doc doc-contents ">
   
       <p>Load the mean waveforms from a dat file.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -4088,6 +4092,8 @@ Number of spikes used per neuron for the calculation of waveforms</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -4120,9 +4126,9 @@ Number of spikes used per neuron for the calculation of waveforms</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-498">498</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/neurosuite.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-498">498</a></span>
 <span class="normal"><a href="#__codelineno-0-499">499</a></span>
 <span class="normal"><a href="#__codelineno-0-500">500</a></span>
 <span class="normal"><a href="#__codelineno-0-501">501</a></span>
@@ -4486,7 +4492,7 @@ Number of spikes used per neuron for the calculation of waveforms</p>
 </span><span id="__span-0-678"><a id="__codelineno-0-678" name="__codelineno-0-678"></a>
 </span><span id="__span-0-679"><a id="__codelineno-0-679" name="__codelineno-0-679"></a>    <span class="k">return</span> <span class="n">meanwf</span><span class="p">,</span> <span class="n">maxch</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -4544,10 +4550,10 @@ Number of spikes used per neuron for the calculation of waveforms</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

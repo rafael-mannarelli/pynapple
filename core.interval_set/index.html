@@ -15,7 +15,7 @@
         <link rel="next" href="../core.ts_group/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -257,33 +257,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-          Tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
         Quick start
@@ -327,8 +300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../notebooks/pynapple-old-io-notebook/" class="md-nav__link">
-        (Deprecated IO)
+      <a href="../notebooks/pynapple-dandi-notebook/" class="md-nav__link">
+        DANDI+NWB
       </a>
     </li>
   
@@ -344,13 +317,6 @@
       <a href="../notebooks/pynapple-process-notebook/" class="md-nav__link">
         Process
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1168,23 +1134,22 @@
 
 
 <h2 id="pynapple.core.interval_set.IntervalSet" class="doc doc-heading">
-        <code>IntervalSet</code>
+          <code>IntervalSet</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code></p>
 
   
       <p>A subclass of pandas.DataFrame representing a (irregular) set of time intervals in elapsed time, with relative operations</p>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-105">105</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-105">105</a></span>
 <span class="normal"><a href="#__codelineno-0-106">106</a></span>
 <span class="normal"><a href="#__codelineno-0-107">107</a></span>
 <span class="normal"><a href="#__codelineno-0-108">108</a></span>
@@ -2064,7 +2029,7 @@
 </span><span id="__span-0-543"><a id="__codelineno-0-543" name="__codelineno-0-543"></a>        <span class="n">time_series</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;.time_series&quot;</span><span class="p">,</span> <span class="s2">&quot;pynapple.core&quot;</span><span class="p">)</span>
 </span><span id="__span-0-544"><a id="__codelineno-0-544" name="__codelineno-0-544"></a>        <span class="k">return</span> <span class="n">time_series</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">time_support</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
@@ -2093,6 +2058,8 @@
   <div class="doc doc-contents ">
   
       <p>Return the starts of the IntervalSet as a Ts object</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -2137,6 +2104,8 @@
   
       <p>Return the ends of the IntervalSet as a Ts object</p>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2164,6 +2133,7 @@
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -2186,6 +2156,8 @@
 </ol>
 <p>IntervalSet will try to "fix" the data by eliminating some of the start and end data point</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -2200,7 +2172,7 @@
         <tr>
           <td><code>start</code></td>
           <td>
-                <code>numpy.ndarray or number or pandas.DataFrame</code>
+                <code>numpy.<span title="numpy.ndarray">ndarray</span> or number or pandas.<span title="pandas.DataFrame">DataFrame</span></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2214,7 +2186,7 @@
         <tr>
           <td><code>end</code></td>
           <td>
-                <code>numpy.ndarray or number</code>
+                <code>numpy.<span title="numpy.ndarray">ndarray</span> or number</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2255,6 +2227,8 @@
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2276,6 +2250,8 @@
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -2310,9 +2286,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-111">111</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-111">111</a></span>
 <span class="normal"><a href="#__codelineno-0-112">112</a></span>
 <span class="normal"><a href="#__codelineno-0-113">113</a></span>
 <span class="normal"><a href="#__codelineno-0-114">114</a></span>
@@ -2482,10 +2458,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-194"><a id="__codelineno-0-194" name="__codelineno-0-194"></a>    <span class="c1"># self._metadata = [&quot;nap_class&quot;]</span>
 </span><span id="__span-0-195"><a id="__codelineno-0-195" name="__codelineno-0-195"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nap_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2500,6 +2477,8 @@ a column 'start' and a column 'end'.</p>
   <div class="doc doc-contents ">
   
       <p>Time span of the interval set.</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -2523,9 +2502,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-203">203</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-203">203</a></span>
 <span class="normal"><a href="#__codelineno-0-204">204</a></span>
 <span class="normal"><a href="#__codelineno-0-205">205</a></span>
 <span class="normal"><a href="#__codelineno-0-206">206</a></span>
@@ -2549,10 +2528,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-213"><a id="__codelineno-0-213" name="__codelineno-0-213"></a>    <span class="n">e</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </span><span id="__span-0-214"><a id="__codelineno-0-214" name="__codelineno-0-214"></a>    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2567,6 +2547,8 @@ a column 'start' and a column 'end'.</p>
   <div class="doc doc-contents ">
   
       <p>Total elapsed time in the set.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2596,6 +2578,8 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2618,9 +2602,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-216">216</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-216">216</a></span>
 <span class="normal"><a href="#__codelineno-0-217">217</a></span>
 <span class="normal"><a href="#__codelineno-0-218">218</a></span>
 <span class="normal"><a href="#__codelineno-0-219">219</a></span>
@@ -2652,10 +2636,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-230"><a id="__codelineno-0-230" name="__codelineno-0-230"></a>    <span class="n">tot_l</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </span><span id="__span-0-231"><a id="__codelineno-0-231" name="__codelineno-0-231"></a>    <span class="k">return</span> <span class="n">return_timestamps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">tot_l</span><span class="p">]),</span> <span class="n">time_units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2670,6 +2655,8 @@ a column 'start' and a column 'end'.</p>
   <div class="doc doc-contents ">
   
       <p>set intersection of IntervalSet</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2699,6 +2686,8 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2721,9 +2710,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-233">233</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-233">233</a></span>
 <span class="normal"><a href="#__codelineno-0-234">234</a></span>
 <span class="normal"><a href="#__codelineno-0-235">235</a></span>
 <span class="normal"><a href="#__codelineno-0-236">236</a></span>
@@ -2763,10 +2752,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-251"><a id="__codelineno-0-251" name="__codelineno-0-251"></a>    <span class="n">s</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">jitintersect</span><span class="p">(</span><span class="n">start1</span><span class="p">,</span> <span class="n">end1</span><span class="p">,</span> <span class="n">start2</span><span class="p">,</span> <span class="n">end2</span><span class="p">)</span>
 </span><span id="__span-0-252"><a id="__codelineno-0-252" name="__codelineno-0-252"></a>    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2781,6 +2771,8 @@ a column 'start' and a column 'end'.</p>
   <div class="doc doc-contents ">
   
       <p>set union of IntervalSet</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2810,6 +2802,8 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2832,9 +2826,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-254">254</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-254">254</a></span>
 <span class="normal"><a href="#__codelineno-0-255">255</a></span>
 <span class="normal"><a href="#__codelineno-0-256">256</a></span>
 <span class="normal"><a href="#__codelineno-0-257">257</a></span>
@@ -2874,10 +2868,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-272"><a id="__codelineno-0-272" name="__codelineno-0-272"></a>    <span class="n">s</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">jitunion</span><span class="p">(</span><span class="n">start1</span><span class="p">,</span> <span class="n">end1</span><span class="p">,</span> <span class="n">start2</span><span class="p">,</span> <span class="n">end2</span><span class="p">)</span>
 </span><span id="__span-0-273"><a id="__codelineno-0-273" name="__codelineno-0-273"></a>    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2892,6 +2887,8 @@ a column 'start' and a column 'end'.</p>
   <div class="doc doc-contents ">
   
       <p>set difference of IntervalSet</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2921,6 +2918,8 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2943,9 +2942,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-275">275</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-275">275</a></span>
 <span class="normal"><a href="#__codelineno-0-276">276</a></span>
 <span class="normal"><a href="#__codelineno-0-277">277</a></span>
 <span class="normal"><a href="#__codelineno-0-278">278</a></span>
@@ -2985,10 +2984,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-293"><a id="__codelineno-0-293" name="__codelineno-0-293"></a>    <span class="n">s</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">jitdiff</span><span class="p">(</span><span class="n">start1</span><span class="p">,</span> <span class="n">end1</span><span class="p">,</span> <span class="n">start2</span><span class="p">,</span> <span class="n">end2</span><span class="p">)</span>
 </span><span id="__span-0-294"><a id="__codelineno-0-294" name="__codelineno-0-294"></a>    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3004,6 +3004,8 @@ a column 'start' and a column 'end'.</p>
   
       <p>finds out in which element of the interval set each point in a time series fits.</p>
 <p>NaNs for those that don't fit an interval</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3033,6 +3035,8 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3055,9 +3059,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-296">296</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-296">296</a></span>
 <span class="normal"><a href="#__codelineno-0-297">297</a></span>
 <span class="normal"><a href="#__codelineno-0-298">298</a></span>
 <span class="normal"><a href="#__codelineno-0-299">299</a></span>
@@ -3099,10 +3103,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-315"><a id="__codelineno-0-315" name="__codelineno-0-315"></a>
 </span><span id="__span-0-316"><a id="__codelineno-0-316" name="__codelineno-0-316"></a>    <span class="k">return</span> <span class="n">jitin_interval</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">starts</span><span class="p">,</span> <span class="n">ends</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3117,6 +3122,8 @@ a column 'start' and a column 'end'.</p>
   <div class="doc doc-contents ">
   
       <p>Drops the short intervals in the interval set.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3160,6 +3167,8 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3182,9 +3191,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-318">318</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-318">318</a></span>
 <span class="normal"><a href="#__codelineno-0-319">319</a></span>
 <span class="normal"><a href="#__codelineno-0-320">320</a></span>
 <span class="normal"><a href="#__codelineno-0-321">321</a></span>
@@ -3228,10 +3237,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-338"><a id="__codelineno-0-338" name="__codelineno-0-338"></a>        <span class="n">drop</span><span class="o">=</span><span class="kc">True</span>
 </span><span id="__span-0-339"><a id="__codelineno-0-339" name="__codelineno-0-339"></a>    <span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3246,6 +3256,8 @@ a column 'start' and a column 'end'.</p>
   <div class="doc doc-contents ">
   
       <p>Drops the long intervals in the interval set.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3289,6 +3301,8 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3311,9 +3325,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-341">341</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-341">341</a></span>
 <span class="normal"><a href="#__codelineno-0-342">342</a></span>
 <span class="normal"><a href="#__codelineno-0-343">343</a></span>
 <span class="normal"><a href="#__codelineno-0-344">344</a></span>
@@ -3357,10 +3371,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-361"><a id="__codelineno-0-361" name="__codelineno-0-361"></a>        <span class="n">drop</span><span class="o">=</span><span class="kc">True</span>
 </span><span id="__span-0-362"><a id="__codelineno-0-362" name="__codelineno-0-362"></a>    <span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3375,6 +3390,8 @@ a column 'start' and a column 'end'.</p>
   <div class="doc doc-contents ">
   
       <p>returns a DataFrame with time expressed in the desired unit</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3404,6 +3421,8 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3426,9 +3445,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-364">364</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-364">364</a></span>
 <span class="normal"><a href="#__codelineno-0-365">365</a></span>
 <span class="normal"><a href="#__codelineno-0-366">366</a></span>
 <span class="normal"><a href="#__codelineno-0-367">367</a></span>
@@ -3474,10 +3493,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-385"><a id="__codelineno-0-385" name="__codelineno-0-385"></a>
 </span><span id="__span-0-386"><a id="__codelineno-0-386" name="__codelineno-0-386"></a>    <span class="k">return</span> <span class="n">df</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3492,6 +3512,8 @@ a column 'start' and a column 'end'.</p>
   <div class="doc doc-contents ">
   
       <p>Merges intervals that are very close.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3535,6 +3557,8 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3557,9 +3581,9 @@ a column 'start' and a column 'end'.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-388">388</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-388">388</a></span>
 <span class="normal"><a href="#__codelineno-0-389">389</a></span>
 <span class="normal"><a href="#__codelineno-0-390">390</a></span>
 <span class="normal"><a href="#__codelineno-0-391">391</a></span>
@@ -3619,10 +3643,11 @@ a column 'start' and a column 'end'.</p>
 </span><span id="__span-0-416"><a id="__codelineno-0-416" name="__codelineno-0-416"></a>
 </span><span id="__span-0-417"><a id="__codelineno-0-417" name="__codelineno-0-417"></a>    <span class="k">return</span> <span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3640,6 +3665,8 @@ a column 'start' and a column 'end'.</p>
 <p>It is possible to bias the midpoint by changing the alpha parameter between [0, 1]
 For each epoch:
 t = start + (end-start)*alpha</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3669,6 +3696,8 @@ t = start + (end-start)*alpha</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3691,9 +3720,9 @@ t = start + (end-start)*alpha</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-419">419</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-419">419</a></span>
 <span class="normal"><a href="#__codelineno-0-420">420</a></span>
 <span class="normal"><a href="#__codelineno-0-421">421</a></span>
 <span class="normal"><a href="#__codelineno-0-422">422</a></span>
@@ -3749,10 +3778,11 @@ t = start + (end-start)*alpha</p>
 </span><span id="__span-0-445"><a id="__codelineno-0-445" name="__codelineno-0-445"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">starts</span> <span class="o">+</span> <span class="p">(</span><span class="n">ends</span> <span class="o">-</span> <span class="n">starts</span><span class="p">)</span> <span class="o">*</span> <span class="n">alpha</span>
 </span><span id="__span-0-446"><a id="__codelineno-0-446" name="__codelineno-0-446"></a>    <span class="k">return</span> <span class="n">time_series</span><span class="o">.</span><span class="n">Ts</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3772,6 +3802,8 @@ objects. For example, you determined some epochs for one session that you want t
 to avoid recomputing them.</p>
 <p>You can load the object with numpy.load. Keys are 'start', 'end' and 'type'.
 See the example below.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3801,6 +3833,8 @@ See the example below.</p>
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -3821,6 +3855,8 @@ See the example below.</p>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">1   10.0  12.0</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">2   20.0  33.0</span>
 </span></code></pre></div>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -3844,9 +3880,9 @@ See the example below.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-448">448</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/interval_set.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-448">448</a></span>
 <span class="normal"><a href="#__codelineno-0-449">449</a></span>
 <span class="normal"><a href="#__codelineno-0-450">450</a></span>
 <span class="normal"><a href="#__codelineno-0-451">451</a></span>
@@ -3984,7 +4020,7 @@ See the example below.</p>
 </span><span id="__span-0-515"><a id="__codelineno-0-515" name="__codelineno-0-515"></a>
 </span><span id="__span-0-516"><a id="__codelineno-0-516" name="__codelineno-0-516"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -4042,10 +4078,10 @@ See the example below.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

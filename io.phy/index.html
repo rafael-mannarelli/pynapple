@@ -15,7 +15,7 @@
         <link rel="next" href="../io.cnmfe/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -257,33 +257,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-          Tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
         Quick start
@@ -327,8 +300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../notebooks/pynapple-old-io-notebook/" class="md-nav__link">
-        (Deprecated IO)
+      <a href="../notebooks/pynapple-dandi-notebook/" class="md-nav__link">
+        DANDI+NWB
       </a>
     </li>
   
@@ -344,13 +317,6 @@
       <a href="../notebooks/pynapple-process-notebook/" class="md-nav__link">
         Process
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1045,23 +1011,22 @@
 
 
 <h2 id="pynapple.io.phy.Phy" class="doc doc-heading">
-        <code>Phy</code>
+          <code>Phy</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
 
   
       <p>Loader for Phy data</p>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/io/phy.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-19"> 19</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/io/phy.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-19"> 19</a></span>
 <span class="normal"><a href="#__codelineno-0-20"> 20</a></span>
 <span class="normal"><a href="#__codelineno-0-21"> 21</a></span>
 <span class="normal"><a href="#__codelineno-0-22"> 22</a></span>
@@ -1841,11 +1806,12 @@
 </span><span id="__span-0-407"><a id="__codelineno-0-407" name="__codelineno-0-407"></a>                <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
 </span><span id="__span-0-408"><a id="__codelineno-0-408" name="__codelineno-0-408"></a>            <span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -1868,6 +1834,8 @@
   <div class="doc doc-contents ">
   
       <p>Instantiate the data class from a Phy folder.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1897,9 +1865,9 @@
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/phy.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-24">24</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/phy.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-24">24</a></span>
 <span class="normal"><a href="#__codelineno-0-25">25</a></span>
 <span class="normal"><a href="#__codelineno-0-26">26</a></span>
 <span class="normal"><a href="#__codelineno-0-27">27</a></span>
@@ -2005,10 +1973,11 @@
 </span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">save_data</span><span class="p">()</span>
 </span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="n">app</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2026,6 +1995,8 @@
 <p>Function reads :
 1. the number of channels
 2. the sampling frequency of the dat file</p>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -2049,9 +2020,9 @@
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/phy.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-78"> 78</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/phy.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-78"> 78</a></span>
 <span class="normal"><a href="#__codelineno-0-79"> 79</a></span>
 <span class="normal"><a href="#__codelineno-0-80"> 80</a></span>
 <span class="normal"><a href="#__codelineno-0-81"> 81</a></span>
@@ -2165,10 +2136,11 @@
 </span><span id="__span-0-133"><a id="__codelineno-0-133" name="__codelineno-0-133"></a>
 </span><span id="__span-0-134"><a id="__codelineno-0-134" name="__codelineno-0-134"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2185,6 +2157,8 @@
       <p>Load Phy spike times and convert to NWB.
 Instantiate automatically a TsGroup object.
 The cluster group is taken first from cluster_info.tsv and second from cluster_group.tsv</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2228,6 +2202,8 @@ The cluster group is taken first from cluster_info.tsv and second from cluster_g
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -2256,9 +2232,9 @@ The function needs :
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/phy.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-136">136</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/phy.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-136">136</a></span>
 <span class="normal"><a href="#__codelineno-0-137">137</a></span>
 <span class="normal"><a href="#__codelineno-0-138">138</a></span>
 <span class="normal"><a href="#__codelineno-0-139">139</a></span>
@@ -2444,10 +2420,11 @@ The function needs :
 </span><span id="__span-0-227"><a id="__codelineno-0-227" name="__codelineno-0-227"></a>
 </span><span id="__span-0-228"><a id="__codelineno-0-228" name="__codelineno-0-228"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2463,9 +2440,9 @@ The function needs :
   
       <p>Save the data to NWB format.</p>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/phy.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-230">230</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/phy.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-230">230</a></span>
 <span class="normal"><a href="#__codelineno-0-231">231</a></span>
 <span class="normal"><a href="#__codelineno-0-232">232</a></span>
 <span class="normal"><a href="#__codelineno-0-233">233</a></span>
@@ -2591,10 +2568,11 @@ The function needs :
 </span><span id="__span-0-291"><a id="__codelineno-0-291" name="__codelineno-0-291"></a>
 </span><span id="__span-0-292"><a id="__codelineno-0-292" name="__codelineno-0-292"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2609,6 +2587,8 @@ The function needs :
   <div class="doc doc-contents ">
   
       <p>Read the NWB spikes to extract the spike times.</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -2632,9 +2612,9 @@ The function needs :
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/phy.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-294">294</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/phy.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-294">294</a></span>
 <span class="normal"><a href="#__codelineno-0-295">295</a></span>
 <span class="normal"><a href="#__codelineno-0-296">296</a></span>
 <span class="normal"><a href="#__codelineno-0-297">297</a></span>
@@ -2702,10 +2682,11 @@ The function needs :
 </span><span id="__span-0-326"><a id="__codelineno-0-326" name="__codelineno-0-326"></a>        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-327"><a id="__codelineno-0-327" name="__codelineno-0-327"></a>        <span class="k">return</span> <span class="kc">True</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2720,6 +2701,8 @@ The function needs :
   <div class="doc doc-contents ">
   
       <p>Load the LFP.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2820,6 +2803,8 @@ It can be useful it multiple dat files are present in the data directory</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -2842,6 +2827,8 @@ It can be useful it multiple dat files are present in the data directory</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2853,7 +2840,7 @@ It can be useful it multiple dat files are present in the data directory</p>
     <tbody>
         <tr>
           <td>
-                <code>Tsd or TsdFrame</code>
+                <code><a class="autorefs autorefs-internal" title="pynapple.core.Tsd" href="../core.time_series/#pynapple.core.time_series.Tsd">Tsd</a> or <a class="autorefs autorefs-internal" title="pynapple.core.TsdFrame" href="../core.time_series/#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2864,9 +2851,9 @@ It can be useful it multiple dat files are present in the data directory</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/phy.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-329">329</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/phy.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-329">329</a></span>
 <span class="normal"><a href="#__codelineno-0-330">330</a></span>
 <span class="normal"><a href="#__codelineno-0-331">331</a></span>
 <span class="normal"><a href="#__codelineno-0-332">332</a></span>
@@ -3026,7 +3013,7 @@ It can be useful it multiple dat files are present in the data directory</p>
 </span><span id="__span-0-407"><a id="__codelineno-0-407" name="__codelineno-0-407"></a>            <span class="n">columns</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
 </span><span id="__span-0-408"><a id="__codelineno-0-408" name="__codelineno-0-408"></a>        <span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -3084,10 +3071,10 @@ It can be useful it multiple dat files are present in the data directory</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

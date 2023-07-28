@@ -15,7 +15,7 @@
         <link rel="next" href="../io.suite2p/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -257,33 +257,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-          Tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
         Quick start
@@ -327,8 +300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../notebooks/pynapple-old-io-notebook/" class="md-nav__link">
-        (Deprecated IO)
+      <a href="../notebooks/pynapple-dandi-notebook/" class="md-nav__link">
+        DANDI+NWB
       </a>
     </li>
   
@@ -344,13 +317,6 @@
       <a href="../notebooks/pynapple-process-notebook/" class="md-nav__link">
         Process
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1181,20 +1147,22 @@ Support CNMF-E in matlab, inscopix-cnmfe and minian.</p>
 
 
 <h2 id="pynapple.io.cnmfe.CNMF_E" class="doc doc-heading">
-        <code>CNMF_E</code>
+          <code>CNMF_E</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
 
   
       <p>Loader for data processed with matlab CNMF-E(https://github.com/zhoupc/CNMF_E).
 The path folder should contain a file ending in .mat
 when calling Source2d.save_neurons</p>
+
+
 
   <p><strong>Attributes:</strong></p>
   <table>
@@ -1242,10 +1210,9 @@ when calling Source2d.save_neurons</p>
     </tbody>
   </table>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-31"> 31</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-31"> 31</a></span>
 <span class="normal"><a href="#__codelineno-0-32"> 32</a></span>
 <span class="normal"><a href="#__codelineno-0-33"> 33</a></span>
 <span class="normal"><a href="#__codelineno-0-34"> 34</a></span>
@@ -1657,11 +1624,12 @@ when calling Source2d.save_neurons</p>
 </span><span id="__span-0-235"><a id="__codelineno-0-235" name="__codelineno-0-235"></a>            <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-236"><a id="__codelineno-0-236" name="__codelineno-0-236"></a>            <span class="k">return</span> <span class="kc">False</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -1683,6 +1651,8 @@ when calling Source2d.save_neurons</p>
 
   <div class="doc doc-contents ">
   
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1712,9 +1682,9 @@ when calling Source2d.save_neurons</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-47">47</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-47">47</a></span>
 <span class="normal"><a href="#__codelineno-0-48">48</a></span>
 <span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
@@ -1788,10 +1758,11 @@ when calling Source2d.save_neurons</p>
 </span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">load_cnmf_e</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">save_cnmfe_nwb</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1806,6 +1777,8 @@ when calling Source2d.save_neurons</p>
   <div class="doc doc-contents ">
   
       <p>Load the calcium transients and the spatial footprints.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1835,9 +1808,9 @@ when calling Source2d.save_neurons</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-85"> 85</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-85"> 85</a></span>
 <span class="normal"><a href="#__codelineno-0-86"> 86</a></span>
 <span class="normal"><a href="#__codelineno-0-87"> 87</a></span>
 <span class="normal"><a href="#__codelineno-0-88"> 88</a></span>
@@ -1899,10 +1872,11 @@ when calling Source2d.save_neurons</p>
 </span><span id="__span-0-114"><a id="__codelineno-0-114" name="__codelineno-0-114"></a>
 </span><span id="__span-0-115"><a id="__codelineno-0-115" name="__codelineno-0-115"></a>    <span class="k">return</span> <span class="kc">None</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1918,6 +1892,8 @@ when calling Source2d.save_neurons</p>
   
       <p>Save the data to NWB.
 Since there is no one-photon field in nwb, it uses the two-photon field.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1947,9 +1923,9 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-117">117</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-117">117</a></span>
 <span class="normal"><a href="#__codelineno-0-118">118</a></span>
 <span class="normal"><a href="#__codelineno-0-119">119</a></span>
 <span class="normal"><a href="#__codelineno-0-120">120</a></span>
@@ -2115,10 +2091,11 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
 </span><span id="__span-0-198"><a id="__codelineno-0-198" name="__codelineno-0-198"></a>
 </span><span id="__span-0-199"><a id="__codelineno-0-199" name="__codelineno-0-199"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2133,6 +2110,8 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
   <div class="doc doc-contents ">
   
       <p>Load the calcium transient and spatial footprint from nwb</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2162,9 +2141,9 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-201">201</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-201">201</a></span>
 <span class="normal"><a href="#__codelineno-0-202">202</a></span>
 <span class="normal"><a href="#__codelineno-0-203">203</a></span>
 <span class="normal"><a href="#__codelineno-0-204">204</a></span>
@@ -2236,7 +2215,7 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
 </span><span id="__span-0-235"><a id="__codelineno-0-235" name="__codelineno-0-235"></a>        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-236"><a id="__codelineno-0-236" name="__codelineno-0-236"></a>        <span class="k">return</span> <span class="kc">False</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -2254,19 +2233,21 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
 
 
 <h2 id="pynapple.io.cnmfe.Minian" class="doc doc-heading">
-        <code>Minian</code>
+          <code>Minian</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
 
   
       <p>Loader for data processed with Minian (https://github.com/denisecailab/minian).
 The path folder should contain a subfolder name minian.</p>
+
+
 
   <p><strong>Attributes:</strong></p>
   <table>
@@ -2314,10 +2295,9 @@ The path folder should contain a subfolder name minian.</p>
     </tbody>
   </table>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-239">239</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-239">239</a></span>
 <span class="normal"><a href="#__codelineno-0-240">240</a></span>
 <span class="normal"><a href="#__codelineno-0-241">241</a></span>
 <span class="normal"><a href="#__codelineno-0-242">242</a></span>
@@ -2733,11 +2713,12 @@ The path folder should contain a subfolder name minian.</p>
 </span><span id="__span-0-445"><a id="__codelineno-0-445" name="__codelineno-0-445"></a>            <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-446"><a id="__codelineno-0-446" name="__codelineno-0-446"></a>            <span class="k">return</span> <span class="kc">False</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -2759,6 +2740,8 @@ The path folder should contain a subfolder name minian.</p>
 
   <div class="doc doc-contents ">
   
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2788,9 +2771,9 @@ The path folder should contain a subfolder name minian.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-254">254</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-254">254</a></span>
 <span class="normal"><a href="#__codelineno-0-255">255</a></span>
 <span class="normal"><a href="#__codelineno-0-256">256</a></span>
 <span class="normal"><a href="#__codelineno-0-257">257</a></span>
@@ -2864,10 +2847,11 @@ The path folder should contain a subfolder name minian.</p>
 </span><span id="__span-0-289"><a id="__codelineno-0-289" name="__codelineno-0-289"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">load_minian</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span><span id="__span-0-290"><a id="__codelineno-0-290" name="__codelineno-0-290"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">save_cnmfe_nwb</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2882,6 +2866,8 @@ The path folder should contain a subfolder name minian.</p>
   <div class="doc doc-contents ">
   
       <p>Load the calcium transients and the spatial footprints.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2911,9 +2897,9 @@ The path folder should contain a subfolder name minian.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-292">292</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-292">292</a></span>
 <span class="normal"><a href="#__codelineno-0-293">293</a></span>
 <span class="normal"><a href="#__codelineno-0-294">294</a></span>
 <span class="normal"><a href="#__codelineno-0-295">295</a></span>
@@ -2979,10 +2965,11 @@ The path folder should contain a subfolder name minian.</p>
 </span><span id="__span-0-323"><a id="__codelineno-0-323" name="__codelineno-0-323"></a>
 </span><span id="__span-0-324"><a id="__codelineno-0-324" name="__codelineno-0-324"></a>    <span class="k">return</span> <span class="kc">None</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2998,6 +2985,8 @@ The path folder should contain a subfolder name minian.</p>
   
       <p>Save the data to NWB.
 Since there is no one-photon field in nwb, it uses the two-photon field.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3027,9 +3016,9 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-326">326</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-326">326</a></span>
 <span class="normal"><a href="#__codelineno-0-327">327</a></span>
 <span class="normal"><a href="#__codelineno-0-328">328</a></span>
 <span class="normal"><a href="#__codelineno-0-329">329</a></span>
@@ -3197,10 +3186,11 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
 </span><span id="__span-0-408"><a id="__codelineno-0-408" name="__codelineno-0-408"></a>
 </span><span id="__span-0-409"><a id="__codelineno-0-409" name="__codelineno-0-409"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3215,6 +3205,8 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
   <div class="doc doc-contents ">
   
       <p>Load the calcium transient and spatial footprint from nwb</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3244,9 +3236,9 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-411">411</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-411">411</a></span>
 <span class="normal"><a href="#__codelineno-0-412">412</a></span>
 <span class="normal"><a href="#__codelineno-0-413">413</a></span>
 <span class="normal"><a href="#__codelineno-0-414">414</a></span>
@@ -3318,7 +3310,7 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
 </span><span id="__span-0-445"><a id="__codelineno-0-445" name="__codelineno-0-445"></a>        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-446"><a id="__codelineno-0-446" name="__codelineno-0-446"></a>        <span class="k">return</span> <span class="kc">False</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -3336,20 +3328,22 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
 
 
 <h2 id="pynapple.io.cnmfe.InscopixCNMFE" class="doc doc-heading">
-        <code>InscopixCNMFE</code>
+          <code>InscopixCNMFE</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
 
   
       <p>Loader for Inscopix-cnmfe (https://github.com/inscopix/inscopix-cnmfe).
 The folder should contain a file ending with '_traces.csv'
 and a tiff file for spatial footprints.</p>
+
+
 
   <p><strong>Attributes:</strong></p>
   <table>
@@ -3397,10 +3391,9 @@ and a tiff file for spatial footprints.</p>
     </tbody>
   </table>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-449">449</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-449">449</a></span>
 <span class="normal"><a href="#__codelineno-0-450">450</a></span>
 <span class="normal"><a href="#__codelineno-0-451">451</a></span>
 <span class="normal"><a href="#__codelineno-0-452">452</a></span>
@@ -3832,11 +3825,12 @@ and a tiff file for spatial footprints.</p>
 </span><span id="__span-0-663"><a id="__codelineno-0-663" name="__codelineno-0-663"></a>            <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-664"><a id="__codelineno-0-664" name="__codelineno-0-664"></a>            <span class="k">return</span> <span class="kc">False</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -3858,6 +3852,8 @@ and a tiff file for spatial footprints.</p>
 
   <div class="doc doc-contents ">
   
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3887,9 +3883,9 @@ and a tiff file for spatial footprints.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-465">465</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-465">465</a></span>
 <span class="normal"><a href="#__codelineno-0-466">466</a></span>
 <span class="normal"><a href="#__codelineno-0-467">467</a></span>
 <span class="normal"><a href="#__codelineno-0-468">468</a></span>
@@ -3963,10 +3959,11 @@ and a tiff file for spatial footprints.</p>
 </span><span id="__span-0-500"><a id="__codelineno-0-500" name="__codelineno-0-500"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">load_inscopix_cnmfe</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span><span id="__span-0-501"><a id="__codelineno-0-501" name="__codelineno-0-501"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">save_cnmfe_nwb</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3981,6 +3978,8 @@ and a tiff file for spatial footprints.</p>
   <div class="doc doc-contents ">
   
       <p>Load the calcium transients and the spatial footprints.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -4010,9 +4009,9 @@ and a tiff file for spatial footprints.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-503">503</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-503">503</a></span>
 <span class="normal"><a href="#__codelineno-0-504">504</a></span>
 <span class="normal"><a href="#__codelineno-0-505">505</a></span>
 <span class="normal"><a href="#__codelineno-0-506">506</a></span>
@@ -4094,10 +4093,11 @@ and a tiff file for spatial footprints.</p>
 </span><span id="__span-0-542"><a id="__codelineno-0-542" name="__codelineno-0-542"></a>
 </span><span id="__span-0-543"><a id="__codelineno-0-543" name="__codelineno-0-543"></a>    <span class="k">return</span> <span class="kc">None</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4113,6 +4113,8 @@ and a tiff file for spatial footprints.</p>
   
       <p>Save the data to NWB.
 Since there is no one-photon field in nwb, it uses the two-photon field.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -4142,9 +4144,9 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-545">545</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-545">545</a></span>
 <span class="normal"><a href="#__codelineno-0-546">546</a></span>
 <span class="normal"><a href="#__codelineno-0-547">547</a></span>
 <span class="normal"><a href="#__codelineno-0-548">548</a></span>
@@ -4310,10 +4312,11 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
 </span><span id="__span-0-626"><a id="__codelineno-0-626" name="__codelineno-0-626"></a>
 </span><span id="__span-0-627"><a id="__codelineno-0-627" name="__codelineno-0-627"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4328,6 +4331,8 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
   <div class="doc doc-contents ">
   
       <p>Load the calcium transient and spatial footprint from nwb</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -4357,9 +4362,9 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-629">629</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/io/cnmfe.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-629">629</a></span>
 <span class="normal"><a href="#__codelineno-0-630">630</a></span>
 <span class="normal"><a href="#__codelineno-0-631">631</a></span>
 <span class="normal"><a href="#__codelineno-0-632">632</a></span>
@@ -4431,7 +4436,7 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
 </span><span id="__span-0-663"><a id="__codelineno-0-663" name="__codelineno-0-663"></a>        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-664"><a id="__codelineno-0-664" name="__codelineno-0-664"></a>        <span class="k">return</span> <span class="kc">False</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -4489,10 +4494,10 @@ Since there is no one-photon field in nwb, it uses the two-photon field.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

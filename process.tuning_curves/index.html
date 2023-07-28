@@ -15,7 +15,7 @@
         <link rel="next" href="../process.decoding/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -257,33 +257,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-          Tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
         Quick start
@@ -327,8 +300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../notebooks/pynapple-old-io-notebook/" class="md-nav__link">
-        (Deprecated IO)
+      <a href="../notebooks/pynapple-dandi-notebook/" class="md-nav__link">
+        DANDI+NWB
       </a>
     </li>
   
@@ -344,13 +317,6 @@
       <a href="../notebooks/pynapple-process-notebook/" class="md-nav__link">
         Process
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1040,6 +1006,7 @@
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -1069,6 +1036,8 @@ An example of the dictionnary is :</p>
 stim0        0 Hz       1 Hz       2 Hz
 stim1        3 Hz       4 Hz       5 Hz
 </code></pre></div>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1112,6 +1081,8 @@ stim1        3 Hz       4 Hz       5 Hz
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1133,6 +1104,8 @@ stim1        3 Hz       4 Hz       5 Hz
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -1156,9 +1129,9 @@ stim1        3 Hz       4 Hz       5 Hz
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-18">18</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-18">18</a></span>
 <span class="normal"><a href="#__codelineno-0-19">19</a></span>
 <span class="normal"><a href="#__codelineno-0-20">20</a></span>
 <span class="normal"><a href="#__codelineno-0-21">21</a></span>
@@ -1268,10 +1241,11 @@ stim1        3 Hz       4 Hz       5 Hz
 </span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71"></a>
 </span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="k">return</span> <span class="n">tuning_curves</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1286,6 +1260,8 @@ stim1        3 Hz       4 Hz       5 Hz
   <div class="doc doc-contents ">
   
       <p>Computes 1-dimensional tuning curves relative to a 1d feature.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1373,6 +1349,8 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1394,6 +1372,8 @@ If None, the boundaries are inferred from the target feature</p>
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -1417,9 +1397,9 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-75"> 75</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-75"> 75</a></span>
 <span class="normal"><a href="#__codelineno-0-76"> 76</a></span>
 <span class="normal"><a href="#__codelineno-0-77"> 77</a></span>
 <span class="normal"><a href="#__codelineno-0-78"> 78</a></span>
@@ -1531,10 +1511,11 @@ If None, the boundaries are inferred from the target feature</p>
 </span><span id="__span-0-129"><a id="__codelineno-0-129" name="__codelineno-0-129"></a>
 </span><span id="__span-0-130"><a id="__codelineno-0-130" name="__codelineno-0-130"></a>    <span class="k">return</span> <span class="n">tuning_curves</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1549,6 +1530,8 @@ If None, the boundaries are inferred from the target feature</p>
   <div class="doc doc-contents ">
   
       <p>Computes 2-dimensional tuning curves relative to a 2d feature</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1637,6 +1620,8 @@ If None, the boundaries are inferred from the target variable</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1661,6 +1646,8 @@ If None, the boundaries are inferred from the target variable</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -1683,9 +1670,9 @@ If None, the boundaries are inferred from the target variable</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-133">133</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-133">133</a></span>
 <span class="normal"><a href="#__codelineno-0-134">134</a></span>
 <span class="normal"><a href="#__codelineno-0-135">135</a></span>
 <span class="normal"><a href="#__codelineno-0-136">136</a></span>
@@ -1837,10 +1824,11 @@ If None, the boundaries are inferred from the target variable</p>
 </span><span id="__span-0-207"><a id="__codelineno-0-207" name="__codelineno-0-207"></a>
 </span><span id="__span-0-208"><a id="__codelineno-0-208" name="__codelineno-0-208"></a>    <span class="k">return</span> <span class="n">tc</span><span class="p">,</span> <span class="n">xy</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1859,6 +1847,8 @@ If None, the boundaries are inferred from the target variable</p>
 An information-theoretic approach to deciphering the hippocampal code.
 In Advances in neural information processing systems (pp. 1030-1037).</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -1873,7 +1863,7 @@ In Advances in neural information processing systems (pp. 1030-1037).</p>
         <tr>
           <td><code>tc</code></td>
           <td>
-                <code>pandas.DataFrame or numpy.ndarray</code>
+                <code>pandas.<span title="pandas.DataFrame">DataFrame</span> or numpy.<span title="numpy.ndarray">ndarray</span></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -1946,6 +1936,8 @@ Set to true for bits per seconds</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1968,9 +1960,9 @@ Set to true for bits per seconds</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-211">211</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-211">211</a></span>
 <span class="normal"><a href="#__codelineno-0-212">212</a></span>
 <span class="normal"><a href="#__codelineno-0-213">213</a></span>
 <span class="normal"><a href="#__codelineno-0-214">214</a></span>
@@ -2098,10 +2090,11 @@ Set to true for bits per seconds</p>
 </span><span id="__span-0-273"><a id="__codelineno-0-273" name="__codelineno-0-273"></a>        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SI&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">SI</span><span class="p">)</span>
 </span><span id="__span-0-274"><a id="__codelineno-0-274" name="__codelineno-0-274"></a>        <span class="k">return</span> <span class="n">SI</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2120,6 +2113,8 @@ Set to true for bits per seconds</p>
 An information-theoretic approach to deciphering the hippocampal code.
 In Advances in neural information processing systems (pp. 1030-1037).</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -2134,7 +2129,7 @@ In Advances in neural information processing systems (pp. 1030-1037).</p>
         <tr>
           <td><code>tc</code></td>
           <td>
-                <code>dict or numpy.ndarray</code>
+                <code>dict or numpy.<span title="numpy.ndarray">ndarray</span></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2207,6 +2202,8 @@ Set to true for bits per seconds</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2229,9 +2226,9 @@ Set to true for bits per seconds</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-277">277</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-277">277</a></span>
 <span class="normal"><a href="#__codelineno-0-278">278</a></span>
 <span class="normal"><a href="#__codelineno-0-279">279</a></span>
 <span class="normal"><a href="#__codelineno-0-280">280</a></span>
@@ -2383,10 +2380,11 @@ Set to true for bits per seconds</p>
 </span><span id="__span-0-351"><a id="__codelineno-0-351" name="__codelineno-0-351"></a>        <span class="n">SI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SI&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">SI</span><span class="p">)</span>
 </span><span id="__span-0-352"><a id="__codelineno-0-352" name="__codelineno-0-352"></a>        <span class="k">return</span> <span class="n">SI</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2402,6 +2400,8 @@ Set to true for bits per seconds</p>
   
       <p>Computes 1-dimensional tuning curves relative to a feature with continous data.</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -2416,7 +2416,7 @@ Set to true for bits per seconds</p>
         <tr>
           <td><code>tsdframe</code></td>
           <td>
-                <code>Tsd or TsdFrame</code>
+                <code><a class="autorefs autorefs-internal" title="pynapple.core.Tsd" href="../core.time_series/#pynapple.core.time_series.Tsd">Tsd</a> or <a class="autorefs autorefs-internal" title="pynapple.core.TsdFrame" href="../core.time_series/#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2489,6 +2489,8 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2510,6 +2512,8 @@ If None, the boundaries are inferred from the target feature</p>
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -2533,9 +2537,9 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-355">355</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-355">355</a></span>
 <span class="normal"><a href="#__codelineno-0-356">356</a></span>
 <span class="normal"><a href="#__codelineno-0-357">357</a></span>
 <span class="normal"><a href="#__codelineno-0-358">358</a></span>
@@ -2647,10 +2651,11 @@ If None, the boundaries are inferred from the target feature</p>
 </span><span id="__span-0-409"><a id="__codelineno-0-409" name="__codelineno-0-409"></a>
 </span><span id="__span-0-410"><a id="__codelineno-0-410" name="__codelineno-0-410"></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2666,6 +2671,8 @@ If None, the boundaries are inferred from the target feature</p>
   
       <p>Computes 2-dimensional tuning curves relative to a 2d feature with continous data.</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -2680,7 +2687,7 @@ If None, the boundaries are inferred from the target feature</p>
         <tr>
           <td><code>tsdframe</code></td>
           <td>
-                <code>Tsd or TsdFrame</code>
+                <code><a class="autorefs autorefs-internal" title="pynapple.core.Tsd" href="../core.time_series/#pynapple.core.time_series.Tsd">Tsd</a> or <a class="autorefs autorefs-internal" title="pynapple.core.TsdFrame" href="../core.time_series/#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2754,6 +2761,8 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2778,6 +2787,8 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -2800,9 +2811,9 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-413">413</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-413">413</a></span>
 <span class="normal"><a href="#__codelineno-0-414">414</a></span>
 <span class="normal"><a href="#__codelineno-0-415">415</a></span>
 <span class="normal"><a href="#__codelineno-0-416">416</a></span>
@@ -2974,10 +2985,11 @@ If None, the boundaries are inferred from the target feature</p>
 </span><span id="__span-0-497"><a id="__codelineno-0-497" name="__codelineno-0-497"></a>
 </span><span id="__span-0-498"><a id="__codelineno-0-498" name="__codelineno-0-498"></a>    <span class="k">return</span> <span class="n">tc</span><span class="p">,</span> <span class="n">xy</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -2993,6 +3005,8 @@ If None, the boundaries are inferred from the target feature</p>
   
       <p>Poisson GLM</p>
 <p>Warning : this function is still experimental!</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3120,6 +3134,8 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3144,6 +3160,8 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -3166,9 +3184,9 @@ If None, the boundaries are inferred from the target feature</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-501">501</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/tuning_curves.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-501">501</a></span>
 <span class="normal"><a href="#__codelineno-0-502">502</a></span>
 <span class="normal"><a href="#__codelineno-0-503">503</a></span>
 <span class="normal"><a href="#__codelineno-0-504">504</a></span>
@@ -3352,7 +3370,7 @@ If None, the boundaries are inferred from the target feature</p>
 </span><span id="__span-0-591"><a id="__codelineno-0-591" name="__codelineno-0-591"></a>
 </span><span id="__span-0-592"><a id="__codelineno-0-592" name="__codelineno-0-592"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">regressors</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -3401,10 +3419,10 @@ If None, the boundaries are inferred from the target feature</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

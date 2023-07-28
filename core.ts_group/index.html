@@ -15,7 +15,7 @@
         <link rel="next" href="../io/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -257,33 +257,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-          Tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
         Quick start
@@ -327,8 +300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../notebooks/pynapple-old-io-notebook/" class="md-nav__link">
-        (Deprecated IO)
+      <a href="../notebooks/pynapple-dandi-notebook/" class="md-nav__link">
+        DANDI+NWB
       </a>
     </li>
   
@@ -344,13 +317,6 @@
       <a href="../notebooks/pynapple-process-notebook/" class="md-nav__link">
         Process
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1166,18 +1132,20 @@
 
 
 <h2 id="pynapple.core.ts_group.TsGroup" class="doc doc-heading">
-        <code>TsGroup</code>
+          <code>TsGroup</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="collections.UserDict">UserDict</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="collections.UserDict">UserDict</span></code></p>
 
   
       <p>The TsGroup is a dictionnary-like object to hold multiple <a class="autorefs autorefs-internal" href="../core.time_series/#pynapple.core.time_series.Ts"><code>Ts</code></a> or <a class="autorefs autorefs-internal" href="../core.time_series/#pynapple.core.time_series.Tsd"><code>Tsd</code></a> objects with different time index.</p>
+
+
 
   <p><strong>Attributes:</strong></p>
   <table>
@@ -1214,10 +1182,9 @@
     </tbody>
   </table>
 
-
-        <details class="quote">
-          <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-59"> 59</a></span>
+            <details class="quote">
+              <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-59"> 59</a></span>
 <span class="normal"><a href="#__codelineno-0-60"> 60</a></span>
 <span class="normal"><a href="#__codelineno-0-61"> 61</a></span>
 <span class="normal"><a href="#__codelineno-0-62"> 62</a></span>
@@ -3059,7 +3026,7 @@
 </span><span id="__span-0-978"><a id="__codelineno-0-978" name="__codelineno-0-978"></a>
 </span><span id="__span-0-979"><a id="__codelineno-0-979" name="__codelineno-0-979"></a>        <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-        </details>
+            </details>
 
   
 
@@ -3094,6 +3061,7 @@
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -3107,6 +3075,8 @@
   <div class="doc doc-contents ">
   
       <p>TsGroup Initializer</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3193,6 +3163,8 @@ Note that the index should match the index of the input dictionnary.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -3215,9 +3187,9 @@ Note that the index should match the index of the input dictionnary.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-71"> 71</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-71"> 71</a></span>
 <span class="normal"><a href="#__codelineno-0-72"> 72</a></span>
 <span class="normal"><a href="#__codelineno-0-73"> 73</a></span>
 <span class="normal"><a href="#__codelineno-0-74"> 74</a></span>
@@ -3351,10 +3323,11 @@ Note that the index should match the index of the input dictionnary.</p>
 </span><span id="__span-0-136"><a id="__codelineno-0-136" name="__codelineno-0-136"></a>    <span class="c1"># Trying to add argument as metainfo</span>
 </span><span id="__span-0-137"><a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3369,6 +3342,8 @@ Note that the index should match the index of the input dictionnary.</p>
   <div class="doc doc-contents ">
   
       <p>Return index/keys of TsGroup</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -3392,9 +3367,9 @@ Note that the index should match the index of the input dictionnary.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-193">193</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-193">193</a></span>
 <span class="normal"><a href="#__codelineno-0-194">194</a></span>
 <span class="normal"><a href="#__codelineno-0-195">195</a></span>
 <span class="normal"><a href="#__codelineno-0-196">196</a></span>
@@ -3414,10 +3389,11 @@ Note that the index should match the index of the input dictionnary.</p>
 </span><span id="__span-0-201"><a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-202"><a id="__codelineno-0-202" name="__codelineno-0-202"></a>    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3432,6 +3408,8 @@ Note that the index should match the index of the input dictionnary.</p>
   <div class="doc doc-contents ">
   
       <p>Return a list of key/object.</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -3455,9 +3433,9 @@ Note that the index should match the index of the input dictionnary.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-204">204</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-204">204</a></span>
 <span class="normal"><a href="#__codelineno-0-205">205</a></span>
 <span class="normal"><a href="#__codelineno-0-206">206</a></span>
 <span class="normal"><a href="#__codelineno-0-207">207</a></span>
@@ -3477,10 +3455,11 @@ Note that the index should match the index of the input dictionnary.</p>
 </span><span id="__span-0-212"><a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-213"><a id="__codelineno-0-213" name="__codelineno-0-213"></a>    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3495,6 +3474,8 @@ Note that the index should match the index of the input dictionnary.</p>
   <div class="doc doc-contents ">
   
       <p>Return a list of all the Ts/Tsd objects in the TsGroup</p>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -3518,9 +3499,9 @@ Note that the index should match the index of the input dictionnary.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-215">215</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-215">215</a></span>
 <span class="normal"><a href="#__codelineno-0-216">216</a></span>
 <span class="normal"><a href="#__codelineno-0-217">217</a></span>
 <span class="normal"><a href="#__codelineno-0-218">218</a></span>
@@ -3540,10 +3521,11 @@ Note that the index should match the index of the input dictionnary.</p>
 </span><span id="__span-0-223"><a id="__codelineno-0-223" name="__codelineno-0-223"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-224"><a id="__codelineno-0-224" name="__codelineno-0-224"></a>    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3559,6 +3541,8 @@ Note that the index should match the index of the input dictionnary.</p>
   
       <p>Add metadata informations about the TsGroup.
 Metadata are saved as a DataFrame.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3600,6 +3584,8 @@ Metadata are saved as a DataFrame.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -3616,14 +3602,16 @@ Metadata are saved as a DataFrame.</p>
           <td>
             <div class="doc-md-description">
               <p>Raise an error if
-no column labels are found when passing simple arguments,
-indexes are not equals for a pandas series,
-not the same length when passing numpy array.</p>
+    no column labels are found when passing simple arguments,
+    indexes are not equals for a pandas series,
+    not the same length when passing numpy array.</p>
             </div>
           </td>
         </tr>
     </tbody>
   </table>
+
+
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -3656,9 +3644,9 @@ not the same length when passing numpy array.</p>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="go">      2             4  ca1          1</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-236">236</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-236">236</a></span>
 <span class="normal"><a href="#__codelineno-0-237">237</a></span>
 <span class="normal"><a href="#__codelineno-0-238">238</a></span>
 <span class="normal"><a href="#__codelineno-0-239">239</a></span>
@@ -3810,10 +3798,11 @@ not the same length when passing numpy array.</p>
 </span><span id="__span-0-310"><a id="__codelineno-0-310" name="__codelineno-0-310"></a>                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Array is not the same length.&quot;</span><span class="p">)</span>
 </span><span id="__span-0-311"><a id="__codelineno-0-311" name="__codelineno-0-311"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3829,6 +3818,8 @@ not the same length when passing numpy array.</p>
   
       <p>Returns the metainfo located in one column.
 The key for the column frequency is "rate".</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3858,6 +3849,8 @@ The key for the column frequency is "rate".</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3880,9 +3873,9 @@ The key for the column frequency is "rate".</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-313">313</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-313">313</a></span>
 <span class="normal"><a href="#__codelineno-0-314">314</a></span>
 <span class="normal"><a href="#__codelineno-0-315">315</a></span>
 <span class="normal"><a href="#__codelineno-0-316">316</a></span>
@@ -3918,10 +3911,11 @@ The key for the column frequency is "rate".</p>
 </span><span id="__span-0-329"><a id="__codelineno-0-329" name="__codelineno-0-329"></a>        <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;rate&quot;</span>
 </span><span id="__span-0-330"><a id="__codelineno-0-330" name="__codelineno-0-330"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -3936,6 +3930,8 @@ The key for the column frequency is "rate".</p>
   <div class="doc doc-contents ">
   
       <p>Restricts a TsGroup object to a set of time intervals delimited by an IntervalSet object</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -3965,6 +3961,8 @@ The key for the column frequency is "rate".</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -3987,6 +3985,8 @@ The key for the column frequency is "rate".</p>
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -4007,9 +4007,9 @@ The key for the column frequency is "rate".</p>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">0    0.0  100.0</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-335">335</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-335">335</a></span>
 <span class="normal"><a href="#__codelineno-0-336">336</a></span>
 <span class="normal"><a href="#__codelineno-0-337">337</a></span>
 <span class="normal"><a href="#__codelineno-0-338">338</a></span>
@@ -4095,10 +4095,11 @@ The key for the column frequency is "rate".</p>
 </span><span id="__span-0-376"><a id="__codelineno-0-376" name="__codelineno-0-376"></a>        <span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="n">bypass_check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
 </span><span id="__span-0-377"><a id="__codelineno-0-377" name="__codelineno-0-377"></a>    <span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4113,6 +4114,8 @@ The key for the column frequency is "rate".</p>
   <div class="doc doc-contents ">
   
       <p>Replace the value of each Ts/Tsd object within the Ts group with the closest value from tsd argument</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -4157,6 +4160,8 @@ If None, the time support of the tsd input object is used.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -4179,6 +4184,8 @@ If None, the time support of the tsd input object is used.</p>
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -4195,9 +4202,9 @@ If None, the time support of the tsd input object is used.</p>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">newtsgroup</span> <span class="o">=</span> <span class="n">tsgroup</span><span class="o">.</span><span class="n">value_from</span><span class="p">(</span><span class="n">tsd</span><span class="p">,</span> <span class="n">ep</span><span class="p">)</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-379">379</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-379">379</a></span>
 <span class="normal"><a href="#__codelineno-0-380">380</a></span>
 <span class="normal"><a href="#__codelineno-0-381">381</a></span>
 <span class="normal"><a href="#__codelineno-0-382">382</a></span>
@@ -4285,10 +4292,11 @@ If None, the time support of the tsd input object is used.</p>
 </span><span id="__span-0-421"><a id="__codelineno-0-421" name="__codelineno-0-421"></a>    <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;rate&quot;</span><span class="p">)</span>
 </span><span id="__span-0-422"><a id="__codelineno-0-422" name="__codelineno-0-422"></a>    <span class="k">return</span> <span class="n">TsGroup</span><span class="p">(</span><span class="n">newgr</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4325,6 +4333,8 @@ You can call this function in multiple ways :</p>
 <p>bin_size should be seconds unless specified.
 If bin_size is used and no epochs is passed, the data will be binned based on the time support of the object.</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -4353,7 +4363,7 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
         <tr>
           <td><code>ep</code></td>
           <td>
-                <code>None or IntervalSet</code>
+                <code>None or <a class="autorefs autorefs-internal" title="pynapple.core.interval_set.IntervalSet" href="../core.interval_set/#pynapple.core.interval_set.IntervalSet">IntervalSet</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -4381,6 +4391,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -4403,6 +4415,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <p>This example shows how to count events within bins of 0.1 second for the first 100 seconds.</p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -4422,7 +4436,7 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="go">0.25      0  0  1</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="go">0.35      0  0  0</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="go">0.45      0  0  0</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="gp">... </span>     <span class="o">..</span> <span class="o">..</span> <span class="o">..</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="go">...      .. .. ..</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="go">99.55     0  1  1</span>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="go">99.65     0  0  0</span>
 </span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="go">99.75     0  0  1</span>
@@ -4431,9 +4445,9 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="go">[1000 rows x 3 columns]</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-424">424</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-424">424</a></span>
 <span class="normal"><a href="#__codelineno-0-425">425</a></span>
 <span class="normal"><a href="#__codelineno-0-426">426</a></span>
 <span class="normal"><a href="#__codelineno-0-427">427</a></span>
@@ -4679,10 +4693,11 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-545"><a id="__codelineno-0-545" name="__codelineno-0-545"></a>    <span class="n">toreturn</span> <span class="o">=</span> <span class="n">TsdFrame</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">time_index</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">count</span><span class="p">,</span> <span class="n">time_support</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </span><span id="__span-0-546"><a id="__codelineno-0-546" name="__codelineno-0-546"></a>    <span class="k">return</span> <span class="n">toreturn</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -4697,6 +4712,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
   <div class="doc doc-contents ">
   
       <p>Convert TsGroup to a Tsd. The timestamps of the TsGroup are merged together and sorted.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -4724,6 +4741,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
         </tr>
     </tbody>
   </table>
+
+
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -4777,6 +4796,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="go">      5       1</span>
 </span></code></pre></div>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -4798,6 +4819,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -4824,9 +4847,9 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-548">548</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-548">548</a></span>
 <span class="normal"><a href="#__codelineno-0-549">549</a></span>
 <span class="normal"><a href="#__codelineno-0-550">550</a></span>
 <span class="normal"><a href="#__codelineno-0-551">551</a></span>
@@ -5078,10 +5101,11 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-672"><a id="__codelineno-0-672" name="__codelineno-0-672"></a>
 </span><span id="__span-0-673"><a id="__codelineno-0-673" name="__codelineno-0-673"></a>    <span class="k">return</span> <span class="n">toreturn</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5096,6 +5120,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
   <div class="doc doc-contents ">
   
       <p>Return a TsGroup with all Ts/Tsd objects with values above threshold for metainfo under key.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -5153,6 +5179,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -5174,6 +5202,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -5197,6 +5227,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
     </tbody>
   </table>
 
+
+
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -5219,9 +5251,9 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">      2             4</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-679">679</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-679">679</a></span>
 <span class="normal"><a href="#__codelineno-0-680">680</a></span>
 <span class="normal"><a href="#__codelineno-0-681">681</a></span>
 <span class="normal"><a href="#__codelineno-0-682">682</a></span>
@@ -5341,10 +5373,11 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-737"><a id="__codelineno-0-737" name="__codelineno-0-737"></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="__span-0-738"><a id="__codelineno-0-738" name="__codelineno-0-738"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Operation </span><span class="si">{}</span><span class="s2"> not recognized.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">op</span><span class="p">))</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5359,6 +5392,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
   <div class="doc doc-contents ">
   
       <p>Return a list of TsGroup binned.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -5388,7 +5423,7 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
         <tr>
           <td><code>bins</code></td>
           <td>
-                <code>numpy.ndarray or list</code>
+                <code>numpy.<span title="numpy.ndarray">ndarray</span> or list</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -5401,6 +5436,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -5423,6 +5460,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
         </tr>
     </tbody>
   </table>
+
+
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -5453,9 +5492,9 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">array([0.5, 1.5])</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-740">740</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-740">740</a></span>
 <span class="normal"><a href="#__codelineno-0-741">741</a></span>
 <span class="normal"><a href="#__codelineno-0-742">742</a></span>
 <span class="normal"><a href="#__codelineno-0-743">743</a></span>
@@ -5561,10 +5600,11 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-791"><a id="__codelineno-0-791" name="__codelineno-0-791"></a>    <span class="n">sliced</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ix</span><span class="p">]</span>
 </span><span id="__span-0-792"><a id="__codelineno-0-792" name="__codelineno-0-792"></a>    <span class="k">return</span> <span class="n">sliced</span><span class="p">,</span> <span class="n">xb</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5579,6 +5619,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
   <div class="doc doc-contents ">
   
       <p>Return a list of TsGroup grouped by category.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -5608,6 +5650,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -5629,6 +5673,8 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
         </tr>
     </tbody>
   </table>
+
+
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -5656,9 +5702,9 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="go">       2             4        1}</span>
 </span></code></pre></div>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-794">794</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-794">794</a></span>
 <span class="normal"><a href="#__codelineno-0-795">795</a></span>
 <span class="normal"><a href="#__codelineno-0-796">796</a></span>
 <span class="normal"><a href="#__codelineno-0-797">797</a></span>
@@ -5744,10 +5790,11 @@ If bin_size is used and no epochs is passed, the data will be binned based on th
 </span><span id="__span-0-835"><a id="__codelineno-0-835" name="__codelineno-0-835"></a>    <span class="n">sliced</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">k</span><span class="p">])]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
 </span><span id="__span-0-836"><a id="__codelineno-0-836" name="__codelineno-0-836"></a>    <span class="k">return</span> <span class="n">sliced</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5790,6 +5837,8 @@ from ['t', 'd', 'start', 'end', 'index']</p>
 'start', 'end', 'index' and 'type'.
 See the example below.</p>
 
+
+
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -5817,6 +5866,8 @@ See the example below.</p>
         </tr>
     </tbody>
   </table>
+
+
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
@@ -5855,6 +5906,8 @@ recreate the TsGroup by using the function to_tsgroup :</p>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="go">      6     0.4        1  left foot</span>
 </span></code></pre></div>
 
+
+
   <p><strong>Raises:</strong></p>
   <table>
     <thead>
@@ -5877,9 +5930,9 @@ recreate the TsGroup by using the function to_tsgroup :</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-838">838</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/core/ts_group.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-838">838</a></span>
 <span class="normal"><a href="#__codelineno-0-839">839</a></span>
 <span class="normal"><a href="#__codelineno-0-840">840</a></span>
 <span class="normal"><a href="#__codelineno-0-841">841</a></span>
@@ -6163,7 +6216,7 @@ recreate the TsGroup by using the function to_tsgroup :</p>
 </span><span id="__span-0-978"><a id="__codelineno-0-978" name="__codelineno-0-978"></a>
 </span><span id="__span-0-979"><a id="__codelineno-0-979" name="__codelineno-0-979"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -6221,10 +6274,10 @@ recreate the TsGroup by using the function to_tsgroup :</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

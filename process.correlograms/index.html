@@ -15,7 +15,7 @@
         <link rel="next" href="../process.tuning_curves/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -257,33 +257,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-          Tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../notebooks/pynapple-quick-start/" class="md-nav__link">
         Quick start
@@ -327,8 +300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../notebooks/pynapple-old-io-notebook/" class="md-nav__link">
-        (Deprecated IO)
+      <a href="../notebooks/pynapple-dandi-notebook/" class="md-nav__link">
+        DANDI+NWB
       </a>
     </li>
   
@@ -344,13 +317,6 @@
       <a href="../notebooks/pynapple-process-notebook/" class="md-nav__link">
         Process
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -982,6 +948,7 @@
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -999,6 +966,8 @@ The units should be in s for all arguments.
 Return the firing rate of the series t2 relative to the timings of t1.
 See compute_crosscorrelogram, compute_autocorrelogram and compute_eventcorrelogram
 for wrappers of this function.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1070,6 +1039,8 @@ for wrappers of this function.</p>
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1102,9 +1073,9 @@ for wrappers of this function.</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-20">20</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-20">20</a></span>
 <span class="normal"><a href="#__codelineno-0-21">21</a></span>
 <span class="normal"><a href="#__codelineno-0-22">22</a></span>
 <span class="normal"><a href="#__codelineno-0-23">23</a></span>
@@ -1238,10 +1209,11 @@ for wrappers of this function.</p>
 </span><span id="__span-0-85"><a id="__codelineno-0-85" name="__codelineno-0-85"></a>
 </span><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="k">return</span> <span class="n">C</span><span class="p">,</span> <span class="n">B</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1257,6 +1229,8 @@ for wrappers of this function.</p>
   
       <p>Computes the autocorrelogram of a group of Ts/Tsd objects.
 The group can be passed directly as a TsGroup object.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1336,7 +1310,7 @@ If None, the epoch is the time support of the group.</p>
           <td>
             <div class="doc-md-description">
               <p>If True, autocorrelograms are normalized to baseline (i.e. divided by the average rate)
-If False, autoorrelograms are returned as the rate (Hz) of the time series (relative to itself)</p>
+ If False, autoorrelograms are returned as the rate (Hz) of the time series (relative to itself)</p>
             </div>
           </td>
           <td>
@@ -1361,6 +1335,8 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1382,6 +1358,8 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -1405,9 +1383,9 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
 <span class="normal"><a href="#__codelineno-0-90"> 90</a></span>
 <span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
 <span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
@@ -1545,10 +1523,11 @@ If False, autoorrelograms are returned as the rate (Hz) of the time series (rela
 </span><span id="__span-0-156"><a id="__codelineno-0-156" name="__codelineno-0-156"></a>
 </span><span id="__span-0-157"><a id="__codelineno-0-157" name="__codelineno-0-157"></a>    <span class="k">return</span> <span class="n">autocorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1568,6 +1547,8 @@ The reference Ts/Tsd and target are chosen based on the builtin itertools.combin
 For example if indexes are [0,1,2], the function computes cross-correlograms
 for the pairs (0,1), (0, 2), and (1, 2). The left index gives the reference time series.
 To reverse the order, set reverse=True.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1686,6 +1667,8 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -1707,6 +1690,8 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -1730,9 +1715,9 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-160">160</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-160">160</a></span>
 <span class="normal"><a href="#__codelineno-0-161">161</a></span>
 <span class="normal"><a href="#__codelineno-0-162">162</a></span>
 <span class="normal"><a href="#__codelineno-0-163">163</a></span>
@@ -1890,10 +1875,11 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
 </span><span id="__span-0-237"><a id="__codelineno-0-237" name="__codelineno-0-237"></a>
 </span><span id="__span-0-238"><a id="__codelineno-0-238" name="__codelineno-0-238"></a>    <span class="k">return</span> <span class="n">crosscorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1909,6 +1895,8 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
   
       <p>Computes the correlograms of a group of Ts/Tsd objects with another single Ts/Tsd object
 The time of reference is the event times.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1938,7 +1926,7 @@ The time of reference is the event times.</p>
         <tr>
           <td><code>event</code></td>
           <td>
-                <code>Ts/Tsd</code>
+                <code><a class="autorefs autorefs-internal" title="pynapple.core.Ts" href="../core.time_series/#pynapple.core.time_series.Ts">Ts</a> / <a class="autorefs autorefs-internal" title="pynapple.core.Tsd" href="../core.time_series/#pynapple.core.time_series.Tsd">Tsd</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2027,6 +2015,8 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
     </tbody>
   </table>
 
+
+
   <p><strong>Returns:</strong></p>
   <table>
     <thead>
@@ -2048,6 +2038,8 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
         </tr>
     </tbody>
   </table>
+
+
 
   <p><strong>Raises:</strong></p>
   <table>
@@ -2071,9 +2063,9 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-241">241</a></span>
+          <details class="quote">
+            <summary>Source code in <code>pynapple/process/correlograms.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-241">241</a></span>
 <span class="normal"><a href="#__codelineno-0-242">242</a></span>
 <span class="normal"><a href="#__codelineno-0-243">243</a></span>
 <span class="normal"><a href="#__codelineno-0-244">244</a></span>
@@ -2215,7 +2207,7 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
 </span><span id="__span-0-310"><a id="__codelineno-0-310" name="__codelineno-0-310"></a>
 </span><span id="__span-0-311"><a id="__codelineno-0-311" name="__codelineno-0-311"></a>    <span class="k">return</span> <span class="n">crosscorrs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
@@ -2264,10 +2256,10 @@ If False, cross-orrelograms are returned as the rate (Hz) of the target time ser
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>
