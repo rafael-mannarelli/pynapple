@@ -15,7 +15,7 @@
         <link rel="next" href="../process.correlograms/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -512,8 +512,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../io.files/" class="md-nav__link">
-        Files
+      <a href="../io.npz/" class="md-nav__link">
+        NPZ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.nwb/" class="md-nav__link">
+        NWB
       </a>
     </li>
   
@@ -533,17 +547,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
           Deprecated
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_3_2_4">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_2_5">
           <span class="md-nav__icon md-icon"></span>
           Deprecated
         </label>
@@ -983,15 +997,15 @@ https://github.com/MouseLand/suite2p</p>
 
 
 <h2 id="pynapple.io.suite2p.Suite2P" class="doc doc-heading">
-          <code>Suite2P</code>
+        <code>Suite2P</code>
 
 
 </h2>
 
 
   <div class="doc doc-contents ">
-          <p class="doc doc-class-bases">
-            Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="pynapple.io.loader.BaseLoader" href="../io.loader/#pynapple.io.loader.BaseLoader">BaseLoader</a></code></p>
 
   
       <p>Loader for data processed with Suite2P.</p>
@@ -1004,8 +1018,6 @@ https://github.com/MouseLand/suite2p</p>
 <p>suite2p/plane<em>/</em>.npy</p>
 </li>
 </ol>
-
-
 
   <p><strong>Attributes:</strong></p>
   <table>
@@ -1022,85 +1034,58 @@ https://github.com/MouseLand/suite2p</p>
           <td>
                 <code><a class="autorefs autorefs-internal" title="pynapple.core.TsdFrame" href="../core.time_series/#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Fluorescence traces (timepoints x ROIs) for all planes</p>
-            </div>
-          </td>
+          <td><p>Fluorescence traces (timepoints x ROIs) for all planes</p></td>
         </tr>
         <tr>
           <td><code>Fneu</code></td>
           <td>
                 <code><a class="autorefs autorefs-internal" title="pynapple.core.TsdFrame" href="../core.time_series/#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Neuropil fluorescence traces (timepoints x ROIs) for all planes</p>
-            </div>
-          </td>
+          <td><p>Neuropil fluorescence traces (timepoints x ROIs) for all planes</p></td>
         </tr>
         <tr>
           <td><code>spks</code></td>
           <td>
                 <code><a class="autorefs autorefs-internal" title="pynapple.core.TsdFrame" href="../core.time_series/#pynapple.core.time_series.TsdFrame">TsdFrame</a></code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Deconvolved traces (timepoints x ROIS) for all planes</p>
-            </div>
-          </td>
+          <td><p>Deconvolved traces (timepoints x ROIS) for all planes</p></td>
         </tr>
         <tr>
           <td><code>plane_info</code></td>
           <td>
                 <code>pandas.<span title="pandas.DataFrame">DataFrame</span></code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Contains plane identity of each cell</p>
-            </div>
-          </td>
+          <td><p>Contains plane identity of each cell</p></td>
         </tr>
         <tr>
           <td><code>stats</code></td>
           <td>
                 <code>dict</code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>dictionnay of statistics from stat.npy for each planes only for the neurons that were classified as cells
-(Can be smaller when loading from the NWB file)</p>
-            </div>
-          </td>
+          <td><p>dictionnay of statistics from stat.npy for each planes only for the neurons that were classified as cells
+(Can be smaller when loading from the NWB file)</p></td>
         </tr>
         <tr>
           <td><code>ops</code></td>
           <td>
                 <code>dict</code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Parameters from Suite2p. (Can be smaller when loading from the NWB file)</p>
-            </div>
-          </td>
+          <td><p>Parameters from Suite2p. (Can be smaller when loading from the NWB file)</p></td>
         </tr>
         <tr>
           <td><code>iscell</code></td>
           <td>
                 <code>numpy.<span title="numpy.ndarray">ndarray</span></code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Cell classification</p>
-            </div>
-          </td>
+          <td><p>Cell classification</p></td>
         </tr>
     </tbody>
   </table>
 
-            <details class="quote">
-              <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-35"> 35</a></span>
+
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-35"> 35</a></span>
 <span class="normal"><a href="#__codelineno-0-36"> 36</a></span>
 <span class="normal"><a href="#__codelineno-0-37"> 37</a></span>
 <span class="normal"><a href="#__codelineno-0-38"> 38</a></span>
@@ -2088,12 +2073,11 @@ https://github.com/MouseLand/suite2p</p>
 </span><span id="__span-0-527"><a id="__codelineno-0-527" name="__codelineno-0-527"></a>            <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-528"><a id="__codelineno-0-528" name="__codelineno-0-528"></a>            <span class="k">return</span> <span class="kc">False</span>
 </span></code></pre></div></td></tr></table></div>
-            </details>
+        </details>
 
   
 
   <div class="doc doc-children">
-
 
 
 
@@ -2116,8 +2100,6 @@ https://github.com/MouseLand/suite2p</p>
   <div class="doc doc-contents ">
   
 
-
-
   <p><strong>Parameters:</strong></p>
   <table>
     <thead>
@@ -2134,11 +2116,7 @@ https://github.com/MouseLand/suite2p</p>
           <td>
                 <code>str</code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The path of the session</p>
-            </div>
-          </td>
+          <td><p>The path of the session</p></td>
           <td>
               <em>required</em>
           </td>
@@ -2146,9 +2124,9 @@ https://github.com/MouseLand/suite2p</p>
     </tbody>
   </table>
 
-          <details class="quote">
-            <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-64"> 64</a></span>
+      <details class="quote">
+        <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-64"> 64</a></span>
 <span class="normal"><a href="#__codelineno-0-65"> 65</a></span>
 <span class="normal"><a href="#__codelineno-0-66"> 66</a></span>
 <span class="normal"><a href="#__codelineno-0-67"> 67</a></span>
@@ -2222,11 +2200,10 @@ https://github.com/MouseLand/suite2p</p>
 </span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">load_suite2p</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">save_suite2p_nwb</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-          </details>
+      </details>
   </div>
 
 </div>
-
 
 <div class="doc doc-object doc-function">
 
@@ -2241,8 +2218,6 @@ https://github.com/MouseLand/suite2p</p>
   <div class="doc doc-contents ">
   
       <p>Looking for suite2/plane*</p>
-
-
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2260,11 +2235,7 @@ https://github.com/MouseLand/suite2p</p>
           <td>
                 <code>str</code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The path of the session</p>
-            </div>
-          </td>
+          <td><p>The path of the session</p></td>
           <td>
               <em>required</em>
           </td>
@@ -2272,9 +2243,9 @@ https://github.com/MouseLand/suite2p</p>
     </tbody>
   </table>
 
-          <details class="quote">
-            <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-102">102</a></span>
+      <details class="quote">
+        <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-102">102</a></span>
 <span class="normal"><a href="#__codelineno-0-103">103</a></span>
 <span class="normal"><a href="#__codelineno-0-104">104</a></span>
 <span class="normal"><a href="#__codelineno-0-105">105</a></span>
@@ -2488,11 +2459,10 @@ https://github.com/MouseLand/suite2p</p>
 </span><span id="__span-0-207"><a id="__codelineno-0-207" name="__codelineno-0-207"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plane_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s2">&quot;plane&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">plane_info</span><span class="p">)})</span>
 </span><span id="__span-0-208"><a id="__codelineno-0-208" name="__codelineno-0-208"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-          </details>
+      </details>
   </div>
 
 </div>
-
 
 <div class="doc doc-object doc-function">
 
@@ -2508,8 +2478,6 @@ https://github.com/MouseLand/suite2p</p>
   
       <p>Save the data to NWB. To ensure continuity, this function is based on :
 https://github.com/MouseLand/suite2p/blob/main/suite2p/io/nwb.py.</p>
-
-
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2527,11 +2495,7 @@ https://github.com/MouseLand/suite2p/blob/main/suite2p/io/nwb.py.</p>
           <td>
                 <code>str</code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The path of the session</p>
-            </div>
-          </td>
+          <td><p>The path of the session</p></td>
           <td>
               <em>required</em>
           </td>
@@ -2539,9 +2503,9 @@ https://github.com/MouseLand/suite2p/blob/main/suite2p/io/nwb.py.</p>
     </tbody>
   </table>
 
-          <details class="quote">
-            <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-210">210</a></span>
+      <details class="quote">
+        <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-210">210</a></span>
 <span class="normal"><a href="#__codelineno-0-211">211</a></span>
 <span class="normal"><a href="#__codelineno-0-212">212</a></span>
 <span class="normal"><a href="#__codelineno-0-213">213</a></span>
@@ -2883,11 +2847,10 @@ https://github.com/MouseLand/suite2p/blob/main/suite2p/io/nwb.py.</p>
 </span><span id="__span-0-379"><a id="__codelineno-0-379" name="__codelineno-0-379"></a>    <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-380"><a id="__codelineno-0-380" name="__codelineno-0-380"></a>    <span class="k">return</span>
 </span></code></pre></div></td></tr></table></div>
-          </details>
+      </details>
   </div>
 
 </div>
-
 
 <div class="doc doc-object doc-function">
 
@@ -2902,8 +2865,6 @@ https://github.com/MouseLand/suite2p/blob/main/suite2p/io/nwb.py.</p>
   <div class="doc doc-contents ">
   
       <p>Load suite2p data from NWB</p>
-
-
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2921,11 +2882,7 @@ https://github.com/MouseLand/suite2p/blob/main/suite2p/io/nwb.py.</p>
           <td>
                 <code>str</code>
           </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Path to the session</p>
-            </div>
-          </td>
+          <td><p>Path to the session</p></td>
           <td>
               <em>required</em>
           </td>
@@ -2933,9 +2890,9 @@ https://github.com/MouseLand/suite2p/blob/main/suite2p/io/nwb.py.</p>
     </tbody>
   </table>
 
-          <details class="quote">
-            <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-382">382</a></span>
+      <details class="quote">
+        <summary>Source code in <code>pynapple/io/suite2p.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-382">382</a></span>
 <span class="normal"><a href="#__codelineno-0-383">383</a></span>
 <span class="normal"><a href="#__codelineno-0-384">384</a></span>
 <span class="normal"><a href="#__codelineno-0-385">385</a></span>
@@ -3229,7 +3186,7 @@ https://github.com/MouseLand/suite2p/blob/main/suite2p/io/nwb.py.</p>
 </span><span id="__span-0-527"><a id="__codelineno-0-527" name="__codelineno-0-527"></a>        <span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="__span-0-528"><a id="__codelineno-0-528" name="__codelineno-0-528"></a>        <span class="k">return</span> <span class="kc">False</span>
 </span></code></pre></div></td></tr></table></div>
-          </details>
+      </details>
   </div>
 
 </div>
@@ -3287,10 +3244,10 @@ https://github.com/MouseLand/suite2p/blob/main/suite2p/io/nwb.py.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
       
     
   </body>
