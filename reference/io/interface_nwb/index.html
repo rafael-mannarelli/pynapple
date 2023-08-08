@@ -1,0 +1,1832 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../interface_npz/">
+      
+      
+        <link rel="next" href="../loader/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+    
+    
+      
+        <title>Interface nwb - pynapple</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../sg_gallery-dataframe.css">
+    
+      <link rel="stylesheet" href="../../../sg_gallery-rendered-html.css">
+    
+      <link rel="stylesheet" href="../../../sg_gallery.css">
+    
+      <link rel="stylesheet" href="../../../sg_gallery-binder.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pynapple.io.interface_nwb" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="pynapple" class="md-header__button md-logo" aria-label="pynapple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            pynapple
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Interface nwb
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pynapple-org/pynapple" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="pynapple" class="md-nav__button md-logo" aria-label="pynapple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    pynapple
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pynapple-org/pynapple" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../generated/gallery/">Usage</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../generated/gallery/tutorial_pynapple_io/" class="md-nav__link">
+        IO Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../generated/gallery/tutorial_pynapple_dandi/" class="md-nav__link">
+        Streaming data from Dandi
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../generated/gallery/tutorial_pynapple_core/" class="md-nav__link">
+        Core Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../generated/gallery/tutorial_pynapple_quick_start/" class="md-nav__link">
+        Quick start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../generated/gallery/tutorial_pynapple_process/" class="md-nav__link">
+        Advanced processing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../SUMMARY/">Modules</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Modules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../core/">Core</a>
+          
+            <label for="__nav_3_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Core
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/interval_set/" class="md-nav__link">
+        Interval set
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/jitted_functions/" class="md-nav__link">
+        Jitted functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/time_series/" class="md-nav__link">
+        Time series
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/time_units/" class="md-nav__link">
+        Time units
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/ts_group/" class="md-nav__link">
+        Ts group
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Io</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Io
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cnmfe/" class="md-nav__link">
+        Cnmfe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ephys_gui/" class="md-nav__link">
+        Ephys gui
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../folder/" class="md-nav__link">
+        Folder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interface_npz/" class="md-nav__link">
+        Interface npz
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Interface nwb
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Interface nwb
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb" class="md-nav__link">
+    pynapple.io.interface_nwb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb.NWBFile" class="md-nav__link">
+    NWBFile
+  </a>
+  
+    <nav class="md-nav" aria-label="NWBFile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb.NWBFile.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb.NWBFile.__str__" class="md-nav__link">
+    __str__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb.NWBFile.__getitem__" class="md-nav__link">
+    __getitem__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loader/" class="md-nav__link">
+        Loader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loader_gui/" class="md-nav__link">
+        Loader gui
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/" class="md-nav__link">
+        Misc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neurosuite/" class="md-nav__link">
+        Neurosuite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ophys_gui/" class="md-nav__link">
+        Ophys gui
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phy/" class="md-nav__link">
+        Phy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../suite2p/" class="md-nav__link">
+        Suite2p
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../process/">Process</a>
+          
+            <label for="__nav_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Process
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/correlograms/" class="md-nav__link">
+        Correlograms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/decoding/" class="md-nav__link">
+        Decoding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/perievent/" class="md-nav__link">
+        Perievent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/randomize/" class="md-nav__link">
+        Randomize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/tuning_curves/" class="md-nav__link">
+        Tuning curves
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CONTRIBUTING/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AUTHORS/" class="md-nav__link">
+        Authors
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../HISTORY/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb" class="md-nav__link">
+    pynapple.io.interface_nwb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb.NWBFile" class="md-nav__link">
+    NWBFile
+  </a>
+  
+    <nav class="md-nav" aria-label="NWBFile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb.NWBFile.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb.NWBFile.__str__" class="md-nav__link">
+    __str__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pynapple.io.interface_nwb.NWBFile.__getitem__" class="md-nav__link">
+    __getitem__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Interface nwb</h1>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="pynapple.io.interface_nwb"></a>
+  <div class="doc doc-contents first">
+  
+      <p>Pynapple class to interface with NWB files.
+Data are always lazy-loaded.
+Object behaves like dictionnary.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="pynapple.io.interface_nwb.NWBFile" class="doc doc-heading">
+        <code>NWBFile</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="collections.UserDict">UserDict</span></code></p>
+
+  
+      <p>Class for reading NWB Files.</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;my_file.nwb&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">  Index    rate  location      group</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">-------  ------  ----------  -------</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">      0    1.0  brain        0</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="go">      1    1.0  brain        0</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="go">      2    1.0  brain        0</span>
+</span></code></pre></div>
+
+
+        <details class="quote">
+          <summary>Source code in <code>pynapple/io/interface_nwb.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-270">270</a></span>
+<span class="normal"><a href="#__codelineno-0-271">271</a></span>
+<span class="normal"><a href="#__codelineno-0-272">272</a></span>
+<span class="normal"><a href="#__codelineno-0-273">273</a></span>
+<span class="normal"><a href="#__codelineno-0-274">274</a></span>
+<span class="normal"><a href="#__codelineno-0-275">275</a></span>
+<span class="normal"><a href="#__codelineno-0-276">276</a></span>
+<span class="normal"><a href="#__codelineno-0-277">277</a></span>
+<span class="normal"><a href="#__codelineno-0-278">278</a></span>
+<span class="normal"><a href="#__codelineno-0-279">279</a></span>
+<span class="normal"><a href="#__codelineno-0-280">280</a></span>
+<span class="normal"><a href="#__codelineno-0-281">281</a></span>
+<span class="normal"><a href="#__codelineno-0-282">282</a></span>
+<span class="normal"><a href="#__codelineno-0-283">283</a></span>
+<span class="normal"><a href="#__codelineno-0-284">284</a></span>
+<span class="normal"><a href="#__codelineno-0-285">285</a></span>
+<span class="normal"><a href="#__codelineno-0-286">286</a></span>
+<span class="normal"><a href="#__codelineno-0-287">287</a></span>
+<span class="normal"><a href="#__codelineno-0-288">288</a></span>
+<span class="normal"><a href="#__codelineno-0-289">289</a></span>
+<span class="normal"><a href="#__codelineno-0-290">290</a></span>
+<span class="normal"><a href="#__codelineno-0-291">291</a></span>
+<span class="normal"><a href="#__codelineno-0-292">292</a></span>
+<span class="normal"><a href="#__codelineno-0-293">293</a></span>
+<span class="normal"><a href="#__codelineno-0-294">294</a></span>
+<span class="normal"><a href="#__codelineno-0-295">295</a></span>
+<span class="normal"><a href="#__codelineno-0-296">296</a></span>
+<span class="normal"><a href="#__codelineno-0-297">297</a></span>
+<span class="normal"><a href="#__codelineno-0-298">298</a></span>
+<span class="normal"><a href="#__codelineno-0-299">299</a></span>
+<span class="normal"><a href="#__codelineno-0-300">300</a></span>
+<span class="normal"><a href="#__codelineno-0-301">301</a></span>
+<span class="normal"><a href="#__codelineno-0-302">302</a></span>
+<span class="normal"><a href="#__codelineno-0-303">303</a></span>
+<span class="normal"><a href="#__codelineno-0-304">304</a></span>
+<span class="normal"><a href="#__codelineno-0-305">305</a></span>
+<span class="normal"><a href="#__codelineno-0-306">306</a></span>
+<span class="normal"><a href="#__codelineno-0-307">307</a></span>
+<span class="normal"><a href="#__codelineno-0-308">308</a></span>
+<span class="normal"><a href="#__codelineno-0-309">309</a></span>
+<span class="normal"><a href="#__codelineno-0-310">310</a></span>
+<span class="normal"><a href="#__codelineno-0-311">311</a></span>
+<span class="normal"><a href="#__codelineno-0-312">312</a></span>
+<span class="normal"><a href="#__codelineno-0-313">313</a></span>
+<span class="normal"><a href="#__codelineno-0-314">314</a></span>
+<span class="normal"><a href="#__codelineno-0-315">315</a></span>
+<span class="normal"><a href="#__codelineno-0-316">316</a></span>
+<span class="normal"><a href="#__codelineno-0-317">317</a></span>
+<span class="normal"><a href="#__codelineno-0-318">318</a></span>
+<span class="normal"><a href="#__codelineno-0-319">319</a></span>
+<span class="normal"><a href="#__codelineno-0-320">320</a></span>
+<span class="normal"><a href="#__codelineno-0-321">321</a></span>
+<span class="normal"><a href="#__codelineno-0-322">322</a></span>
+<span class="normal"><a href="#__codelineno-0-323">323</a></span>
+<span class="normal"><a href="#__codelineno-0-324">324</a></span>
+<span class="normal"><a href="#__codelineno-0-325">325</a></span>
+<span class="normal"><a href="#__codelineno-0-326">326</a></span>
+<span class="normal"><a href="#__codelineno-0-327">327</a></span>
+<span class="normal"><a href="#__codelineno-0-328">328</a></span>
+<span class="normal"><a href="#__codelineno-0-329">329</a></span>
+<span class="normal"><a href="#__codelineno-0-330">330</a></span>
+<span class="normal"><a href="#__codelineno-0-331">331</a></span>
+<span class="normal"><a href="#__codelineno-0-332">332</a></span>
+<span class="normal"><a href="#__codelineno-0-333">333</a></span>
+<span class="normal"><a href="#__codelineno-0-334">334</a></span>
+<span class="normal"><a href="#__codelineno-0-335">335</a></span>
+<span class="normal"><a href="#__codelineno-0-336">336</a></span>
+<span class="normal"><a href="#__codelineno-0-337">337</a></span>
+<span class="normal"><a href="#__codelineno-0-338">338</a></span>
+<span class="normal"><a href="#__codelineno-0-339">339</a></span>
+<span class="normal"><a href="#__codelineno-0-340">340</a></span>
+<span class="normal"><a href="#__codelineno-0-341">341</a></span>
+<span class="normal"><a href="#__codelineno-0-342">342</a></span>
+<span class="normal"><a href="#__codelineno-0-343">343</a></span>
+<span class="normal"><a href="#__codelineno-0-344">344</a></span>
+<span class="normal"><a href="#__codelineno-0-345">345</a></span>
+<span class="normal"><a href="#__codelineno-0-346">346</a></span>
+<span class="normal"><a href="#__codelineno-0-347">347</a></span>
+<span class="normal"><a href="#__codelineno-0-348">348</a></span>
+<span class="normal"><a href="#__codelineno-0-349">349</a></span>
+<span class="normal"><a href="#__codelineno-0-350">350</a></span>
+<span class="normal"><a href="#__codelineno-0-351">351</a></span>
+<span class="normal"><a href="#__codelineno-0-352">352</a></span>
+<span class="normal"><a href="#__codelineno-0-353">353</a></span>
+<span class="normal"><a href="#__codelineno-0-354">354</a></span>
+<span class="normal"><a href="#__codelineno-0-355">355</a></span>
+<span class="normal"><a href="#__codelineno-0-356">356</a></span>
+<span class="normal"><a href="#__codelineno-0-357">357</a></span>
+<span class="normal"><a href="#__codelineno-0-358">358</a></span>
+<span class="normal"><a href="#__codelineno-0-359">359</a></span>
+<span class="normal"><a href="#__codelineno-0-360">360</a></span>
+<span class="normal"><a href="#__codelineno-0-361">361</a></span>
+<span class="normal"><a href="#__codelineno-0-362">362</a></span>
+<span class="normal"><a href="#__codelineno-0-363">363</a></span>
+<span class="normal"><a href="#__codelineno-0-364">364</a></span>
+<span class="normal"><a href="#__codelineno-0-365">365</a></span>
+<span class="normal"><a href="#__codelineno-0-366">366</a></span>
+<span class="normal"><a href="#__codelineno-0-367">367</a></span>
+<span class="normal"><a href="#__codelineno-0-368">368</a></span>
+<span class="normal"><a href="#__codelineno-0-369">369</a></span>
+<span class="normal"><a href="#__codelineno-0-370">370</a></span>
+<span class="normal"><a href="#__codelineno-0-371">371</a></span>
+<span class="normal"><a href="#__codelineno-0-372">372</a></span>
+<span class="normal"><a href="#__codelineno-0-373">373</a></span>
+<span class="normal"><a href="#__codelineno-0-374">374</a></span>
+<span class="normal"><a href="#__codelineno-0-375">375</a></span>
+<span class="normal"><a href="#__codelineno-0-376">376</a></span>
+<span class="normal"><a href="#__codelineno-0-377">377</a></span>
+<span class="normal"><a href="#__codelineno-0-378">378</a></span>
+<span class="normal"><a href="#__codelineno-0-379">379</a></span>
+<span class="normal"><a href="#__codelineno-0-380">380</a></span>
+<span class="normal"><a href="#__codelineno-0-381">381</a></span>
+<span class="normal"><a href="#__codelineno-0-382">382</a></span>
+<span class="normal"><a href="#__codelineno-0-383">383</a></span>
+<span class="normal"><a href="#__codelineno-0-384">384</a></span>
+<span class="normal"><a href="#__codelineno-0-385">385</a></span>
+<span class="normal"><a href="#__codelineno-0-386">386</a></span>
+<span class="normal"><a href="#__codelineno-0-387">387</a></span>
+<span class="normal"><a href="#__codelineno-0-388">388</a></span>
+<span class="normal"><a href="#__codelineno-0-389">389</a></span>
+<span class="normal"><a href="#__codelineno-0-390">390</a></span>
+<span class="normal"><a href="#__codelineno-0-391">391</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-270"><a id="__codelineno-0-270" name="__codelineno-0-270"></a><span class="k">class</span> <span class="nc">NWBFile</span><span class="p">(</span><span class="n">UserDict</span><span class="p">):</span>
+</span><span id="__span-0-271"><a id="__codelineno-0-271" name="__codelineno-0-271"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for reading NWB Files.</span>
+</span><span id="__span-0-272"><a id="__codelineno-0-272" name="__codelineno-0-272"></a>
+</span><span id="__span-0-273"><a id="__codelineno-0-273" name="__codelineno-0-273"></a>
+</span><span id="__span-0-274"><a id="__codelineno-0-274" name="__codelineno-0-274"></a><span class="sd">    Examples</span>
+</span><span id="__span-0-275"><a id="__codelineno-0-275" name="__codelineno-0-275"></a><span class="sd">    --------</span>
+</span><span id="__span-0-276"><a id="__codelineno-0-276" name="__codelineno-0-276"></a><span class="sd">    &gt;&gt;&gt; import pynapple as nap</span>
+</span><span id="__span-0-277"><a id="__codelineno-0-277" name="__codelineno-0-277"></a><span class="sd">    &gt;&gt;&gt; data = nap.load_file(&quot;my_file.nwb&quot;)</span>
+</span><span id="__span-0-278"><a id="__codelineno-0-278" name="__codelineno-0-278"></a><span class="sd">    &gt;&gt;&gt; data[&quot;units&quot;]</span>
+</span><span id="__span-0-279"><a id="__codelineno-0-279" name="__codelineno-0-279"></a><span class="sd">      Index    rate  location      group</span>
+</span><span id="__span-0-280"><a id="__codelineno-0-280" name="__codelineno-0-280"></a><span class="sd">    -------  ------  ----------  -------</span>
+</span><span id="__span-0-281"><a id="__codelineno-0-281" name="__codelineno-0-281"></a><span class="sd">          0    1.0  brain        0</span>
+</span><span id="__span-0-282"><a id="__codelineno-0-282" name="__codelineno-0-282"></a><span class="sd">          1    1.0  brain        0</span>
+</span><span id="__span-0-283"><a id="__codelineno-0-283" name="__codelineno-0-283"></a><span class="sd">          2    1.0  brain        0</span>
+</span><span id="__span-0-284"><a id="__codelineno-0-284" name="__codelineno-0-284"></a>
+</span><span id="__span-0-285"><a id="__codelineno-0-285" name="__codelineno-0-285"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-286"><a id="__codelineno-0-286" name="__codelineno-0-286"></a>
+</span><span id="__span-0-287"><a id="__codelineno-0-287" name="__codelineno-0-287"></a>    <span class="n">_f_eval</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-0-288"><a id="__codelineno-0-288" name="__codelineno-0-288"></a>        <span class="s2">&quot;IntervalSet&quot;</span><span class="p">:</span> <span class="n">_make_interval_set</span><span class="p">,</span>
+</span><span id="__span-0-289"><a id="__codelineno-0-289" name="__codelineno-0-289"></a>        <span class="s2">&quot;Tsd&quot;</span><span class="p">:</span> <span class="n">_make_tsd</span><span class="p">,</span>
+</span><span id="__span-0-290"><a id="__codelineno-0-290" name="__codelineno-0-290"></a>        <span class="s2">&quot;Ts&quot;</span><span class="p">:</span> <span class="n">_make_ts</span><span class="p">,</span>
+</span><span id="__span-0-291"><a id="__codelineno-0-291" name="__codelineno-0-291"></a>        <span class="s2">&quot;TsdFrame&quot;</span><span class="p">:</span> <span class="n">_make_tsd_frame</span><span class="p">,</span>
+</span><span id="__span-0-292"><a id="__codelineno-0-292" name="__codelineno-0-292"></a>        <span class="s2">&quot;TsGroup&quot;</span><span class="p">:</span> <span class="n">_make_tsgroup</span><span class="p">,</span>
+</span><span id="__span-0-293"><a id="__codelineno-0-293" name="__codelineno-0-293"></a>    <span class="p">}</span>
+</span><span id="__span-0-294"><a id="__codelineno-0-294" name="__codelineno-0-294"></a>
+</span><span id="__span-0-295"><a id="__codelineno-0-295" name="__codelineno-0-295"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+</span><span id="__span-0-296"><a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-297"><a id="__codelineno-0-297" name="__codelineno-0-297"></a><span class="sd">        Parameters</span>
+</span><span id="__span-0-298"><a id="__codelineno-0-298" name="__codelineno-0-298"></a><span class="sd">        ----------</span>
+</span><span id="__span-0-299"><a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">        file : str or pynwb.file.NWBFile</span>
+</span><span id="__span-0-300"><a id="__codelineno-0-300" name="__codelineno-0-300"></a><span class="sd">            Valid file to a NWB file</span>
+</span><span id="__span-0-301"><a id="__codelineno-0-301" name="__codelineno-0-301"></a>
+</span><span id="__span-0-302"><a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">        Raises</span>
+</span><span id="__span-0-303"><a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="sd">        ------</span>
+</span><span id="__span-0-304"><a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">        FileNotFoundError</span>
+</span><span id="__span-0-305"><a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">            If path is invalid</span>
+</span><span id="__span-0-306"><a id="__codelineno-0-306" name="__codelineno-0-306"></a><span class="sd">        RuntimeError</span>
+</span><span id="__span-0-307"><a id="__codelineno-0-307" name="__codelineno-0-307"></a><span class="sd">            If file is not an instance of NWBFile</span>
+</span><span id="__span-0-308"><a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="__span-0-309"><a id="__codelineno-0-309" name="__codelineno-0-309"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-0-310"><a id="__codelineno-0-310" name="__codelineno-0-310"></a>            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+</span><span id="__span-0-311"><a id="__codelineno-0-311" name="__codelineno-0-311"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">file</span>
+</span><span id="__span-0-312"><a id="__codelineno-0-312" name="__codelineno-0-312"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-0-313"><a id="__codelineno-0-313" name="__codelineno-0-313"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</span><span id="__span-0-314"><a id="__codelineno-0-314" name="__codelineno-0-314"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">nwb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-0-315"><a id="__codelineno-0-315" name="__codelineno-0-315"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-316"><a id="__codelineno-0-316" name="__codelineno-0-316"></a>                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">),</span> <span class="n">file</span><span class="p">)</span>
+</span><span id="__span-0-317"><a id="__codelineno-0-317" name="__codelineno-0-317"></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">pynwb</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">NWBFile</span><span class="p">):</span>
+</span><span id="__span-0-318"><a id="__codelineno-0-318" name="__codelineno-0-318"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">nwb</span> <span class="o">=</span> <span class="n">file</span>
+</span><span id="__span-0-319"><a id="__codelineno-0-319" name="__codelineno-0-319"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwb</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">subject_id</span>
+</span><span id="__span-0-320"><a id="__codelineno-0-320" name="__codelineno-0-320"></a>
+</span><span id="__span-0-321"><a id="__codelineno-0-321" name="__codelineno-0-321"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-322"><a id="__codelineno-0-322" name="__codelineno-0-322"></a>            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+</span><span id="__span-0-323"><a id="__codelineno-0-323" name="__codelineno-0-323"></a>                <span class="s2">&quot;unrecognized argument. Please provide path to a valid NWB file or open NWB file.&quot;</span>
+</span><span id="__span-0-324"><a id="__codelineno-0-324" name="__codelineno-0-324"></a>            <span class="p">)</span>
+</span><span id="__span-0-325"><a id="__codelineno-0-325" name="__codelineno-0-325"></a>
+</span><span id="__span-0-326"><a id="__codelineno-0-326" name="__codelineno-0-326"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">_extract_compatible_data_from_nwbfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb</span><span class="p">)</span>
+</span><span id="__span-0-327"><a id="__codelineno-0-327" name="__codelineno-0-327"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">key_to_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+</span><span id="__span-0-328"><a id="__codelineno-0-328" name="__codelineno-0-328"></a>
+</span><span id="__span-0-329"><a id="__codelineno-0-329" name="__codelineno-0-329"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_view</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-0-330"><a id="__codelineno-0-330" name="__codelineno-0-330"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_view</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;Keys&quot;</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span> <span class="n">no_wrap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-331"><a id="__codelineno-0-331" name="__codelineno-0-331"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_view</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;Type&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+</span><span id="__span-0-332"><a id="__codelineno-0-332" name="__codelineno-0-332"></a>        <span class="c1"># self._view.add_column(&quot;NWB module&quot;, justify=&quot;right&quot;, style=&quot;magenta&quot;)</span>
+</span><span id="__span-0-333"><a id="__codelineno-0-333" name="__codelineno-0-333"></a>
+</span><span id="__span-0-334"><a id="__codelineno-0-334" name="__codelineno-0-334"></a>        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span><span id="__span-0-335"><a id="__codelineno-0-335" name="__codelineno-0-335"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_view</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span>
+</span><span id="__span-0-336"><a id="__codelineno-0-336" name="__codelineno-0-336"></a>                <span class="n">k</span><span class="p">,</span>
+</span><span id="__span-0-337"><a id="__codelineno-0-337" name="__codelineno-0-337"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">],</span>
+</span><span id="__span-0-338"><a id="__codelineno-0-338" name="__codelineno-0-338"></a>                <span class="c1"># self.data[k][&#39;top_module&#39;]</span>
+</span><span id="__span-0-339"><a id="__codelineno-0-339" name="__codelineno-0-339"></a>            <span class="p">)</span>
+</span><span id="__span-0-340"><a id="__codelineno-0-340" name="__codelineno-0-340"></a>
+</span><span id="__span-0-341"><a id="__codelineno-0-341" name="__codelineno-0-341"></a>        <span class="n">UserDict</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-0-342"><a id="__codelineno-0-342" name="__codelineno-0-342"></a>
+</span><span id="__span-0-343"><a id="__codelineno-0-343" name="__codelineno-0-343"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-344"><a id="__codelineno-0-344" name="__codelineno-0-344"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;View of the object&quot;&quot;&quot;</span>
+</span><span id="__span-0-345"><a id="__codelineno-0-345" name="__codelineno-0-345"></a>        <span class="k">with</span> <span class="n">Console</span><span class="p">()</span> <span class="k">as</span> <span class="n">console</span><span class="p">:</span>
+</span><span id="__span-0-346"><a id="__codelineno-0-346" name="__codelineno-0-346"></a>            <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_view</span><span class="p">)</span>
+</span><span id="__span-0-347"><a id="__codelineno-0-347" name="__codelineno-0-347"></a>        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+</span><span id="__span-0-348"><a id="__codelineno-0-348" name="__codelineno-0-348"></a>
+</span><span id="__span-0-349"><a id="__codelineno-0-349" name="__codelineno-0-349"></a>    <span class="c1"># def __repr__(self):</span>
+</span><span id="__span-0-350"><a id="__codelineno-0-350" name="__codelineno-0-350"></a>    <span class="c1">#     &quot;&quot;&quot;View of the object&quot;&quot;&quot;</span>
+</span><span id="__span-0-351"><a id="__codelineno-0-351" name="__codelineno-0-351"></a>    <span class="c1">#     return &quot;&quot;</span>
+</span><span id="__span-0-352"><a id="__codelineno-0-352" name="__codelineno-0-352"></a>
+</span><span id="__span-0-353"><a id="__codelineno-0-353" name="__codelineno-0-353"></a>    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+</span><span id="__span-0-354"><a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get object from NWB</span>
+</span><span id="__span-0-355"><a id="__codelineno-0-355" name="__codelineno-0-355"></a>
+</span><span id="__span-0-356"><a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="sd">        Parameters</span>
+</span><span id="__span-0-357"><a id="__codelineno-0-357" name="__codelineno-0-357"></a><span class="sd">        ----------</span>
+</span><span id="__span-0-358"><a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">        key : str</span>
+</span><span id="__span-0-359"><a id="__codelineno-0-359" name="__codelineno-0-359"></a>
+</span><span id="__span-0-360"><a id="__codelineno-0-360" name="__codelineno-0-360"></a>
+</span><span id="__span-0-361"><a id="__codelineno-0-361" name="__codelineno-0-361"></a><span class="sd">        Returns</span>
+</span><span id="__span-0-362"><a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="sd">        -------</span>
+</span><span id="__span-0-363"><a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">        (Ts, Tsd, TsdFrame, TsGroup, IntervalSet or dict of IntervalSet)</span>
+</span><span id="__span-0-364"><a id="__codelineno-0-364" name="__codelineno-0-364"></a>
+</span><span id="__span-0-365"><a id="__codelineno-0-365" name="__codelineno-0-365"></a>
+</span><span id="__span-0-366"><a id="__codelineno-0-366" name="__codelineno-0-366"></a><span class="sd">        Raises</span>
+</span><span id="__span-0-367"><a id="__codelineno-0-367" name="__codelineno-0-367"></a><span class="sd">        ------</span>
+</span><span id="__span-0-368"><a id="__codelineno-0-368" name="__codelineno-0-368"></a><span class="sd">        KeyError</span>
+</span><span id="__span-0-369"><a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="sd">            If key is not in the dictionnary</span>
+</span><span id="__span-0-370"><a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="__span-0-371"><a id="__codelineno-0-371" name="__codelineno-0-371"></a>        <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="fm">__hash__</span><span class="p">:</span>
+</span><span id="__span-0-372"><a id="__codelineno-0-372" name="__codelineno-0-372"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__contains__</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+</span><span id="__span-0-373"><a id="__codelineno-0-373" name="__codelineno-0-373"></a>                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;id&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+</span><span id="__span-0-374"><a id="__codelineno-0-374" name="__codelineno-0-374"></a>                    <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwb</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]]</span>
+</span><span id="__span-0-375"><a id="__codelineno-0-375" name="__codelineno-0-375"></a>                    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-376"><a id="__codelineno-0-376" name="__codelineno-0-376"></a>                        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_eval</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]](</span><span class="n">obj</span><span class="p">)</span>
+</span><span id="__span-0-377"><a id="__codelineno-0-377" name="__codelineno-0-377"></a>                    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span><span id="__span-0-378"><a id="__codelineno-0-378" name="__codelineno-0-378"></a>                        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+</span><span id="__span-0-379"><a id="__codelineno-0-379" name="__codelineno-0-379"></a>                            <span class="s2">&quot;Failed to build </span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2"> Returning the NWB object for manual inspection&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+</span><span id="__span-0-380"><a id="__codelineno-0-380" name="__codelineno-0-380"></a>                                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
+</span><span id="__span-0-381"><a id="__codelineno-0-381" name="__codelineno-0-381"></a>                            <span class="p">),</span>
+</span><span id="__span-0-382"><a id="__codelineno-0-382" name="__codelineno-0-382"></a>                            <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-0-383"><a id="__codelineno-0-383" name="__codelineno-0-383"></a>                        <span class="p">)</span>
+</span><span id="__span-0-384"><a id="__codelineno-0-384" name="__codelineno-0-384"></a>                        <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span>
+</span><span id="__span-0-385"><a id="__codelineno-0-385" name="__codelineno-0-385"></a>
+</span><span id="__span-0-386"><a id="__codelineno-0-386" name="__codelineno-0-386"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+</span><span id="__span-0-387"><a id="__codelineno-0-387" name="__codelineno-0-387"></a>                    <span class="k">return</span> <span class="n">data</span>
+</span><span id="__span-0-388"><a id="__codelineno-0-388" name="__codelineno-0-388"></a>                <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-389"><a id="__codelineno-0-389" name="__codelineno-0-389"></a>                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+</span><span id="__span-0-390"><a id="__codelineno-0-390" name="__codelineno-0-390"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-391"><a id="__codelineno-0-391" name="__codelineno-0-391"></a>                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find key </span><span class="si">{}</span><span class="s2"> in group index.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="pynapple.io.interface_nwb.NWBFile.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">file</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>file</code></td>
+          <td>
+                <code>str or pynwb.file.NWBFile</code>
+          </td>
+          <td><p>Valid file to a NWB file</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>FileNotFoundError</code>
+          </td>
+          <td><p>If path is invalid</p></td>
+        </tr>
+        <tr>
+          <td>
+                <code>RuntimeError</code>
+          </td>
+          <td><p>If file is not an instance of NWBFile</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>pynapple/io/interface_nwb.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-295">295</a></span>
+<span class="normal"><a href="#__codelineno-0-296">296</a></span>
+<span class="normal"><a href="#__codelineno-0-297">297</a></span>
+<span class="normal"><a href="#__codelineno-0-298">298</a></span>
+<span class="normal"><a href="#__codelineno-0-299">299</a></span>
+<span class="normal"><a href="#__codelineno-0-300">300</a></span>
+<span class="normal"><a href="#__codelineno-0-301">301</a></span>
+<span class="normal"><a href="#__codelineno-0-302">302</a></span>
+<span class="normal"><a href="#__codelineno-0-303">303</a></span>
+<span class="normal"><a href="#__codelineno-0-304">304</a></span>
+<span class="normal"><a href="#__codelineno-0-305">305</a></span>
+<span class="normal"><a href="#__codelineno-0-306">306</a></span>
+<span class="normal"><a href="#__codelineno-0-307">307</a></span>
+<span class="normal"><a href="#__codelineno-0-308">308</a></span>
+<span class="normal"><a href="#__codelineno-0-309">309</a></span>
+<span class="normal"><a href="#__codelineno-0-310">310</a></span>
+<span class="normal"><a href="#__codelineno-0-311">311</a></span>
+<span class="normal"><a href="#__codelineno-0-312">312</a></span>
+<span class="normal"><a href="#__codelineno-0-313">313</a></span>
+<span class="normal"><a href="#__codelineno-0-314">314</a></span>
+<span class="normal"><a href="#__codelineno-0-315">315</a></span>
+<span class="normal"><a href="#__codelineno-0-316">316</a></span>
+<span class="normal"><a href="#__codelineno-0-317">317</a></span>
+<span class="normal"><a href="#__codelineno-0-318">318</a></span>
+<span class="normal"><a href="#__codelineno-0-319">319</a></span>
+<span class="normal"><a href="#__codelineno-0-320">320</a></span>
+<span class="normal"><a href="#__codelineno-0-321">321</a></span>
+<span class="normal"><a href="#__codelineno-0-322">322</a></span>
+<span class="normal"><a href="#__codelineno-0-323">323</a></span>
+<span class="normal"><a href="#__codelineno-0-324">324</a></span>
+<span class="normal"><a href="#__codelineno-0-325">325</a></span>
+<span class="normal"><a href="#__codelineno-0-326">326</a></span>
+<span class="normal"><a href="#__codelineno-0-327">327</a></span>
+<span class="normal"><a href="#__codelineno-0-328">328</a></span>
+<span class="normal"><a href="#__codelineno-0-329">329</a></span>
+<span class="normal"><a href="#__codelineno-0-330">330</a></span>
+<span class="normal"><a href="#__codelineno-0-331">331</a></span>
+<span class="normal"><a href="#__codelineno-0-332">332</a></span>
+<span class="normal"><a href="#__codelineno-0-333">333</a></span>
+<span class="normal"><a href="#__codelineno-0-334">334</a></span>
+<span class="normal"><a href="#__codelineno-0-335">335</a></span>
+<span class="normal"><a href="#__codelineno-0-336">336</a></span>
+<span class="normal"><a href="#__codelineno-0-337">337</a></span>
+<span class="normal"><a href="#__codelineno-0-338">338</a></span>
+<span class="normal"><a href="#__codelineno-0-339">339</a></span>
+<span class="normal"><a href="#__codelineno-0-340">340</a></span>
+<span class="normal"><a href="#__codelineno-0-341">341</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-295"><a id="__codelineno-0-295" name="__codelineno-0-295"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+</span><span id="__span-0-296"><a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-297"><a id="__codelineno-0-297" name="__codelineno-0-297"></a><span class="sd">    Parameters</span>
+</span><span id="__span-0-298"><a id="__codelineno-0-298" name="__codelineno-0-298"></a><span class="sd">    ----------</span>
+</span><span id="__span-0-299"><a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">    file : str or pynwb.file.NWBFile</span>
+</span><span id="__span-0-300"><a id="__codelineno-0-300" name="__codelineno-0-300"></a><span class="sd">        Valid file to a NWB file</span>
+</span><span id="__span-0-301"><a id="__codelineno-0-301" name="__codelineno-0-301"></a>
+</span><span id="__span-0-302"><a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">    Raises</span>
+</span><span id="__span-0-303"><a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="sd">    ------</span>
+</span><span id="__span-0-304"><a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">    FileNotFoundError</span>
+</span><span id="__span-0-305"><a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">        If path is invalid</span>
+</span><span id="__span-0-306"><a id="__codelineno-0-306" name="__codelineno-0-306"></a><span class="sd">    RuntimeError</span>
+</span><span id="__span-0-307"><a id="__codelineno-0-307" name="__codelineno-0-307"></a><span class="sd">        If file is not an instance of NWBFile</span>
+</span><span id="__span-0-308"><a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-309"><a id="__codelineno-0-309" name="__codelineno-0-309"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-0-310"><a id="__codelineno-0-310" name="__codelineno-0-310"></a>        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+</span><span id="__span-0-311"><a id="__codelineno-0-311" name="__codelineno-0-311"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">file</span>
+</span><span id="__span-0-312"><a id="__codelineno-0-312" name="__codelineno-0-312"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-0-313"><a id="__codelineno-0-313" name="__codelineno-0-313"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">io</span> <span class="o">=</span> <span class="n">NWBHDF5IO</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</span><span id="__span-0-314"><a id="__codelineno-0-314" name="__codelineno-0-314"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">nwb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-0-315"><a id="__codelineno-0-315" name="__codelineno-0-315"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-316"><a id="__codelineno-0-316" name="__codelineno-0-316"></a>            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">),</span> <span class="n">file</span><span class="p">)</span>
+</span><span id="__span-0-317"><a id="__codelineno-0-317" name="__codelineno-0-317"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">pynwb</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">NWBFile</span><span class="p">):</span>
+</span><span id="__span-0-318"><a id="__codelineno-0-318" name="__codelineno-0-318"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">nwb</span> <span class="o">=</span> <span class="n">file</span>
+</span><span id="__span-0-319"><a id="__codelineno-0-319" name="__codelineno-0-319"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwb</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">subject_id</span>
+</span><span id="__span-0-320"><a id="__codelineno-0-320" name="__codelineno-0-320"></a>
+</span><span id="__span-0-321"><a id="__codelineno-0-321" name="__codelineno-0-321"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-322"><a id="__codelineno-0-322" name="__codelineno-0-322"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+</span><span id="__span-0-323"><a id="__codelineno-0-323" name="__codelineno-0-323"></a>            <span class="s2">&quot;unrecognized argument. Please provide path to a valid NWB file or open NWB file.&quot;</span>
+</span><span id="__span-0-324"><a id="__codelineno-0-324" name="__codelineno-0-324"></a>        <span class="p">)</span>
+</span><span id="__span-0-325"><a id="__codelineno-0-325" name="__codelineno-0-325"></a>
+</span><span id="__span-0-326"><a id="__codelineno-0-326" name="__codelineno-0-326"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">_extract_compatible_data_from_nwbfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nwb</span><span class="p">)</span>
+</span><span id="__span-0-327"><a id="__codelineno-0-327" name="__codelineno-0-327"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">key_to_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+</span><span id="__span-0-328"><a id="__codelineno-0-328" name="__codelineno-0-328"></a>
+</span><span id="__span-0-329"><a id="__codelineno-0-329" name="__codelineno-0-329"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_view</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-0-330"><a id="__codelineno-0-330" name="__codelineno-0-330"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_view</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;Keys&quot;</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span> <span class="n">no_wrap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-331"><a id="__codelineno-0-331" name="__codelineno-0-331"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_view</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;Type&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+</span><span id="__span-0-332"><a id="__codelineno-0-332" name="__codelineno-0-332"></a>    <span class="c1"># self._view.add_column(&quot;NWB module&quot;, justify=&quot;right&quot;, style=&quot;magenta&quot;)</span>
+</span><span id="__span-0-333"><a id="__codelineno-0-333" name="__codelineno-0-333"></a>
+</span><span id="__span-0-334"><a id="__codelineno-0-334" name="__codelineno-0-334"></a>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span><span id="__span-0-335"><a id="__codelineno-0-335" name="__codelineno-0-335"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_view</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span>
+</span><span id="__span-0-336"><a id="__codelineno-0-336" name="__codelineno-0-336"></a>            <span class="n">k</span><span class="p">,</span>
+</span><span id="__span-0-337"><a id="__codelineno-0-337" name="__codelineno-0-337"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">],</span>
+</span><span id="__span-0-338"><a id="__codelineno-0-338" name="__codelineno-0-338"></a>            <span class="c1"># self.data[k][&#39;top_module&#39;]</span>
+</span><span id="__span-0-339"><a id="__codelineno-0-339" name="__codelineno-0-339"></a>        <span class="p">)</span>
+</span><span id="__span-0-340"><a id="__codelineno-0-340" name="__codelineno-0-340"></a>
+</span><span id="__span-0-341"><a id="__codelineno-0-341" name="__codelineno-0-341"></a>    <span class="n">UserDict</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="pynapple.io.interface_nwb.NWBFile.__str__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__str__</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>View of the object</p>
+
+      <details class="quote">
+        <summary>Source code in <code>pynapple/io/interface_nwb.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-343">343</a></span>
+<span class="normal"><a href="#__codelineno-0-344">344</a></span>
+<span class="normal"><a href="#__codelineno-0-345">345</a></span>
+<span class="normal"><a href="#__codelineno-0-346">346</a></span>
+<span class="normal"><a href="#__codelineno-0-347">347</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-343"><a id="__codelineno-0-343" name="__codelineno-0-343"></a><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-344"><a id="__codelineno-0-344" name="__codelineno-0-344"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;View of the object&quot;&quot;&quot;</span>
+</span><span id="__span-0-345"><a id="__codelineno-0-345" name="__codelineno-0-345"></a>    <span class="k">with</span> <span class="n">Console</span><span class="p">()</span> <span class="k">as</span> <span class="n">console</span><span class="p">:</span>
+</span><span id="__span-0-346"><a id="__codelineno-0-346" name="__codelineno-0-346"></a>        <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_view</span><span class="p">)</span>
+</span><span id="__span-0-347"><a id="__codelineno-0-347" name="__codelineno-0-347"></a>    <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+</span></code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="pynapple.io.interface_nwb.NWBFile.__getitem__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get object from NWB</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>key</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>(Ts, Tsd, TsdFrame, TsGroup, IntervalSet or dict of IntervalSet)</code>
+          </td>
+          <td></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>KeyError</code>
+          </td>
+          <td><p>If key is not in the dictionnary</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>pynapple/io/interface_nwb.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-353">353</a></span>
+<span class="normal"><a href="#__codelineno-0-354">354</a></span>
+<span class="normal"><a href="#__codelineno-0-355">355</a></span>
+<span class="normal"><a href="#__codelineno-0-356">356</a></span>
+<span class="normal"><a href="#__codelineno-0-357">357</a></span>
+<span class="normal"><a href="#__codelineno-0-358">358</a></span>
+<span class="normal"><a href="#__codelineno-0-359">359</a></span>
+<span class="normal"><a href="#__codelineno-0-360">360</a></span>
+<span class="normal"><a href="#__codelineno-0-361">361</a></span>
+<span class="normal"><a href="#__codelineno-0-362">362</a></span>
+<span class="normal"><a href="#__codelineno-0-363">363</a></span>
+<span class="normal"><a href="#__codelineno-0-364">364</a></span>
+<span class="normal"><a href="#__codelineno-0-365">365</a></span>
+<span class="normal"><a href="#__codelineno-0-366">366</a></span>
+<span class="normal"><a href="#__codelineno-0-367">367</a></span>
+<span class="normal"><a href="#__codelineno-0-368">368</a></span>
+<span class="normal"><a href="#__codelineno-0-369">369</a></span>
+<span class="normal"><a href="#__codelineno-0-370">370</a></span>
+<span class="normal"><a href="#__codelineno-0-371">371</a></span>
+<span class="normal"><a href="#__codelineno-0-372">372</a></span>
+<span class="normal"><a href="#__codelineno-0-373">373</a></span>
+<span class="normal"><a href="#__codelineno-0-374">374</a></span>
+<span class="normal"><a href="#__codelineno-0-375">375</a></span>
+<span class="normal"><a href="#__codelineno-0-376">376</a></span>
+<span class="normal"><a href="#__codelineno-0-377">377</a></span>
+<span class="normal"><a href="#__codelineno-0-378">378</a></span>
+<span class="normal"><a href="#__codelineno-0-379">379</a></span>
+<span class="normal"><a href="#__codelineno-0-380">380</a></span>
+<span class="normal"><a href="#__codelineno-0-381">381</a></span>
+<span class="normal"><a href="#__codelineno-0-382">382</a></span>
+<span class="normal"><a href="#__codelineno-0-383">383</a></span>
+<span class="normal"><a href="#__codelineno-0-384">384</a></span>
+<span class="normal"><a href="#__codelineno-0-385">385</a></span>
+<span class="normal"><a href="#__codelineno-0-386">386</a></span>
+<span class="normal"><a href="#__codelineno-0-387">387</a></span>
+<span class="normal"><a href="#__codelineno-0-388">388</a></span>
+<span class="normal"><a href="#__codelineno-0-389">389</a></span>
+<span class="normal"><a href="#__codelineno-0-390">390</a></span>
+<span class="normal"><a href="#__codelineno-0-391">391</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-353"><a id="__codelineno-0-353" name="__codelineno-0-353"></a><span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+</span><span id="__span-0-354"><a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Get object from NWB</span>
+</span><span id="__span-0-355"><a id="__codelineno-0-355" name="__codelineno-0-355"></a>
+</span><span id="__span-0-356"><a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="sd">    Parameters</span>
+</span><span id="__span-0-357"><a id="__codelineno-0-357" name="__codelineno-0-357"></a><span class="sd">    ----------</span>
+</span><span id="__span-0-358"><a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">    key : str</span>
+</span><span id="__span-0-359"><a id="__codelineno-0-359" name="__codelineno-0-359"></a>
+</span><span id="__span-0-360"><a id="__codelineno-0-360" name="__codelineno-0-360"></a>
+</span><span id="__span-0-361"><a id="__codelineno-0-361" name="__codelineno-0-361"></a><span class="sd">    Returns</span>
+</span><span id="__span-0-362"><a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="sd">    -------</span>
+</span><span id="__span-0-363"><a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">    (Ts, Tsd, TsdFrame, TsGroup, IntervalSet or dict of IntervalSet)</span>
+</span><span id="__span-0-364"><a id="__codelineno-0-364" name="__codelineno-0-364"></a>
+</span><span id="__span-0-365"><a id="__codelineno-0-365" name="__codelineno-0-365"></a>
+</span><span id="__span-0-366"><a id="__codelineno-0-366" name="__codelineno-0-366"></a><span class="sd">    Raises</span>
+</span><span id="__span-0-367"><a id="__codelineno-0-367" name="__codelineno-0-367"></a><span class="sd">    ------</span>
+</span><span id="__span-0-368"><a id="__codelineno-0-368" name="__codelineno-0-368"></a><span class="sd">    KeyError</span>
+</span><span id="__span-0-369"><a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="sd">        If key is not in the dictionnary</span>
+</span><span id="__span-0-370"><a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-371"><a id="__codelineno-0-371" name="__codelineno-0-371"></a>    <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="fm">__hash__</span><span class="p">:</span>
+</span><span id="__span-0-372"><a id="__codelineno-0-372" name="__codelineno-0-372"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__contains__</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+</span><span id="__span-0-373"><a id="__codelineno-0-373" name="__codelineno-0-373"></a>            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;id&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+</span><span id="__span-0-374"><a id="__codelineno-0-374" name="__codelineno-0-374"></a>                <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nwb</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]]</span>
+</span><span id="__span-0-375"><a id="__codelineno-0-375" name="__codelineno-0-375"></a>                <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-376"><a id="__codelineno-0-376" name="__codelineno-0-376"></a>                    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_eval</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]](</span><span class="n">obj</span><span class="p">)</span>
+</span><span id="__span-0-377"><a id="__codelineno-0-377" name="__codelineno-0-377"></a>                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span><span id="__span-0-378"><a id="__codelineno-0-378" name="__codelineno-0-378"></a>                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+</span><span id="__span-0-379"><a id="__codelineno-0-379" name="__codelineno-0-379"></a>                        <span class="s2">&quot;Failed to build </span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2"> Returning the NWB object for manual inspection&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+</span><span id="__span-0-380"><a id="__codelineno-0-380" name="__codelineno-0-380"></a>                            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
+</span><span id="__span-0-381"><a id="__codelineno-0-381" name="__codelineno-0-381"></a>                        <span class="p">),</span>
+</span><span id="__span-0-382"><a id="__codelineno-0-382" name="__codelineno-0-382"></a>                        <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-0-383"><a id="__codelineno-0-383" name="__codelineno-0-383"></a>                    <span class="p">)</span>
+</span><span id="__span-0-384"><a id="__codelineno-0-384" name="__codelineno-0-384"></a>                    <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span>
+</span><span id="__span-0-385"><a id="__codelineno-0-385" name="__codelineno-0-385"></a>
+</span><span id="__span-0-386"><a id="__codelineno-0-386" name="__codelineno-0-386"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+</span><span id="__span-0-387"><a id="__codelineno-0-387" name="__codelineno-0-387"></a>                <span class="k">return</span> <span class="n">data</span>
+</span><span id="__span-0-388"><a id="__codelineno-0-388" name="__codelineno-0-388"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-389"><a id="__codelineno-0-389" name="__codelineno-0-389"></a>                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+</span><span id="__span-0-390"><a id="__codelineno-0-390" name="__codelineno-0-390"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-391"><a id="__codelineno-0-391" name="__codelineno-0-391"></a>            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find key </span><span class="si">{}</span><span class="s2"> in group index.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
