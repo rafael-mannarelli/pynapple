@@ -1110,26 +1110,27 @@ to download the full example code</p>
 <hr />
 <h2 id="navigating-a-structured-dataset">Navigating a structured dataset</h2>
 <p>The dataset in this example can be found <a href="https://www.dropbox.com/s/pr1ze1nuiwk8kw9/MyProject.zip?dl=1">here</a>.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 29-41 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 29-42 -->
 
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">pynapple</span> <span class="k">as</span> <span class="nn">nap</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># mkdocs_gallery_thumbnail_path = &#39;_static/treeview.png&#39;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">project_path</span> <span class="o">=</span> <span class="s1">&#39;../../your/path/to/MyProject&#39;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">project</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">load_folder</span><span class="p">(</span><span class="n">project_path</span><span class="p">)</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># mkdocs_gallery_thumbnail_path = &#39;_static/treeview.png&#39;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">project_path</span> <span class="o">=</span> <span class="s2">&quot;../../your/path/to/MyProject&quot;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">project</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">load_folder</span><span class="p">(</span><span class="n">project_path</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
 </span></code></pre></div>
 <p class="mkd-glr-script-out">Out:</p>
 <div class="language-shell mkd-glr-script-out-disp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>📂<span class="w"> </span>MyProject
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>└──<span class="w"> </span>📂<span class="w"> </span>sub-A2929
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 42-43 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 43-44 -->
 
 <p>The pynapple IO offers a convenient way of visualizing and navigating a folder based dataset. To visualize the whole hierarchy of Folders, you can call the view property or the expand function.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 43-46 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 44-47 -->
 
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">project</span><span class="o">.</span><span class="n">view</span>
 </span></code></pre></div>
@@ -1147,11 +1148,11 @@ to download the full example code</p>
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span>├──<span class="w"> </span>x_plus_y.npz<span class="w">    </span><span class="p">|</span><span class="w">        </span>Tsd
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span>└──<span class="w"> </span>stimulus-fish.npz<span class="w">       </span><span class="p">|</span><span class="w">        </span>IntervalSet
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 47-50 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 48-51 -->
 
 <p>Here it shows all the subjects (in this case only A2929), all the sessions and all of the derivatives folders. It shows as well all the NPZ files that contains a pynapple object and the NWB files.</p>
 <p>The object project behaves like a nested dictionnary. It is then easy to loop and navigate through a hierarchy of folders when doing analyses. In this case, we are gonna take only the session A2929-200711.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 50-56 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 51-57 -->
 
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">session</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s2">&quot;sub-A2929&quot;</span><span class="p">][</span><span class="s2">&quot;ses-A2929-200711&quot;</span><span class="p">]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
@@ -1164,10 +1165,10 @@ to download the full example code</p>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>├──<span class="w"> </span>x_plus_y.npz<span class="w">    </span><span class="p">|</span><span class="w">        </span>Tsd
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>└──<span class="w"> </span>stimulus-fish.npz<span class="w">       </span><span class="p">|</span><span class="w">        </span>IntervalSet
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 57-58 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 58-59 -->
 
 <p>I can expand to see what the folders contains.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 58-62 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 59-63 -->
 
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">expand</span><span class="p">())</span>
 </span></code></pre></div>
@@ -1184,54 +1185,55 @@ to download the full example code</p>
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>└──<span class="w"> </span>stimulus-fish.npz<span class="w">       </span><span class="p">|</span><span class="w">        </span>IntervalSet
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>None
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 63-68 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 64-69 -->
 
 <hr />
 <h2 id="loading-files">Loading files</h2>
 <p>By default, pynapple save objects as NPZ. It is a convenient way to save all the properties of an object such as the time support. The pynapple IO offers an easy way to load any NPZ files that matches the structures defined for a pynapple object.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 68-74 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 69-75 -->
 
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">spikes</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s2">&quot;derivatives&quot;</span><span class="p">][</span><span class="s2">&quot;spikes&quot;</span><span class="p">]</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">position</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s2">&quot;derivatives&quot;</span><span class="p">][</span><span class="s2">&quot;position&quot;</span><span class="p">]</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">wake_ep</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s2">&quot;derivatives&quot;</span><span class="p">][</span><span class="s2">&quot;wake_ep&quot;</span><span class="p">]</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">sleep_ep</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s2">&quot;derivatives&quot;</span><span class="p">][</span><span class="s2">&quot;sleep_ep&quot;</span><span class="p">]</span>
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 75-76 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 76-77 -->
 
 <p>Objects are only loaded when they are called.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 76-79 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 77-80 -->
 
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;derivatives&quot;</span><span class="p">][</span><span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
 </span></code></pre></div>
 <p class="mkd-glr-script-out">Out:</p>
-<div class="language-shell mkd-glr-script-out-disp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">  </span>Index<span class="w">    </span>rate<span class="w">    </span>group<span class="w">  </span>location
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-------<span class="w">  </span>------<span class="w">  </span>-------<span class="w">  </span>----------
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">      </span><span class="m">0</span><span class="w">    </span><span class="m">7</span>.3<span class="w">         </span><span class="m">0</span><span class="w">  </span>adn
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">      </span><span class="m">1</span><span class="w">    </span><span class="m">5</span>.73<span class="w">        </span><span class="m">0</span><span class="w">  </span>adn
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">8</span>.12<span class="w">        </span><span class="m">0</span><span class="w">  </span>adn
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">      </span><span class="m">3</span><span class="w">    </span><span class="m">6</span>.68<span class="w">        </span><span class="m">0</span><span class="w">  </span>adn
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">      </span><span class="m">4</span><span class="w">   </span><span class="m">10</span>.77<span class="w">        </span><span class="m">0</span><span class="w">  </span>adn
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">      </span><span class="m">5</span><span class="w">   </span><span class="m">11</span><span class="w">           </span><span class="m">0</span><span class="w">  </span>adn
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">      </span><span class="m">6</span><span class="w">   </span><span class="m">16</span>.52<span class="w">        </span><span class="m">0</span><span class="w">  </span>adn
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">      </span><span class="m">7</span><span class="w">    </span><span class="m">2</span>.2<span class="w">         </span><span class="m">1</span><span class="w">  </span>ca1
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">      </span><span class="m">8</span><span class="w">    </span><span class="m">2</span>.02<span class="w">        </span><span class="m">1</span><span class="w">  </span>ca1
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">      </span><span class="m">9</span><span class="w">    </span><span class="m">1</span>.07<span class="w">        </span><span class="m">1</span><span class="w">  </span>ca1
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">     </span><span class="m">10</span><span class="w">    </span><span class="m">3</span>.92<span class="w">        </span><span class="m">1</span><span class="w">  </span>ca1
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">     </span><span class="m">11</span><span class="w">    </span><span class="m">3</span>.31<span class="w">        </span><span class="m">1</span><span class="w">  </span>ca1
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">     </span><span class="m">12</span><span class="w">    </span><span class="m">1</span>.09<span class="w">        </span><span class="m">1</span><span class="w">  </span>ca1
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">     </span><span class="m">13</span><span class="w">    </span><span class="m">1</span>.28<span class="w">        </span><span class="m">1</span><span class="w">  </span>ca1
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">     </span><span class="m">14</span><span class="w">    </span><span class="m">1</span>.32<span class="w">        </span><span class="m">1</span><span class="w">  </span>ca1
+<div class="language-shell mkd-glr-script-out-disp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">  </span>Index<span class="w">    </span>rate<span class="w">  </span>location<span class="w">      </span>group
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-------<span class="w">  </span>------<span class="w">  </span>----------<span class="w">  </span>-------
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">      </span><span class="m">0</span><span class="w">    </span><span class="m">7</span>.3<span class="w">   </span>adn<span class="w">               </span><span class="m">0</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">      </span><span class="m">1</span><span class="w">    </span><span class="m">5</span>.73<span class="w">  </span>adn<span class="w">               </span><span class="m">0</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">8</span>.12<span class="w">  </span>adn<span class="w">               </span><span class="m">0</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">      </span><span class="m">3</span><span class="w">    </span><span class="m">6</span>.68<span class="w">  </span>adn<span class="w">               </span><span class="m">0</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">      </span><span class="m">4</span><span class="w">   </span><span class="m">10</span>.77<span class="w">  </span>adn<span class="w">               </span><span class="m">0</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">      </span><span class="m">5</span><span class="w">   </span><span class="m">11</span><span class="w">     </span>adn<span class="w">               </span><span class="m">0</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">      </span><span class="m">6</span><span class="w">   </span><span class="m">16</span>.52<span class="w">  </span>adn<span class="w">               </span><span class="m">0</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">      </span><span class="m">7</span><span class="w">    </span><span class="m">2</span>.2<span class="w">   </span>ca1<span class="w">               </span><span class="m">1</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">      </span><span class="m">8</span><span class="w">    </span><span class="m">2</span>.02<span class="w">  </span>ca1<span class="w">               </span><span class="m">1</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">      </span><span class="m">9</span><span class="w">    </span><span class="m">1</span>.07<span class="w">  </span>ca1<span class="w">               </span><span class="m">1</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">     </span><span class="m">10</span><span class="w">    </span><span class="m">3</span>.92<span class="w">  </span>ca1<span class="w">               </span><span class="m">1</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">     </span><span class="m">11</span><span class="w">    </span><span class="m">3</span>.31<span class="w">  </span>ca1<span class="w">               </span><span class="m">1</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">     </span><span class="m">12</span><span class="w">    </span><span class="m">1</span>.09<span class="w">  </span>ca1<span class="w">               </span><span class="m">1</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">     </span><span class="m">13</span><span class="w">    </span><span class="m">1</span>.28<span class="w">  </span>ca1<span class="w">               </span><span class="m">1</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">     </span><span class="m">14</span><span class="w">    </span><span class="m">1</span>.32<span class="w">  </span>ca1<span class="w">               </span><span class="m">1</span>
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 80-85 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 81-86 -->
 
 <hr />
 <h2 id="metadata">Metadata</h2>
-<p>A good practice for sharing datasets is to write as many metainformation as possible. Following BIDS specifications, any data files should be accompagned by a JSON sidecar file. </p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 85-90 -->
+<p>A good practice for sharing datasets is to write as many metainformation as possible. Following BIDS specifications, any data files should be accompagned by a JSON sidecar file.</p>
+<!-- GENERATED FROM PYTHON SOURCE LINES 86-92 -->
 
 <div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">os</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;derivatives&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">path</span><span class="p">):</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;derivatives&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">path</span><span class="p">):</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </span></code></pre></div>
 <p class="mkd-glr-script-out">Out:</p>
 <div class="language-shell mkd-glr-script-out-disp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>wake_ep.json
@@ -1243,15 +1245,15 @@ to download the full example code</p>
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>position.npz
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>wake_ep.npz
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 91-92 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 93-94 -->
 
-<p>To read the metainformation associated with a file, you can use the functions <code>doc</code>, <code>info</code> or <code>metadata</code> : </p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 92-98 -->
+<p>To read the metainformation associated with a file, you can use the functions <code>doc</code>, <code>info</code> or <code>metadata</code> :</p>
+<!-- GENERATED FROM PYTHON SOURCE LINES 94-100 -->
 
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">session</span><span class="p">[</span><span class="s1">&#39;derivatives&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">doc</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">session</span><span class="p">[</span><span class="s2">&quot;derivatives&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">doc</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">session</span><span class="p">[</span><span class="s1">&#39;derivatives&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">doc</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">)</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">session</span><span class="p">[</span><span class="s2">&quot;derivatives&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">doc</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <p class="mkd-glr-script-out">Out:</p>
 <div class="language-shell mkd-glr-script-out-disp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>╭─<span class="w"> </span>../../your/path/to/MyProject/sub-A2929/ses-A2929-200711/derivatives/spikes.npz<span class="w"> </span>─╮
@@ -1263,23 +1265,23 @@ to download the full example code</p>
 </span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>│<span class="w"> </span>info<span class="w"> </span>:<span class="w"> </span>Position<span class="w"> </span>and<span class="w"> </span>head-direction<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>mouse<span class="w"> </span>recorded<span class="w"> </span>with<span class="w"> </span>Optitrack<span class="w">            </span>│
 </span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>╰────────────────────────────────────────────────────────────────────────────────────╯
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 99-104 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 101-106 -->
 
 <hr />
 <h2 id="saving-a-pynapple-object">Saving a pynapple object</h2>
 <p>In this case, we define a new Tsd and a new IntervalSet that we would like to save in the session folder.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 104-111 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 106-113 -->
 
-<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">tsd</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">position</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">tsd</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">position</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">epoch</span> <span class="o">=</span> <span class="n">nap</span><span class="o">.</span><span class="n">IntervalSet</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">end</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;x_plus_y&quot;</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Random position&quot;</span><span class="p">)</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;stimulus-fish&quot;</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Fish pictures to V1&quot;</span><span class="p">)</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;x_plus_y&quot;</span><span class="p">,</span> <span class="n">tsd</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Random position&quot;</span><span class="p">)</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;stimulus-fish&quot;</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fish pictures to V1&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 112-113 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 114-115 -->
 
 <p>We can visualize the newly saved objects.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 113-116 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 115-118 -->
 
 <div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">session</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span>
 </span></code></pre></div>
@@ -1295,19 +1297,19 @@ to download the full example code</p>
 </span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>├──<span class="w"> </span>x_plus_y.npz<span class="w">    </span><span class="p">|</span><span class="w">        </span>Tsd
 </span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>└──<span class="w"> </span>stimulus-fish.npz<span class="w">       </span><span class="p">|</span><span class="w">        </span>IntervalSet
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 117-119 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 119-121 -->
 
-<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">session</span><span class="o">.</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;stimulus-fish&#39;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">session</span><span class="o">.</span><span class="n">doc</span><span class="p">(</span><span class="s2">&quot;stimulus-fish&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <p class="mkd-glr-script-out">Out:</p>
 <div class="language-shell mkd-glr-script-out-disp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>╭─<span class="w"> </span>../../your/path/to/MyProject/sub-A2929/ses-A2929-200711/stimulus-fish.npz<span class="w"> </span>─╮
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>│<span class="w"> </span><span class="nb">time</span><span class="w"> </span>:<span class="w"> </span><span class="m">2023</span>-08-07<span class="w"> </span><span class="m">18</span>:45:24.586022<span class="w">                                           </span>│
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>│<span class="w"> </span><span class="nb">time</span><span class="w"> </span>:<span class="w"> </span><span class="m">2023</span>-08-09<span class="w"> </span><span class="m">14</span>:17:58.387207<span class="w">                                           </span>│
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>│<span class="w"> </span>info<span class="w"> </span>:<span class="w"> </span>Fish<span class="w"> </span>pictures<span class="w"> </span>to<span class="w"> </span>V1<span class="w">                                                  </span>│
 </span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>╰─────────────────────────────────────────────────────────────────────────────╯
 </span></code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 120-122 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 122-123 -->
 
-<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">session</span><span class="p">[</span><span class="s1">&#39;x_plus_y&#39;</span><span class="p">]</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">session</span><span class="p">[</span><span class="s2">&quot;x_plus_y&quot;</span><span class="p">]</span>
 </span></code></pre></div>
 <p class="mkd-glr-script-out">Out:</p>
 <div class="language-shell mkd-glr-script-out-disp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Time<span class="w"> </span><span class="o">(</span>s<span class="o">)</span>
@@ -1324,7 +1326,7 @@ to download the full example code</p>
 </span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="m">1199</span>.99495<span class="w">    </span><span class="m">0</span>.051192
 </span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>Length:<span class="w"> </span><span class="m">63527</span>,<span class="w"> </span>dtype:<span class="w"> </span>float64
 </span></code></pre></div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  0.471 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  7.617 seconds)</p>
 <div id="download_links"></div>
 
 <p><a class="md-button center" href="../tutorial_pynapple_io.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v242.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg></span> Download Python source code: tutorial_pynapple_io.py</a></p>
