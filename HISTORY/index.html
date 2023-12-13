@@ -1259,8 +1259,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#042-2023-11-16" class="md-nav__link">
-    0.4.2 (2023-11-16)
+  <a href="#050-2023-12-12" class="md-nav__link">
+    0.5.0 (2023-12-12)
   </a>
   
 </li>
@@ -1412,8 +1412,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#042-2023-11-16" class="md-nav__link">
-    0.4.2 (2023-11-16)
+  <a href="#050-2023-12-12" class="md-nav__link">
+    0.5.0 (2023-12-12)
   </a>
   
 </li>
@@ -1554,9 +1554,12 @@ Another postdoc in the lab, Francesco Battaglia, then made major contributions t
 Around 2016-2017, Luke Sjulson started <em>TSToolbox2</em>, still in Matlab and which includes some important changes.</p>
 <p>In 2018, Francesco started neuroseries, a Python package built on Pandas. It was quickly adopted in Adrien's lab, especially by Guillaume Viejo, a postdoc in the lab. Gradually, the majority of the lab was using it and new functions were constantly added.
 In 2021, Guillaume and other trainees in Adrien's lab decided to fork from neuroseries and started <em>pynapple</em>. The core of pynapple is largely built upon neuroseries. Some of the original changes to TSToolbox made by Luke were included in this package, especially the <em>time_support</em> property of all ts/tsd objects.</p>
-<h2 id="042-2023-11-16">0.4.2 (2023-11-16)</h2>
+<h2 id="050-2023-12-12">0.5.0 (2023-12-12)</h2>
 <ul>
-<li>Removing GUI stack from pynapple.</li>
+<li>Removing GUI stack from pynapple. To create a NWB file, users need to install nwbmatic (https://github.com/pynapple-org/nwbmatic)</li>
+<li>Implementing <code>compute_perievent_continuous</code></li>
+<li>Implementing <code>convolve</code> for Tsd, TsdFrame and TsdTensor</li>
+<li>Implementing <code>smooth</code> for fast gaussian smoothing of time series</li>
 </ul>
 <h2 id="041-2023-10-30">0.4.1 (2023-10-30)</h2>
 <ul>
@@ -1582,10 +1585,10 @@ In 2021, Guillaume and other trainees in Adrien's lab decided to fork from neuro
 </ul>
 <h2 id="034-2023-06-29">0.3.4 (2023-06-29)</h2>
 <ul>
-<li>TsGroup.to_tsd and Tsd.to_tsgroup transformations</li>
-<li>Count can take IntervalSet</li>
+<li><code>TsGroup.to_tsd</code> and <code>Tsd.to_tsgroup</code> transformations</li>
+<li><code>count</code> can take IntervalSet</li>
 <li>Saving to npz functions for all objects.</li>
-<li>tsd.value_from can take TsdFrame</li>
+<li><code>tsd.value_from</code> can take TsdFrame</li>
 <li>Warning message for deprecating current IO. </li>
 </ul>
 <h2 id="033-2023-04-17">0.3.3 (2023-04-17)</h2>
