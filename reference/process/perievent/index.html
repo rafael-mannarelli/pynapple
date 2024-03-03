@@ -15,8 +15,8 @@
         <link rel="next" href="../randomize/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <link rel="icon" href="../../../images/Icon/Pynapple_final_icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -52,9 +52,9 @@
     
       <link rel="stylesheet" href="../../../sg_gallery-dataframe.css">
     
-      <link rel="stylesheet" href="../../../sg_gallery-rendered-html.css">
-    
       <link rel="stylesheet" href="../../../sg_gallery.css">
+    
+      <link rel="stylesheet" href="../../../sg_gallery-rendered-html.css">
     
       <link rel="stylesheet" href="../../../sg_gallery-binder.css">
     
@@ -101,8 +101,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="pynapple" class="md-header__button md-logo" aria-label="pynapple" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../images/Icon/Pynapple_final_icon_2.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -207,8 +206,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="pynapple" class="md-nav__button md-logo" aria-label="pynapple" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../images/Icon/Pynapple_final_icon_2.png" alt="logo">
 
     </a>
     pynapple
@@ -582,6 +580,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -619,6 +621,46 @@
             Core
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/base_class/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Base class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -686,11 +728,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/time_units/" class="md-nav__link">
+      <a href="../../core/ts_group/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Time units
+    Ts group
   </span>
   
 
@@ -706,11 +748,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/ts_group/" class="md-nav__link">
+      <a href="../../core/utils/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Ts group
+    Utils
   </span>
   
 
@@ -1947,8 +1989,8 @@ If <code>data</code> is a TsdFrame or TsdTensor, the output is a TsdTensor with 
 </span><span id="__span-0-170"><a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="n">time_array</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
 </span><span id="__span-0-171"><a id="__codelineno-0-171" name="__codelineno-0-171"></a>    <span class="n">data_array</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span>
 </span><span id="__span-0-172"><a id="__codelineno-0-172" name="__codelineno-0-172"></a>    <span class="n">time_target_array</span> <span class="o">=</span> <span class="n">tref</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-</span><span id="__span-0-173"><a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="n">starts</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">values</span>
-</span><span id="__span-0-174"><a id="__codelineno-0-174" name="__codelineno-0-174"></a>    <span class="n">ends</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span><span class="o">.</span><span class="n">values</span>
+</span><span id="__span-0-173"><a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="n">starts</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">start</span>
+</span><span id="__span-0-174"><a id="__codelineno-0-174" name="__codelineno-0-174"></a>    <span class="n">ends</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span>
 </span><span id="__span-0-175"><a id="__codelineno-0-175" name="__codelineno-0-175"></a>
 </span><span id="__span-0-176"><a id="__codelineno-0-176" name="__codelineno-0-176"></a>    <span class="n">binsize</span> <span class="o">=</span> <span class="n">time_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </span><span id="__span-0-177"><a id="__codelineno-0-177" name="__codelineno-0-177"></a>    <span class="n">idx1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">window</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">binsize</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -2321,8 +2363,8 @@ If different, specify with the parameter time_unit ('s' [default], 'ms', 'us').<
 </span><span id="__span-0-282"><a id="__codelineno-0-282" name="__codelineno-0-282"></a>
 </span><span id="__span-0-283"><a id="__codelineno-0-283" name="__codelineno-0-283"></a>    <span class="n">time_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">count</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="p">(</span><span class="n">binsize</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">9</span><span class="p">)</span>
 </span><span id="__span-0-284"><a id="__codelineno-0-284" name="__codelineno-0-284"></a>    <span class="n">count_array</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">values</span>
-</span><span id="__span-0-285"><a id="__codelineno-0-285" name="__codelineno-0-285"></a>    <span class="n">starts</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">values</span>
-</span><span id="__span-0-286"><a id="__codelineno-0-286" name="__codelineno-0-286"></a>    <span class="n">ends</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span><span class="o">.</span><span class="n">values</span>
+</span><span id="__span-0-285"><a id="__codelineno-0-285" name="__codelineno-0-285"></a>    <span class="n">starts</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">start</span>
+</span><span id="__span-0-286"><a id="__codelineno-0-286" name="__codelineno-0-286"></a>    <span class="n">ends</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">end</span>
 </span><span id="__span-0-287"><a id="__codelineno-0-287" name="__codelineno-0-287"></a>
 </span><span id="__span-0-288"><a id="__codelineno-0-288" name="__codelineno-0-288"></a>    <span class="n">time_target_array</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
 </span><span id="__span-0-289"><a id="__codelineno-0-289" name="__codelineno-0-289"></a>    <span class="n">data_target_array</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">values</span>
@@ -2409,7 +2451,7 @@ If different, specify with the parameter time_unit ('s' [default], 'ms', 'us').<
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
         <script src="../../../javascripts/katex.js"></script>
       
