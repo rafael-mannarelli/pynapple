@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../images/Icon/Pynapple_final_icon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
@@ -50,9 +50,9 @@
     
       <link rel="stylesheet" href="../sg_gallery-dataframe.css">
     
-      <link rel="stylesheet" href="../sg_gallery.css">
-    
       <link rel="stylesheet" href="../sg_gallery-rendered-html.css">
+    
+      <link rel="stylesheet" href="../sg_gallery.css">
     
       <link rel="stylesheet" href="../sg_gallery-binder.css">
     
@@ -1279,6 +1279,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#062-2024-04-04" class="md-nav__link">
+    0.6.2 (2024-04-04)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#061-2024-03-03" class="md-nav__link">
     0.6.1 (2024-03-03)
   </a>
@@ -1453,6 +1460,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#062-2024-04-04" class="md-nav__link">
+    0.6.2 (2024-04-04)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#061-2024-03-03" class="md-nav__link">
     0.6.1 (2024-03-03)
   </a>
@@ -1616,6 +1630,13 @@ Another postdoc in the lab, Francesco Battaglia, then made major contributions t
 Around 2016-2017, Luke Sjulson started <em>TSToolbox2</em>, still in Matlab and which includes some important changes.</p>
 <p>In 2018, Francesco started neuroseries, a Python package built on Pandas. It was quickly adopted in Adrien's lab, especially by Guillaume Viejo, a postdoc in the lab. Gradually, the majority of the lab was using it and new functions were constantly added.
 In 2021, Guillaume and other trainees in Adrien's lab decided to fork from neuroseries and started <em>pynapple</em>. The core of pynapple is largely built upon neuroseries. Some of the original changes to TSToolbox made by Luke were included in this package, especially the <em>time_support</em> property of all ts/tsd objects.</p>
+<h2 id="062-2024-04-04">0.6.2 (2024-04-04)</h2>
+<ul>
+<li><code>smooth</code> now takes standard deviation in time units</li>
+<li>Fixed <code>TsGroup</code> saving method.</li>
+<li><code>__getattr__</code> of <code>BaseTsd</code> allow numpy functions to be attached as attributes of Tsd objects</li>
+<li>Added <code>get</code> method for <code>TsGroup</code></li>
+</ul>
 <h2 id="061-2024-03-03">0.6.1 (2024-03-03)</h2>
 <ul>
 <li>Fixed pynapple <code>loc</code> method for new <code>IntervalSet</code></li>
@@ -1751,7 +1772,7 @@ In 2021, Guillaume and other trainees in Adrien's lab decided to fork from neuro
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
       
         <script src="../javascripts/katex.js"></script>
       
