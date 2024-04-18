@@ -459,11 +459,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../generated/gallery/tutorial_human_dataset/" class="md-nav__link">
+      <a href="../generated/gallery/tutorial_pynapple_process/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Zheng et al (2022) Dataset Tutorial
+    Advanced processing
   </span>
   
 
@@ -479,11 +479,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../generated/gallery/tutorial_pynapple_process/" class="md-nav__link">
+      <a href="../generated/gallery/tutorial_human_dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Advanced processing
+    Zheng et al (2022) Dataset Tutorial
   </span>
   
 
@@ -1279,6 +1279,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#064-2024-04-18" class="md-nav__link">
+    0.6.4 (2024-04-18)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#063-2024-04-17" class="md-nav__link">
+    0.6.3 (2024-04-17)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#062-2024-04-04" class="md-nav__link">
     0.6.2 (2024-04-04)
   </a>
@@ -1460,6 +1474,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#064-2024-04-18" class="md-nav__link">
+    0.6.4 (2024-04-18)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#063-2024-04-17" class="md-nav__link">
+    0.6.3 (2024-04-17)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#062-2024-04-04" class="md-nav__link">
     0.6.2 (2024-04-04)
   </a>
@@ -1630,6 +1658,17 @@ Another postdoc in the lab, Francesco Battaglia, then made major contributions t
 Around 2016-2017, Luke Sjulson started <em>TSToolbox2</em>, still in Matlab and which includes some important changes.</p>
 <p>In 2018, Francesco started neuroseries, a Python package built on Pandas. It was quickly adopted in Adrien's lab, especially by Guillaume Viejo, a postdoc in the lab. Gradually, the majority of the lab was using it and new functions were constantly added.
 In 2021, Guillaume and other trainees in Adrien's lab decided to fork from neuroseries and started <em>pynapple</em>. The core of pynapple is largely built upon neuroseries. Some of the original changes to TSToolbox made by Luke were included in this package, especially the <em>time_support</em> property of all ts/tsd objects.</p>
+<h2 id="064-2024-04-18">0.6.4 (2024-04-18)</h2>
+<ul>
+<li>Fixing IntervalSet <code>__repr__</code>. Tabulate conflict with numpy 1.26.</li>
+</ul>
+<h2 id="063-2024-04-17">0.6.3 (2024-04-17)</h2>
+<ul>
+<li>Improving <code>__repr__</code> for all objects.</li>
+<li>TsGroup <code>__getattr__</code> and <code>__setattr__</code> added to access metadata columns directly</li>
+<li>TsGroup <code>__setitem__</code> now allows changes directly to metadata</li>
+<li>TsGroup <code>__getitem__</code> returns column of metadata if passed as string</li>
+</ul>
 <h2 id="062-2024-04-04">0.6.2 (2024-04-04)</h2>
 <ul>
 <li><code>smooth</code> now takes standard deviation in time units</li>
